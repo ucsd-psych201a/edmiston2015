@@ -1,6 +1,6 @@
 ---
-title: "Replication of Study X by Sample & Sample (20xx, Psychological Science)"
-author: "Replication Author[s] (contact information)"
+title: "Replication of Study What makes words special? Words as unmotivated cues (2015, Cognition)"
+author: "Jenna Brooks(j8brooks@ucsd.edu)"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 format:
   html:
@@ -12,36 +12,38 @@ format:
 
 ## Introduction
 
-[No abstract is needed.]  Each replication project will have a straightforward, no frills report of the study and results.  These reports will be publicly available as supplementary material for the aggregate report(s) of the project as a whole.  Also, to maximize project integrity, the intro and methods will be written and critiqued in advance of data collection.  Introductions can be just 1-2 paragraphs clarifying the main idea of the original study, the target finding for replication, and any other essential information.  It will NOT have a literature review -- that is in the original publication. You can write both the introduction and the methods in past tense.  
+This study aimed to explore why verbal labels, such as the words "dog" or "guitar," activate conceptual knowledge more effectively than environmental sounds associated with these objects, such as the bark of a dog or the strum of a guitar. I chose this topic because it intersects with my interests in language learning and auditory perception. This study finds that verbal labels (or words) are more effective than sounds in activating abstract category concepts because labels act as "unmotivated cues," broadly representing a category without specific reference to particular instances. In contrast, sounds are "motivated cues" that link directly to specific sources or instances, limiting their effectiveness in promoting conceptual abstraction. This difference is highlighted by experiments showing that words activate category-level knowledge more selectively than environmental sounds.
 
+In this experiment, participants will be presented with either a verbal representation or  environmental sound for the following categories: bird, dog, drum, guitar, motorcycle, and phone. Participants are presented with an auditory cue (either a word or sound) and a picture presented 1 second after the auditory input is made. Participants are tested on how quickly and accurately they can determine if the picture presented matches the auditory cue they received. They will use a yes or no button on the computer screen. Potential challenges of this study could be sound quality of the environmental sounds to ensure they are clearly recognizable. Additionally, finding a diverse group of participants for this study could be a challenge. 
 
 ## Methods
 
-### Power Analysis
+### Power Analysis 
 
 Original effect size, power analysis for samples to achieve 80%, 90%, 95% power to detect that effect size.  Considerations of feasibility for selecting planned sample size.
 
 ### Planned Sample
-
-Planned sample size and/or termination rule, sampling frame, known demographics if any, preselection rules if any.
+We plan to have a sample size of n = 43 to be as close as possible to the original study. Participants must speak English to ensure comprehension in the task. 
 
 ### Materials
 
-All materials - can quote directly from original article - just put the text in quotations and note that this was followed precisely.  Or, quote directly and just point out exceptions to what was described in the original article.
+The materials were followed precisely as follows. "The auditory cues comprised basic-level category labels and environmental sounds for six categories: bird, dog, drum, guitar, motorcycle, and phone. For each category, we obtained two distinct environmental sound cues, e.g., <classical guitar strum>, <electric guitar strum>, and two separate images for each subordinate cate- gory, e.g., two electric guitars for <electric guitar strum>, two acoustic guitars for <electric guitar strum>. To control for cue variability, we also used two versions of each spoken category label: one pronounced by a female speaker, one by a male speaker. All auditory cues were equated in duration (600 ms.) and normalized in volume. The images were color photographs (four images per category). The materials, obtained from online repositories, are available for download at http://sapir.psych.wisc.edu/stimuli/ MotivatedCuesExp1A-1B.zip"(Edmiston & Lupyan, 2015).  
 
 ### Procedure	
 
-Can quote directly from original article - just put the text in quotations and note that this was followed precisely.  Or, quote directly and just point out exceptions to what was described in the original article.
+The procedure was followed precisely as in the original study. "On each trial participants heard a cue and saw a picture. We instructed participants to decide as quickly and accurately as possible if the picture they saw came from the same basic-level cate- gory as the word or sound they heard Participants were tested in individual rooms sitting approximately 2400 from a monitor such that images subtended 10  10°. Trials began with a 250 ms. fixation cross followed immediately by the auditory cue, delivered via headphones. The target image appeared centrally 1 s after the off- set of the auditory cue and remained visible until a response was made. Each participant completed 6 practice and 384 test trials. If the picture matched the auditory cue (50% of trials) participants were instructed to respond ‘Yes’ on a gaming controller (e.g., <cell- phone ring> or ‘‘phone’’ followed by a picture of any phone). Otherwise, they were to press ‘No’ (e.g., <cellphone ring> or ‘‘phone’’ followed by a dog). All factors (cue type, congruence) var- ied randomly within subjects. Auditory feedback (buzz or bleep) was given after each trial"(Edmiston & Lupyan, 2015). 
+
 
 ### Analysis Plan
+To clean the data we will remove incorrect responses or participants who failed attention checks.  As for data exclusion rules, we will follow the parameters set by the original study in which "Response times (RTs) shorter than 250 ms. or longer than 1500 ms. [will be] removed". This accounts for outliers that may skew results. There aren't any covariates mentioned in this experiment. 
 
-Can also quote directly, though it is less often spelled out effectively for an analysis strategy section.  The key is to report an analysis strategy that is as close to the original - data cleaning rules, data exclusion rules, covariates, etc. - as possible.  
-
-**Clarify key analysis of interest here**  You can also pre-specify additional analyses you plan to do.
+**Clarify key analysis of interest here**  
+A linear mixed regression model will be used to analyze response times for correct responses including "random intercepts and random slopes for within-subject factors and random intercepts for repeated items (unique trial types)"(Edmiston & Lupyan, 2015).  
+In addition, significance tests using chi-square tests will be used to compare nested models, as was done in the original study, to assess the impact of factors with and without interest on response times. 
 
 ### Differences from Original Study
 
-Explicitly describe known differences in sample, setting, procedure, and analysis plan from original study.  The goal, of course, is to minimize those differences, but differences will inevitably occur.  Also, note whether such differences are anticipated to make a difference based on claims in the original article or subsequent published research on the conditions for obtaining the effect.
+The original study used a remote controller, while this study used computer for responses. We will use key responses in order to simulate buttons on controller, so as not to interfere with response times.  
 
 ### Methods Addendum (Post Data Collection)
 
