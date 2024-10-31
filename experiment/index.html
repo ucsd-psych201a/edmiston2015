@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title> Words Special Experiment</title>
+    <script src="https://unpkg.com/jspsych@8.0.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@2.0.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-image-keyboard-response@2.0.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-preload@2.0.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-audio-button-response@2.0.0"></script>
+    <link href="https://unpkg.com/jspsych@8.0.0/css/jspsych.css" rel="stylesheet" type="text/css" />
+ </head>
+ <body>
+ </body>
+ <script>
+
+
+var jsPsych = initJsPsych(
+    {
+    on_finish: function() {
+        jsPsych.data.displayData();
+  }
+}
+);
+
+//create timeline
+var timeline = [];
+
+//preloaded all images from stimuli folder  
+var preload = {
+  type: jsPsychPreload,
+  images: ['stimuli/pictures/bird_hawk_1.jpg', 
+        'stimuli/pictures/bird_hawk_2.jpg',
+        'stimuli/pictures/bird_song_1.jpg',
+        'stimuli/pictures/bird_song_2.jpg',
+        'stimuli/pictures/dog_rott_1.jpg',
+        'stimuli/pictures/dog_rott_2.jpg',
+        'stimuli/pictures/dog_york_1.jpg',
+        'stimuli/pictures/dog_york_2.jpg',
+        'stimuli/pictures/drum_bongo_1.jpg',
+        'stimuli/pictures/drum_bongo_2.jpg',
+        'stimuli/pictures/drum_kit_1.jpg',
+        'stimuli/pictures/drum_kit_2.jpg',
+        'stimuli/pictures/guitar_acoustic_1.jpg', 
+        'stimuli/pictures/guitar_acoustic_2.jpg',
+        'stimuli/pictures/guitar_electric_1.jpg',
+        'stimuli/pictures/guitar_electric_2.jpg',
+        'stimuli/pictures/motor_dirt_1.jpg',
+        'stimuli/pictures/motor_dirt_2.jpg', 
+        'stimuli/pictures/motor_harley_1.jpg', 
+        'stimuli/pictures/motor_harley_2.jpg', 
+        'stimuli/pictures/phone_cell_1.jpg',
+        'stimuli/pictures/phone_cell_2.jpg',
+        'stimuli/pictures/phone_rotary_1.jpg',
+        'stimuli/pictures/phone_rotary_2.jpg'], 
+    audio:['stimuli/sounds/bird_label_A.wav',
+        'stimuli/sounds/bird_label_A.wav', 
+        'bird_sound_A.wav', 
+        'bird_sound_B.wav',
+        'bleep.wav',
+        'buzz.wav',
+        'dog_label_A.wav', 
+        'dog_label_B.wav',
+        'dog_sound_A.wav', 
+        'dog_sound_B.wav',
+        'drum_label_A.wav',
+        'drum_label_B.wav',
+        'drum_sound_A.wav',
+        'drum_sound_B.wav',
+        'guitar_label_A.wav',
+        'guitar_label_B.wav',
+        'guitar_sound_A.wav',
+        'guitar_sound_B.wav',
+        'motor_label_A.wav',
+        'motor_label_B.wav',
+        'motor_sound_A.wav', 
+        'motor_sound_B.wav',
+        'phone_label_A.wav',
+        'phone_label_B.wav',
+        'phone_sound_A.wav',
+        'phone_sound_B.wav']
+};
+timeline.push(preload); 
+
+
+//define welcome message trial 
+var welcome = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: "Welcome to the experiment. Press any key to begin."
+};
+// add the welcome trial to the timeline variable
+timeline.push(welcome);
+
+//instructions
+// Instructions
+const instructions = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: `<p>Welcome to the experiment!</p>
+               <p>Your task is to decide as quickly and accurately as possible if the image you see matches the sound you hear.</p>
+               <p>Press "Yes" if it matches, and "No" if it doesn't.</p>`,
+    choices: ['Start Practice']
+};
+
+// add instructions to timeline variable 
+ timeline.push(instructions);
+
+ var bird_sound = {
+    type:jsPsychAudioButtonResponse,
+    stimulus: 'stimuli/sounds/bird_label_A.wav', 
+    prompt: "Press B to continue.",
+ };
+
+
+var bird_trial = {
+  type: jsPsychImageKeyboardResponse,
+  stimulus: 'stimuli/pictures/bird_hawk_1.jpg',
+  choices: ['b', 'n', 'm'],
+  prompt: "Press <strong>b</strong> if the circle is blue and <strong>n</strong> if the circle is orange. Press <strong> M </strong> if it is neither an orange circle nor blue circle.",
+  trial_duration: 5000, //added time limit,
+  post_trial_gap: 500,
+};
+
+timeline.push(bird_sound, bird_trial);
+
+
+// start the experiment
+jsPsych.run(timeline);
+
+</script>
+</html>
