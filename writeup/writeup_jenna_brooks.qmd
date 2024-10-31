@@ -54,7 +54,32 @@ You can comment this section out prior to final report with data collection.
 #### Differences from pre-data collection methods plan
   Any differences from what was described as the original plan, or “none”.
 
+## Design Overview
+How many factors were manipulated?
+In this experiment one factor, the auditory cue, was manipulated. Within this factor there are conditions - congruent sound, incongruent sound, and label. 
 
+How many measures were taken?
+Reaction time was the only measure taken. 
+
+Did it use a within-participants or between-participants design?
+It uses within-participants design where everyone does each condition. 
+
+Were measures repeated?
+Yes measures were repeated for 384 experimental trials. 
+
+What would have been the consequence of changing one of these decisions? (e.g. moving from within to between participants). Could it have been either way?
+There would be more confounds if it was between participants because people have different reaction times to stimuli, therefore the measures wouldn't be as accurate. 
+
+Were steps taken to reduce demand characteristics?
+They didn't take any measures to reduce demand characteristics. 
+
+How would you critique the design?
+To improve the experiment attention checks could be added. Given that incorrect responses could be labeled incongruent, incorrect responses could have also been included in the data. 
+
+Can you think of any potential confounds to the study?
+
+Do you see any limitations to generalizability?
+This sample could not be representative of all populations because it only studied undergraduates and WEIRD populations. 
 ## Results
 
 ### Data preparation
