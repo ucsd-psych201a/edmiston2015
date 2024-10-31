@@ -1,0 +1,128 @@
+---
+title: "Replication of Study 'What makes words special? Words as unmotivated cues' by Edmiston & Lupyan (2015, Cognition)"
+author: "Replication Author[s]: Sihan Yang (siy009@ucsd.edu)"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+format:
+  html:
+    toc: true
+    toc_depth: 3
+---
+
+<!-- Replication reports should all use this template to standardize reporting across projects.  These reports will be public supplementary materials that accompany the summary report(s) of the aggregate results. -->
+
+## Introduction
+
+"Verbal labels, such as the words 'dog' and 'guitar', activate conceptual knowledge more effectively than corresponding environmental sounds, such as a dog bark or a guitar strum, even though both are unambiguous cues to the categories of dogs and guitars (Lupyan & Thompson-Schill, 2012). We hypothesize that this advantage of labels emerges because word-forms, unlike other cues, do not vary in a motivated way with their referent. The sound of a guitar cannot help but inform a listener to the type of guitar making it (electric, acoustic, etc.). The word 'guitar' on the other hand, can leave the type of guitar unspecified. We argue that as a result, labels gain the ability to cue a more abstract mental representation, promoting efficient processing of category members. In contrast, environmental sounds activate representations that are more tightly linked to the specific cause of the sound. Our results show that upon hearing environmental sounds such as a dog bark or guitar strum, people cannot help but activate a particular instance of a category, in a particular state, at a particular time, as measured by patterns of response times on cue-picture matching tasks (Exps. 1–2) and eye-movements in a task where the cues are task-irrelevant (Exp. 3). In comparison, labels activate concepts in a more abstract, decontextualized way—a difference that we argue can be explained by labels acting as 'unmotivated cues'." (the abstract of the original paper Edmiston & Lupyan, 2015)  
+
+
+## Methods
+
+### Power Analysis
+
+[TODO] Original effect size, power analysis for samples to achieve 80%, 90%, 95% power to detect that effect size.  Considerations of feasibility for selecting planned sample size.
+
+### Planned Sample
+
+We recruit 43 participants as in the original study. Participants are recruited on Prolific, prescreened for English fluency and compensated monetarily.
+
+### Materials
+
+"The auditory cues comprised basic-level category labels and environmental sounds for six categories: bird, dog, drum, guitar, motorcycle, and phone. For each category, we obtained two distinct environmental sound cues, e.g., <classical guitar strum>, <electric guitar strum>, and two separate images for each subordinate category, e.g., two electric guitars for <electric guitar strum>, two acoustic guitars for <electric guitar strum>. To control for cue variability, we also used two versions of each spoken category label: one pronounced by a female speaker, one by a male speaker. All auditory cues were equated in duration (600 ms.) and normalized in volume. The images were color photographs (four images per category). The materials, obtained from online repositories, are available for download at http://sapir.psych.wisc.edu/stimuli/ MotivatedCuesExp1A-1B.zip." (Edmiston & Lupyan, 2015)
+
+### Procedure	
+
+Participants are instructed to use their personal computer to complete task in a quite environment absent of distraction. During the experiment, they will be required to make their response by clicking 'y' on the keyboard of their computer for 'Yes', and 'n' for 'No'.
+
+During the experiment, "on each trial participants heard a cue and saw a picture...participants decide as quickly and accurately as possible if the picture they saw came from the same basic-level category as the word or sound they heard...Trials began with a 250 ms. fixation cross followed immediately by the auditory cue, delivered via headphones. The target image appeared centrally 1 s after the offset of the auditory cue and remained visible until a response was made. Each participant completed 6 practice and 384 test trials. If the picture matched the auditory cue (50% of trials) participants were instructed to respond ‘Yes’...(e.g., <cellphone ring> or 'phone' followed by a picture of any phone). Otherwise, they were to press 'No' (e.g., <cellphone ring> or 'phone' followed by a dog). All factors (cue type, congruence) varied randomly within subjects. Auditory feedback (buzz or bleep) was given after each trial." (Edmiston & Lupyan, 2015)
+
+### Analysis Plan
+
+#### Data cleaning and Data Exclusion Rules
+
+Before testing the main hypothesis of the original study, we will first examine the average performance (accuracy) to determine if it is comparable to the original study. This will involve calculating each participant's accuracy and using a t-test to examine whether performance differs qualitatively between the original and new participants.
+
+Trials with response times (RTs) that are too short or too long will be filtered out. The original study applied thresholds of 250 ms and 1500 ms for the lower and upper bounds, respectively. Before applying filtering, we will check if the new data shows a similar RT distribution.
+
+Only RTs for correct responses on matching trials will be used for further analysis, following the original study’s approach.
+
+#### Covariates
+
+The main covariate in this experiment will be "the presence of incongruent sound trials (e.g., hearing a <cell phone ring> and responding ‘Yes’ if a rotary phone was presented) may have led participants to be more careful on these trials, inflating the RTs" (Edmiston & Lupyan, 2015). However, as this factor is not the focus of the experiment to replicate and was addressed in another following experiment in the original study, we will not include it in our analysis.
+
+#### Key Analysis
+
+We will "fit RTs for correct responses on matching trials (‘Yes’ responses) with linear mixed regression using maximum likelihood estimation (Bates, Maechler, Bolker, & Walker, 2013), including random intercepts and random slopes for within-subject factors and random intercepts for repeated items (unique trial types) following the recommendations of Barr, Levy, Scheepers, and Tily (2013)." (Edmiston & Lupyan, 2015)
+
+We will report the "parameter estimates (b) and confidence intervals for each contrast of interest" (Edmiston & Lupyan, 2015). Significance tests will be calculated "using chi-square tests that compared nested models—models with and without the factor of interest—on improvement in log-likelihood" (Edmiston & Lupyan, 2015).
+
+### Differences from Original Study
+
+#### Sample
+
+While the original study recruited participants on campus, our recruitment is conducted on a public global outsourcing platform, expanding the sampling pool from U.S. college undergraduates to a more diverse population.
+
+#### Procedure
+
+While the original study was conducted in person in a lab, our replication will be hosted online, allowing participants to complete the task independently at a location of their choice, without the supervision of experimenters. In addition, responses will be made using a keyboard rather than a game controller.
+
+### Methods Addendum (Post Data Collection)
+
+You can comment this section out prior to final report with data collection.
+
+#### Actual Sample
+  Sample size, demographics, data exclusions based on rules spelled out in analysis plan
+
+#### Differences from pre-data collection methods plan
+  Any differences from what was described as the original plan, or “none”.
+
+
+## Results
+
+
+### Data preparation
+
+Data preparation following the analysis plan.
+
+#### Data cleaning and Data Exclusion Rules
+
+Before testing the main hypothesis of the original study, we will first examine the average performance (accuracy) to determine if it is comparable to the original study. This will involve calculating each participant's accuracy and using a t-test to examine whether performance differs qualitatively between the original and new participants.
+
+Trials with response times (RTs) that are too short or too long will be filtered out. The original study applied thresholds of 250 ms and 1500 ms for the lower and upper bounds, respectively. Before applying filtering, we will check if the new data shows a similar RT distribution.
+
+Only RTs for correct responses on matching trials will be used for further analysis, following the original study’s approach.
+	
+```{r include=F}
+### Data Preparation
+
+#### Load Relevant Libraries and Functions
+
+#### Import data
+
+#### Data exclusion / filtering
+
+#### Prepare data for analysis - create columns etc.
+```
+
+### Confirmatory analysis
+
+#### Key Analysis
+
+We will "fit RTs for correct responses on matching trials (‘Yes’ responses) with linear mixed regression using maximum likelihood estimation (Bates, Maechler, Bolker, & Walker, 2013), including random intercepts and random slopes for within-subject factors and random intercepts for repeated items (unique trial types) following the recommendations of Barr, Levy, Scheepers, and Tily (2013)." (Edmiston & Lupyan, 2015)
+
+We will report the "parameter estimates (b) and confidence intervals for each contrast of interest" (Edmiston & Lupyan, 2015). Significance tests will be calculated "using chi-square tests that compared nested models—models with and without the factor of interest—on improvement in log-likelihood" (Edmiston & Lupyan, 2015).
+
+*Side-by-side graph with original graph is ideal here*
+
+### Exploratory analyses
+
+Any follow-up analyses desired (not required).  
+
+## Discussion
+
+### Summary of Replication Attempt
+
+Open the discussion section with a paragraph summarizing the primary result from the confirmatory analysis and the assessment of whether it replicated, partially replicated, or failed to replicate the original result.  
+
+### Commentary
+
+Add open-ended commentary (if any) reflecting (a) insights from follow-up exploratory analysis, (b) assessment of the meaning of the replication (or not) - e.g., for a failure to replicate, are the differences between original and present study ones that definitely, plausibly, or are unlikely to have been moderators of the result, and (c) discussion of any objections or challenges raised by the current and original authors about the replication attempt.  None of these need to be long.
