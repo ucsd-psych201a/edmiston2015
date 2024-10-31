@@ -1,6 +1,6 @@
 ---
-title: "Replication of Study X by Sample & Sample (20xx, Psychological Science)"
-author: "Replication Author[s] (contact information)"
+title: "Replication of Study What makes words special? Words as unmotivated cues by Pierce Edmiston & Gary Lupyan (2015, Cognition)"
+author: "Noah Khaloo"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 format:
   html:
@@ -11,27 +11,37 @@ format:
 <!-- Replication reports should all use this template to standardize reporting across projects.  These reports will be public supplementary materials that accompany the summary report(s) of the aggregate results. -->
 
 ## Introduction
+GitHub Repository found here: https://github.com/ucsd-psych201a/edmiston2015
 
-[No abstract is needed.]  Each replication project will have a straightforward, no frills report of the study and results.  These reports will be publicly available as supplementary material for the aggregate report(s) of the project as a whole.  Also, to maximize project integrity, the intro and methods will be written and critiqued in advance of data collection.  Introductions can be just 1-2 paragraphs clarifying the main idea of the original study, the target finding for replication, and any other essential information.  It will NOT have a literature review -- that is in the original publication. You can write both the introduction and the methods in past tense.  
+
+Edminston & Lupyan (2015) provides evidence towards notion that ambiguous labels (i.e., "dog" or "guitar") activate knowledge of their referent quicker than environmental sounds. For example, a listener should be able to point out a dog quicker if they hear the label "dog", rather than if they hear the sound of a dog's bark. The reason for this, Edminston & Lupyan (2015) state, is due to the fact that environmental sounds activates a "particular instance of a category". In other words, a dog's bark may have qualities that a listener may contribute to a particular type of dog (i.e., a low pitched bark may be more indicative of a big dog, etc.). Edminston & Lupyan (2015) demonstrate this effect by showing that participants take longer to recognize a picture of a referent after hearing a sound associated with said referent than they do upon hearing the label. 
+
+In our replication, we will be revisiting experiment "1A" from the Edminston & Lupyan (2015) paper. We will set up an online picture-recognition task using the same materials found in the original paper. We will try and replicate the experiment exactly, manipulating the same mappings between sounds, labels, and pictures. 
+
 
 
 ## Methods
+Participants: 
+Like Edminston & Lupyan (2015), we will target undergraduate participants at UCSD. We will also aim for around 43 participants, in the effort of perfoming as exact a replication as possible. 
+
+Materials: 
+We will use the same materials as Edminston & Lupyan (2015): labels and environmental sounds for six categories: bird, dog, drum, guitar, motorcycle, and phone. Each category will have two separate images and two separate environmental sounds. We will also implement a male and female voice for our spoken labels. 
+
+Procedure: 
+We will follow the same procedure as Edminston & Lupyan (2015). Participants will hear a cue and see a picture, and will be prompted to decide as "quickly and accurately as possible if the picture they saw came from the same basic-level category as the word or sound they heard" (Edminston & Lupyan pp.94). Following Edminston & Lupyan (2015), some environmental sounds will be congruent with the picture (i.e., a big dog matched with a low-pitched bark). These will be labeled as "congruent sounds". Other environmental sounds will be deemed "incongruent sounds", in which the picture does not necessarily match the environmental sounds (i.e., a low pitched bark matched with a picture of a small dog). 
+
 
 ### Power Analysis
 
-Original effect size, power analysis for samples to achieve 80%, 90%, 95% power to detect that effect size.  Considerations of feasibility for selecting planned sample size.
 
 ### Planned Sample
-
-Planned sample size and/or termination rule, sampling frame, known demographics if any, preselection rules if any.
+As mentioned previously, we will aim for the exact same number of paticipants, as well as the same general demographic (43 undergraduates). 
 
 ### Materials
-
-All materials - can quote directly from original article - just put the text in quotations and note that this was followed precisely.  Or, quote directly and just point out exceptions to what was described in the original article.
+"The auditory cues comprised basic-level category labels and environmental sounds for six categories: bird, dog, drum, guitar, motorcycle, and phone. For each category, we obtained two distinct environmental sound cues, e.g., <classical guitar strum>, <electric guitar strum>, and two separate images for each subordinate category, e.g., two electric guitars for <electric guitar strum>, two acoustic guitars for <electric guitar strum>. To control for cue variability, we also used two versions of each spoken category label:one pronounced by a female speaker, one by a male speaker. All auditory cues were equated in duration (600 ms.) and normalized in volume. The images were color photographs (four images per category)." (PP. 94) 
 
 ### Procedure	
-
-Can quote directly from original article - just put the text in quotations and note that this was followed precisely.  Or, quote directly and just point out exceptions to what was described in the original article.
+"On each trial participants heard a cue and saw a picture. We instructed participants to decide as quickly and accurately as possible if the picture they saw came from the same basic-level category as the word or sound they heard Participants were tested in individual rooms sitting approximately 2400 from a monitor such that images subtended 10  10. Trials began with a 250 ms. fixation cross followed immediately by the auditory cue, delivered via headphones. The target image appeared centrally 1 s after the offset of the auditory cue and remained visible until a response was made. Each participant completed 6 practice and 384 test trials. If the picture matched the auditory cue (50% of trials) participants were instructed to respond ‘Yes’ on a gaming controller (e.g., <cellphone ring> or ‘‘phone’’ followed by a picture of any phone). Otherwise, they were to press ‘No’ (e.g., <cellphone ring> or ‘‘phone’’ followed by a dog). All factors (cue type, congruence) varied randomly within subjects. Auditory feedback (buzz or bleep) was given after each trial.
 
 ### Analysis Plan
 
@@ -58,8 +68,10 @@ You can comment this section out prior to final report with data collection.
 
 
 ### Data preparation
+As mentioned previously, we will be replicating experiment 1A from Edminston & Lupyan (2015). As for our data preparation, we will be making sure to label the type of relationship between the sound participants hear in a given trial, and its match to the picture. In other words, we will define whether a particular trial is a label (which will just be a word such as "dog, or "guitar"), congruent sound, or incongruent sound. Furthermore, we will use the exact same audio and visual stimuli as Edminston & Lupyan (2015). All of the different audio files have already been clipped to make them match in duration, and they have all been amplitude normalized. 
 
-Data preparation following the analysis plan.
+After we have collected our data, we will filter outliers in the exact same way as Edminston & Lupyan (2015). More specifically, we will filter out any reaction time (RT) that is lower that 250 ms, and any that is greater than 1500 ms. It also seems as though Edminston & Lupyan (2015) filtered out incorrect responses, but I am not certain about this. 
+
 	
 ```{r include=F}
 ### Data Preparation
@@ -75,7 +87,9 @@ Data preparation following the analysis plan.
 
 ### Confirmatory analysis
 
-The analyses as specified in the analysis plan.  
+Following Edminston & Lupyan (2015), we will be fitting mixed effects linear regression models to our response time data (which will be filtered for correct responses on matching trials (i.e., 'Yes' responses)). The model will include random intercepts, random slopes for within-subject factors, and random intercepts for repeated items. We will report the parameter estimates and confidence intervals for each "contrast of interest" (pp.94). Furthermore, we will calculate chi-square tests that will "compare nested models--models with and without the factor of interest--on improvement in log-likelihood" (pp.94). 
+
+**I'm kind of confused on the description of their model. I don't think they state what the "within-subject factors" or "repeated items" are in their experiment. I'm also confused on whether the "congruent vs. incongruent vs. label" distinctions (which they visualize) were included in the models they fit.
 
 *Side-by-side graph with original graph is ideal here*
 
