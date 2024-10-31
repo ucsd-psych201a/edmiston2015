@@ -14,6 +14,8 @@ format:
 GitHub Repository found here: https://github.com/ucsd-psych201a/edmiston2015
 
 
+
+
 Edminston & Lupyan (2015) provides evidence towards notion that ambiguous labels (i.e., "dog" or "guitar") activate knowledge of their referent quicker than environmental sounds. For example, a listener should be able to point out a dog quicker if they hear the label "dog", rather than if they hear the sound of a dog's bark. The reason for this, Edminston & Lupyan (2015) state, is due to the fact that environmental sounds activates a "particular instance of a category". In other words, a dog's bark may have qualities that a listener may contribute to a particular type of dog (i.e., a low pitched bark may be more indicative of a big dog, etc.). Edminston & Lupyan (2015) demonstrate this effect by showing that participants take longer to recognize a picture of a referent after hearing a sound associated with said referent than they do upon hearing the label. 
 
 In our replication, we will be revisiting experiment "1A" from the Edminston & Lupyan (2015) paper. We will set up an online picture-recognition task using the same materials found in the original paper. We will try and replicate the experiment exactly, manipulating the same mappings between sounds, labels, and pictures. 
