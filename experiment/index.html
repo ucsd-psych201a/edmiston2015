@@ -7,6 +7,7 @@
     <script src="https://unpkg.com/@jspsych/plugin-image-keyboard-response@2.0.0"></script>
     <script src="https://unpkg.com/@jspsych/plugin-preload@2.0.0"></script>
     <script src="https://unpkg.com/@jspsych/plugin-audio-button-response@2.0.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-html-button-response@1.2.0"></script>
     <link href="https://unpkg.com/jspsych@8.0.0/css/jspsych.css" rel="stylesheet" type="text/css" />
  </head>
  <body>
@@ -54,30 +55,30 @@ var preload = {
         'stimuli/pictures/phone_rotary_2.jpg'], 
     audio:['stimuli/sounds/bird_label_A.wav',
         'stimuli/sounds/bird_label_A.wav', 
-        'bird_sound_A.wav', 
-        'bird_sound_B.wav',
-        'bleep.wav',
-        'buzz.wav',
-        'dog_label_A.wav', 
-        'dog_label_B.wav',
-        'dog_sound_A.wav', 
-        'dog_sound_B.wav',
-        'drum_label_A.wav',
-        'drum_label_B.wav',
-        'drum_sound_A.wav',
-        'drum_sound_B.wav',
-        'guitar_label_A.wav',
-        'guitar_label_B.wav',
-        'guitar_sound_A.wav',
-        'guitar_sound_B.wav',
-        'motor_label_A.wav',
-        'motor_label_B.wav',
-        'motor_sound_A.wav', 
-        'motor_sound_B.wav',
-        'phone_label_A.wav',
-        'phone_label_B.wav',
-        'phone_sound_A.wav',
-        'phone_sound_B.wav']
+        'stimuli/sounds/bird_sound_A.wav', 
+        'stimuli/sounds/bird_sound_B.wav',
+        'stimuli/sounds/bleep.wav',
+        'stimuli/sounds/buzz.wav',
+        'stimuli/sounds/dog_label_A.wav', 
+        'stimuli/sounds/dog_label_B.wav',
+        'stimuli/sounds/dog_sound_A.wav', 
+        'stimuli/sounds/dog_sound_B.wav',
+        'stimuli/sounds/drum_label_A.wav',
+        'stimuli/sounds/drum_label_B.wav',
+        'stimuli/sounds/drum_sound_A.wav',
+        'stimuli/sounds/drum_sound_B.wav',
+        'stimuli/sounds/guitar_label_A.wav',
+        'stimuli/sounds/guitar_label_B.wav',
+        'stimuli/sounds/guitar_sound_A.wav',
+        'stimuli/sounds/guitar_sound_B.wav',
+        'stimuli/sounds/motor_label_A.wav',
+        'stimuli/sounds/motor_label_B.wav',
+        'stimuli/sounds/motor_sound_A.wav', 
+        'stimuli/sounds/motor_sound_B.wav',
+        'stimuli/sounds/phone_label_A.wav',
+        'stimuli/sounds/phone_label_B.wav',
+        'stimuli/sounds/phone_sound_A.wav',
+        'stimuli/sounds/phone_sound_B.wav']
 };
 timeline.push(preload); 
 
@@ -94,32 +95,57 @@ timeline.push(welcome);
 // Instructions
 const instructions = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: `<p>Welcome to the experiment!</p>
-               <p>Your task is to decide as quickly and accurately as possible if the image you see matches the sound you hear.</p>
-               <p>Press "Yes" if it matches, and "No" if it doesn't.</p>`,
-    choices: ['Start Practice']
+    stimulus: `<h2>Instructions</h2>
+               <p>Your task is to decide as quickly and accurately as possible if auditory cue you hear matches the image you see.</p>
+               <p> First you will hear an auditory cue, then you will see an image. </p>
+               <p>Press letter "Y", yes if it matches the image you saw, and letter "N", no if it does not.</p>`,
+    choices: ['Start Practice'],
+    button_html: ['<button class="jspsych-btn">%choice%</button>']
+
 };
 
 // add instructions to timeline variable 
  timeline.push(instructions);
 
- var bird_sound = {
+// Fixation cross trial
+const fixation_cross = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: '<div style="font-size: 48px;">+</div>', // You can change the symbol or style as needed
+    choices: "NO_KEYS", // Prevents any key from being pressed
+    trial_duration: 250 // Display for 250 ms
+};
+// Delay trial of 1000 ms (1 second) after audio ends
+const delay = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: '', // Blank screen
+    choices: "NO_KEYS", // Prevents any response
+    trial_duration: 1000 // 1-second delay
+};
+// Auditory cue (label) is presented. Trial finished automatically after audio. 
+ var bird_label = {
     type:jsPsychAudioButtonResponse,
     stimulus: 'stimuli/sounds/bird_label_A.wav', 
-    prompt: "Press B to continue.",
+    choices: [], //Do not add choices here, we don't want the participant to respond until after image. Need this line for code to run. 
+    trial_ends_after_audio: true // Ends trial automatically after audio finishes
  };
-
 
 var bird_trial = {
   type: jsPsychImageKeyboardResponse,
   stimulus: 'stimuli/pictures/bird_hawk_1.jpg',
-  choices: ['b', 'n', 'm'],
-  prompt: "Press <strong>b</strong> if the circle is blue and <strong>n</strong> if the circle is orange. Press <strong> M </strong> if it is neither an orange circle nor blue circle.",
-  trial_duration: 5000, //added time limit,
-  post_trial_gap: 500,
+  choices: ['y', 'n'],
+  prompt: "Does this image match the auditory cue? Press letter <strong> Y </strong> for yes, letter <strong> N </strong> for no.",
+  response_ends_trial: true // Keeps image visible until response
 };
 
-timeline.push(bird_sound, bird_trial);
+// Feedback trial (auditory feedback) Auditory feedback (buzz or bleep) was given after each trial.
+const feedback_trial = {
+    type: jsPsychAudioButtonResponse,
+    stimulus: 'stimuli/sounds/buzz.wav', // Replace with your feedback sound file
+    choices: [], // No choices needed
+    trial_ends_after_audio: true // Ends trial automatically after audio finishes
+};
+
+timeline.push(fixation_cross,bird_label, delay, bird_trial, feedback_trial);
 
 
 // start the experiment
