@@ -44,6 +44,10 @@ In addition, significance tests using chi-square tests will be used to compare n
 
 The original study used a remote controller.  The replication study will use the computer for responses and implement key responses to simulate buttons on controller. This should allow for accurate and quick responses. 
 
+- 10 degree thing
+- tell participants to wear headphones but not necessarily sure that they do 
+
+
 ### Methods Addendum (Post Data Collection)
 
 You can comment this section out prior to final report with data collection.
