@@ -9,6 +9,7 @@
     <script src="https://unpkg.com/@jspsych/plugin-audio-button-response@2.0.0"></script>
     <script src="https://unpkg.com/@jspsych/plugin-html-button-response@1.2.0"></script>
     <link href="https://unpkg.com/jspsych@8.0.0/css/jspsych.css" rel="stylesheet" type="text/css" />
+    <script src="https://unpkg.com/jspsych@latest/jspsych.js"></script>
  </head>
  <body>
  </body>
@@ -26,59 +27,67 @@ var jsPsych = initJsPsych(
 //create timeline
 var timeline = [];
 
+// list all stims to use
+const IMAGE_PATH_LIST = [
+    'stimuli/pictures/bird_hawk_1.jpg', 
+    'stimuli/pictures/bird_hawk_2.jpg',
+    'stimuli/pictures/bird_song_1.jpg',
+    'stimuli/pictures/bird_song_2.jpg',
+    'stimuli/pictures/dog_rott_1.jpg',
+    'stimuli/pictures/dog_rott_2.jpg',
+    'stimuli/pictures/dog_york_1.jpg',
+    'stimuli/pictures/dog_york_2.jpg',
+    'stimuli/pictures/drum_bongo_1.jpg',
+    'stimuli/pictures/drum_bongo_2.jpg',
+    'stimuli/pictures/drum_kit_1.jpg',
+    'stimuli/pictures/drum_kit_2.jpg',
+    'stimuli/pictures/guitar_acoustic_1.jpg', 
+    'stimuli/pictures/guitar_acoustic_2.jpg',
+    'stimuli/pictures/guitar_electric_1.jpg',
+    'stimuli/pictures/guitar_electric_2.jpg',
+    'stimuli/pictures/motor_dirt_1.jpg',
+    'stimuli/pictures/motor_dirt_2.jpg', 
+    'stimuli/pictures/motor_harley_1.jpg', 
+    'stimuli/pictures/motor_harley_2.jpg', 
+    'stimuli/pictures/phone_cell_1.jpg',
+    'stimuli/pictures/phone_cell_2.jpg',
+    'stimuli/pictures/phone_rotary_1.jpg',
+    'stimuli/pictures/phone_rotary_2.jpg'];
+
+const SOUND_PATH_LIST = [
+    'stimuli/sounds/bird_label_A.wav',
+    'stimuli/sounds/bird_label_B.wav', 
+    'stimuli/sounds/bird_sound_A.wav', 
+    'stimuli/sounds/bird_sound_B.wav',
+    'stimuli/sounds/bleep.wav',
+    'stimuli/sounds/buzz.wav',
+    'stimuli/sounds/dog_label_A.wav', 
+    'stimuli/sounds/dog_label_B.wav',
+    'stimuli/sounds/dog_sound_A.wav', 
+    'stimuli/sounds/dog_sound_B.wav',
+    'stimuli/sounds/drum_label_A.wav',
+    'stimuli/sounds/drum_label_B.wav',
+    'stimuli/sounds/drum_sound_A.wav',
+    'stimuli/sounds/drum_sound_B.wav',
+    'stimuli/sounds/guitar_label_A.wav',
+    'stimuli/sounds/guitar_label_B.wav',
+    'stimuli/sounds/guitar_sound_A.wav',
+    'stimuli/sounds/guitar_sound_B.wav',
+    'stimuli/sounds/motor_label_A.wav',
+    'stimuli/sounds/motor_label_B.wav',
+    'stimuli/sounds/motor_sound_A.wav', 
+    'stimuli/sounds/motor_sound_B.wav',
+    'stimuli/sounds/phone_label_A.wav',
+    'stimuli/sounds/phone_label_B.wav',
+    'stimuli/sounds/phone_sound_A.wav',
+    'stimuli/sounds/phone_sound_B.wav'];
+
+
 //preloaded all images from stimuli folder  
 var preload = {
   type: jsPsychPreload,
-  images: ['stimuli/pictures/bird_hawk_1.jpg', 
-        'stimuli/pictures/bird_hawk_2.jpg',
-        'stimuli/pictures/bird_song_1.jpg',
-        'stimuli/pictures/bird_song_2.jpg',
-        'stimuli/pictures/dog_rott_1.jpg',
-        'stimuli/pictures/dog_rott_2.jpg',
-        'stimuli/pictures/dog_york_1.jpg',
-        'stimuli/pictures/dog_york_2.jpg',
-        'stimuli/pictures/drum_bongo_1.jpg',
-        'stimuli/pictures/drum_bongo_2.jpg',
-        'stimuli/pictures/drum_kit_1.jpg',
-        'stimuli/pictures/drum_kit_2.jpg',
-        'stimuli/pictures/guitar_acoustic_1.jpg', 
-        'stimuli/pictures/guitar_acoustic_2.jpg',
-        'stimuli/pictures/guitar_electric_1.jpg',
-        'stimuli/pictures/guitar_electric_2.jpg',
-        'stimuli/pictures/motor_dirt_1.jpg',
-        'stimuli/pictures/motor_dirt_2.jpg', 
-        'stimuli/pictures/motor_harley_1.jpg', 
-        'stimuli/pictures/motor_harley_2.jpg', 
-        'stimuli/pictures/phone_cell_1.jpg',
-        'stimuli/pictures/phone_cell_2.jpg',
-        'stimuli/pictures/phone_rotary_1.jpg',
-        'stimuli/pictures/phone_rotary_2.jpg'], 
-    audio:['stimuli/sounds/bird_label_A.wav',
-        'stimuli/sounds/bird_label_A.wav', 
-        'stimuli/sounds/bird_sound_A.wav', 
-        'stimuli/sounds/bird_sound_B.wav',
-        'stimuli/sounds/bleep.wav',
-        'stimuli/sounds/buzz.wav',
-        'stimuli/sounds/dog_label_A.wav', 
-        'stimuli/sounds/dog_label_B.wav',
-        'stimuli/sounds/dog_sound_A.wav', 
-        'stimuli/sounds/dog_sound_B.wav',
-        'stimuli/sounds/drum_label_A.wav',
-        'stimuli/sounds/drum_label_B.wav',
-        'stimuli/sounds/drum_sound_A.wav',
-        'stimuli/sounds/drum_sound_B.wav',
-        'stimuli/sounds/guitar_label_A.wav',
-        'stimuli/sounds/guitar_label_B.wav',
-        'stimuli/sounds/guitar_sound_A.wav',
-        'stimuli/sounds/guitar_sound_B.wav',
-        'stimuli/sounds/motor_label_A.wav',
-        'stimuli/sounds/motor_label_B.wav',
-        'stimuli/sounds/motor_sound_A.wav', 
-        'stimuli/sounds/motor_sound_B.wav',
-        'stimuli/sounds/phone_label_A.wav',
-        'stimuli/sounds/phone_label_B.wav',
-        'stimuli/sounds/phone_sound_A.wav',
-        'stimuli/sounds/phone_sound_B.wav']
+  images: IMAGE_PATH_LIST, 
+  audio: SOUND_PATH_LIST
 };
 timeline.push(preload); 
 
@@ -107,6 +116,96 @@ const instructions = {
 // add instructions to timeline variable 
  timeline.push(instructions);
 
+/**
+ * The following are functions defined to load stimuli
+ */
+
+// function for loading the correct stims
+function create_cue_to_play(cue_name) {
+    /**
+     * @param {string} cue_name - the auditory/label cue to play
+     */ 
+    // modified from Jeena's code
+    var sound = {
+        type:jsPsychAudioButtonResponse,
+        stimulus: `stimuli/sounds/${cue_name}.wav`, 
+        choices: [], //Do not add choices here, we don't want the participant to respond until after image. Need this line for code to run. 
+        trial_ends_after_audio: true // Ends trial automatically after audio finishes
+    };
+    return sound;
+}
+
+// function for loading the correct stims
+function create_img_display(img_name) {
+    /**
+     * @param {string} img_name - the picture to show
+     */ 
+    // modified from Jeena's code
+    var img = {
+        type: jsPsychImageKeyboardResponse,
+        stimulus: `stimuli/pictures/${img_name}.jpg`,
+        choices: ['y', 'n'],
+        prompt: "Does this image match the auditory cue? Press letter <strong> Y </strong> for yes, letter <strong> N </strong> for no.",
+        response_ends_trial: true // Keeps image visible until response
+    };
+    return img;
+}
+
+function process_all_imgs() {
+    /**
+     * This is to load all categories to be tested (bird, dog...)
+     * for each image, we want to have its category, subtype, and version number
+     */
+    // firstly, get all images
+    var jpg_files = IMAGE_PATH_LIST.map(path => path.split('/').pop())
+
+    // then parse the jpg file name: catgeory, subtype and version
+    var stim_structure = {}
+    var parsed = jpg_files.map(file => {
+        var fname = file.substring(0, file.lastIndexOf('.'));
+        var [category, subtype, version] = fname.split('_');
+        return {
+          fname: fname,
+          category: category,
+          subtype: subtype,
+          version: version
+        };
+    });
+
+    return parsed
+}
+
+// collect all images/categories to test
+const all_img_stims = process_all_imgs();
+const all_categories = new Set();
+all_categories.forEach(file => {
+    all_categories.add(file.category);
+});
+
+function generate_list_of_stims(n_trials) {
+    // TODO: how are we going to balance the number of mismatch, congruent/incongruent etc?
+    // here I assume all randomized, which is definitely wrong
+    var img_name_lst = [];
+    var sound_name_lst = [];
+
+    // shuffle index
+    var n_img_stims = all_img_stims.length;
+    var stim_indices = Array.from({ length: n_img_stims }, (_, i) => i);
+    var sampled_indices = jsPsych.randomization.sampleWithReplacement(stim_indices, n_trials);
+
+    // add all stims
+    for (const idx of sampled_indices) {
+        let img_stim_sampled = all_img_stims[idx]; 
+        img_name_lst.push(img_stim_sampled.fname);
+        let sound_type = jsPsych.randomization.sampleBernoulli(0.5) < 0.5 ? 'label' : 'sound';
+        let sound_ver = jsPsych.randomization.sampleBernoulli(0.5) < 0.5 ? 'A' : 'B' ;
+        let sound_name = `${img_stim_sampled.category}_${sound_type}_${sound_ver}`;
+        sound_name_lst.push(sound_name);
+    }
+
+    return [img_name_lst, sound_name_lst]
+}
+
 // Fixation cross trial
 const fixation_cross = {
     type: jsPsychHtmlKeyboardResponse,
@@ -121,6 +220,27 @@ const delay = {
     choices: "NO_KEYS", // Prevents any response
     trial_duration: 1000 // 1-second delay
 };
+
+// Feedback trial (auditory feedback) Auditory feedback (buzz or bleep) was given after each trial.
+const feedback_trial = {
+    type: jsPsychAudioButtonResponse,
+    stimulus: 'stimuli/sounds/buzz.wav', // Replace with your feedback sound file
+    choices: [], // No choices needed
+    trial_ends_after_audio: true // Ends trial automatically after audio finishes
+};
+
+// TODO: fix this
+const N_trials = 5;
+const [img_name_lst_sampled, sound_name_lst_sampled] = generate_list_of_stims(N_trials);
+for (let trial_id = 0; trial_id < N_trials; trial_id++) { 
+    let img_name = img_name_lst_sampled[trial_id];
+    let cue_name = sound_name_lst_sampled[trial_id];
+    let img_display = create_img_display(img_name);
+    let cue = create_cue_to_play(cue_name);
+
+    timeline.push(fixation_cross, cue, delay, img_display, feedback_trial);
+};
+
 // Auditory cue (label) is presented. Trial finished automatically after audio. 
  var bird_label = {
     type:jsPsychAudioButtonResponse,
@@ -137,15 +257,8 @@ var bird_trial = {
   response_ends_trial: true // Keeps image visible until response
 };
 
-// Feedback trial (auditory feedback) Auditory feedback (buzz or bleep) was given after each trial.
-const feedback_trial = {
-    type: jsPsychAudioButtonResponse,
-    stimulus: 'stimuli/sounds/buzz.wav', // Replace with your feedback sound file
-    choices: [], // No choices needed
-    trial_ends_after_audio: true // Ends trial automatically after audio finishes
-};
-
-timeline.push(fixation_cross,bird_label, delay, bird_trial, feedback_trial);
+// DEBUG: remove this line first
+// timeline.push(fixation_cross,bird_label, delay, bird_trial, feedback_trial);
 
 
 // start the experiment
