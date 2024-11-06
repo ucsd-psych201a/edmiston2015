@@ -95,7 +95,7 @@ timeline.push(preload);
 //define welcome message trial 
 var welcome = {
     type: jsPsychHtmlKeyboardResponse,
-    stimulus: "Welcome to the experiment. Press any key to begin."
+    stimulus: "Welcome to the experiment. We recommend completing these trials in a quiet setting. Headphones are strongly recommended. Press any key to begin."
 };
 // add the welcome trial to the timeline variable
 timeline.push(welcome);
@@ -136,7 +136,7 @@ function create_cue_to_play(cue_name) {
 }
 
 // function for loading the correct stims
-function create_img_display(img_name) {
+function create_img_display(img_name, correct_response) {
     /**
      * @param {string} img_name - the picture to show
      */ 
@@ -146,9 +146,16 @@ function create_img_display(img_name) {
         stimulus: `stimuli/pictures/${img_name}.jpg`,
         choices: ['y', 'n'],
         prompt: "Does this image match the auditory cue? Press letter <strong> Y </strong> for yes, letter <strong> N </strong> for no.",
-        response_ends_trial: true // Keeps image visible until response
+        response_ends_trial: true, // Keeps image visible until response
+        data: { correct_response: correct_response }
     };
     return img;
+}
+
+function determine_correct_response(cue_name, img_name) {
+    const cue_category = cue_name.split('_')[0];
+    const img_category = img_name.split('_')[0];
+    return cue_category === img_category ? 'y' : 'n';
 }
 
 function process_all_imgs() {
@@ -221,12 +228,16 @@ const delay = {
     trial_duration: 1000 // 1-second delay
 };
 
-// Feedback trial (auditory feedback) Auditory feedback (buzz or bleep) was given after each trial.
+// Feedback trial
 const feedback_trial = {
     type: jsPsychAudioButtonResponse,
-    stimulus: 'stimuli/sounds/buzz.wav', // Replace with your feedback sound file
-    choices: [], // No choices needed
-    trial_ends_after_audio: true // Ends trial automatically after audio finishes
+    stimulus: function() {
+        var last_trial_correct = jsPsych.data.get().last(1).values()[0].response === 
+                                 jsPsych.data.get().last(1).values()[0].correct_response;
+        return last_trial_correct ? 'stimuli/sounds/bleep.wav' : 'stimuli/sounds/buzz.wav';
+    },
+    choices: [],
+    trial_ends_after_audio: true
 };
 
 // TODO: fix this
@@ -235,7 +246,8 @@ const [img_name_lst_sampled, sound_name_lst_sampled] = generate_list_of_stims(N_
 for (let trial_id = 0; trial_id < N_trials; trial_id++) { 
     let img_name = img_name_lst_sampled[trial_id];
     let cue_name = sound_name_lst_sampled[trial_id];
-    let img_display = create_img_display(img_name);
+    let correct_response = determine_correct_response(cue_name, img_name); // MODIFIED: Determine correct response
+    let img_display = create_img_display(img_name, correct_response);
     let cue = create_cue_to_play(cue_name);
 
     timeline.push(fixation_cross, cue, delay, img_display, feedback_trial);
