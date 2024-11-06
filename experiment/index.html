@@ -182,36 +182,20 @@ function process_all_imgs() {
     return parsed
 }
 
+// Parse sound details, excluding bleep and buzz
+function process_all_sounds() {
+    return SOUND_PATH_LIST
+        .filter(path => !path.includes('bleep') && !path.includes('buzz')) // MODIFICATION: Exclude bleep and buzz sounds
+        .map(path => {
+            const fname = path.split('/').pop().replace('.wav', '');
+            const [category, type, version] = fname.split('_');
+            return { fname, category, type, version };
+        });
+}
+
 // collect all images/categories to test
 const all_img_stims = process_all_imgs();
-const all_categories = new Set();
-all_categories.forEach(file => {
-    all_categories.add(file.category);
-});
-
-function generate_list_of_stims(n_trials) {
-    // TODO: how are we going to balance the number of mismatch, congruent/incongruent etc?
-    // here I assume all randomized, which is definitely wrong
-    var img_name_lst = [];
-    var sound_name_lst = [];
-
-    // shuffle index
-    var n_img_stims = all_img_stims.length;
-    var stim_indices = Array.from({ length: n_img_stims }, (_, i) => i);
-    var sampled_indices = jsPsych.randomization.sampleWithReplacement(stim_indices, n_trials);
-
-    // add all stims
-    for (const idx of sampled_indices) {
-        let img_stim_sampled = all_img_stims[idx]; 
-        img_name_lst.push(img_stim_sampled.fname);
-        let sound_type = jsPsych.randomization.sampleBernoulli(0.5) < 0.5 ? 'label' : 'sound';
-        let sound_ver = jsPsych.randomization.sampleBernoulli(0.5) < 0.5 ? 'A' : 'B' ;
-        let sound_name = `${img_stim_sampled.category}_${sound_type}_${sound_ver}`;
-        sound_name_lst.push(sound_name);
-    }
-
-    return [img_name_lst, sound_name_lst]
-}
+const all_sound_stims = process_all_sounds();
 
 // Fixation cross trial
 const fixation_cross = {
@@ -240,41 +224,53 @@ const feedback_trial = {
     trial_ends_after_audio: true
 };
 
-// TODO: fix this
-const N_trials = 5;
-const [img_name_lst_sampled, sound_name_lst_sampled] = generate_list_of_stims(N_trials);
-for (let trial_id = 0; trial_id < N_trials; trial_id++) { 
-    let img_name = img_name_lst_sampled[trial_id];
-    let cue_name = sound_name_lst_sampled[trial_id];
-    let correct_response = determine_correct_response(cue_name, img_name); // MODIFIED: Determine correct response
-    let img_display = create_img_display(img_name, correct_response);
-    let cue = create_cue_to_play(cue_name);
+// Helper function to create Y (match) and N (mismatch) trials
+function create_trial(img, sound, correct_response) {
+    let cue = {
+        type: jsPsychAudioButtonResponse,
+        stimulus: `stimuli/sounds/${sound.fname}.wav`,
+        choices: [],
+        trial_ends_after_audio: true
+    };
+    let img_display = {
+        type: jsPsychImageKeyboardResponse,
+        stimulus: `stimuli/pictures/${img.fname}.jpg`,
+        choices: ['y', 'n'],
+        prompt: "Does this image match the auditory cue? Press Y for yes, N for no.",
+        data: { correct_response: correct_response }
+    };
+    return [fixation_cross, cue, delay, img_display, feedback_trial];
+}
 
-    timeline.push(fixation_cross, cue, delay, img_display, feedback_trial);
-};
+// Generate "Y trials" and "N trials"
+function generate_trials() {
+    let trials = [];
 
+    // Generate 96 "Y trials" for each category and duplicate once for 192 trials
+    all_img_stims.forEach(img => {
+        let match_sounds = all_sound_stims.filter(sound => sound.category === img.category);
+        match_sounds.forEach(sound => {
+            trials.push(create_trial(img, sound, 'y'));
+        });
+    });
+    trials = jsPsych.randomization.repeat(trials, 2);
 
-// Auditory cue (label) is presented. Trial finished automatically after audio. 
- var bird_label = {
-    type:jsPsychAudioButtonResponse,
-    stimulus: 'stimuli/sounds/bird_label_A.wav', 
-    choices: [], //Do not add choices here, we don't want the participant to respond until after image. Need this line for code to run. 
-    trial_ends_after_audio: true // Ends trial automatically after audio finishes
- };
+    // Generate 192 "N trials" with mismatching categories
+    for (let i = 0; i < 192; i++) {
+        let img = jsPsych.randomization.sampleWithoutReplacement(all_img_stims, 1)[0];
+        let mismatch_sounds = all_sound_stims.filter(sound => sound.category !== img.category);
+        let sound = jsPsych.randomization.sampleWithoutReplacement(mismatch_sounds, 1)[0];
+        trials.push(create_trial(img, sound, 'n'));
+    }
 
-var bird_trial = {
-  type: jsPsychImageKeyboardResponse,
-  stimulus: 'stimuli/pictures/bird_hawk_1.jpg',
-  choices: ['y', 'n'],
-  prompt: "Does this image match the auditory cue? Press letter <strong> Y </strong> for yes, letter <strong> N </strong> for no.",
-  response_ends_trial: true // Keeps image visible until response
-};
+    console.log(trials.slice(3));
+    return jsPsych.randomization.shuffle(trials.flat());
+}
 
-// DEBUG: remove this line first
-// timeline.push(fixation_cross,bird_label, delay, bird_trial, feedback_trial);
+const trials = generate_trials();
+timeline.push(...trials);
 
-
-// start the experiment
+// Start the experiment
 jsPsych.run(timeline);
 
 </script>
