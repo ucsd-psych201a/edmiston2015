@@ -8,6 +8,7 @@
     <script src="https://unpkg.com/@jspsych/plugin-preload@2.0.0"></script>
     <script src="https://unpkg.com/@jspsych/plugin-audio-button-response@2.0.0"></script>
     <script src="https://unpkg.com/@jspsych/plugin-html-button-response@1.2.0"></script>
+    <script src="https://unpkg.com/@jspsych-contrib/plugin-pipe"></script>
     <link href="https://unpkg.com/jspsych@8.0.0/css/jspsych.css" rel="stylesheet" type="text/css" />
     <script src="https://unpkg.com/jspsych@latest/jspsych.js"></script>
  </head>
@@ -16,13 +17,12 @@
  <script>
 
 
-var jsPsych = initJsPsych(
-    {
+var jsPsych = initJsPsych({
     on_finish: function() {
-        jsPsych.data.displayData();
-  }
-}
-);
+        //jsPsych.data.displayData();
+        jsPsych.data.get().localSave(‘csv’, ‘experiment_data.csv’);
+    }
+});
 
 //create timeline
 var timeline = [];
@@ -288,9 +288,24 @@ function generate_trials(N_trials) {
     return trials;
 }
 
-const N_TRIALS = 10; // DEBUG this is for debugging; should be change back to 384 in actual experiment
+const N_TRIALS = 5; // DEBUG this is for debugging; should be change back to 384 in actual experiment
 const trials = generate_trials(N_TRIALS);
 timeline.push(...trials);
+
+// osf data pipeline
+const subject_id = jsPsych.randomization.randomID(10);
+const filename = `${subject_id}.csv`;
+
+const save_data = {
+    type: jsPsychPipe,
+    action: "save",
+    experiment_id: "ubx08eg1SvJC",
+    filename: filename,
+    data_string: ()=>jsPsych.data.get().csv()
+};
+
+timeline.push(save_data);
+
 
 // Start the experiment
 jsPsych.run(timeline);
