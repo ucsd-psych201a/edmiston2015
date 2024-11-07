@@ -167,7 +167,6 @@ function process_all_imgs() {
     var jpg_files = IMAGE_PATH_LIST.map(path => path.split('/').pop())
 
     // then parse the jpg file name: catgeory, subtype and version
-    var stim_structure = {}
     var parsed = jpg_files.map(file => {
         var fname = file.substring(0, file.lastIndexOf('.'));
         var [category, subtype, version] = fname.split('_');
@@ -179,18 +178,26 @@ function process_all_imgs() {
         };
     });
 
-    return parsed
+    return parsed;
 }
 
 // Parse sound details, excluding bleep and buzz
 function process_all_sounds() {
-    return SOUND_PATH_LIST
+    var parsed = SOUND_PATH_LIST
         .filter(path => !path.includes('bleep') && !path.includes('buzz')) // MODIFICATION: Exclude bleep and buzz sounds
         .map(path => {
-            const fname = path.split('/').pop().replace('.wav', '');
-            const [category, type, version] = fname.split('_');
-            return { fname, category, type, version };
+            var file = path.split('/').pop();
+            var fname = file.substring(0, file.lastIndexOf('.'));
+            var [category, subtype, version] = fname.split('_');
+            return {
+                fname: fname,
+                category: category,
+                subtype: subtype,
+                version: version
+            };
         });
+
+    return parsed;
 }
 
 // collect all images/categories to test
@@ -228,13 +235,13 @@ const feedback_trial = {
 function create_trial(img, sound, correct_response) {
     let cue = {
         type: jsPsychAudioButtonResponse,
-        stimulus: `stimuli/sounds/${sound.fname}.wav`,
+        stimulus: `stimuli/sounds/${sound}.wav`,
         choices: [],
         trial_ends_after_audio: true
     };
     let img_display = {
         type: jsPsychImageKeyboardResponse,
-        stimulus: `stimuli/pictures/${img.fname}.jpg`,
+        stimulus: `stimuli/pictures/${img}.jpg`,
         choices: ['y', 'n'],
         prompt: "Does this image match the auditory cue? Press Y for yes, N for no.",
         data: { correct_response: correct_response }
@@ -243,31 +250,46 @@ function create_trial(img, sound, correct_response) {
 }
 
 // Generate "Y trials" and "N trials"
-function generate_trials() {
-    let trials = [];
+function generate_trials(N_trials) {
+    var trials = [];
+    let yes_trial_repeat = 2;
 
     // Generate 96 "Y trials" for each category and duplicate once for 192 trials
     all_img_stims.forEach(img => {
         let match_sounds = all_sound_stims.filter(sound => sound.category === img.category);
         match_sounds.forEach(sound => {
-            trials.push(create_trial(img, sound, 'y'));
+            for (let i=0;i<yes_trial_repeat;i++) {
+                // safer way to repeat (than using jsPsych.randomization.repeat)
+                let new_trial = create_trial(img.fname, sound.fname, 'y');
+                console.log(sound.fname);
+                trials.push(new_trial);
+            }
         });
     });
-    trials = jsPsych.randomization.repeat(trials, 2);
 
     // Generate 192 "N trials" with mismatching categories
     for (let i = 0; i < 192; i++) {
         let img = jsPsych.randomization.sampleWithoutReplacement(all_img_stims, 1)[0];
         let mismatch_sounds = all_sound_stims.filter(sound => sound.category !== img.category);
         let sound = jsPsych.randomization.sampleWithoutReplacement(mismatch_sounds, 1)[0];
-        trials.push(create_trial(img, sound, 'n'));
+        let new_trial = create_trial(img.fname, sound.fname, 'n'); 
+        trials.push(new_trial);
     }
 
-    console.log(trials.slice(3));
-    return jsPsych.randomization.shuffle(trials.flat());
+    // shuffle
+    trials = jsPsych.randomization.shuffle(trials);
+
+    // select the first N_trials
+    trials = trials.slice(0, N_trials);
+
+    // flatten: create one big list
+    trials = trials.flat();
+    
+    return trials;
 }
 
-const trials = generate_trials();
+const N_TRIALS = 10; // DEBUG this is for debugging; should be change back to 384 in actual experiment
+const trials = generate_trials(N_TRIALS);
 timeline.push(...trials);
 
 // Start the experiment
