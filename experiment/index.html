@@ -342,13 +342,19 @@ function generate_trials(N_trials) {
     });
 
     // Generate 192 "N trials" with mismatching categories
-    for (let i = 0; i < 192; i++) {
-        let img = jsPsych.randomization.sampleWithoutReplacement(all_img_stims, 1)[0];
-        let mismatch_sounds = all_sound_stims.filter(sound => sound.category !== img.category);
-        let sound = jsPsych.randomization.sampleWithoutReplacement(mismatch_sounds, 1)[0];
-        let new_trial = create_trial(img, sound, 'n'); 
-        trials.push(new_trial);
+    // also balance label/sound
+    let n_mismatch_each_sound = 8;
+    for (let i=0;i < all_sound_stims.length; i++) {
+        let sound = all_sound_stims[i];
+        let mismatch_imgs = all_img_stims.filter(img => img.category !== sound.category);
+        let imgs = jsPsych.randomization.sampleWithoutReplacement(mismatch_imgs, n_mismatch_each_sound);
+        imgs.forEach(img => {
+            let new_trial = create_trial(img, sound, 'n');
+            trials.push(new_trial);
+        });
     }
+
+    console.log(trials.length);
 
     // shuffle
     trials = jsPsych.randomization.shuffle(trials);
