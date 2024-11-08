@@ -33,10 +33,12 @@
 let trial_count = 1;  
 
 var jsPsych = initJsPsych({
+    /*
     on_finish: function() {
-        //jsPsych.data.displayData();
-        jsPsych.data.get().localSave('csv', 'experiment_data.csv');
-    }
+        jsPsych.data.displayData();
+        jsPsych.data.get().filter({part: 'result'}).localSave('csv', 'experiment_data.csv'); // download result to local
+    },
+    */
 });
 
 //create timeline
@@ -184,12 +186,6 @@ function create_img_display(img_name, correct_response) {
     return img;
 }
 
-function determine_correct_response(cue_name, img_name) {
-    const cue_category = cue_name.split('_')[0];
-    const img_category = img_name.split('_')[0];
-    return cue_category === img_category ? 'y' : 'n';
-}
-
 function process_all_imgs() {
     /**
      * This is to load all categories to be tested (bird, dog...)
@@ -263,22 +259,68 @@ const feedback_trial = {
     trial_ends_after_audio: true
 };
 
+// Data aggregation: hold the preprocess data at the end.
+const post_trial_process = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: '',  
+    choices: "NO_KEYS",  
+    trial_duration: 0,
+    data: {part: "result"},
+};
+
 // Helper function to create Y (match) and N (mismatch) trials
 function create_trial(img, sound, correct_response) {
     let cue = {
         type: jsPsychAudioButtonResponse,
-        stimulus: `stimuli/sounds/${sound}.wav`,
+        stimulus: `stimuli/sounds/${sound.fname}.wav`,
         choices: [],
         trial_ends_after_audio: true
     };
     let img_display = {
         type: jsPsychImageKeyboardResponse,
-        stimulus: `stimuli/pictures/${img}.jpg`,
+        stimulus: `stimuli/pictures/${img.fname}.jpg`,
         choices: ['y', 'n'],
         prompt: "Does this image match the auditory cue? Press Y for yes, N for no.",
-        data: { correct_response: correct_response }
+        data: { 
+            part: 'img',
+            correct_response: correct_response,
+        },
     };
-    return [fixation_cross, cue, delay, img_display, feedback_trial];
+
+    // group all phases into one nested trial
+    let single_word_trial = {
+        timeline: [fixation_cross, cue, delay, img_display, feedback_trial, post_trial_process],
+        on_timeline_finish: function () {
+            const lastTrialData = jsPsych.data.getLastTimelineData();
+            // console.log(lastTrialData);
+            const img_data = lastTrialData.filter({part: 'img'}).values()[0];
+            let response_data = lastTrialData.filter({part: 'result'}).values()[0];
+            Object.keys(response_data).forEach(key => delete response_data[key]); // clear it
+            
+            // save result
+            response_data.rt = img_data.rt;
+            response_data.correct_response = img_data.correct_response;
+            response_data.response = img_data.response;
+            response_data.time_elapsed = img_data.time_elapsed;
+            
+            // add img information
+            response_data.img_category = img.category;
+            response_data.img_subtype = img.subtype;
+            response_data.img_version = img.version;
+
+            // add sound information
+            response_data.sound_category = sound.category;
+            response_data.sound_subtype = sound.subtype;
+            response_data.sound_version = sound.version;
+            // console.log(response_data);
+
+            // mark data to collect at the end
+            response_data.part = "result";
+        }
+    };
+
+    return single_word_trial;
+    // return [fixation_cross, cue, delay, img_display, feedback_trial];
 }
 
 // Generate "Y trials" and "N trials"
@@ -292,7 +334,7 @@ function generate_trials(N_trials) {
         match_sounds.forEach(sound => {
             for (let i=0;i<yes_trial_repeat;i++) {
                 // safer way to repeat (than using jsPsych.randomization.repeat)
-                let new_trial = create_trial(img.fname, sound.fname, 'y');
+                let new_trial = create_trial(img, sound, 'y');
                 console.log(sound.fname);
                 trials.push(new_trial);
             }
@@ -304,7 +346,7 @@ function generate_trials(N_trials) {
         let img = jsPsych.randomization.sampleWithoutReplacement(all_img_stims, 1)[0];
         let mismatch_sounds = all_sound_stims.filter(sound => sound.category !== img.category);
         let sound = jsPsych.randomization.sampleWithoutReplacement(mismatch_sounds, 1)[0];
-        let new_trial = create_trial(img.fname, sound.fname, 'n'); 
+        let new_trial = create_trial(img, sound, 'n'); 
         trials.push(new_trial);
     }
 
@@ -315,19 +357,19 @@ function generate_trials(N_trials) {
     trials = trials.slice(0, N_trials);
 
     // flatten: create one big list
-    trials = trials.flat();
+    // trials = trials.flat();
     
     return trials;
 }
 
 
-const N_TRIALS = 384; // DEBUG this is for debugging; should be change back to 384 in actual experiment
-
+const N_TRIALS = 2; // DEBUG this is for debugging; should be change back to 384 in actual experiment
 const trials = generate_trials(N_TRIALS);
 timeline.push(...trials);
 
 // osf data pipeline
-const subject_id = jsPsych.randomization.randomID(10);
+// const subject_id = jsPsych.randomization.randomID(10);
+const subject_id = "debug"; // DEBUG
 const filename = `${subject_id}.csv`;
 
 const save_data = {
@@ -335,7 +377,8 @@ const save_data = {
     action: "save",
     experiment_id: "ubx08eg1SvJC",
     filename: filename,
-    data_string: ()=>jsPsych.data.get().csv()
+    data_string: ()=>jsPsych.data.get().filter({part:"result"}).csv(),
+    auth_token: "KgIxt4bVe7bNKJvltS3HFogH2zlrfuvr3bGteeKbWsT8hjJ0bT5oxEocKHcGTEhGAxJI9d",
 };
 
 timeline.push(save_data);
