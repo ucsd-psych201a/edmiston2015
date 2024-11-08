@@ -11,16 +11,31 @@
     <script src="https://unpkg.com/@jspsych-contrib/plugin-pipe"></script>
     <link href="https://unpkg.com/jspsych@8.0.0/css/jspsych.css" rel="stylesheet" type="text/css" />
     <script src="https://unpkg.com/jspsych@latest/jspsych.js"></script>
+    <style>
+        #trial-counter {
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+            color: #000; /* Ensure the font color contrasts with the background */
+            background-color: #fff; /* Temporary background for visibility */
+            padding: 5px;
+        }
+      </style>
  </head>
  <body>
- </body>
+
+ <div id="trial-counter"></div>
+
  <script>
 
+let trial_count = 1;  
 
 var jsPsych = initJsPsych({
     on_finish: function() {
         //jsPsych.data.displayData();
-        jsPsych.data.get().localSave(‘csv’, ‘experiment_data.csv’);
+        jsPsych.data.get().localSave('csv', 'experiment_data.csv');
     }
 });
 
@@ -95,12 +110,19 @@ timeline.push(preload);
 //define welcome message trial 
 var welcome = {
     type: jsPsychHtmlKeyboardResponse,
-    stimulus: "Welcome to the experiment. We recommend completing these trials in a quiet setting. Headphones are strongly recommended. Press any key to begin."
+    stimulus: `
+        <div style="text-align: center; line-height: 1.6;">
+            <p><strong>Welcome to the experiment.</strong></p>
+            <p>There are 384 trials. This will take about 20 minutes to complete.</p>
+            <p>We recommend completing these trials in a quiet setting. Headphones are strongly recommended.</p>
+            <p><strong>Press any key to begin.</strong></p>
+        </div>
+    `
 };
 // add the welcome trial to the timeline variable
 timeline.push(welcome);
 
-//instructions
+
 // Instructions
 const instructions = {
     type: jsPsychHtmlButtonResponse,
@@ -115,6 +137,11 @@ const instructions = {
 
 // add instructions to timeline variable 
  timeline.push(instructions);
+
+ // function to update trial counter
+function updateTrialCounter() {
+    document.getElementById('trial-counter').textContent = `Trial ${trial_count} of ${N_TRIALS}`;
+}
 
 /**
  * The following are functions defined to load stimuli
@@ -147,7 +174,12 @@ function create_img_display(img_name, correct_response) {
         choices: ['y', 'n'],
         prompt: "Does this image match the auditory cue? Press letter <strong> Y </strong> for yes, letter <strong> N </strong> for no.",
         response_ends_trial: true, // Keeps image visible until response
-        data: { correct_response: correct_response }
+        data: { correct_response: correct_response },
+        
+        on_start: function() {
+            updateTrialCounter(); // Update the trial counter display first (MODIFIED)
+            trial_count++;        // Increment trial count after updating display (MODIFIED)
+        }
     };
     return img;
 }
@@ -288,7 +320,9 @@ function generate_trials(N_trials) {
     return trials;
 }
 
-const N_TRIALS = 5; // DEBUG this is for debugging; should be change back to 384 in actual experiment
+
+const N_TRIALS = 384; // DEBUG this is for debugging; should be change back to 384 in actual experiment
+
 const trials = generate_trials(N_TRIALS);
 timeline.push(...trials);
 
