@@ -389,7 +389,7 @@ const actual_trials_instructions = {
 timeline.push(actual_trials_instructions);
 
 // generate actual trials
-const N_TRIALS = 384; // DEBUG this is for debugging; should be change back to 384 in actual experiment
+const N_TRIALS = 10; // DEBUG this is for debugging; should be change back to 384 in actual experiment
 const trials = generate_trials(N_TRIALS, 'actual');
 timeline.push(...trials);
 
@@ -403,10 +403,22 @@ const save_data = {
     action: "save",
     experiment_id: "ubx08eg1SvJC",
     filename: filename,
-    data_string: ()=>jsPsych.data.get().filter({part:"result"}).csv(),
+    data_string: function () { 
+        jsPsych.data.addProperties({ID: subject_id});
+        const selected_data = jsPsych.data.get().filter({part:"result"}).csv();
+        return selected_data;
+    },
 };
 
 timeline.push(save_data);
+
+// a debriefing at the end
+var end_block = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: `<p>Data uploaded.</p>
+          <p>Press any key to complete the experiment. Thank you!</p>`,
+};
+timeline.push(end_block);
 
 
 // Start the experiment
