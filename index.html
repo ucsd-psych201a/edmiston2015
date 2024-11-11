@@ -124,22 +124,6 @@ var welcome = {
 // add the welcome trial to the timeline variable
 timeline.push(welcome);
 
-
-// Instructions
-const instructions = {
-    type: jsPsychHtmlButtonResponse,
-    stimulus: `<h2>Instructions</h2>
-               <p>Your task is to decide as quickly and accurately as possible if auditory cue you hear matches the image you see.</p>
-               <p> First you will hear an auditory cue, then you will see an image. </p>
-               <p>Press letter "Y", yes if it matches the image you saw, and letter "N", no if it does not.</p>`,
-    choices: ['Start Practice'],
-    button_html: ['<button class="jspsych-btn">%choice%</button>']
-
-};
-
-// add instructions to timeline variable 
- timeline.push(instructions);
-
  // function to update trial counter
 function updateTrialCounter() {
     document.getElementById('trial-counter').textContent = `Trial ${trial_count} of ${N_TRIALS}`;
@@ -269,7 +253,7 @@ const post_trial_process = {
 };
 
 // Helper function to create Y (match) and N (mismatch) trials
-function create_trial(img, sound, correct_response) {
+function create_trial(img, sound, correct_response, exp_part) {
     let cue = {
         type: jsPsychAudioButtonResponse,
         stimulus: `experiment/stimuli/sounds/${sound.fname}.wav`,
@@ -316,6 +300,9 @@ function create_trial(img, sound, correct_response) {
             response_data.sound_version = sound.version;
             // console.log(response_data);
 
+            // mark whether it's practice or actual trials
+            response_data.exp_part = exp_part;
+
             // mark data to collect at the end
             response_data.part = "result";
         }
@@ -326,7 +313,7 @@ function create_trial(img, sound, correct_response) {
 }
 
 // Generate "Y trials" and "N trials"
-function generate_trials(N_trials) {
+function generate_trials(N_trials, exp_part) {
     var trials = [];
     let yes_trial_repeat = 2;
 
@@ -336,8 +323,7 @@ function generate_trials(N_trials) {
         match_sounds.forEach(sound => {
             for (let i=0;i<yes_trial_repeat;i++) {
                 // safer way to repeat (than using jsPsych.randomization.repeat)
-                let new_trial = create_trial(img, sound, 'y');
-                console.log(sound.fname);
+                let new_trial = create_trial(img, sound, 'y', exp_part);
                 trials.push(new_trial);
             }
         });
@@ -351,12 +337,12 @@ function generate_trials(N_trials) {
         let mismatch_imgs = all_img_stims.filter(img => img.category !== sound.category);
         let imgs = jsPsych.randomization.sampleWithoutReplacement(mismatch_imgs, n_mismatch_each_sound);
         imgs.forEach(img => {
-            let new_trial = create_trial(img, sound, 'n');
+            let new_trial = create_trial(img, sound, 'n', exp_part);
             trials.push(new_trial);
         });
     }
 
-    console.log(trials.length);
+    // console.log(trials.length);
 
     // shuffle
     trials = jsPsych.randomization.shuffle(trials);
@@ -370,9 +356,41 @@ function generate_trials(N_trials) {
     return trials;
 }
 
+/* PRACTICE TRIALS */
+// Instructions
+const instructions = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: `<h2>Instructions</h2>
+               <p>Your task is to decide as quickly and accurately as possible if auditory cue you hear matches the image you see.</p>
+               <p> First you will hear an auditory cue, then you will see an image. </p>
+               <p>Press letter "Y", yes if it matches the image you saw, and letter "N", no if it does not.</p>`,
+    choices: ['Start Practice'],
+    button_html: ['<button class="jspsych-btn">%choice%</button>']
 
-const N_TRIALS = 2; // DEBUG this is for debugging; should be change back to 384 in actual experiment
-const trials = generate_trials(N_TRIALS);
+};
+timeline.push(instructions);
+
+// generate and add test trials
+const N_PRACTICE = 6;
+const practice_trials = generate_trials(N_PRACTICE, 'practice');
+timeline.push(...practice_trials);
+
+/* ACTUAL TRIALS */
+// instructions
+const actual_trials_instructions = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: `<h2>Instructions</h2>
+               <p>Your task is to decide as quickly and accurately as possible if auditory cue you hear matches the image you see.</p>
+               <p> First you will hear an auditory cue, then you will see an image. </p>
+               <p>Press letter "Y", yes if it matches the image you saw, and letter "N", no if it does not.</p>`,
+    choices: ['Start the Actual Test'],
+    button_html: ['<button class="jspsych-btn">%choice%</button>']
+};
+timeline.push(actual_trials_instructions);
+
+// generate actual trials
+const N_TRIALS = 10; // DEBUG this is for debugging; should be change back to 384 in actual experiment
+const trials = generate_trials(N_TRIALS, 'actual');
 timeline.push(...trials);
 
 // osf data pipeline
