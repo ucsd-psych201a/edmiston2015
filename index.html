@@ -304,11 +304,13 @@ function create_trial(img, sound, correct_response) {
             response_data.time_elapsed = img_data.time_elapsed;
             
             // add img information
+            response_data.img_fname = img.fname;
             response_data.img_category = img.category;
             response_data.img_subtype = img.subtype;
             response_data.img_version = img.version;
 
             // add sound information
+            response_data.sound_fname = sound.fname;
             response_data.sound_category = sound.category;
             response_data.sound_subtype = sound.subtype;
             response_data.sound_version = sound.version;
