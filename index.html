@@ -360,7 +360,7 @@ function generate_trials(N_trials, exp_part) {
 // Instructions
 const instructions = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: `<h2>Instructions</h2>
+    stimulus: `<h2>Instructions & Practice</h2>
                <p>Your task is to decide as quickly and accurately as possible if auditory cue you hear matches the image you see.</p>
                <p> First you will hear an auditory cue, then you will see an image. </p>
                <p>Press letter "Y", yes if it matches the image you saw, and letter "N", no if it does not.</p>`,
@@ -379,11 +379,11 @@ timeline.push(...practice_trials);
 // instructions
 const actual_trials_instructions = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: `<h2>Instructions</h2>
+    stimulus: `<h2>Starting Actual Trials</h2>
                <p>Your task is to decide as quickly and accurately as possible if auditory cue you hear matches the image you see.</p>
                <p> First you will hear an auditory cue, then you will see an image. </p>
                <p>Press letter "Y", yes if it matches the image you saw, and letter "N", no if it does not.</p>`,
-    choices: ['Start the Actual Test'],
+    choices: ['Start Actual Test'],
     button_html: ['<button class="jspsych-btn">%choice%</button>']
 };
 timeline.push(actual_trials_instructions);
