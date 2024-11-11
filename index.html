@@ -374,8 +374,8 @@ const trials = generate_trials(N_TRIALS);
 timeline.push(...trials);
 
 // osf data pipeline
-// const subject_id = jsPsych.randomization.randomID(10);
-const subject_id = "debug"; // DEBUG
+const subject_id = jsPsych.randomization.randomID(10);
+// const subject_id = "debug"; // DEBUG
 const filename = `${subject_id}.csv`;
 
 const save_data = {
