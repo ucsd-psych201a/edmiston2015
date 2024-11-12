@@ -124,7 +124,9 @@ We will report the "parameter estimates (b) and confidence intervals for each co
 
 #### Pilot Test (for Project Checkpoint A)
 
-We conducted pilot tests involving three participants. The following code preprocesses the data and fits a linear mixed model for response time under different conditions: (1) label cue matches the image, (2) auditory cue matches the image but is incongruent, and (3) auditory cue matches the image and is congruent.
+We conducted pilot tests involving three participants. All data are collected using the [online experiment link](https://ucsd-psych201a.github.io/edmiston2015/). The data is available [here]( https://github.com/ucsd-psych201a/edmiston2015/tree/main/data). 
+
+The following code prepare the data for fitting a linear mixed model for response time under different conditions: (1) label cue matches the image, (2) auditory cue matches the image but is incongruent, and (3) auditory cue matches the image and is congruent. 
 	
 ```{r include=T}
 ### Data Preparation
@@ -138,7 +140,7 @@ library(lme4)
 #replace this with your own path (for now)
 folder_path <- "/Users/sihanyang/Desktop/courses/PSYC201A/edmiston2015/data"
 csv_files <- list.files(folder_path, pattern = "*.csv", full.names = TRUE)
-df_list <- lapply(csv_files, read_csv)
+df_list <- lapply(csv_files, read_csv, show_col_types = FALSE)
 combined_df <- bind_rows(df_list)
 
 #### Data exclusion / filtering
@@ -170,6 +172,9 @@ combined_df <- combined_df %>%
 #### Prepare data for analysis - create columns etc.
 combined_df <- combined_df %>%
   select(rt, ID, sound_category,cue, congruency)
+
+#show the preprocesssed data
+tail(combined_df)
 
 #### Apply the Linear Mixed Model
 
