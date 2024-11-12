@@ -19,15 +19,17 @@ In this experiment, participants will be presented with either a verbal represen
 ## Methods
 
 ### Power Analysis 
+The use of linear mixed-effects models (lmer) with a complex structure limits our ability to perform a straightforward power analysis. This constraint makes it difficult to estimate effect sizes accurately, as we would in a simpler within-participants t-test design. We defaulted to expanding the sample size to 2.5 times the initial estimate. This buffer helps accommodate any unanticipated variance and ensures our study has enough statistical power to detect meaningful effects.
 
-Original effect size, power analysis for samples to achieve 80%, 90%, 95% power to detect that effect size.  Considerations of feasibility for selecting planned sample size.
 
 ### Planned Sample
-We plan to have a sample size of n = 43 to be as close as possible to the original study. For pre-screening, participants must speak English fluently to ensure comprehension in the task. Participants are recruited on Prolific online platform. 
+We plan to have a sample size of n = 108. For pre-screening, participants must speak English fluently to ensure comprehension in the task. Participants are recruited on Prolific online platform. 
 
 ### Materials
 
 The materials were followed precisely as follows. "The auditory cues comprised basic-level category labels and environmental sounds for six categories: bird, dog, drum, guitar, motorcycle, and phone. For each category, we obtained two distinct environmental sound cues, e.g., <classical guitar strum>, <electric guitar strum>, and two separate images for each subordinate cate- gory, e.g., two electric guitars for <electric guitar strum>, two acoustic guitars for <electric guitar strum>. To control for cue variability, we also used two versions of each spoken category label: one pronounced by a female speaker, one by a male speaker. All auditory cues were equated in duration (600 ms.) and normalized in volume. The images were color photographs (four images per category). The materials, obtained from online repositories, are available for download at http://sapir.psych.wisc.edu/stimuli/ MotivatedCuesExp1A-1B.zip"(Edmiston & Lupyan, 2015).  
+
+The link to our online experiment can be found here: https://ucsd-psych201a.github.io/edmiston2015/ 
 
 ### Procedure	
 
@@ -42,11 +44,13 @@ In addition, significance tests using chi-square tests will be used to compare n
 
 ### Differences from Original Study
 
-The original study used a remote controller.  The replication study will use the computer for responses and implement key responses to simulate buttons on controller. This should allow for accurate and quick responses. 
+The original study used a remote controller.  The replication study will use the computer for responses and implement key responses to simulate buttons on controller. This should allow for accurate and quick responses. Participants were instructed to complete the study using headphones in a quiet environment. However, since the study was conducted online, experimenters had no control over participants' surroundings, which could introduce differences from the original study. Additionally, the original study controlled 
 
-- 10 degree thing
-- tell participants to wear headphones but not necessarily sure that they do 
+## Pilot A
 
+For our Pilot A (with non-naive participants), we aimed to replicate the experimental paradigm described in the study. The GitHub page for our paradigm is linked below:
+
+[Link to experimental paradigm](https://ucsd-psych201a.github.io/edmiston2015/)
 
 ### Methods Addendum (Post Data Collection)
 
@@ -57,54 +61,64 @@ You can comment this section out prior to final report with data collection.
 
 #### Differences from pre-data collection methods plan
   Any differences from what was described as the original plan, or “none”.
-
-## Design Overview
-How many factors were manipulated?
-In this experiment one factor, the auditory cue, was manipulated. Within this factor there are conditions - congruent sound, incongruent sound, and label. 
-
-How many measures were taken?
-Reaction time was the only measure taken. 
-
-Did it use a within-participants or between-participants design?
-It uses within-participants design where everyone does each condition. 
-
-Were measures repeated?
-Yes measures were repeated for 384 experimental trials. 
-
-What would have been the consequence of changing one of these decisions? (e.g. moving from within to between participants). Could it have been either way?
-There would be more confounds if it was between participants because people have different reaction times to stimuli, therefore the measures wouldn't be as accurate. 
-
-Were steps taken to reduce demand characteristics?
-They didn't take any measures to reduce demand characteristics. 
-
-How would you critique the design?
-To improve the experiment attention checks could be added. Given that incorrect responses could be labeled incongruent, incorrect responses could have also been included in the data. 
-
-Can you think of any potential confounds to the study?
-
-Do you see any limitations to generalizability?
-This sample could not be representative of all populations because it only studied undergraduates and WEIRD populations. 
+  
 ## Results
 
 ### Data preparation
 We are replicating Experiment 1A from the paper. To clean the data we will remove incorrect responses or participants who failed attention checks.  As for data exclusion rules, we will follow the parameters set by the original study in which "Response times (RTs) shorter than 250 ms. or longer than 1500 ms. [will be] removed". This accounts for outliers that may skew results. There aren't any covariates mentioned in this experiment. 
 	
-```{r include=F}
+```{r}
 ### Data Preparation
 
 #### Load Relevant Libraries and Functions
+library(tidyverse)
+library(readr)
+library(lme4)
 
 #### Import data
+#replace this with your own path (for now)
+folder_path <- "/Users/jennabrooks/Documents/GitHub/edmiston2015"
+csv_files <- list.files(folder_path, pattern = "*.csv", full.names = TRUE)
+df_list <- lapply(csv_files, read_csv)
+combined_df <- bind_rows(df_list)
 
 #### Data exclusion / filtering
+#exclude 'No' trials 
+combined_df <- combined_df %>%
+  mutate(response = as.character(response)) %>%
+  filter(response == "y")
+#exclude practice trials 
+combined_df <- combined_df %>%
+  filter(exp_part == "actual")
+
+#rename "sound_subtype" to "cue"
+combined_df <- combined_df %>%
+  rename(cue = sound_subtype)
+
+#create congruency column 
+combined_df <- combined_df %>%
+  mutate(congruency = case_when(
+    cue == "label" ~ "label",
+    img_subtype %in% c("song", "york", "bongo", "acoustic", "harley", "rotary") & sound_version == "A" ~ "incongruent",
+    TRUE ~ "congruent"
+  ))
+
+
+#filter reaction time 
+combined_df <- combined_df %>%
+  filter(rt >250, rt <1500)
 
 #### Prepare data for analysis - create columns etc.
+combined_df <- combined_df %>%
+  select(rt, ID, sound_category,cue, congruency)
 ```
 
 ### Confirmatory analysis
 
 A linear mixed regression model will be used to analyze response times for correct responses including "random intercepts and random slopes for within-subject factors and random intercepts for repeated items (unique trial types)"(Edmiston & Lupyan, 2015).  
 In addition, significance tests using chi-square tests will be used to compare nested models, as was done in the original study, to assess the impact of factors with and without interest on response times. 
+
+Here is the link to the data we have collected for Pilot A so far: https://github.com/ucsd-psych201a/edmiston2015/tree/main/data Feedback from participants includes adding more attention checks and specifying in the instructions to use a laptop or computer for this study. We would also like to add a trial counter that allows participants to see their progress in the study.  
 
 *Side-by-side graph with original graph is ideal here*
 
