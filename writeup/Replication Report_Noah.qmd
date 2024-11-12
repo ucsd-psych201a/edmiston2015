@@ -37,7 +37,7 @@ We will follow the same procedure as Edminston & Lupyan (2015). Participants wil
 
 
 ### Planned Sample
-As mentioned previously, we will aim for the exact same number of paticipants, as well as the same general demographic (43 undergraduates). 
+As mentioned previously, we will aim for the exact same number of participants, as well as the same general demographic (43 undergraduates). 
 
 ### Materials
 "The auditory cues comprised basic-level category labels and environmental sounds for six categories: bird, dog, drum, guitar, motorcycle, and phone. For each category, we obtained two distinct environmental sound cues, e.g., <classical guitar strum>, <electric guitar strum>, and two separate images for each subordinate category, e.g., two electric guitars for <electric guitar strum>, two acoustic guitars for <electric guitar strum>. To control for cue variability, we also used two versions of each spoken category label:one pronounced by a female speaker, one by a male speaker. All auditory cues were equated in duration (600 ms.) and normalized in volume. The images were color photographs (four images per category)." (PP. 94) 
@@ -88,26 +88,58 @@ A confound could have been that they did not use a varied enough sample.
 ### Data preparation
 As mentioned previously, we will be replicating experiment 1A from Edminston & Lupyan (2015). As for our data preparation, we will be making sure to label the type of relationship between the sound participants hear in a given trial, and its match to the picture. In other words, we will define whether a particular trial is a label (which will just be a word such as "dog, or "guitar"), congruent sound, or incongruent sound. Furthermore, we will use the exact same audio and visual stimuli as Edminston & Lupyan (2015). All of the different audio files have already been clipped to make them match in duration, and they have all been amplitude normalized. 
 
-After we have collected our data, we will filter outliers in the exact same way as Edminston & Lupyan (2015). More specifically, we will filter out any reaction time (RT) that is lower that 250 ms, and any that is greater than 1500 ms. It also seems as though Edminston & Lupyan (2015) filtered out incorrect responses, but I am not certain about this. 
+After we have collected our data, we will filter outliers in the exact same way as Edminston & Lupyan (2015). More specifically, we will filter out any reaction time (rt) that is lower that 250 ms, and any that is greater than 1500 ms. It also seems as though Edminston & Lupyan (2015) filtered out incorrect responses, but I am not certain about this. 
 
 	
 ```{r include=F}
 ### Data Preparation
 
 #### Load Relevant Libraries and Functions
-
+library(tidyverse)
+library(readr)
+library(lme4)
 #### Import data
+#replace this with your own path (for now)
+folder_path <- "/Users/ritalavi/Desktop/edmiston2015/data"
+csv_files <- list.files(folder_path, pattern = "*.csv", full.names = TRUE)
+df_list <- lapply(csv_files, read_csv)
+combined_df <- bind_rows(df_list)
 
 #### Data exclusion / filtering
+#exclude 'No' trials 
+combined_df <- combined_df %>%
+  mutate(response = as.character(response)) %>%
+  filter(response == "y")
+
+#exclude practice trials 
+combined_df <- combined_df %>%
+  filter(exp_part == "actual")
+
+#rename "sound_subtype" to "cue"
+combined_df <- combined_df %>%
+  rename(cue = sound_subtype)
+
+#create congruency column 
+combined_df <- combined_df %>%
+  mutate(congruency = case_when(
+    cue == "label" ~ "label",
+    img_subtype %in% c("song", "york", "bongo", "acoustic", "harley", "rotary") & sound_version == "A" ~ "incongruent",
+    TRUE ~ "congruent"
+  ))
+
+
+#filter reaction time 
+combined_df <- combined_df %>%
+  filter(rt >250, rt <1500)
 
 #### Prepare data for analysis - create columns etc.
+combined_df <- combined_df %>%
+  select(rt, ID, sound_category,cue, congruency)
 ```
 
 ### Confirmatory analysis
 
 Following Edminston & Lupyan (2015), we will be fitting mixed effects linear regression models to our response time data (which will be filtered for correct responses on matching trials (i.e., 'Yes' responses)). The model will include random intercepts, random slopes for within-subject factors, and random intercepts for repeated items. We will report the parameter estimates and confidence intervals for each "contrast of interest" (pp.94). Furthermore, we will calculate chi-square tests that will "compare nested models--models with and without the factor of interest--on improvement in log-likelihood" (pp.94). 
-
-**I'm kind of confused on the description of their model. I don't think they state what the "within-subject factors" or "repeated items" are in their experiment. I'm also confused on whether the "congruent vs. incongruent vs. label" distinctions (which they visualize) were included in the models they fit.
 
 *Side-by-side graph with original graph is ideal here*
 
