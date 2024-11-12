@@ -76,10 +76,29 @@ You can comment this section out prior to final report with data collection.
 
 #### Differences from pre-data collection methods plan
   Any differences from what was described as the original plan, or “none”.
-
+  
+### Comments (from Oct 31st class)
+How many factors were manipulated?
+- one, which is whether particioants hear a label, an incongurent sound or a congruent sound cue.
+How many measures were taken?
+- one, reaction time.
+Did it use a within-participants or between-participants design?
+- within participants.
+Were measures repeated?
+- yes.
+What would have been the consequence of changing one of these decisions? (e.g. moving from within to between participants). Could it have been either way?
+- more confounds if we make this change.
+Were steps taken to reduce demand characteristics?
+- they didn't take any specific measure to reduce this?
+How would you critique the design?
+- attention check could help since they had many trials.
+- their right/wrong criteria for incongurent sound cue trials are not fully justified: if someone hear an incongruent sound and report 'No' is that a wrong answer.
+Can you think of any potential confounds to the study?
+- "the presence of incongruent sound trials may have led participants to be more careful on these trials, inflating the RTs." (Edmiston & Lupyan, 2015)
+Do you see any limitations to generalizability?
+- all participants are US college undergrads.
 
 ## Results
-
 
 ### Data preparation
 
@@ -92,18 +111,6 @@ Before testing the main hypothesis of the original study, we will first examine 
 Trials with response times (RTs) that are too short or too long will be filtered out. The original study applied thresholds of 250 ms and 1500 ms for the lower and upper bounds, respectively. Before applying filtering, we will check if the new data shows a similar RT distribution.
 
 Only RTs for correct responses on matching trials will be used for further analysis, following the original study’s approach.
-	
-```{r include=F}
-### Data Preparation
-
-#### Load Relevant Libraries and Functions
-
-#### Import data
-
-#### Data exclusion / filtering
-
-#### Prepare data for analysis - create columns etc.
-```
 
 ### Confirmatory analysis
 
@@ -114,6 +121,59 @@ We will "fit RTs for correct responses on matching trials (‘Yes’ responses) 
 We will report the "parameter estimates (b) and confidence intervals for each contrast of interest" (Edmiston & Lupyan, 2015). Significance tests will be calculated "using chi-square tests that compared nested models—models with and without the factor of interest—on improvement in log-likelihood" (Edmiston & Lupyan, 2015).
 
 *Side-by-side graph with original graph is ideal here*
+
+#### Pilot Test (for Project Checkpoint A)
+
+We conducted pilot tests involving three participants. The following code preprocesses the data and fits a linear mixed model for response time under different conditions: (1) label cue matches the image, (2) auditory cue matches the image but is incongruent, and (3) auditory cue matches the image and is congruent.
+	
+```{r include=T}
+### Data Preparation
+
+#### Load Relevant Libraries and Functions
+library(tidyverse)
+library(readr)
+library(lme4)
+
+#### Import data
+#replace this with your own path (for now)
+folder_path <- "/Users/sihanyang/Desktop/courses/PSYC201A/edmiston2015/data"
+csv_files <- list.files(folder_path, pattern = "*.csv", full.names = TRUE)
+df_list <- lapply(csv_files, read_csv)
+combined_df <- bind_rows(df_list)
+
+#### Data exclusion / filtering
+#exclude 'No' trials 
+combined_df <- combined_df %>%
+  mutate(response = as.character(response)) %>%
+  filter(response == "y")
+#exclude practice trials 
+combined_df <- combined_df %>%
+  filter(exp_part == "actual")
+
+#rename "sound_subtype" to "cue"
+combined_df <- combined_df %>%
+  rename(cue = sound_subtype)
+
+#create congruency column 
+combined_df <- combined_df %>%
+  mutate(congruency = case_when(
+    cue == "label" ~ "label",
+    img_subtype %in% c("song", "york", "bongo", "acoustic", "harley", "rotary") & sound_version == "A" ~ "incongruent",
+    TRUE ~ "congruent"
+  ))
+
+
+#filter reaction time 
+combined_df <- combined_df %>%
+  filter(rt >250, rt <1500)
+
+#### Prepare data for analysis - create columns etc.
+combined_df <- combined_df %>%
+  select(rt, ID, sound_category,cue, congruency)
+
+#### Apply the Linear Mixed Model
+
+```
 
 ### Exploratory analyses
 
