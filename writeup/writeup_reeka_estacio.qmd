@@ -20,7 +20,7 @@ The stimuli presented in experiment 1A of this study involve six categories, suc
 
 ### Power Analysis
 
-Original effect size, power analysis for samples to achieve 80%, 90%, 95% power to detect that effect size.  Considerations of feasibility for selecting planned sample size.
+Sicne the original study used a linear mixed regression analysis (which is outside of the scope of this course), we have decided to use the 2.5x sample size heuristic to ensure that our study has adequate power.
 
 ### Planned Sample
 
@@ -28,7 +28,7 @@ In the original study, the participants for Experiment 1A were described as the 
 
 "43 University of Wisconsin–Madison undergraduates participated in Experiment 1A in exchange for course credit."
 
-For the current study, we aim to replicate the sample as much as possible. Specifically, we will aim for a similar sample size (n=43) and similar demographics (undergraduate students at UCSD, most likely through SONA).
+For the current study, we aim to replicate the sample as much as possible. Specifically, we will aim for a similar sample size (n=43) and similar demographics.
 
 ### Materials
 
@@ -83,7 +83,7 @@ There was one measure taken, which is reaction time (RT).
 
 This study uses a within-participants design.
 
-The measures were repeated. There were 384 experimental trials in the experiment.
+The measures were repeated; there were 384 experimental trials in the original experiment.
 
 It would not make sense for the experiment to be changed to between-participants because the measures would not be as accurate. There will be individual differences of RTs regardless of experimental conditions.
 
@@ -93,27 +93,70 @@ They should have added attention checks between trials to ensure participants ar
 
 The original study involved undergraduate participants, which raises generalizability issues because they are inherently a WEIRD population.
 
-## Results
+## Pilot A
 
+For our Pilot A (with non-naive participants), we aimed to replicate the experimental paradigm described in the study. The GitHub page for our paradigm is linked below:
+
+[Link to experimental paradigm](https://ucsd-psych201a.github.io/edmiston2015/)
+
+We have collected pilot data from three participants. This data was imported and uploaded to the data folder in the project repository.
+
+[Link to Pilot A data](https://github.com/ucsd-psych201a/edmiston2015/tree/main/data)
+
+## Results
 
 ### Data preparation
 
 Data preparation following the analysis plan.
 
-As previously mentioned, we will exclude trials where reaction times are less than 250 ms or exceed 1500 ms after stimulus presentation.
+The following code combines the data that has been collected from our experiment and performs the necessary data wrangling to run through our analysis model. Similar to the original study, practice trials and "No" trials were removed. Trials where reaction times are less than 250 ms or exceed 1500 ms after stimulus presentation were also excluded. This also labels the conditions for later analysis (e.g. `congruent`, `incogruent`).
 	
-```{r include=F}
+```{r}
 ### Data Preparation
 
 #### Load Relevant Libraries and Functions
+library(tidyverse)
+library(readr)
+library(lme4)
 
 #### Import data
+#replace this with your own path (for now)
+folder_path <- "/Users/reekaestacio/Documents/GitHub/edmiston2015/data"
+csv_files <- list.files(folder_path, pattern = "*.csv", full.names = TRUE)
+df_list <- lapply(csv_files, read_csv)
+combined_df <- bind_rows(df_list)
 
 #### Data exclusion / filtering
-# remove RTs that are less than 250 ms
-# remove RTs that are more than 1500 ms
+#exclude 'No' trials 
+combined_df <- combined_df %>%
+  mutate(response = as.character(response)) %>%
+  filter(response == "y")
+
+#exclude practice trials 
+combined_df <- combined_df %>%
+  filter(exp_part == "actual")
+
+#rename "sound_subtype" to "cue"
+combined_df <- combined_df %>%
+  rename(cue = sound_subtype)
+
+#create congruency column 
+combined_df <- combined_df %>%
+  mutate(congruency = case_when(
+    cue == "label" ~ "label",
+    img_subtype %in% c("song", "york", "bongo", "acoustic", "harley", "rotary") & sound_version == "A" ~ "incongruent",
+    TRUE ~ "congruent"
+  ))
+
+
+#filter reaction time 
+combined_df <- combined_df %>%
+  filter(rt >250, rt <1500)
 
 #### Prepare data for analysis - create columns etc.
+combined_df <- combined_df %>%
+  select(rt, ID, sound_category,cue, congruency)
+
 ```
 
 ### Confirmatory analysis
