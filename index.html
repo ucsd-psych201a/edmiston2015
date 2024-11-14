@@ -414,11 +414,18 @@ timeline.push(save_data);
 
 // a debriefing at the end
 var end_block = {
-    type: jsPsychHtmlKeyboardResponse,
-    stimulus: `<p>Data uploaded.</p>
-          <p>Press any key to complete the experiment. Thank you!</p>`,
+    type: jsPsychHtmlButtonResponse,
+    stimulus: `
+        <p>Data uploaded.</p>
+        <p>Thank you for completing the experiment! If you have any questions or concerns, please contact <a href="mailto:rdestaci@ucsd.edu">rdestaci@ucsd.edu</a>.</p>
+        <p>Click the button below to return to Prolific.</p>
+    `,
+    choices: ['Finish'],
+    button_html: ['<button class="jspsych-btn">%choice%</button>']
 };
+
 timeline.push(end_block);
+
 
 
 // Start the experiment
