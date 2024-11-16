@@ -138,7 +138,7 @@ library(lme4)
 
 #### Import data
 #replace this with your own path (for now)
-folder_path <- "/Users/sihanyang/Desktop/courses/PSYC201A/edmiston2015/data"
+folder_path <- "../data"
 csv_files <- list.files(folder_path, pattern = "*.csv", full.names = TRUE)
 df_list <- lapply(csv_files, read_csv, show_col_types = FALSE)
 combined_df <- bind_rows(df_list)

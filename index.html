@@ -119,7 +119,7 @@ var welcome = {
     stimulus: `
         <div style="text-align: center; line-height: 1.6;">
             <p><strong>Welcome to the experiment.</strong></p>
-            <p>There are 384 trials. This will take about 20 minutes to complete.</p>
+            <p>There ar ${N_TRIALS} trials (with ${N_PRACTICE} practice). This will take about 20 minutes to complete.</p>
             <p>We recommend completing these trials in a quiet setting. Headphones are strongly recommended.</p>
             <p><strong>Press any key to begin.</strong></p>
         </div>
@@ -165,9 +165,17 @@ function create_img_display(img_name, correct_response) {
         type: jsPsychImageKeyboardResponse,
         stimulus: `experiment/stimuli/pictures/${img_name}.jpg`,
         choices: ['y', 'n'],
-        prompt: "Does this image match the auditory cue? Press letter <strong> Y </strong> for yes, letter <strong> N </strong> for no.",
+        prompt: `
+            <div style="display: block; text-align: center; margin-bottom: 100px;">
+                Does this image match the auditory cue?<br>
+                Press <strong> Y </strong> for yes, <strong> N </strong> for no.
+            </div>
+        `,
         response_ends_trial: true, // Keeps image visible until response
-        data: { correct_response: correct_response },
+        data: { 
+            part: 'img',
+            correct_response: correct_response,
+        },
         
         /* comment out: use default trial count bar provided by jspsych
         on_start: function() {
@@ -176,6 +184,7 @@ function create_img_display(img_name, correct_response) {
         }
         */
     };
+
     return img;
 }
 
@@ -268,22 +277,8 @@ const post_trial_process = {
 
 // Helper function to create Y (match) and N (mismatch) trials
 function create_trial(img, sound, correct_response, exp_part) {
-    let cue = {
-        type: jsPsychAudioButtonResponse,
-        stimulus: `experiment/stimuli/sounds/${sound.fname}.wav`,
-        choices: [],
-        trial_ends_after_audio: true
-    };
-    let img_display = {
-        type: jsPsychImageKeyboardResponse,
-        stimulus: `experiment/stimuli/pictures/${img.fname}.jpg`,
-        choices: ['y', 'n'],
-        prompt: "Does this image match the auditory cue? Press Y for yes, N for no.",
-        data: { 
-            part: 'img',
-            correct_response: correct_response,
-        },
-    };
+    let cue = create_cue_to_play(sound.fname);
+    let img_display = create_img_display(img.fname);
 
     // group all phases into one nested trial
     let single_word_trial = {
