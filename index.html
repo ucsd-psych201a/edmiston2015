@@ -28,11 +28,11 @@
 
  <div id="trial-counter"></div>
 
- <script>
-
-let trial_count = 1;  
+ <script> 
 
 var jsPsych = initJsPsych({
+    show_progress_bar: true,
+    auto_update_progress_bar: false,
     /*
     on_finish: function() {
         jsPsych.data.displayData();
@@ -43,6 +43,10 @@ var jsPsych = initJsPsych({
 
 //create timeline
 var timeline = [];
+
+//set number of trials
+const N_PRACTICE = 6;
+const N_TRIALS = 2; // DEBUG
 
 // list all stims to use
 const IMAGE_PATH_LIST = [
@@ -119,7 +123,10 @@ var welcome = {
             <p>We recommend completing these trials in a quiet setting. Headphones are strongly recommended.</p>
             <p><strong>Press any key to begin.</strong></p>
         </div>
-    `
+    `,
+    on_start: function() {
+        jsPsych.progressBar.progress = 0;
+    },
 };
 // add the welcome trial to the timeline variable
 timeline.push(welcome);
@@ -162,10 +169,12 @@ function create_img_display(img_name, correct_response) {
         response_ends_trial: true, // Keeps image visible until response
         data: { correct_response: correct_response },
         
+        /* comment out: use default trial count bar provided by jspsych
         on_start: function() {
             updateTrialCounter(); // Update the trial counter display first (MODIFIED)
             trial_count++;        // Increment trial count after updating display (MODIFIED)
         }
+        */
     };
     return img;
 }
@@ -250,6 +259,11 @@ const post_trial_process = {
     choices: "NO_KEYS",  
     trial_duration: 0,
     data: {part: "result"},
+    on_finish: function() {
+        // update progress bar
+        var curr_progress = jsPsych.progressBar.progress;
+        jsPsych.progressBar.progress = curr_progress + (1/(N_PRACTICE+N_TRIALS));
+    }
 };
 
 // Helper function to create Y (match) and N (mismatch) trials
@@ -371,7 +385,6 @@ const instructions = {
 timeline.push(instructions);
 
 // generate and add test trials
-const N_PRACTICE = 6;
 const practice_trials = generate_trials(N_PRACTICE, 'practice');
 timeline.push(...practice_trials);
 
@@ -389,7 +402,6 @@ const actual_trials_instructions = {
 timeline.push(actual_trials_instructions);
 
 // generate actual trials
-const N_TRIALS = 384; // DEBUG this is for debugging; should be change back to 384 in actual experiment
 const trials = generate_trials(N_TRIALS, 'actual');
 timeline.push(...trials);
 
