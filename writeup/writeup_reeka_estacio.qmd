@@ -161,7 +161,32 @@ combined_df <- combined_df %>%
 
 ### Confirmatory analysis
 
-The analyses as specified in the analysis plan. This will include a linear mixed regression model and chi-square test for significance.
+Following the confirmatory analysis of the original study, our replication will also perform a linear mixed effects regression model fit on response times to correct trials on congruent trials. The details of the analysis are specified in the "Analysis Plan" section of this writeup.
+
+```{r}
+library(lmerTest)
+library(emmeans)
+library(lme4)
+
+#shows you a comparsion between reference (congruent) and the other two values (incongruent and label)
+model_full <- lmer(rt ~ congruency + (1 + congruency|ID) + (1|sound_category), data = combined_df)
+
+summary(model_full)
+
+#get 95% CI
+confint.merMod(model_full,method="Wald")
+
+#post-hoc test: allows you to examine relationship between incongruent and label
+model_full %>% 
+  emmeans(pairwise ~ congruency,
+          #adjusts p values so that it is more difficult to get a significance (correction method)
+          adjust = "bonferroni") %>% 
+  pluck("contrasts")
+
+
+
+#model shows us that incongruent takes longer than congruent b = 28.7, that label is shorter than congruent (b = -15.52), and that incongruent takes longer than label b = 44.3 (find 95% CI) 
+```
 
 *Side-by-side graph with original graph is ideal here*
 
