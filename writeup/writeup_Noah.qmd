@@ -6,92 +6,239 @@ format:
   html:
     toc: true
     toc_depth: 3
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
 <!-- Replication reports should all use this template to standardize reporting across projects.  These reports will be public supplementary materials that accompany the summary report(s) of the aggregate results. -->
 
 ## Introduction
-GitHub Repository found here: https://github.com/ucsd-psych201a/edmiston2015
 
+GitHub Repository found here:
+https://github.com/ucsd-psych201a/edmiston2015
 
+Edminston & Lupyan (2015) provides evidence towards notion that
+ambiguous labels (i.e., "dog" or "guitar") activate knowledge of their
+referent quicker than environmental sounds. For example, a listener
+should be able to point out a dog quicker if they hear the label "dog",
+rather than if they hear the sound of a dog's bark. The reason for this,
+Edminston & Lupyan (2015) state, is due to the fact that environmental
+sounds activates a "particular instance of a category". In other words,
+a dog's bark may have qualities that a listener may contribute to a
+particular type of dog (i.e., a low pitched bark may be more indicative
+of a big dog, etc.). Edminston & Lupyan (2015) demonstrate this effect
+by showing that participants take longer to recognize a picture of a
+referent after hearing a sound associated with said referent than they
+do upon hearing the label.
 
-
-Edminston & Lupyan (2015) provides evidence towards notion that ambiguous labels (i.e., "dog" or "guitar") activate knowledge of their referent quicker than environmental sounds. For example, a listener should be able to point out a dog quicker if they hear the label "dog", rather than if they hear the sound of a dog's bark. The reason for this, Edminston & Lupyan (2015) state, is due to the fact that environmental sounds activates a "particular instance of a category". In other words, a dog's bark may have qualities that a listener may contribute to a particular type of dog (i.e., a low pitched bark may be more indicative of a big dog, etc.). Edminston & Lupyan (2015) demonstrate this effect by showing that participants take longer to recognize a picture of a referent after hearing a sound associated with said referent than they do upon hearing the label. 
-
-In our replication, we will be revisiting experiment "1A" from the Edminston & Lupyan (2015) paper. We will set up an online picture-recognition task using the same materials found in the original paper. We will try and replicate the experiment exactly, manipulating the same mappings between sounds, labels, and pictures. 
-
-
+In our replication, we will be revisiting experiment "1A" from the
+Edminston & Lupyan (2015) paper. We will set up an online
+picture-recognition task using the same materials found in the original
+paper. We will try and replicate the experiment exactly, manipulating
+the same mappings between sounds, labels, and pictures.
 
 ## Methods
-Participants: 
-We will be shooting for around 2.5x the participants that Edminston & Lupyan (2015) had (see Power Analysis). They only targetted undergraduates, but, since we have an online study, we can target anyone who is willing to take the study, thus testing the generalizability of Edminston & Lupyan's (2015) results. 
 
-Materials: 
-We will use the same materials as Edminston & Lupyan (2015): labels and environmental sounds for six categories: bird, dog, drum, guitar, motorcycle, and phone. Each category will have two separate images and two separate environmental sounds. We will also implement a male and female voice for our spoken labels. 
+Participants: We will be shooting for around 2.5x the participants that
+Edminston & Lupyan (2015) had (see Power Analysis). They only targetted
+undergraduates, but, since we have an online study, we can target anyone
+who is willing to take the study, thus testing the generalizability of
+Edminston & Lupyan's (2015) results.
 
-Procedure: 
-We will follow the same procedure as Edminston & Lupyan (2015). Participants will hear a cue and see a picture, and will be prompted to decide as "quickly and accurately as possible if the picture they saw came from the same basic-level category as the word or sound they heard" (Edminston & Lupyan pp.94). Following Edminston & Lupyan (2015), some environmental sounds will be congruent with the picture (i.e., a big dog matched with a low-pitched bark). These will be labeled as "congruent sounds". Other environmental sounds will be deemed "incongruent sounds", in which the picture does not necessarily match the environmental sounds (i.e., a low pitched bark matched with a picture of a small dog). 
+Materials: We will use the same materials as Edminston & Lupyan (2015):
+labels and environmental sounds for six categories: bird, dog, drum,
+guitar, motorcycle, and phone. Each category will have two separate
+images and two separate environmental sounds. We will also implement a
+male and female voice for our spoken labels.
 
+Procedure: We will follow the same procedure as Edminston & Lupyan
+(2015). Participants will hear a cue and see a picture, and will be
+prompted to decide as "quickly and accurately as possible if the picture
+they saw came from the same basic-level category as the word or sound
+they heard" (Edminston & Lupyan pp.94). Following Edminston & Lupyan
+(2015), some environmental sounds will be congruent with the picture
+(i.e., a big dog matched with a low-pitched bark). These will be labeled
+as "congruent sounds". Other environmental sounds will be deemed
+"incongruent sounds", in which the picture does not necessarily match
+the environmental sounds (i.e., a low pitched bark matched with a
+picture of a small dog).
 
 ### Power Analysis
-Since their paper used a mixed effects linear regression model, we were not able to straightforwardly conduct a power analysis. In order to mitigate this, we just intend on collecting 2.5x the amount of participants as they did. Since they collected 43 participants, we will collect ~108 participants. This should be a large enough sample size to examine whether the effect they report holds up. 
+
+Since their paper used a mixed effects linear regression model, we were
+not able to straightforwardly conduct a power analysis. In order to
+mitigate this, we just intend on collecting 2.5x the amount of
+participants as they did. Since they collected 43 participants, we will
+collect \~108 participants. This should be a large enough sample size to
+examine whether the effect they report holds up.
 
 ### Planned Sample
-As mentioned previously, we will aim for ~108 partitipants, 2.5x the amount used in hte original paper. 
+
+In their original study, Edminston & Lupyan (2015) used "43 University
+of Wisconsin–Madison undergraduates participated in Experiment 1A in
+exchange for course credit.”
+
+For the current study, we will aim for \~108 participants, 2.5x the
+amount used in the original paper.
 
 ### Materials
-"The auditory cues comprised basic-level category labels and environmental sounds for six categories: bird, dog, drum, guitar, motorcycle, and phone. For each category, we obtained two distinct environmental sound cues, e.g., <classical guitar strum>, <electric guitar strum>, and two separate images for each subordinate category, e.g., two electric guitars for <electric guitar strum>, two acoustic guitars for <electric guitar strum>. To control for cue variability, we also used two versions of each spoken category label:one pronounced by a female speaker, one by a male speaker. All auditory cues were equated in duration (600 ms.) and normalized in volume. The images were color photographs (four images per category)." (pp. 94) 
 
-### Procedure	
-"On each trial participants heard a cue and saw a picture. We instructed participants to decide as quickly and accurately as possible if the picture they saw came from the same basic-level category as the word or sound they heard Participants were tested in individual rooms sitting approximately 2400 from a monitor such that images subtended 10  10. Trials began with a 250 ms. fixation cross followed immediately by the auditory cue, delivered via headphones. The target image appeared centrally 1 s after the offset of the auditory cue and remained visible until a response was made. Each participant completed 6 practice and 384 test trials. If the picture matched the auditory cue (50% of trials) participants were instructed to respond ‘Yes’ on a gaming controller (e.g., <cellphone ring> or ‘‘phone’’ followed by a picture of any phone). Otherwise, they were to press ‘No’ (e.g., <cellphone ring> or ‘‘phone’’ followed by a dog). All factors (cue type, congruence) varied randomly within subjects. Auditory feedback (buzz or bleep) was given after each trial." (pp. 94)
+From the original study: "The auditory cues comprised basic-level
+category labels and environmental sounds for six categories: bird, dog,
+drum, guitar, motorcycle, and phone. For each category, we obtained two
+distinct environmental sound cues, e.g., <classical guitar strum>,
+<electric guitar strum>, and two separate images for each subordinate
+category, e.g., two electric guitars for <electric guitar strum>, two
+acoustic guitars for <electric guitar strum>. To control for cue
+variability, we also used two versions of each spoken category label:one
+pronounced by a female speaker, one by a male speaker. All auditory cues
+were equated in duration (600 ms.) and normalized in volume. The images
+were color photographs (four images per category)." (pp. 94)
+
+### Procedure
+
+From the original study: "On each trial participants heard a cue and saw
+a picture. We instructed participants to decide as quickly and
+accurately as possible if the picture they saw came from the same
+basic-level category as the word or sound they heard Participants were
+tested in individual rooms sitting approximately 2400 from a monitor
+such that images subtended 10 10. Trials began with a 250 ms. fixation
+cross followed immediately by the auditory cue, delivered via
+headphones. The target image appeared centrally 1 s after the offset of
+the auditory cue and remained visible until a response was made. Each
+participant completed 6 practice and 384 test trials. If the picture
+matched the auditory cue (50% of trials) participants were instructed to
+respond ‘Yes’ on a gaming controller (e.g., <cellphone ring> or
+‘‘phone’’ followed by a picture of any phone). Otherwise, they were to
+press ‘No’ (e.g., <cellphone ring> or ‘‘phone’’ followed by a dog). All
+factors (cue type, congruence) varied randomly within subjects. Auditory
+feedback (buzz or bleep) was given after each trial." (pp. 94)
 
 ### Analysis Plan
 
-Can also quote directly, though it is less often spelled out effectively for an analysis strategy section.  The key is to report an analysis strategy that is as close to the original - data cleaning rules, data exclusion rules, covariates, etc. - as possible.  
+From the original study: “All participants performed very accurately on
+all items (M = 97%). Response times (RTs) shorter than 250 ms. or longer
+than 1500 ms. were removed (292 trials removed, 1.77% of total). We fit
+RTs for correct responses on matching trials (‘Yes’ responses) with
+linear mixed regression using maximum likelihood estimation (Bates,
+Maechler, Bolker, & Walker, 2013), including random intercepts and
+random slopes for within-subject factors and random intercepts for
+repeated items (unique trial types) following the recommendations of
+Barr, Levy, Scheepers, and Tily (2013). Reported below are the parameter
+estimates (b) and confidence intervals for each contrast of interest.
+Significance tests were calculated using chi-square tests that compared
+nested models—models with and without the factor of interest—on
+improvement in log-likelihood.” (pp.94/95)
 
-**Clarify key analysis of interest here**  You can also pre-specify additional analyses you plan to do.
+In our replication, we will follow their analysis as closely as
+possible: we will remove trials where response time is shorter than 250
+ms or longer than 1500ms. We will also try to closely replicate the same
+linear mixed-effects regression model, including the same main effects
+and random structure. Furthermore, we will also implement the
+chi-squared tests they ran that compared models with-and without the
+main effect using log-likelihood. We predict that their results will
+replicate; that verbal labels will elicit faster responses than sounds,
+and that congruent sounds will eleicit faster response times that
+incongruent sounds.
+
+**Clarify key analysis of interest here** Linear mixed regression model,
+chi-square tests of nested models with and without the factor of
+interest.
 
 ### Differences from Original Study
 
-Our project will be online, while there's was in-person. This will allow us to test a larger, more diverse population, but will also inhibit us from exactly replicating their study. 
+Our project will be online, while there's was in-person, in a lab
+setting. One thing we have to consider that might influence reaction
+time in our replication is internet speed/technical issues that may
+arise while participants take our online study. Furthermore,
+participants may be more prone to distractions, as we are unable to
+control their location. In addition, our participants will have to use
+their keyboards on their computers to react to stimuli, while, in the
+original study, participants used a video-game controller. This may
+result in a difference in reaction time in either direction that we are
+unable to straightforwardly control for exactly.
 
 ### Methods Addendum (Post Data Collection)
 
-You can comment this section out prior to final report with data collection.
+You can comment this section out prior to final report with data
+collection.
 
 #### Actual Sample
-  Sample size, demographics, data exclusions based on rules spelled out in analysis plan
+
+Sample size, demographics, data exclusions based on rules spelled out in
+analysis plan
 
 #### Differences from pre-data collection methods plan
+
 none
 
+## Design Review
 
+1 factor was directly manipulated in Edminston & Lupyan (2015). This was
+the auditory cue participants heard, which could either be a label, a
+congruent environmental sound, or an incongruent environmental sound.
+
+One measurement was taken, which was reaction time of the participants.
+
+They used a within-participant design, subjecting participants to the
+same condition
+
+The measures were repeated. 384 trials
+
+There would be more confounds, and a difference in reaction time if the
+experimental design was switched.
+
+They did not mention any direct measures to lessen the impact of demand
+characteristics.
+
+They should have added some attention checks, given how many trials they
+had. I also would have kept the "incorrect" trials, given the fact that
+the incongruent labels may have resulted in a "no" response, which could
+be experimentally valid.
+
+A confound could have been that they did not use a varied enough sample,
+more specifically, their sample was primarily undergraduates, which
+could mean that their population was skewed more towards the WEIRD
+population.
+
+## Pilot A
+
+For Pilot A, we closely followed the experiment described in the
+original study. The GitHub page for our paradigm is linked below:
+
+Link to experimental paradigm:
+https://ucsd-psych201a.github.io/edmiston2015/
+
+For our pilor, we collected data from three participants that we
+recruited using personal connections. This data was imported and
+uploaded to the data folder in the project repository, which can be
+found on our GitHub repoisitory here:
+
+https://github.com/ucsd-psych201a/edmiston2015/tree/main/data
 
 ## Results
-1 factor was directly manipulated in Edminston & Lupyan (2015). This was the auditory cue participants heard, which could either be a label, a congruent environmental sound, or an incongruent environmental sound. 
-
-One measurement was taken, which was reaction time of the participants. 
-
-They used a within-participant design, subjecting participants to the same condition
-
-The measures were repeated. 384 trials 
-
-There would be more confounds, and a difference in reaction time if the experimental design was switched. 
-
-They did not mention any direct measures to lessen the impact of demand characteristics. 
-
-They should have added some attention checks, given how many trials they had. I also would have kept the "incorrect" trials, given the fact that the incongruent labels may have resulted in a "no" response, which could be experimentally valid. 
-
-A confound could have been that they did not use a varied enough sample. 
-
 
 ### Data preparation
-As mentioned previously, we will be replicating experiment 1A from Edminston & Lupyan (2015). As for our data preparation, we will be making sure to label the type of relationship between the sound participants hear in a given trial, and its match to the picture. In other words, we will define whether a particular trial is a label (which will just be a word such as "dog, or "guitar"), congruent sound, or incongruent sound. Furthermore, we will use the exact same audio and visual stimuli as Edminston & Lupyan (2015). All of the different audio files have already been clipped to make them match in duration, and they have all been amplitude normalized. 
 
-After we have collected our data, we will filter outliers in the exact same way as Edminston & Lupyan (2015). More specifically, we will filter out any reaction time (rt) that is lower that 250 ms, and any that is greater than 1500 ms. It also seems as though Edminston & Lupyan (2015) filtered out incorrect responses, but I am not certain about this. 
+As mentioned previously, we will be replicating experiment 1A from
+Edminston & Lupyan (2015). As for our data preparation, we will be
+making sure to label the type of relationship between the sound
+participants hear in a given trial, and its match to the picture. In
+other words, we will define whether a particular trial is a label (which
+will just be a word such as "dog, or "guitar"), congruent sound, or
+incongruent sound. Furthermore, we will use the exact same audio and
+visual stimuli as Edminston & Lupyan (2015). All of the different audio
+files have already been clipped to make them match in duration, and they
+have all been amplitude normalized.
 
-	
-```{r include=F}
+After we have collected our data, we will filter outliers in the exact
+same way as Edminston & Lupyan (2015). More specifically, we will filter
+out any reaction time (rt) that is lower that 250 ms, and any that is
+greater than 1500 ms. It also seems as though Edminston & Lupyan (2015)
+filtered out incorrect responses, but I am not certain about this.
+
+```{r}
 ### Data Preparation
 
 #### Load Relevant Libraries and Functions
@@ -101,7 +248,7 @@ library(lme4)
 
 #### Import data
 #replace this with your own path (for now)
-folder_path <- "/Users/ritalavi/Desktop/edmiston2015/data"
+folder_path <- "../data"
 csv_files <- list.files(folder_path, pattern = "*.csv", full.names = TRUE)
 df_list <- lapply(csv_files, read_csv)
 combined_df <- bind_rows(df_list)
@@ -139,20 +286,81 @@ combined_df <- combined_df %>%
 
 ### Confirmatory analysis
 
-Following Edminston & Lupyan (2015), we will be fitting mixed effects linear regression models to our response time data (which will be filtered for correct responses on matching trials (i.e., 'Yes' responses)). The model will include random intercepts, random slopes for within-subject factors, and random intercepts for repeated items. We will report the parameter estimates and confidence intervals for each "contrast of interest" (pp.94). Furthermore, we will calculate chi-square tests that will "compare nested models--models with and without the factor of interest--on improvement in log-likelihood" (pp.94). 
+Following Edminston & Lupyan (2015), we will be fitting mixed effects
+linear regression models to our response time data (which will be
+filtered for correct responses on matching trials (i.e., 'Yes'
+responses)). The model will include random intercepts and random slopes
+for within-subject factors (i.e. "subject"), and random intercepts for
+repeated items (i.e. what item was used (bird, guitar, dog, etc.)). The
+main effect (or "contrast of interest") of the model will be the
+"condition" variable, which will denote whether a particular trial
+presented a label, congruent sound, or incongruent sound. We will report
+the parameter estimates and confidence intervals for each "contrast of
+interest" (pp.94). Furthermore, we will calculate chi-square tests that
+will "compare nested models--models with and without the factor of
+interest--on improvement in log-likelihood" (pp.94).
+
+Our analysis presented here tests the main inference of the paper, which
+is that condition effects reaction time. More specifically, by comparing
+our parameter estimates for condition = label, condition = congruent,
+and condition = incongruent, we can get a sense of exactly how the
+different conditions influence reaction time. Crucially, the model
+allows us to compare the effect on reaction time each condition has to
+each other We expect that the output of our model will look very similar
+to the results that Edminston & Lupyan (2015) present.
+
+Furthermore, creating a new model without this factor of interest and
+comparing it performance to the full model will allow us to better
+understand if the factor of interest truly accounts for the trends we
+see.
 
 *Side-by-side graph with original graph is ideal here*
 
+```{r}
+library(lmerTest)
+library(emmeans)
+library(lme4)
+
+#shows you a comparsion between reference (congruent) and the other two values (incongruent and label)
+model_full <- lmer(rt ~ congruency + (1 + congruency|ID) + (1|sound_category), data = combined_df)
+
+summary(model_full)
+
+#get 95% CI
+confint.merMod(model_full,method="Wald")
+
+#post-hoc test: allows you to examine relationship between incongruent and label
+model_full %>% 
+  emmeans(pairwise ~ congruency,
+          #adjusts p values so that it is more difficult to get a significance (correction method)
+          adjust = "bonferroni") %>% 
+  pluck("contrasts")
+
+
+
+#model shows us that incongruent takes longer than congruent b = 28.7, that label is shorter than congruent (b = -15.52), and that incongruent takes longer than label b = 44.3 (find 95% CI) 
+```
+
 ### Exploratory analyses
 
-Any follow-up analyses desired (not required).  
+Any follow-up analyses desired (not required).
 
 ## Discussion
 
 ### Summary of Replication Attempt
 
-Open the discussion section with a paragraph summarizing the primary result from the confirmatory analysis and the assessment of whether it replicated, partially replicated, or failed to replicate the original result.  
+Open the discussion section with a paragraph summarizing the primary
+result from the confirmatory analysis and the assessment of whether it
+replicated, partially replicated, or failed to replicate the original
+result.
 
 ### Commentary
 
-Add open-ended commentary (if any) reflecting (a) insights from follow-up exploratory analysis, (b) assessment of the meaning of the replication (or not) - e.g., for a failure to replicate, are the differences between original and present study ones that definitely, plausibly, or are unlikely to have been moderators of the result, and (c) discussion of any objections or challenges raised by the current and original authors about the replication attempt.  None of these need to be long.
+Add open-ended commentary (if any) reflecting (a) insights from
+follow-up exploratory analysis, (b) assessment of the meaning of the
+replication (or not) - e.g., for a failure to replicate, are the
+differences between original and present study ones that definitely,
+plausibly, or are unlikely to have been moderators of the result, and
+(c) discussion of any objections or challenges raised by the current and
+original authors about the replication attempt. None of these need to be
+long.
