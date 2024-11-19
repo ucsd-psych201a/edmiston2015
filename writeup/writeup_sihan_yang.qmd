@@ -16,6 +16,7 @@ format:
 
 "Verbal labels, such as the words 'dog' and 'guitar', activate conceptual knowledge more effectively than corresponding environmental sounds, such as a dog bark or a guitar strum, even though both are unambiguous cues to the categories of dogs and guitars (Lupyan & Thompson-Schill, 2012). We hypothesize that this advantage of labels emerges because word-forms, unlike other cues, do not vary in a motivated way with their referent. The sound of a guitar cannot help but inform a listener to the type of guitar making it (electric, acoustic, etc.). The word 'guitar' on the other hand, can leave the type of guitar unspecified. We argue that as a result, labels gain the ability to cue a more abstract mental representation, promoting efficient processing of category members. In contrast, environmental sounds activate representations that are more tightly linked to the specific cause of the sound. Our results show that upon hearing environmental sounds such as a dog bark or guitar strum, people cannot help but activate a particular instance of a category, in a particular state, at a particular time, as measured by patterns of response times on cue-picture matching tasks (Exps. 1–2) and eye-movements in a task where the cues are task-irrelevant (Exp. 3). In comparison, labels activate concepts in a more abstract, decontextualized way—a difference that we argue can be explained by labels acting as 'unmotivated cues'." (the abstract of the original paper Edmiston & Lupyan, 2015)  
 
+In this study, we will replicate Experiment 1A from the original paper. Specifically, we will test whether recognizing an image following a sound cue is slower than recognizing an image following a label cue, and whether this difference is because a sound cues a more specific category than a label. We will use the same experimental paradigm and materials as the original study, but with a larger but with a different sample size and population and an online format instead of the original in-lab setting.
 
 ## Methods
 
@@ -53,9 +54,11 @@ The main covariate in this experiment will be "the presence of incongruent sound
 
 #### Key Analysis
 
-We will "fit RTs for correct responses on matching trials (‘Yes’ responses) with linear mixed regression using maximum likelihood estimation (Bates, Maechler, Bolker, & Walker, 2013), including random intercepts and random slopes for within-subject factors and random intercepts for repeated items (unique trial types) following the recommendations of Barr, Levy, Scheepers, and Tily (2013)." (Edmiston & Lupyan, 2015)
+We will "fit RTs for correct responses on matching trials (‘Yes’ responses)" under three conditions of different cues (verbal label cue, congruent sound cue, incongruent sound cue), "with linear mixed regression using maximum likelihood estimation (Bates, Maechler, Bolker, & Walker, 2013), including random intercepts and random slopes for within-subject factors and random intercepts for repeated items (unique trial types) following the recommendations of Barr, Levy, Scheepers, and Tily (2013)." (Edmiston & Lupyan, 2015). 
 
 We will report the "parameter estimates (b) and confidence intervals for each contrast of interest" (Edmiston & Lupyan, 2015). Significance tests will be calculated "using chi-square tests that compared nested models—models with and without the factor of interest—on improvement in log-likelihood" (Edmiston & Lupyan, 2015).
+
+According to the original study, we predict that the analysis above should show that (1) verbal labels elicit faster responses than sound labels, and (2) congruent sounds elicit faster response than incongruent sounds, with statistical significance (indicated by chi-square test p value less than 0.05).
 
 ### Differences from Original Study
 
@@ -104,6 +107,10 @@ Do you see any limitations to generalizability?
 
 Data preparation following the analysis plan.
 
+#### Pilot Test (for Project Checkpoint A)
+
+We conducted pilot tests involving three participants. All data are collected using the [online experiment link](https://ucsd-psych201a.github.io/edmiston2015/). The data is available [here]( https://github.com/ucsd-psych201a/edmiston2015/tree/main/data). 
+
 #### Data cleaning and Data Exclusion Rules
 
 Before testing the main hypothesis of the original study, we will first examine the average performance (accuracy) to determine if it is comparable to the original study. This will involve calculating each participant's accuracy and using a t-test to examine whether performance differs qualitatively between the original and new participants.
@@ -111,20 +118,6 @@ Before testing the main hypothesis of the original study, we will first examine 
 Trials with response times (RTs) that are too short or too long will be filtered out. The original study applied thresholds of 250 ms and 1500 ms for the lower and upper bounds, respectively. Before applying filtering, we will check if the new data shows a similar RT distribution.
 
 Only RTs for correct responses on matching trials will be used for further analysis, following the original study’s approach.
-
-### Confirmatory analysis
-
-#### Key Analysis
-
-We will "fit RTs for correct responses on matching trials (‘Yes’ responses) with linear mixed regression using maximum likelihood estimation (Bates, Maechler, Bolker, & Walker, 2013), including random intercepts and random slopes for within-subject factors and random intercepts for repeated items (unique trial types) following the recommendations of Barr, Levy, Scheepers, and Tily (2013)." (Edmiston & Lupyan, 2015)
-
-We will report the "parameter estimates (b) and confidence intervals for each contrast of interest" (Edmiston & Lupyan, 2015). Significance tests will be calculated "using chi-square tests that compared nested models—models with and without the factor of interest—on improvement in log-likelihood" (Edmiston & Lupyan, 2015).
-
-*Side-by-side graph with original graph is ideal here*
-
-#### Pilot Test (for Project Checkpoint A)
-
-We conducted pilot tests involving three participants. All data are collected using the [online experiment link](https://ucsd-psych201a.github.io/edmiston2015/). The data is available [here]( https://github.com/ucsd-psych201a/edmiston2015/tree/main/data). 
 
 The following code prepare the data for fitting a linear mixed model for response time under different conditions: (1) label cue matches the image, (2) auditory cue matches the image but is incongruent, and (3) auditory cue matches the image and is congruent. 
 	
@@ -179,6 +172,49 @@ tail(combined_df)
 #### Apply the Linear Mixed Model
 
 ```
+
+### Confirmatory analysis
+
+#### Key Analysis
+
+This analysis is to test whether (1) verbal labels elicit faster responses than sound labels, and (2) congruent sounds elicit faster response than incongruent sounds, with statistical significance, as suggested by the result of Experiment 1A from the original study.
+
+As proposed in our analysis plan, we follow Edminston & Lupyan (2015) fitting reaction time for correct responses on matching trials under three conditions of different cues (verbal label cue, congruent sound cue, incongruent sound cue) using a linear mixed regression model. The model includes random intercepts and random slopes for within-subject factors and random intercepts for repeated items (unique trial types). The main effect (or “contrast of interest”) of the model will be the “condition” variable, which denotes whether a particular trial presented a label, congruent sound, or incongruent sound. 
+
+In the following section, we will report the parameter estimates and confidence intervals for each “contrast of interest”. The parameter estimates for each condition should indicate how much each condition influences reaction time. Furthermore, to quantify our confidence in how much the factors of interest truly accounts for the trends we see, we conduct chi-square tests by comparing whether “nested models–models with and without the factor of interest–on improvement in log-likelihood”. We will the resulting p-value as the statistical significance of the effect.
+
+We expect that the output of our model will be similar to the results presented in Edminston & Lupyan (2015).
+
+The following code fit the mixed-effect linear regression model and reports the associated statistics.
+
+```{r}
+library(lmerTest)
+library(emmeans)
+library(lme4)
+
+# compare between reference (congruent) and the other two values (incongruent and label)
+model_full <- lmer(rt ~ congruency + (1 + congruency|ID) + (1|sound_category), data = combined_df)
+
+summary(model_full)
+
+#get 95% CI
+confint.merMod(model_full,method="Wald")
+
+#post-hoc test: examine relationship between incongruent and label
+model_full %>% 
+  emmeans(pairwise ~ congruency,
+          #adjusts p values so that it is more difficult to get a significance (correction method)
+          adjust = "bonferroni") %>% 
+  pluck("contrasts")
+
+# the model suggests that: 
+# incongruent takes longer than congruent (b = 28.7)
+# label takes shorter than congruent (b = -15.52)
+# incongruent takes longer than label (b = 44.3) 
+```
+The result suggests that `r `model_full.pluck(emm_df[emm_df$congruency == "specific_value", ], "estimate")`
+
+*Side-by-side graph with original graph is ideal here*
 
 ### Exploratory analyses
 
