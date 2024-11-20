@@ -164,11 +164,11 @@ function create_img_display(img_name, correct_response) {
     var img = {
         type: jsPsychImageKeyboardResponse,
         stimulus: `experiment/stimuli/pictures/${img_name}.jpg`,
-        choices: ['y', 'n'],
+        choices: ['f', 'j'],
         prompt: `
             <div style="display: block; text-align: center; margin-bottom: 100px;">
                 Does this image match the auditory cue?<br>
-                Press <strong> Y </strong> for yes, <strong> N </strong> for no.
+                Press <strong> F </strong> for yes, <strong> J </strong> for no.
             </div>
         `,
         response_ends_trial: true, // Keeps image visible until response
