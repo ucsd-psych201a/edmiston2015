@@ -119,7 +119,7 @@ var welcome = {
     stimulus: `
         <div style="text-align: center; line-height: 1.6;">
             <p><strong>Welcome to the experiment.</strong></p>
-            <p>There ar ${N_TRIALS} trials (with ${N_PRACTICE} practice). This will take about 20 minutes to complete.</p>
+            <p>There are ${N_TRIALS} trials (with ${N_PRACTICE} practice). This will take about 20 minutes to complete.</p>
             <p>We recommend completing these trials in a quiet setting. Headphones are strongly recommended.</p>
             <p><strong>Press any key to begin.</strong></p>
         </div>
@@ -370,9 +370,9 @@ function generate_trials(N_trials, exp_part) {
 const instructions = {
     type: jsPsychHtmlButtonResponse,
     stimulus: `<h2>Instructions & Practice</h2>
-               <p>Your task is to decide as quickly and accurately as possible if auditory cue you hear matches the image you see.</p>
+               <p>Your task is to decide as quickly and accurately as possible if the auditory cue you hear matches the image you see.</p>
                <p> First you will hear an auditory cue, then you will see an image. </p>
-               <p>Press letter "Y", yes if it matches the image you saw, and letter "N", no if it does not.</p>`,
+               <p>Press letter "F", <strong>yes</strong> if it matches the image you saw, and letter "J", <strong>no</strong> if it does not.</p>`,
     choices: ['Start Practice'],
     button_html: ['<button class="jspsych-btn">%choice%</button>']
 
