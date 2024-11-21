@@ -35,12 +35,11 @@
 var jsPsych = initJsPsych({
     show_progress_bar: true,
     auto_update_progress_bar: false,
-    /*
     on_finish: function() {
-        jsPsych.data.displayData();
-        jsPsych.data.get().filter({part: 'result'}).localSave('csv', 'experiment_data.csv'); // download result to local
+        // jsPsych.data.displayData();
+        // jsPsych.data.get().filter({part: 'result'}).localSave('csv', 'experiment_data.csv'); // download result to local
+        window.location = "https://app.prolific.com/submissions/complete?cc=C13FRUQA"
     },
-    */
 });
 
 //create timeline
@@ -157,6 +156,14 @@ function updateTrialCounter() {
     document.getElementById('trial-counter').textContent = `Trial ${trial_count} of ${N_TRIALS}`;
 }
 
+// Delay trial of 1000 ms (1 second) after audio ends
+const delay = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: '', // Blank screen
+    choices: "NO_KEYS", // Prevents any response
+    trial_duration: 1000 // 1-second delay
+};
+
 // before practice: test the audio and keyboard
 const test_audio_keyboard_intro = {
     type: jsPsychHtmlKeyboardResponse,
@@ -197,6 +204,9 @@ function create_test_audio(letter) {
 // test f button
 const letter_f_test = create_test_audio("f");
 timeline.push(letter_f_test);
+
+// a delay
+timeline.push(delay);
 
 // test j button
 const letter_j_test = create_test_audio("j");
@@ -313,13 +323,6 @@ const fixation_cross = {
     stimulus: '<div style="font-size: 48px;">+</div>', // You can change the symbol or style as needed
     choices: "NO_KEYS", // Prevents any key from being pressed
     trial_duration: 250 // Display for 250 ms
-};
-// Delay trial of 1000 ms (1 second) after audio ends
-const delay = {
-    type: jsPsychHtmlKeyboardResponse,
-    stimulus: '', // Blank screen
-    choices: "NO_KEYS", // Prevents any response
-    trial_duration: 1000 // 1-second delay
 };
 
 // Feedback trial
