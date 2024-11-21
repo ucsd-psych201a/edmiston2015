@@ -293,7 +293,7 @@ const post_trial_process = {
 // Helper function to create Y (match) and N (mismatch) trials
 function create_trial(img, sound, correct_response, exp_part) {
     let cue = create_cue_to_play(sound.fname);
-    let img_display = create_img_display(img.fname);
+    let img_display = create_img_display(img.fname, correct_response);
 
     // group all phases into one nested trial
     let single_word_trial = {
