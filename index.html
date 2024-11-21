@@ -45,8 +45,8 @@ var jsPsych = initJsPsych({
 var timeline = [];
 
 //set number of trials
-const N_PRACTICE = 6;
-const N_TRIALS = 384; // DEBUG
+const N_PRACTICE = 2; // 6;
+const N_TRIALS = 2; // 384;
 
 // list all stims to use
 const IMAGE_PATH_LIST = [
@@ -332,7 +332,7 @@ function generate_trials(N_trials, exp_part) {
         match_sounds.forEach(sound => {
             for (let i=0;i<yes_trial_repeat;i++) {
                 // safer way to repeat (than using jsPsych.randomization.repeat)
-                let new_trial = create_trial(img, sound, 'y', exp_part);
+                let new_trial = create_trial(img, sound, 'f', exp_part);
                 trials.push(new_trial);
             }
         });
@@ -346,7 +346,7 @@ function generate_trials(N_trials, exp_part) {
         let mismatch_imgs = all_img_stims.filter(img => img.category !== sound.category);
         let imgs = jsPsych.randomization.sampleWithoutReplacement(mismatch_imgs, n_mismatch_each_sound);
         imgs.forEach(img => {
-            let new_trial = create_trial(img, sound, 'n', exp_part);
+            let new_trial = create_trial(img, sound, 'j', exp_part);
             trials.push(new_trial);
         });
     }
@@ -390,7 +390,7 @@ const actual_trials_instructions = {
     stimulus: `<h2>Starting Actual Trials</h2>
                <p>Your task is to decide as quickly and accurately as possible if auditory cue you hear matches the image you see.</p>
                <p> First you will hear an auditory cue, then you will see an image. </p>
-               <p>Press letter "Y", yes if it matches the image you saw, and letter "N", no if it does not.</p>`,
+               <p>Press letter "F", yes if it matches the image you saw, and letter "J", no if it does not.</p>`,
     choices: ['Start Actual Test'],
     button_html: ['<button class="jspsych-btn">%choice%</button>']
 };
