@@ -77,7 +77,7 @@ library(lme4)
 
 #### Import data
 #replace this with your own path (for now)
-folder_path <- "/Users/jennabrooks/Documents/GitHub/edmiston2015"
+folder_path <- "../data"
 csv_files <- list.files(folder_path, pattern = "*.csv", full.names = TRUE)
 df_list <- lapply(csv_files, read_csv)
 combined_df <- bind_rows(df_list)
@@ -112,13 +112,67 @@ combined_df <- combined_df %>%
 combined_df <- combined_df %>%
   select(rt, ID, sound_category,cue, congruency)
 ```
+## Design Overview
+How many factors were manipulated?
+In this experiment one factor, the auditory cue, was manipulated. Within this factor there are conditions - congruent sound, incongruent sound, and label. 
+
+How many measures were taken?
+Reaction time was the only measure taken. 
+
+Did it use a within-participants or between-participants design?
+It uses within-participants design where everyone does each condition. 
+
+Were measures repeated?
+Yes measures were repeated for 384 experimental trials. 
+
+What would have been the consequence of changing one of these decisions? (e.g. moving from within to between participants). Could it have been either way?
+There would be more confounds if it was between participants because people have different reaction times to stimuli, therefore the measures wouldn't be as accurate. 
+
+Were steps taken to reduce demand characteristics?
+They didn't take any measures to reduce demand characteristics. 
+
+How would you critique the design?
+To improve the experiment attention checks could be added. Given that incorrect responses could be labeled incongruent, incorrect responses could have also been included in the data. 
+
+Can you think of any potential confounds to the study?
+
+Do you see any limitations to generalizability?
+This sample could not be representative of all populations because it only studied undergraduates and WEIRD populations. 
 
 ### Confirmatory analysis
+Building on the methodology of Edminston & Lupyan (2015), we will analyze our response time data using mixed-effects linear regression models. This data will be filtered to include only correct responses from matching trials ("Yes" responses). The model will feature random intercepts and random slopes for within-subject factors (e.g., "subject") and random intercepts for repeated items (e.g., the specific item presented: bird, guitar, dog, etc.). The primary variable of interest ("contrast of interest") is the "condition," which specifies whether a trial involved a label, a congruent sound, or an incongruent sound. For each contrast of interest, we will report parameter estimates and confidence intervals (p. 94). Additionally, we will conduct chi-square tests to compare nested models—those with and without the factor of interest—by evaluating the improvement in log-likelihood (p. 94).
 
-A linear mixed regression model will be used to analyze response times for correct responses including "random intercepts and random slopes for within-subject factors and random intercepts for repeated items (unique trial types)"(Edmiston & Lupyan, 2015).  
-In addition, significance tests using chi-square tests will be used to compare nested models, as was done in the original study, to assess the impact of factors with and without interest on response times. 
+This analysis directly addresses the paper's key hypothesis: that the condition affects response times. By examining parameter estimates for the conditions (label, congruent, and incongruent), we can assess how each condition uniquely influences response time. Importantly, the model enables us to compare these effects across conditions. We anticipate that our results will closely align with those reported by Edminston & Lupyan (2015).
 
-Here is the link to the data we have collected for Pilot A so far: https://github.com/ucsd-psych201a/edmiston2015/tree/main/data Feedback from participants includes adding more attention checks and specifying in the instructions to use a laptop or computer for this study. We would also like to add a trial counter that allows participants to see their progress in the study.  
+Finally, by constructing a model that excludes the factor of interest and comparing its performance to the full model, we aim to confirm whether this factor genuinely explains the observed patterns in the data.
+
+*Side-by-side graph with original graph is ideal here*
+
+```{r}
+library(lmerTest)
+library(emmeans)
+library(lme4)
+
+#shows you a comparsion between reference (congruent) and the other two values (incongruent and label)
+model_full <- lmer(rt ~ congruency + (1 + congruency|ID) + (1|sound_category), data = combined_df)
+
+summary(model_full)
+
+#get 95% CI
+confint.merMod(model_full,method="Wald")
+
+#post-hoc test: allows you to examine relationship between incongruent and label
+model_full %>% 
+  emmeans(pairwise ~ congruency,
+          #adjusts p values so that it is more difficult to get a significance (correction method)
+          adjust = "bonferroni") %>% 
+  pluck("contrasts")
+
+
+
+#model shows us that incongruent takes longer than congruent b = 28.7, that label is shorter than congruent (b = -15.52), and that incongruent takes longer than label b = 44.3 (find 95% CI) 
+```
+
 
 *Side-by-side graph with original graph is ideal here*
 

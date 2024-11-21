@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Reeka Estacio">
-<meta name="dcterms.date" content="2024-11-11">
+<meta name="dcterms.date" content="2024-11-19">
 
 <title>Replication of Experiment 1A by Edmiston &amp; Lupyan (2015, Cognition)</title>
 <style>
@@ -3134,7 +3134,7 @@ vertical-align: -.125em;
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 11, 2024</p>
+      <p class="date">November 19, 2024</p>
     </div>
   </div>
   
@@ -3320,7 +3320,106 @@ dbl  (3): rt, time_elapsed, img_version
 </section>
 <section id="confirmatory-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="confirmatory-analysis">Confirmatory analysis</h3>
-<p>The analyses as specified in the analysis plan. This will include a linear mixed regression model and chi-square test for significance.</p>
+<p>Following the confirmatory analysis of the original study, our replication will also perform a linear mixed effects regression model fit on response times to correct trials on congruent trials. The details of the analysis are specified in the “Analysis Plan” section of this writeup.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lmerTest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: &#39;lmerTest&#39;</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from &#39;package:lme4&#39;:
+
+    lmer</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from &#39;package:stats&#39;:
+
+    step</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Welcome to emmeans.
+Caution: You lose important information if you filter this package&#39;s results.
+See &#39;? untidy&#39;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#shows you a comparsion between reference (congruent) and the other two values (incongruent and label)</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>model_full <span class="ot">&lt;-</span> <span class="fu">lmer</span>(rt <span class="sc">~</span> congruency <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">+</span> congruency<span class="sc">|</span>ID) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>sound_category), <span class="at">data =</span> combined_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>boundary (singular) fit: see help(&#39;isSingular&#39;)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_full)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear mixed model fit by REML. t-tests use Satterthwaite&#39;s method [
+lmerModLmerTest]
+Formula: rt ~ congruency + (1 + congruency | ID) + (1 | sound_category)
+   Data: combined_df
+
+REML criterion at convergence: 7084.4
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.1472 -0.6470 -0.1764  0.4847  5.0899 
+
+Random effects:
+ Groups         Name                  Variance Std.Dev. Corr     
+ sound_category (Intercept)             215.45  14.678           
+ ID             (Intercept)           15307.56 123.724           
+                congruencyincongruent   164.86  12.840  0.96     
+                congruencylabel          39.75   6.304  0.76 0.91
+ Residual                             32186.30 179.405           
+Number of obs: 537, groups:  sound_category, 6; ID, 3
+
+Fixed effects:
+                      Estimate Std. Error      df t value Pr(&gt;|t|)  
+(Intercept)            649.923     72.791   2.019   8.929   0.0119 *
+congruencyincongruent   28.731     26.934   9.151   1.067   0.3134  
+congruencylabel        -15.523     17.065   2.204  -0.910   0.4513  
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Correlation of Fixed Effects:
+            (Intr) cngrncyn
+cngrncyncng 0.179          
+congrncylbl 0.031  0.400   
+optimizer (nloptwrap) convergence code: 0 (OK)
+boundary (singular) fit: see help(&#39;isSingular&#39;)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#get 95% CI</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">confint.merMod</span>(model_full,<span class="at">method=</span><span class="st">&quot;Wald&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                          2.5 %    97.5 %
+.sig01                       NA        NA
+.sig02                       NA        NA
+.sig03                       NA        NA
+.sig04                       NA        NA
+.sig05                       NA        NA
+.sig06                       NA        NA
+.sig07                       NA        NA
+.sigma                       NA        NA
+(Intercept)           507.25501 792.59033
+congruencyincongruent -24.05833  81.52049
+congruencylabel       -48.96988  17.92430</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#post-hoc test: allows you to examine relationship between incongruent and label</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>model_full <span class="sc">%&gt;%</span> </span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">emmeans</span>(pairwise <span class="sc">~</span> congruency,</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>          <span class="co">#adjusts p values so that it is more difficult to get a significance (correction method)</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">adjust =</span> <span class="st">&quot;bonferroni&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="st">&quot;contrasts&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> contrast                estimate   SE   df t.ratio p.value
+ congruent - incongruent    -28.7 27.4 1.95  -1.047  1.0000
+ congruent - label           15.5 17.3 1.97   0.898  1.0000
+ incongruent - label         44.3 25.9 1.96   1.709  0.6963
+
+Degrees-of-freedom method: kenward-roger 
+P value adjustment: bonferroni method for 3 tests </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#model shows us that incongruent takes longer than congruent b = 28.7, that label is shorter than congruent (b = -15.52), and that incongruent takes longer than label b = 44.3 (find 95% CI) </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p><em>Side-by-side graph with original graph is ideal here</em></p>
 </section>
 <section id="exploratory-analyses" class="level3">
