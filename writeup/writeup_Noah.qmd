@@ -337,8 +337,12 @@ model_full %>%
   pluck("contrasts")
 
 
-
 #model shows us that incongruent takes longer than congruent b = 28.7, that label is shorter than congruent (b = -15.52), and that incongruent takes longer than label b = 44.3 (find 95% CI) 
+
+#chi squared test 
+model_reduced <- lmer(rt ~ (1 + congruency|ID) + (1|sound_category), data = combined_df)
+
+anova(model_full, model_reduced)
 ```
 
 ### Exploratory analyses
