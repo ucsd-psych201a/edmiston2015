@@ -247,7 +247,8 @@ library(readr)
 library(lme4)
 
 #### Import data
-folder_path <- "../data/pilot_b"
+#replace this with your own path (for now)
+folder_path <- "../data"
 csv_files <- list.files(folder_path, pattern = "*.csv", full.names = TRUE)
 df_list <- lapply(csv_files, read_csv)
 combined_df <- bind_rows(df_list)
@@ -256,7 +257,7 @@ combined_df <- bind_rows(df_list)
 #exclude 'No' trials 
 combined_df <- combined_df %>%
   mutate(response = as.character(response)) %>%
-  filter(response == "f")
+  filter(response == "y")
 #exclude practice trials 
 combined_df <- combined_df %>%
   filter(exp_part == "actual")
@@ -329,12 +330,14 @@ summary(model_full)
 confint.merMod(model_full,method="Wald")
 
 #post-hoc test: allows you to examine relationship between incongruent and label
-model_full %>%
+model_full %>% 
   emmeans(pairwise ~ congruency,
           #adjusts p values so that it is more difficult to get a significance (correction method)
-          adjust = "bonferroni") %>%
+          adjust = "bonferroni") %>% 
   pluck("contrasts")
 
+
+#model shows us that incongruent takes longer than congruent b = 28.7, that label is shorter than congruent (b = -15.52), and that incongruent takes longer than label b = 44.3 (find 95% CI) 
 
 #chi squared test 
 model_reduced <- lmer(rt ~ (1 + congruency|ID) + (1|sound_category), data = combined_df)
