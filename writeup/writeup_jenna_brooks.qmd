@@ -44,13 +44,24 @@ In addition, significance tests using chi-square tests will be used to compare n
 
 ### Differences from Original Study
 
-The original study used a remote controller.  The replication study will use the computer for responses and implement key responses to simulate buttons on controller. This should allow for accurate and quick responses. Participants were instructed to complete the study using headphones in a quiet environment. However, since the study was conducted online, experimenters had no control over participants' surroundings, which could introduce differences from the original study. Additionally, the original study controlled 
+The original study used a remote controller.  The replication study will use the computer for responses and implement key responses to simulate buttons on controller. This should allow for accurate and quick responses. Participants were instructed to complete the study using headphones in a quiet environment. However, since the study was conducted online, experimenters had no control over participants' surroundings, which could introduce differences from the original study.
 
 ## Pilot A
 
-For our Pilot A (with non-naive participants), we aimed to replicate the experimental paradigm described in the study. The GitHub page for our paradigm is linked below:
-
+For our Pilot A (with non-naive participants), we aimed to replicate the experimental paradigm described in the study. We collected an intial sampe of 3 participants from friends. The GitHub page for our paradigm is linked below:
 [Link to experimental paradigm](https://ucsd-psych201a.github.io/edmiston2015/)
+
+This data was imported and uploaded to the data folder in the project repository, which can be
+found on our GitHub repoisitory here:
+
+https://github.com/ucsd-psych201a/edmiston2015/tree/main/data
+
+
+##Pilot B
+We collected data for 5 participants. The average duration of the study was 25 minutes, exactly what we had predicted. 
+
+##Pre-Registration
+Our Pre-Registration can be found here: 
 
 ### Methods Addendum (Post Data Collection)
 
@@ -77,7 +88,7 @@ library(lme4)
 
 #### Import data
 #replace this with your own path (for now)
-folder_path <- "../data"
+folder_path <- "../data/pilot_b"
 csv_files <- list.files(folder_path, pattern = "*.csv", full.names = TRUE)
 df_list <- lapply(csv_files, read_csv)
 combined_df <- bind_rows(df_list)
@@ -86,7 +97,7 @@ combined_df <- bind_rows(df_list)
 #exclude 'No' trials 
 combined_df <- combined_df %>%
   mutate(response = as.character(response)) %>%
-  filter(response == "y")
+  filter(response == "j")
 #exclude practice trials 
 combined_df <- combined_df %>%
   filter(exp_part == "actual")

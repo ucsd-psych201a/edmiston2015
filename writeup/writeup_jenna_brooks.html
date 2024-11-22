@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jenna Brooks(j8brooks@ucsd.edu)">
-<meta name="dcterms.date" content="2024-11-19">
+<meta name="dcterms.date" content="2024-11-22">
 
 <title>Replication of Study What makes words special? Words as unmotivated cues (2015, Cognition)</title>
 <style>
@@ -133,7 +133,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 19, 2024</p>
+      <p class="date">November 22, 2024</p>
     </div>
   </div>
   
@@ -178,13 +178,16 @@ In addition, significance tests using chi-square tests will be used to compare n
 </section>
 <section id="differences-from-original-study" class="level3">
 <h3 class="anchored" data-anchor-id="differences-from-original-study">Differences from Original Study</h3>
-<p>The original study used a remote controller. The replication study will use the computer for responses and implement key responses to simulate buttons on controller. This should allow for accurate and quick responses. Participants were instructed to complete the study using headphones in a quiet environment. However, since the study was conducted online, experimenters had no control over participants’ surroundings, which could introduce differences from the original study. Additionally, the original study controlled</p>
+<p>The original study used a remote controller. The replication study will use the computer for responses and implement key responses to simulate buttons on controller. This should allow for accurate and quick responses. Participants were instructed to complete the study using headphones in a quiet environment. However, since the study was conducted online, experimenters had no control over participants’ surroundings, which could introduce differences from the original study.</p>
 </section>
 </section>
 <section id="pilot-a" class="level2">
 <h2 class="anchored" data-anchor-id="pilot-a">Pilot A</h2>
-<p>For our Pilot A (with non-naive participants), we aimed to replicate the experimental paradigm described in the study. The GitHub page for our paradigm is linked below:</p>
-<p><a href="https://ucsd-psych201a.github.io/edmiston2015/">Link to experimental paradigm</a></p>
+<p>For our Pilot A (with non-naive participants), we aimed to replicate the experimental paradigm described in the study. We collected an intial sampe of 3 participants from friends. The GitHub page for our paradigm is linked below: <a href="https://ucsd-psych201a.github.io/edmiston2015/">Link to experimental paradigm</a></p>
+<p>This data was imported and uploaded to the data folder in the project repository, which can be found on our GitHub repoisitory here:</p>
+<p>https://github.com/ucsd-psych201a/edmiston2015/tree/main/data</p>
+<p>##Pilot B We collected data for 5 participants. The average duration of the study was 25 minutes, exactly what we had predicted.</p>
+<p>##Pre-Registration Our Pre-Registration can be found here:</p>
 <section id="methods-addendum-post-data-collection" class="level3">
 <h3 class="anchored" data-anchor-id="methods-addendum-post-data-collection">Methods Addendum (Post Data Collection)</h3>
 <p>You can comment this section out prior to final report with data collection.</p>
@@ -233,11 +236,27 @@ The following objects are masked from 'package:tidyr':
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### Import data</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#replace this with your own path (for now)</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>folder_path <span class="ot">&lt;-</span> <span class="st">"../data"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>folder_path <span class="ot">&lt;-</span> <span class="st">"../data/pilot_b"</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>csv_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(folder_path, <span class="at">pattern =</span> <span class="st">"*.csv"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>df_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(csv_files, read_csv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: ","
 chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
@@ -268,7 +287,7 @@ dbl  (3): rt, time_elapsed, img_version
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#exclude 'No' trials </span></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>combined_df <span class="ot">&lt;-</span> combined_df <span class="sc">%&gt;%</span></span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response =</span> <span class="fu">as.character</span>(response)) <span class="sc">%&gt;%</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(response <span class="sc">==</span> <span class="st">"y"</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(response <span class="sc">==</span> <span class="st">"j"</span>)</span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#exclude practice trials </span></span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>combined_df <span class="ot">&lt;-</span> combined_df <span class="sc">%&gt;%</span></span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(exp_part <span class="sc">==</span> <span class="st">"actual"</span>)</span>
@@ -349,33 +368,33 @@ lmerModLmerTest]
 Formula: rt ~ congruency + (1 + congruency | ID) + (1 | sound_category)
    Data: combined_df
 
-REML criterion at convergence: 7084.4
+REML criterion at convergence: 11475.9
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--2.1472 -0.6470 -0.1764  0.4847  5.0899 
+-2.9710 -0.6244 -0.1549  0.4561  3.6369 
 
 Random effects:
- Groups         Name                  Variance Std.Dev. Corr     
- sound_category (Intercept)             215.45  14.678           
- ID             (Intercept)           15307.56 123.724           
-                congruencyincongruent   164.86  12.840  0.96     
-                congruencylabel          39.75   6.304  0.76 0.91
- Residual                             32186.30 179.405           
-Number of obs: 537, groups:  sound_category, 6; ID, 3
+ Groups         Name                  Variance Std.Dev. Corr       
+ sound_category (Intercept)             107.6   10.37              
+ ID             (Intercept)           32224.7  179.51              
+                congruencyincongruent   827.5   28.77    0.39      
+                congruencylabel        1142.2   33.80    0.13 -0.86
+ Residual                             40692.0  201.72              
+Number of obs: 853, groups:  sound_category, 6; ID, 5
 
 Fixed effects:
-                      Estimate Std. Error      df t value Pr(&gt;|t|)  
-(Intercept)            649.923     72.791   2.019   8.929   0.0119 *
-congruencyincongruent   28.731     26.934   9.151   1.067   0.3134  
-congruencylabel        -15.523     17.065   2.204  -0.910   0.4513  
+                      Estimate Std. Error      df t value Pr(&gt;|t|)    
+(Intercept)            749.511     81.155   4.025   9.236 0.000742 ***
+congruencyincongruent    7.588     26.873   7.244   0.282 0.785552    
+congruencylabel        -28.781     21.166   4.450  -1.360 0.238729    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Correlation of Fixed Effects:
             (Intr) cngrncyn
-cngrncyncng 0.179          
-congrncylbl 0.031  0.400   
+cngrncyncng  0.131         
+congrncylbl  0.021 -0.080  
 optimizer (nloptwrap) convergence code: 0 (OK)
 boundary (singular) fit: see help('isSingular')</code></pre>
 </div>
@@ -391,9 +410,9 @@ boundary (singular) fit: see help('isSingular')</code></pre>
 .sig06                       NA        NA
 .sig07                       NA        NA
 .sigma                       NA        NA
-(Intercept)           507.25501 792.59033
-congruencyincongruent -24.05833  81.52049
-congruencylabel       -48.96988  17.92430</code></pre>
+(Intercept)           590.45084 908.57192
+congruencyincongruent -45.08103  60.25753
+congruencylabel       -70.26526  12.70310</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#post-hoc test: allows you to examine relationship between incongruent and label</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>model_full <span class="sc">%&gt;%</span> </span>
@@ -405,10 +424,10 @@ congruencylabel       -48.96988  17.92430</code></pre>
 <pre><code>Cannot use mode = "kenward-roger" because *pbkrtest* package is not installed</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code> contrast                estimate   SE    df t.ratio p.value
- congruent - incongruent    -28.7 26.9  9.15  -1.067  0.9403
- congruent - label           15.5 17.1  2.20   0.910  1.0000
- incongruent - label         44.3 25.5 30.22   1.737  0.2775
+<pre><code> contrast                estimate   SE   df t.ratio p.value
+ congruent - incongruent    -7.59 26.9 7.24  -0.282  1.0000
+ congruent - label          28.78 21.2 4.45   1.360  0.7162
+ incongruent - label        36.37 35.5 3.87   1.024  1.0000
 
 Degrees-of-freedom method: satterthwaite 
 P value adjustment: bonferroni method for 3 tests </code></pre>
