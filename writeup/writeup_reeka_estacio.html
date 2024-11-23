@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Reeka Estacio">
-<meta name="dcterms.date" content="2024-11-19">
+<meta name="dcterms.date" content="2024-11-22">
 
 <title>Replication of Experiment 1A by Edmiston &amp; Lupyan (2015, Cognition)</title>
 <style>
@@ -3099,6 +3099,7 @@ vertical-align: -.125em;
   </ul></li>
   <li><a href="#design-review" id="toc-design-review" class="nav-link" data-scroll-target="#design-review">Design Review</a></li>
   <li><a href="#pilot-a" id="toc-pilot-a" class="nav-link" data-scroll-target="#pilot-a">Pilot A</a></li>
+  <li><a href="#pilot-b" id="toc-pilot-b" class="nav-link" data-scroll-target="#pilot-b">Pilot B</a></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
   <ul class="collapse">
   <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation">Data preparation</a></li>
@@ -3134,7 +3135,7 @@ vertical-align: -.125em;
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 19, 2024</p>
+      <p class="date">November 22, 2024</p>
     </div>
   </div>
   
@@ -3156,13 +3157,13 @@ vertical-align: -.125em;
 <h2 class="anchored" data-anchor-id="methods">Methods</h2>
 <section id="power-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="power-analysis">Power Analysis</h3>
-<p>Sicne the original study used a linear mixed regression analysis (which is outside of the scope of this course), we have decided to use the 2.5x sample size heuristic to ensure that our study has adequate power.</p>
+<p>Since the original study used a linear mixed regression analysis, it is difficult to perform a power analysis. For this reason, we have decided to use the 2.5x sample size heuristic to ensure that our study has adequate power.</p>
 </section>
 <section id="planned-sample" class="level3">
 <h3 class="anchored" data-anchor-id="planned-sample">Planned Sample</h3>
 <p>In the original study, the participants for Experiment 1A were described as the following:</p>
 <p>“43 University of Wisconsin–Madison undergraduates participated in Experiment 1A in exchange for course credit.”</p>
-<p>For the current study, we aim to replicate the sample as much as possible. Specifically, we will aim for a similar sample size (n=43) and similar demographics.</p>
+<p>As specified in our power analysis, we plan to have 2.5x participants as the original sample (n=108). These participants will be recruited and compensated through on Prolific.</p>
 </section>
 <section id="materials" class="level3">
 <h3 class="anchored" data-anchor-id="materials">Materials</h3>
@@ -3174,7 +3175,7 @@ vertical-align: -.125em;
 <h3 class="anchored" data-anchor-id="procedure">Procedure</h3>
 <p>From the original study:</p>
 <p>“On each trial participants heard a cue and saw a picture. We instructed participants to decide as quickly and accurately as possible if the picture they saw came from the same basic-level category as the word or sound they heard Participants were tested in individual rooms sitting approximately 2400 from a monitor such that images subtended 10  10°. Trials began with a 250 ms. fixation cross followed immediately by the auditory cue, delivered via headphones. The target image appeared centrally 1 s after the off- set of the auditory cue and remained visible until a response was made. Each participant completed 6 practice and 384 test trials. If the picture matched the auditory cue (50% of trials) participants were instructed to respond ‘Yes’ on a gaming controller (e.g., <cell- phone ring> or ‘‘phone’’ followed by a picture of any phone). Otherwise, they were to press ‘No’ (e.g., <cellphone ring> or ‘‘phone’’ followed by a dog). All factors (cue type, congruence) var- ied randomly within subjects. Auditory feedback (buzz or bleep) was given after each trial.”</cellphone></cell-></p>
-<p>We aim to follow the original procedure of Experiment 1A as precisely as possible. However, instead of running the trials in-person, the experiment will be conducted online using jsPsych. For this reason, the task will be slightly different such that participants will respond to trials using their cursor instead of a gaming controller. We will also encourage participants to wear headphones and be in a quiet area for the auditory cues during the experiment.</p>
+<p>We aim to follow the original procedure of Experiment 1A as precisely as possible. However, instead of running the trials in-person, the experiment will be conducted online using jsPsych. For this reason, the task will be slightly different such that participants will respond to trials using their keyboard keys instead of a gaming controller. We will also encourage participants to wear headphones, be in a quiet area for the auditory cues during the experiment, and provide an initial audio check to ensure that participants have access to all stimuli presented throughout the experiment.</p>
 </section>
 <section id="analysis-plan" class="level3">
 <h3 class="anchored" data-anchor-id="analysis-plan">Analysis Plan</h3>
@@ -3186,7 +3187,7 @@ vertical-align: -.125em;
 </section>
 <section id="differences-from-original-study" class="level3">
 <h3 class="anchored" data-anchor-id="differences-from-original-study">Differences from Original Study</h3>
-<p>This replication will differ from the original study in terms of setting and procedure. As previously mentioned, the experiments will be conducted online using jsPsych as opposed to in-person in a lab setting. Loading/internet speed of the participants’ personal devices may affect overall reaction times. Participants will also be using their cursor to respond to trials as opposed to the gaming controller used in the original study. However, we do not anticipate that these differences will greatly affect results or ability to obtain the same effect as described in the original study.</p>
+<p>This replication will differ from the original study in terms of setting and procedure. As previously mentioned, the experiments will be conducted online using jsPsych as opposed to in-person in a lab setting. Loading/internet speed of the participants’ personal devices may affect overall reaction times. Participants will also be using their keyboard to respond to trials as opposed to the gaming controller used in the original study. However, we do not anticipate that these differences will greatly affect results or ability to obtain the same effect as described in the original study.</p>
 </section>
 <section id="methods-addendum-post-data-collection" class="level3">
 <h3 class="anchored" data-anchor-id="methods-addendum-post-data-collection">Methods Addendum (Post Data Collection)</h3>
@@ -3217,14 +3218,19 @@ vertical-align: -.125em;
 <p>For our Pilot A (with non-naive participants), we aimed to replicate the experimental paradigm described in the study. The GitHub page for our paradigm is linked below:</p>
 <p><a href="https://ucsd-psych201a.github.io/edmiston2015/">Link to experimental paradigm</a></p>
 <p>We have collected pilot data from three participants. This data was imported and uploaded to the data folder in the project repository.</p>
-<p><a href="https://github.com/ucsd-psych201a/edmiston2015/tree/main/data">Link to Pilot A data</a></p>
+<p><a href="https://github.com/ucsd-psych201a/edmiston2015/tree/main/data/pilot_a">Link to Pilot A data</a></p>
+</section>
+<section id="pilot-b" class="level2">
+<h2 class="anchored" data-anchor-id="pilot-b">Pilot B</h2>
+<p>For our Pilot B (with naive participants), we collected data from five participants on Prolific. The following “Results” section (Data Preparation and Confirmatory Analysis) is run on Pilot B data for the time-being. As predicted, the participants took an average of about 25 minutes to complete the experiment.</p>
+<p><a href="https://github.com/ucsd-psych201a/edmiston2015/tree/main/data/pilot_b">Link to Pilot B data</a></p>
 </section>
 <section id="results" class="level2">
 <h2 class="anchored" data-anchor-id="results">Results</h2>
 <section id="data-preparation" class="level3">
 <h3 class="anchored" data-anchor-id="data-preparation">Data preparation</h3>
 <p>Data preparation following the analysis plan.</p>
-<p>The following code combines the data that has been collected from our experiment and performs the necessary data wrangling to run through our analysis model. Similar to the original study, practice trials and “No” trials were removed. Trials where reaction times are less than 250 ms or exceed 1500 ms after stimulus presentation were also excluded. This also labels the conditions for later analysis (e.g. <code>congruent</code>, <code>incogruent</code>).</p>
+<p>The following code combines the data that has been collected from our experiment (currently Pilot B) and performs the necessary data wrangling to run through our analysis model. Similar to the original study, practice trials and “No” trials were removed. Trials where reaction times are less than 250 ms or exceed 1500 ms after stimulus presentation were also excluded. This also labels the conditions for later analysis (i.e. <code>congruent</code>, <code>incogruent</code>).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Data Preparation</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -3253,13 +3259,31 @@ The following objects are masked from &#39;package:tidyr&#39;:
 
     expand, pack, unpack</code></pre>
 </div>
+</div>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### Import data</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#replace this with your own path (for now)</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>folder_path <span class="ot">&lt;-</span> <span class="st">&quot;/Users/reekaestacio/Documents/GitHub/edmiston2015/data&quot;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="do">## currently using pilot B data</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>folder_path <span class="ot">&lt;-</span> <span class="st">&quot;../data/pilot_b&quot;</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>csv_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(folder_path, <span class="at">pattern =</span> <span class="st">&quot;*.csv&quot;</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>df_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(csv_files, read_csv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: &quot;,&quot;
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: &quot;,&quot;
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: &quot;,&quot;
 chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
@@ -3290,7 +3314,7 @@ dbl  (3): rt, time_elapsed, img_version
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#exclude &#39;No&#39; trials </span></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>combined_df <span class="ot">&lt;-</span> combined_df <span class="sc">%&gt;%</span></span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response =</span> <span class="fu">as.character</span>(response)) <span class="sc">%&gt;%</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(response <span class="sc">==</span> <span class="st">&quot;y&quot;</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(response <span class="sc">==</span> <span class="st">&quot;f&quot;</span>)         <span class="co"># use &quot;y&quot; for pilot_a data, use &quot;f&quot; for pilot_b data</span></span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">#exclude practice trials </span></span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>combined_df <span class="ot">&lt;-</span> combined_df <span class="sc">%&gt;%</span></span>
@@ -3308,19 +3332,18 @@ dbl  (3): rt, time_elapsed, img_version
 <span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;congruent&quot;</span></span>
 <span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  ))</span>
 <span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="co">#filter reaction time </span></span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>combined_df <span class="ot">&lt;-</span> combined_df <span class="sc">%&gt;%</span></span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(rt <span class="sc">&gt;</span><span class="dv">250</span>, rt <span class="sc">&lt;</span><span class="dv">1500</span>)</span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a><span class="do">#### Prepare data for analysis - create columns etc.</span></span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>combined_df <span class="ot">&lt;-</span> combined_df <span class="sc">%&gt;%</span></span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(rt, ID, sound_category,cue, congruency)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="co">#filter reaction time </span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>combined_df <span class="ot">&lt;-</span> combined_df <span class="sc">%&gt;%</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(rt <span class="sc">&gt;</span><span class="dv">250</span>, rt <span class="sc">&lt;</span><span class="dv">1500</span>)</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="do">#### Prepare data for analysis - create columns etc.</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>combined_df <span class="ot">&lt;-</span> combined_df <span class="sc">%&gt;%</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(rt, ID, sound_category,cue, congruency)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="confirmatory-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="confirmatory-analysis">Confirmatory analysis</h3>
-<p>Following the confirmatory analysis of the original study, our replication will also perform a linear mixed effects regression model fit on response times to correct trials on congruent trials. The details of the analysis are specified in the “Analysis Plan” section of this writeup.</p>
+<p>Following the confirmatory analysis of the original study, our replication will also perform a linear mixed effects regression model fit on response times to correct trials on congruent trials. The details of the analysis are specified in the “Analysis Plan” section of this writeup. Again, the current analysis is run on data collected from Pilot B.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lmerTest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -3357,33 +3380,33 @@ lmerModLmerTest]
 Formula: rt ~ congruency + (1 + congruency | ID) + (1 | sound_category)
    Data: combined_df
 
-REML criterion at convergence: 7084.4
+REML criterion at convergence: 11919.7
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--2.1472 -0.6470 -0.1764  0.4847  5.0899 
+-2.1094 -0.6902 -0.1522  0.4877  3.6029 
 
 Random effects:
- Groups         Name                  Variance Std.Dev. Corr     
- sound_category (Intercept)             215.45  14.678           
- ID             (Intercept)           15307.56 123.724           
-                congruencyincongruent   164.86  12.840  0.96     
-                congruencylabel          39.75   6.304  0.76 0.91
- Residual                             32186.30 179.405           
-Number of obs: 537, groups:  sound_category, 6; ID, 3
+ Groups         Name                  Variance Std.Dev. Corr       
+ sound_category (Intercept)             144.0   12.00              
+ ID             (Intercept)           44075.9  209.94              
+                congruencyincongruent   787.7   28.07   -0.50      
+                congruencylabel        2577.0   50.76   -0.74  0.95
+ Residual                             42596.0  206.39              
+Number of obs: 883, groups:  sound_category, 6; ID, 5
 
 Fixed effects:
-                      Estimate Std. Error      df t value Pr(&gt;|t|)  
-(Intercept)            649.923     72.791   2.019   8.929   0.0119 *
-congruencyincongruent   28.731     26.934   9.151   1.067   0.3134  
-congruencylabel        -15.523     17.065   2.204  -0.910   0.4513  
+                      Estimate Std. Error      df t value Pr(&gt;|t|)   
+(Intercept)            718.066     94.721   4.025   7.581  0.00158 **
+congruencyincongruent  -16.156     25.975   8.118  -0.622  0.55101   
+congruencylabel        -37.768     27.266   3.877  -1.385  0.24037   
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 Correlation of Fixed Effects:
             (Intr) cngrncyn
-cngrncyncng 0.179          
-congrncylbl 0.031  0.400   
+cngrncyncng -0.293         
+congrncylbl -0.660  0.572  
 optimizer (nloptwrap) convergence code: 0 (OK)
 boundary (singular) fit: see help(&#39;isSingular&#39;)</code></pre>
 </div>
@@ -3399,9 +3422,9 @@ boundary (singular) fit: see help(&#39;isSingular&#39;)</code></pre>
 .sig06                       NA        NA
 .sig07                       NA        NA
 .sigma                       NA        NA
-(Intercept)           507.25501 792.59033
-congruencyincongruent -24.05833  81.52049
-congruencylabel       -48.96988  17.92430</code></pre>
+(Intercept)           532.41644 903.71625
+congruencyincongruent -67.06601  34.75379
+congruencylabel       -91.20730  15.67183</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#post-hoc test: allows you to examine relationship between incongruent and label</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>model_full <span class="sc">%&gt;%</span> </span>
@@ -3411,14 +3434,32 @@ congruencylabel       -48.96988  17.92430</code></pre>
 <span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="st">&quot;contrasts&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> contrast                estimate   SE   df t.ratio p.value
- congruent - incongruent    -28.7 27.4 1.95  -1.047  1.0000
- congruent - label           15.5 17.3 1.97   0.898  1.0000
- incongruent - label         44.3 25.9 1.96   1.709  0.6963
+ congruent - incongruent     16.2 26.1 3.97   0.619  1.0000
+ congruent - label           37.8 27.3 3.99   1.384  0.7163
+ incongruent - label         21.6 24.8 3.96   0.871  1.0000
 
 Degrees-of-freedom method: kenward-roger 
 P value adjustment: bonferroni method for 3 tests </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#model shows us that incongruent takes longer than congruent b = 28.7, that label is shorter than congruent (b = -15.52), and that incongruent takes longer than label b = 44.3 (find 95% CI) </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#chi squared test </span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>model_reduced <span class="ot">&lt;-</span> <span class="fu">lmer</span>(rt <span class="sc">~</span> (<span class="dv">1</span> <span class="sc">+</span> congruency<span class="sc">|</span>ID) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>sound_category), <span class="at">data =</span> combined_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>boundary (singular) fit: see help(&#39;isSingular&#39;)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(model_full, model_reduced)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>refitting model(s) with ML (instead of REML)</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Data: combined_df
+Models:
+model_reduced: rt ~ (1 + congruency | ID) + (1 | sound_category)
+model_full: rt ~ congruency + (1 + congruency | ID) + (1 | sound_category)
+              npar   AIC   BIC  logLik deviance  Chisq Df Pr(&gt;Chisq)
+model_reduced    9 11966 12009 -5974.1    11948                     
+model_full      11 11968 12021 -5973.1    11946 2.0209  2     0.3641</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># model for Pilot A shows us that incongruent takes longer than congruent (b = 28.7), that label is shorter than congruent (b = -15.52), and that incongruent takes longer than label (b = 44.3) </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><em>Side-by-side graph with original graph is ideal here</em></p>
 </section>
