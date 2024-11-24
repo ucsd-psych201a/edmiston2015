@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Replication Author[s]: Sihan Yang (siy009@ucsd.edu)">
-<meta name="dcterms.date" content="2024-11-19">
+<meta name="dcterms.date" content="2024-11-23">
 
 <title>Replication of Study ‘What makes words special? Words as unmotivated cues’ by Edmiston &amp; Lupyan (2015, Cognition)</title>
 <style>
@@ -3133,7 +3133,7 @@ vertical-align: -.125em;
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 19, 2024</p>
+      <p class="date">November 23, 2024</p>
     </div>
   </div>
   
@@ -3225,7 +3225,11 @@ vertical-align: -.125em;
 <p>Data preparation following the analysis plan.</p>
 <section id="pilot-test-for-project-checkpoint-a" class="level4">
 <h4 class="anchored" data-anchor-id="pilot-test-for-project-checkpoint-a">Pilot Test (for Project Checkpoint A)</h4>
-<p>We conducted pilot tests involving three participants. All data are collected using the <a href="https://ucsd-psych201a.github.io/edmiston2015/">online experiment link</a>. The data is available <a href="https://github.com/ucsd-psych201a/edmiston2015/tree/main/data">here</a>.</p>
+<p>We conducted pilot tests involving three participants. All data are collected using the <a href="https://ucsd-psych201a.github.io/edmiston2015/">online experiment link</a>. The data is available <a href="https://github.com/ucsd-psych201a/edmiston2015/tree/main/data/pilot_a">here</a>.</p>
+</section>
+<section id="pilot-test-for-project-checkpoint-b" class="level4">
+<h4 class="anchored" data-anchor-id="pilot-test-for-project-checkpoint-b">Pilot Test (for Project Checkpoint B)</h4>
+<p>We conducted pilot tests involving five participants. All data are collected using prolific. The data is available <a href="https://github.com/ucsd-psych201a/edmiston2015/tree/main/data/pilot_b">here</a>. The average time participant took to complete the study was 25 minutes.</p>
 </section>
 <section id="data-cleaning-and-data-exclusion-rules-1" class="level4">
 <h4 class="anchored" data-anchor-id="data-cleaning-and-data-exclusion-rules-1">Data cleaning and Data Exclusion Rules</h4>
@@ -3263,55 +3267,110 @@ The following objects are masked from &#39;package:tidyr&#39;:
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### Import data</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#replace this with your own path (for now)</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>folder_path <span class="ot">&lt;-</span> <span class="st">&quot;../data&quot;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>folder_path <span class="ot">&lt;-</span> <span class="st">&quot;../data/pilot_b&quot;</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>csv_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(folder_path, <span class="at">pattern =</span> <span class="st">&quot;*.csv&quot;</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>df_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(csv_files, read_csv, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>combined_df <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(df_list)</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="do">#### Data exclusion / filtering</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#exclude &#39;No&#39; trials </span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>combined_df <span class="ot">&lt;-</span> combined_df <span class="sc">%&gt;%</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response =</span> <span class="fu">as.character</span>(response)) <span class="sc">%&gt;%</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(response <span class="sc">==</span> <span class="st">&quot;y&quot;</span>)</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#exclude practice trials </span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#exclude practice trials </span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>combined_df <span class="ot">&lt;-</span> combined_df <span class="sc">%&gt;%</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(exp_part <span class="sc">==</span> <span class="st">&quot;actual&quot;</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="do">#### Data exclusion / filtering</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#exclude &#39;No&#39; trials </span></span>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>combined_df <span class="ot">&lt;-</span> combined_df <span class="sc">%&gt;%</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(exp_part <span class="sc">==</span> <span class="st">&quot;actual&quot;</span>)</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">#rename &quot;sound_subtype&quot; to &quot;cue&quot;</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>combined_df <span class="ot">&lt;-</span> combined_df <span class="sc">%&gt;%</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">cue =</span> sound_subtype)</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co">#create congruency column </span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>combined_df <span class="ot">&lt;-</span> combined_df <span class="sc">%&gt;%</span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">congruency =</span> <span class="fu">case_when</span>(</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    cue <span class="sc">==</span> <span class="st">&quot;label&quot;</span> <span class="sc">~</span> <span class="st">&quot;label&quot;</span>,</span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    img_subtype <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;song&quot;</span>, <span class="st">&quot;york&quot;</span>, <span class="st">&quot;bongo&quot;</span>, <span class="st">&quot;acoustic&quot;</span>, <span class="st">&quot;harley&quot;</span>, <span class="st">&quot;rotary&quot;</span>) <span class="sc">&amp;</span> sound_version <span class="sc">==</span> <span class="st">&quot;A&quot;</span> <span class="sc">~</span> <span class="st">&quot;incongruent&quot;</span>,</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;congruent&quot;</span></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>  ))</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="co">#filter reaction time </span></span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>combined_df <span class="ot">&lt;-</span> combined_df <span class="sc">%&gt;%</span></span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(rt <span class="sc">&gt;</span><span class="dv">250</span>, rt <span class="sc">&lt;</span><span class="dv">1500</span>)</span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="do">#### Prepare data for analysis - create columns etc.</span></span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>combined_df <span class="ot">&lt;-</span> combined_df <span class="sc">%&gt;%</span></span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(rt, ID, sound_category,cue, congruency)</span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="co">#show the preprocesssed data</span></span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(combined_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">correct_response =</span> <span class="fu">as.character</span>(correct_response)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response =</span> <span class="fu">as.character</span>(response)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">correct =</span> correct_response <span class="sc">==</span> response)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We check the accuracy of each participant:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>accuracy_table <span class="ot">&lt;-</span> combined_df <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ID) <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">accuracy =</span> <span class="fu">mean</span>(correct, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>accuracy_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+  ID                accuracy
+  &lt;chr&gt;                &lt;dbl&gt;
+1 pilotb_2n3cvgp749    0.917
+2 pilotb_4tut3knr1t    0.922
+3 pilotb_cyhgqdoekn    0.940
+4 pilotb_xpcwbea5dk    0.870
+5 pilotb_zjkomhyn3g    0.990</code></pre>
+</div>
+</div>
+<p>We set the threshold for data inclusion at 90% accuracy. Four out of five participants in pilot B have achieved an acceptable performance (above 90%). The following is the code to further filter the data based on accuracy (for future use).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>accuracy_thresh <span class="ot">&lt;-</span> <span class="fl">0.9</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># select people who passed QA</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>id_pass_qa <span class="ot">&lt;-</span> accuracy_table <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(accuracy <span class="sc">&gt;</span> accuracy_thresh) <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(ID)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># filter combined_df</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>combined_df <span class="ot">&lt;-</span> combined_df <span class="sc">%&gt;%</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ID <span class="sc">%in%</span> id_pass_qa) <span class="sc">%&gt;%</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>correct) <span class="co"># drop the correctness column</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co"># display</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(combined_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 15
+     rt correct_response response time_elapsed img_fname         img_category
+  &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;             &lt;chr&gt;       
+1   498 f                f             1341705 motor_dirt_2      motor       
+2  1008 j                j             1344707 guitar_electric_2 guitar      
+3  1196 f                f             1347893 motor_dirt_2      motor       
+4   625 f                f             1350504 phone_rotary_1    phone       
+5   595 f                f             1353093 phone_rotary_2    phone       
+6   590 f                f             1355667 phone_cell_2      phone       
+# ℹ 9 more variables: img_subtype &lt;chr&gt;, img_version &lt;dbl&gt;, sound_fname &lt;chr&gt;,
+#   sound_category &lt;chr&gt;, sound_subtype &lt;chr&gt;, sound_version &lt;chr&gt;,
+#   exp_part &lt;chr&gt;, part &lt;chr&gt;, ID &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p>We keep only trials whose correct response is ‘Yes’ and the time fall within 250-1500 ms:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#check whether response is correct</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>combined_df <span class="ot">&lt;-</span> combined_df <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(response <span class="sc">==</span> <span class="st">&quot;f&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(correct_response <span class="sc">==</span> <span class="st">&quot;f&quot;</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#rename &quot;sound_subtype&quot; to &quot;cue&quot;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>combined_df <span class="ot">&lt;-</span> combined_df <span class="sc">%&gt;%</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">cue =</span> sound_subtype)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#create congruency column </span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>combined_df <span class="ot">&lt;-</span> combined_df <span class="sc">%&gt;%</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">congruency =</span> <span class="fu">case_when</span>(</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    cue <span class="sc">==</span> <span class="st">&quot;label&quot;</span> <span class="sc">~</span> <span class="st">&quot;label&quot;</span>,</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    img_subtype <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;song&quot;</span>, <span class="st">&quot;york&quot;</span>, <span class="st">&quot;bongo&quot;</span>, <span class="st">&quot;acoustic&quot;</span>, <span class="st">&quot;harley&quot;</span>, <span class="st">&quot;rotary&quot;</span>) <span class="sc">&amp;</span> sound_version <span class="sc">==</span> <span class="st">&quot;A&quot;</span> <span class="sc">~</span> <span class="st">&quot;incongruent&quot;</span>,</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;congruent&quot;</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="co">#filter reaction time </span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>combined_df <span class="ot">&lt;-</span> combined_df <span class="sc">%&gt;%</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(rt <span class="sc">&gt;</span><span class="dv">250</span>, rt <span class="sc">&lt;</span><span class="dv">1500</span>)</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="do">#### Prepare data for analysis - create columns etc.</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>combined_df <span class="ot">&lt;-</span> combined_df <span class="sc">%&gt;%</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(rt, ID, sound_category,cue, congruency)</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="co">#show the preprocesssed data</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(combined_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 5
-     rt ID         sound_category cue   congruency 
-  &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;          &lt;chr&gt; &lt;chr&gt;      
-1   392 9vknm462p7 bird           sound congruent  
-2   472 9vknm462p7 bird           label label      
-3   428 9vknm462p7 guitar         sound incongruent
-4   652 9vknm462p7 guitar         sound congruent  
-5   616 9vknm462p7 phone          sound incongruent
-6   448 9vknm462p7 dog            sound congruent  </code></pre>
+     rt ID                sound_category cue   congruency 
+  &lt;dbl&gt; &lt;chr&gt;             &lt;chr&gt;          &lt;chr&gt; &lt;chr&gt;      
+1   610 pilotb_zjkomhyn3g bird           sound congruent  
+2   498 pilotb_zjkomhyn3g motor          sound congruent  
+3  1196 pilotb_zjkomhyn3g motor          label label      
+4   625 pilotb_zjkomhyn3g phone          sound incongruent
+5   595 pilotb_zjkomhyn3g phone          sound incongruent
+6   590 pilotb_zjkomhyn3g phone          sound congruent  </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### Apply the Linear Mixed Model</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -3325,7 +3384,7 @@ The following objects are masked from &#39;package:tidyr&#39;:
 <p>We expect that the output of our model will be similar to the results presented in Edminston &amp; Lupyan (2015).</p>
 <p>The following code fit the mixed-effect linear regression model and reports the associated statistics.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lmerTest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lmerTest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>
 Attaching package: &#39;lmerTest&#39;</code></pre>
@@ -3340,58 +3399,61 @@ Attaching package: &#39;lmerTest&#39;</code></pre>
 
     step</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Welcome to emmeans.
 Caution: You lose important information if you filter this package&#39;s results.
 See &#39;? untidy&#39;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># compare between reference (congruent) and the other two values (incongruent and label)</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>model_full <span class="ot">&lt;-</span> <span class="fu">lmer</span>(rt <span class="sc">~</span> congruency <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">+</span> congruency<span class="sc">|</span>ID) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>sound_category), <span class="at">data =</span> combined_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># compare between reference (congruent) and the other two values (incongruent and label)</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>model_full <span class="ot">&lt;-</span> <span class="fu">lmer</span>(rt <span class="sc">~</span> congruency <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">+</span> congruency<span class="sc">|</span>ID) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>sound_category), <span class="at">data =</span> combined_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>boundary (singular) fit: see help(&#39;isSingular&#39;)</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_full)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Model failed to converge with 1 negative eigenvalue: -2.1e-03</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_full)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Linear mixed model fit by REML. t-tests use Satterthwaite&#39;s method [
 lmerModLmerTest]
 Formula: rt ~ congruency + (1 + congruency | ID) + (1 | sound_category)
    Data: combined_df
 
-REML criterion at convergence: 7084.4
+REML criterion at convergence: 9046.4
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--2.1472 -0.6470 -0.1764  0.4847  5.0899 
+-1.8456 -0.6710 -0.1513  0.4866  3.6614 
 
 Random effects:
- Groups         Name                  Variance Std.Dev. Corr     
- sound_category (Intercept)             215.45  14.678           
- ID             (Intercept)           15307.56 123.724           
-                congruencyincongruent   164.86  12.840  0.96     
-                congruencylabel          39.75   6.304  0.76 0.91
- Residual                             32186.30 179.405           
-Number of obs: 537, groups:  sound_category, 6; ID, 3
+ Groups         Name                  Variance Std.Dev. Corr       
+ sound_category (Intercept)               0.00   0.000             
+ ID             (Intercept)           50531.57 224.792             
+                congruencyincongruent    26.82   5.179  -1.00      
+                congruencylabel        1783.27  42.229  -0.72  0.72
+ Residual                             39103.39 197.746             
+Number of obs: 675, groups:  sound_category, 6; ID, 4
 
 Fixed effects:
-                      Estimate Std. Error      df t value Pr(&gt;|t|)  
-(Intercept)            649.923     72.791   2.019   8.929   0.0119 *
-congruencyincongruent   28.731     26.934   9.151   1.067   0.3134  
-congruencylabel        -15.523     17.065   2.204  -0.910   0.4513  
+                      Estimate Std. Error      df t value Pr(&gt;|t|)   
+(Intercept)            686.163    113.106   2.996   6.067  0.00902 **
+congruencyincongruent   -3.132     25.140 111.666  -0.125  0.90107   
+congruencylabel        -22.860     26.817   2.810  -0.852  0.46047   
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 Correlation of Fixed Effects:
             (Intr) cngrncyn
-cngrncyncng 0.179          
-congrncylbl 0.031  0.400   
+cngrncyncng -0.158         
+congrncylbl -0.616  0.295  
 optimizer (nloptwrap) convergence code: 0 (OK)
 boundary (singular) fit: see help(&#39;isSingular&#39;)</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#get 95% CI</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">confint.merMod</span>(model_full,<span class="at">method=</span><span class="st">&quot;Wald&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#get 95% CI</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">confint.merMod</span>(model_full,<span class="at">method=</span><span class="st">&quot;Wald&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                          2.5 %    97.5 %
 .sig01                       NA        NA
@@ -3402,34 +3464,55 @@ boundary (singular) fit: see help(&#39;isSingular&#39;)</code></pre>
 .sig06                       NA        NA
 .sig07                       NA        NA
 .sigma                       NA        NA
-(Intercept)           507.25501 792.59033
-congruencyincongruent -24.05833  81.52049
-congruencylabel       -48.96988  17.92430</code></pre>
+(Intercept)           464.47874 907.84733
+congruencyincongruent -52.40641  46.14180
+congruencylabel       -75.42033  29.70119</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#post-hoc test: examine relationship between incongruent and label</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>model_full <span class="sc">%&gt;%</span> </span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">emmeans</span>(pairwise <span class="sc">~</span> congruency,</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>          <span class="co">#adjusts p values so that it is more difficult to get a significance (correction method)</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">adjust =</span> <span class="st">&quot;bonferroni&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="st">&quot;contrasts&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Cannot use mode = &quot;kenward-roger&quot; because *pbkrtest* package is not installed</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#post-hoc test: examine relationship between incongruent and label</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>fit_result <span class="ot">&lt;-</span> model_full <span class="sc">%&gt;%</span> </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">emmeans</span>(pairwise <span class="sc">~</span> congruency,</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>          <span class="co">#adjusts p values so that it is more difficult to get a significance (correction method)</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">adjust =</span> <span class="st">&quot;bonferroni&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="st">&quot;contrasts&quot;</span>)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>fit_result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> contrast                estimate   SE    df t.ratio p.value
- congruent - incongruent    -28.7 26.9  9.15  -1.067  0.9403
- congruent - label           15.5 17.1  2.20   0.910  1.0000
- incongruent - label         44.3 25.5 30.22   1.737  0.2775
+<pre><code> contrast                estimate   SE   df t.ratio p.value
+ congruent - incongruent     3.13 25.5 2.94   0.123  1.0000
+ congruent - label          22.86 26.9 2.99   0.851  1.0000
+ incongruent - label        19.73 31.1 2.97   0.634  1.0000
 
-Degrees-of-freedom method: satterthwaite 
+Degrees-of-freedom method: kenward-roger 
 P value adjustment: bonferroni method for 3 tests </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the model suggests that: </span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># incongruent takes longer than congruent (b = 28.7)</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># label takes shorter than congruent (b = -15.52)</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># incongruent takes longer than label (b = 44.3) </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The result suggests that <code>r</code>model_full.pluck(emm_df[emm_df$congruency == “specific_value”, ], “estimate”)`</p>
+<p>The result suggests that:</p>
+<ul>
+<li><p>Comparing “congruent” and incongruent”, the estimate of effect is β = 3.13 (congruent - incongruent), with p-value p = 1.0000;</p></li>
+<li><p>Comparing “congruent” and label”, the estimate of effect is β = 22.86 (congruent - label), with p-value p = 1.0000;</p></li>
+<li><p>Comparing “incongruent” and label”, the estimate of effect is β = 19.73 (incongruent - label), with p-value p = 1.0000;</p></li>
+</ul>
+<p>To further test whether congruency has a meaningful impact on rt, we apply the chi-square test and the result is as follows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#chi square test </span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>model_reduced <span class="ot">&lt;-</span> <span class="fu">lmer</span>(rt <span class="sc">~</span> (<span class="dv">1</span> <span class="sc">+</span> congruency<span class="sc">|</span>ID) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>sound_category), <span class="at">data =</span> combined_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>boundary (singular) fit: see help(&#39;isSingular&#39;)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(model_full, model_reduced)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>refitting model(s) with ML (instead of REML)</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Data: combined_df
+Models:
+model_reduced: rt ~ (1 + congruency | ID) + (1 | sound_category)
+model_full: rt ~ congruency + (1 + congruency | ID) + (1 | sound_category)
+              npar    AIC    BIC  logLik deviance  Chisq Df Pr(&gt;Chisq)
+model_reduced    9 9091.7 9132.3 -4536.8   9073.7                     
+model_full      11 9094.8 9144.5 -4536.4   9072.8 0.8474  2     0.6546</code></pre>
+</div>
+</div>
 <p><em>Side-by-side graph with original graph is ideal here</em></p>
 </section>
 </section>

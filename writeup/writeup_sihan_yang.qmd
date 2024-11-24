@@ -109,7 +109,11 @@ Data preparation following the analysis plan.
 
 #### Pilot Test (for Project Checkpoint A)
 
-We conducted pilot tests involving three participants. All data are collected using the [online experiment link](https://ucsd-psych201a.github.io/edmiston2015/). The data is available [here]( https://github.com/ucsd-psych201a/edmiston2015/tree/main/data). 
+We conducted pilot tests involving three participants. All data are collected using the [online experiment link](https://ucsd-psych201a.github.io/edmiston2015/). The data is available [here](https://github.com/ucsd-psych201a/edmiston2015/tree/main/data/pilot_a). 
+
+#### Pilot Test (for Project Checkpoint B)
+
+We conducted pilot tests involving five participants. All data are collected using prolific. The data is available [here](https://github.com/ucsd-psych201a/edmiston2015/tree/main/data/pilot_b). The average time participant took to complete the study was 25 minutes.
 
 #### Data cleaning and Data Exclusion Rules
 
@@ -131,19 +135,56 @@ library(lme4)
 
 #### Import data
 #replace this with your own path (for now)
-folder_path <- "../data"
+folder_path <- "../data/pilot_b"
 csv_files <- list.files(folder_path, pattern = "*.csv", full.names = TRUE)
 df_list <- lapply(csv_files, read_csv, show_col_types = FALSE)
 combined_df <- bind_rows(df_list)
 
-#### Data exclusion / filtering
-#exclude 'No' trials 
-combined_df <- combined_df %>%
-  mutate(response = as.character(response)) %>%
-  filter(response == "y")
 #exclude practice trials 
 combined_df <- combined_df %>%
   filter(exp_part == "actual")
+
+#### Data exclusion / filtering
+#exclude 'No' trials 
+combined_df <- combined_df %>%
+  mutate(correct_response = as.character(correct_response)) %>%
+  mutate(response = as.character(response)) %>%
+  mutate(correct = correct_response == response)
+
+```
+
+We check the accuracy of each participant:
+```{r}
+accuracy_table <- combined_df %>%
+  group_by(ID) %>%
+  summarise(accuracy = mean(correct, na.rm = TRUE))
+accuracy_table
+```
+
+We set the threshold for data inclusion at 90% accuracy. Four out of five participants in pilot B have achieved an acceptable performance (above 90%). The following is the code to further filter the data based on accuracy (for future use).
+
+```{r}
+accuracy_thresh <- 0.9
+# select people who passed QA
+id_pass_qa <- accuracy_table %>%
+  filter(accuracy > accuracy_thresh) %>%
+  pull(ID)
+  
+# filter combined_df
+combined_df <- combined_df %>%
+  filter(ID %in% id_pass_qa) %>%
+  select(-correct) # drop the correctness column
+
+# display
+tail(combined_df)
+```
+We keep only trials whose correct response is 'Yes' and the time fall within 250-1500 ms:
+
+```{r}
+#check whether response is correct
+combined_df <- combined_df %>%
+  filter(response == "f") %>%
+  filter(correct_response == "f")
 
 #rename "sound_subtype" to "cue"
 combined_df <- combined_df %>%
@@ -168,9 +209,6 @@ combined_df <- combined_df %>%
 
 #show the preprocesssed data
 tail(combined_df)
-
-#### Apply the Linear Mixed Model
-
 ```
 
 ### Confirmatory analysis
@@ -201,18 +239,61 @@ summary(model_full)
 confint.merMod(model_full,method="Wald")
 
 #post-hoc test: examine relationship between incongruent and label
-model_full %>% 
+fit_result <- model_full %>% 
   emmeans(pairwise ~ congruency,
           #adjusts p values so that it is more difficult to get a significance (correction method)
           adjust = "bonferroni") %>% 
   pluck("contrasts")
 
-# the model suggests that: 
-# incongruent takes longer than congruent (b = 28.7)
-# label takes shorter than congruent (b = -15.52)
-# incongruent takes longer than label (b = 44.3) 
+fit_result
 ```
-The result suggests that `r `model_full.pluck(emm_df[emm_df$congruency == "specific_value", ], "estimate")`
+```{r, echo=FALSE}
+library(dplyr)
+
+# to read the fit result
+get_contrast_values <- function(model_result, cond_a, cond_b) {
+  # convert s4 to dataframe
+  model_result <- summary(model_result)
+  # Filter the model result for the specified contrast
+  contrast_name <- paste0(cond_a, " - ", cond_b)
+  result_row <- model_result[model_result$contrast == contrast_name, ]
+  if (nrow(result_row) == 0) {
+    # flip it
+    contrast_name <- paste0(cond_b, " - ", cond_a)
+    result_row <- model_result[model_result$contrast == contrast_name, ]
+  }
+  
+  # Extract and return the estimate and p.value as a named list
+  list(
+    contrast_name = contrast_name,
+    estimate = result_row$estimate,
+    p_value = result_row$p.value
+  )
+}
+
+congruent_incongruent_result <- get_contrast_values(
+  fit_result, 'congruent', 'incongruent')
+congruent_label_result <- get_contrast_values(
+  fit_result, 'congruent', 'label')
+incongruent_label_result <- get_contrast_values(
+  fit_result, 'incongruent', 'label')
+```
+
+The result suggests that: 
+
+- Comparing "congruent" and incongruent", the estimate of effect is `r paste0("\u03B2 = ", sprintf("%.2f", congruent_incongruent_result$estimate))` (`r congruent_incongruent_result$contrast_name`), with p-value `r sprintf("p = %.4f", congruent_incongruent_result$p_value)`;
+
+- Comparing "congruent" and label", the estimate of effect is `r paste0("\u03B2 = ", sprintf("%.2f", congruent_label_result$estimate))` (`r congruent_label_result$contrast_name`), with p-value `r sprintf("p = %.4f", congruent_label_result$p_value)`;
+
+- Comparing "incongruent" and label", the estimate of effect is `r paste0("\u03B2 = ", sprintf("%.2f", incongruent_label_result$estimate))` (`r incongruent_label_result$contrast_name`), with p-value `r sprintf("p = %.4f", incongruent_label_result$p_value)`;
+
+To further test whether congruency has a meaningful impact on rt, we apply the chi-square test and the result is as follows:
+```{r}
+#chi square test 
+model_reduced <- lmer(rt ~ (1 + congruency|ID) + (1|sound_category), data = combined_df)
+
+anova(model_full, model_reduced)
+```
 
 *Side-by-side graph with original graph is ideal here*
 
