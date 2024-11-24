@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jenna Brooks(j8brooks@ucsd.edu)">
-<meta name="dcterms.date" content="2024-11-22">
+<meta name="dcterms.date" content="2024-11-24">
 
 <title>Replication of Study What makes words special? Words as unmotivated cues (2015, Cognition)</title>
 <style>
@@ -91,7 +91,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#analysis-plan" id="toc-analysis-plan" class="nav-link" data-scroll-target="#analysis-plan">Analysis Plan</a></li>
   <li><a href="#differences-from-original-study" id="toc-differences-from-original-study" class="nav-link" data-scroll-target="#differences-from-original-study">Differences from Original Study</a></li>
   </ul></li>
-  <li><a href="#pilot-a" id="toc-pilot-a" class="nav-link" data-scroll-target="#pilot-a">Pilot A</a>
+  <li><a href="#pilot-a" id="toc-pilot-a" class="nav-link" data-scroll-target="#pilot-a">Pilot A</a></li>
+  <li><a href="#pilot-b" id="toc-pilot-b" class="nav-link" data-scroll-target="#pilot-b">Pilot B</a></li>
+  <li><a href="#pre-registration" id="toc-pre-registration" class="nav-link" data-scroll-target="#pre-registration">Pre-Registration</a>
   <ul class="collapse">
   <li><a href="#methods-addendum-post-data-collection" id="toc-methods-addendum-post-data-collection" class="nav-link" data-scroll-target="#methods-addendum-post-data-collection">Methods Addendum (Post Data Collection)</a></li>
   </ul></li>
@@ -133,7 +135,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 22, 2024</p>
+      <p class="date">November 24, 2024</p>
     </div>
   </div>
   
@@ -186,8 +188,14 @@ In addition, significance tests using chi-square tests will be used to compare n
 <p>For our Pilot A (with non-naive participants), we aimed to replicate the experimental paradigm described in the study. We collected an intial sampe of 3 participants from friends. The GitHub page for our paradigm is linked below: <a href="https://ucsd-psych201a.github.io/edmiston2015/">Link to experimental paradigm</a></p>
 <p>This data was imported and uploaded to the data folder in the project repository, which can be found on our GitHub repoisitory here:</p>
 <p>https://github.com/ucsd-psych201a/edmiston2015/tree/main/data</p>
-<p>##Pilot B We collected data for 5 participants. The average duration of the study was 25 minutes, exactly what we had predicted.</p>
-<p>##Pre-Registration Our Pre-Registration can be found here:</p>
+</section>
+<section id="pilot-b" class="level2">
+<h2 class="anchored" data-anchor-id="pilot-b">Pilot B</h2>
+<p>We collected data for 5 participants. The average duration of the study was 25 minutes, exactly what we had predicted. The raw data for Pilot B can be found here: https://github.com/ucsd-psych201a/edmiston2015/tree/main/data/pilot_b The initial statistical analysis can be found under confirmatory analysis below for the first 5 participants.</p>
+</section>
+<section id="pre-registration" class="level2">
+<h2 class="anchored" data-anchor-id="pre-registration">Pre-Registration</h2>
+<p>Our Pre-Registration can be found here: https://github.com/ucsd-psych201a/edmiston2015/tree/main/prereg</p>
 <section id="methods-addendum-post-data-collection" class="level3">
 <h3 class="anchored" data-anchor-id="methods-addendum-post-data-collection">Methods Addendum (Post Data Collection)</h3>
 <p>You can comment this section out prior to final report with data collection.</p>
@@ -287,7 +295,7 @@ dbl  (3): rt, time_elapsed, img_version
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#exclude 'No' trials </span></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>combined_df <span class="ot">&lt;-</span> combined_df <span class="sc">%&gt;%</span></span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response =</span> <span class="fu">as.character</span>(response)) <span class="sc">%&gt;%</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(response <span class="sc">==</span> <span class="st">"j"</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(response <span class="sc">==</span> <span class="st">"f"</span>)</span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#exclude practice trials </span></span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>combined_df <span class="ot">&lt;-</span> combined_df <span class="sc">%&gt;%</span></span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(exp_part <span class="sc">==</span> <span class="st">"actual"</span>)</span>
@@ -368,33 +376,33 @@ lmerModLmerTest]
 Formula: rt ~ congruency + (1 + congruency | ID) + (1 | sound_category)
    Data: combined_df
 
-REML criterion at convergence: 11475.9
+REML criterion at convergence: 11919.7
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--2.9710 -0.6244 -0.1549  0.4561  3.6369 
+-2.1094 -0.6902 -0.1522  0.4877  3.6029 
 
 Random effects:
  Groups         Name                  Variance Std.Dev. Corr       
- sound_category (Intercept)             107.6   10.37              
- ID             (Intercept)           32224.7  179.51              
-                congruencyincongruent   827.5   28.77    0.39      
-                congruencylabel        1142.2   33.80    0.13 -0.86
- Residual                             40692.0  201.72              
-Number of obs: 853, groups:  sound_category, 6; ID, 5
+ sound_category (Intercept)             144.0   12.00              
+ ID             (Intercept)           44075.9  209.94              
+                congruencyincongruent   787.7   28.07   -0.50      
+                congruencylabel        2577.0   50.76   -0.74  0.95
+ Residual                             42596.0  206.39              
+Number of obs: 883, groups:  sound_category, 6; ID, 5
 
 Fixed effects:
-                      Estimate Std. Error      df t value Pr(&gt;|t|)    
-(Intercept)            749.511     81.155   4.025   9.236 0.000742 ***
-congruencyincongruent    7.588     26.873   7.244   0.282 0.785552    
-congruencylabel        -28.781     21.166   4.450  -1.360 0.238729    
+                      Estimate Std. Error      df t value Pr(&gt;|t|)   
+(Intercept)            718.066     94.721   4.025   7.581  0.00158 **
+congruencyincongruent  -16.156     25.975   8.118  -0.622  0.55101   
+congruencylabel        -37.768     27.266   3.877  -1.385  0.24037   
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Correlation of Fixed Effects:
             (Intr) cngrncyn
-cngrncyncng  0.131         
-congrncylbl  0.021 -0.080  
+cngrncyncng -0.293         
+congrncylbl -0.660  0.572  
 optimizer (nloptwrap) convergence code: 0 (OK)
 boundary (singular) fit: see help('isSingular')</code></pre>
 </div>
@@ -410,9 +418,9 @@ boundary (singular) fit: see help('isSingular')</code></pre>
 .sig06                       NA        NA
 .sig07                       NA        NA
 .sigma                       NA        NA
-(Intercept)           590.45084 908.57192
-congruencyincongruent -45.08103  60.25753
-congruencylabel       -70.26526  12.70310</code></pre>
+(Intercept)           532.41644 903.71625
+congruencyincongruent -67.06601  34.75379
+congruencylabel       -91.20730  15.67183</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#post-hoc test: allows you to examine relationship between incongruent and label</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>model_full <span class="sc">%&gt;%</span> </span>
@@ -425,9 +433,9 @@ congruencylabel       -70.26526  12.70310</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code> contrast                estimate   SE   df t.ratio p.value
- congruent - incongruent    -7.59 26.9 7.24  -0.282  1.0000
- congruent - label          28.78 21.2 4.45   1.360  0.7162
- incongruent - label        36.37 35.5 3.87   1.024  1.0000
+ congruent - incongruent     16.2 26.0 8.12   0.622  1.0000
+ congruent - label           37.8 27.3 3.88   1.385  0.7211
+ incongruent - label         21.6 24.7 9.62   0.876  1.0000
 
 Degrees-of-freedom method: satterthwaite 
 P value adjustment: bonferroni method for 3 tests </code></pre>

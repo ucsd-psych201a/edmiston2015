@@ -57,11 +57,12 @@ found on our GitHub repoisitory here:
 https://github.com/ucsd-psych201a/edmiston2015/tree/main/data
 
 
-##Pilot B
-We collected data for 5 participants. The average duration of the study was 25 minutes, exactly what we had predicted. 
+## Pilot B
+We collected data for 5 participants. The average duration of the study was 25 minutes, exactly what we had predicted. The raw data for Pilot B can be found here: https://github.com/ucsd-psych201a/edmiston2015/tree/main/data/pilot_b 
+The initial statistical analysis can be found under confirmatory analysis below for the first 5 participants. 
 
-##Pre-Registration
-Our Pre-Registration can be found here: 
+## Pre-Registration
+Our Pre-Registration can be found here: https://github.com/ucsd-psych201a/edmiston2015/tree/main/prereg 
 
 ### Methods Addendum (Post Data Collection)
 
@@ -97,7 +98,7 @@ combined_df <- bind_rows(df_list)
 #exclude 'No' trials 
 combined_df <- combined_df %>%
   mutate(response = as.character(response)) %>%
-  filter(response == "j")
+  filter(response == "f")
 #exclude practice trials 
 combined_df <- combined_df %>%
   filter(exp_part == "actual")
