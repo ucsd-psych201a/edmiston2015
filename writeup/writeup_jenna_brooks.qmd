@@ -19,11 +19,10 @@ In this experiment, participants will be presented with either a verbal represen
 ## Methods
 
 ### Power Analysis 
-The use of linear mixed-effects models (lmer) with a complex structure limits our ability to perform a straightforward power analysis. This constraint makes it difficult to estimate effect sizes accurately, as we would in a simpler within-participants t-test design. We defaulted to expanding the sample size to 2.5 times the initial estimate. This buffer helps accommodate any unanticipated variance and ensures our study has enough statistical power to detect meaningful effects.
-
+Based on guidance from instructional staff, the sample size was determined with an a priori power analysis with the package simr, and is adequate to achieve at least 80% power for detecting the effect reported in the original study at a significance criterion of alpha = .05 (any random effects not specified in the original paper were taken from a small pilot study).
 
 ### Planned Sample
-We plan to have a sample size of n = 108. For pre-screening, participants must speak English fluently to ensure comprehension in the task. Participants are recruited on Prolific online platform. 
+We plan to have a sample size of n = 50. For pre-screening, participants must speak English fluently to ensure comprehension in the task. Participants are recruited on Prolific online platform. 
 
 ### Materials
 
