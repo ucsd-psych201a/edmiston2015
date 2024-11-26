@@ -22,43 +22,57 @@ In this experiment, participants will be presented with either a verbal represen
 Based on guidance from instructional staff, the sample size was determined with an a priori power analysis with the package simr, and is adequate to achieve at least 80% power for detecting the effect reported in the original study at a significance criterion of alpha = .05 (any random effects not specified in the original paper were taken from a small pilot study).
 
 ### Planned Sample
-We plan to have a sample size of n = 50. For pre-screening, participants must speak English fluently to ensure comprehension in the task. Participants are recruited on Prolific online platform. 
+We plan to have a sample size of n = 50. For pre-screening, participants must speak English fluently to ensure comprehension in the task. Participants are recruited and compensated on the Prolific online platform. 
 
 ### Materials
 
-The materials were followed precisely as follows. "The auditory cues comprised basic-level category labels and environmental sounds for six categories: bird, dog, drum, guitar, motorcycle, and phone. For each category, we obtained two distinct environmental sound cues, e.g., <classical guitar strum>, <electric guitar strum>, and two separate images for each subordinate cate- gory, e.g., two electric guitars for <electric guitar strum>, two acoustic guitars for <electric guitar strum>. To control for cue variability, we also used two versions of each spoken category label: one pronounced by a female speaker, one by a male speaker. All auditory cues were equated in duration (600 ms.) and normalized in volume. The images were color photographs (four images per category). The materials, obtained from online repositories, are available for download at http://sapir.psych.wisc.edu/stimuli/ MotivatedCuesExp1A-1B.zip"(Edmiston & Lupyan, 2015).  
+The materials were followed precisely as follows. All materials were provided by the original authors.  
+
+"The auditory cues comprised basic-level category labels and environmental sounds for six categories: bird, dog, drum, guitar, motorcycle, and phone. For each category, we obtained two distinct environmental sound cues, e.g., <classical guitar strum>, <electric guitar strum>, and two separate images for each subordinate cate- gory, e.g., two electric guitars for <electric guitar strum>, two acoustic guitars for <electric guitar strum>. To control for cue variability, we also used two versions of each spoken category label: one pronounced by a female speaker, one by a male speaker. All auditory cues were equated in duration (600 ms.) and normalized in volume. The images were color photographs (four images per category). The materials, obtained from online repositories, are available for download at http://sapir.psych.wisc.edu/stimuli/ MotivatedCuesExp1A-1B.zip"(Edmiston & Lupyan, 2015).  
+ 
+
 
 The link to our online experiment can be found here: https://ucsd-psych201a.github.io/edmiston2015/ 
 
+
 ### Procedure	
 
-The procedure was followed precisely as in the original study for Experiment 1A. "On each trial participants heard a cue and saw a picture. We instructed participants to decide as quickly and accurately as possible if the picture they saw came from the same basic-level cate- gory as the word or sound they heard Participants were tested in individual rooms sitting approximately 2400 from a monitor such that images subtended 10  10°. Trials began with a 250 ms. fixation cross followed immediately by the auditory cue, delivered via headphones. The target image appeared centrally 1 s after the off- set of the auditory cue and remained visible until a response was made. Each participant completed 6 practice and 384 test trials. If the picture matched the auditory cue (50% of trials) participants were instructed to respond ‘Yes’ on a gaming controller (e.g., <cell- phone ring> or ‘‘phone’’ followed by a picture of any phone). Otherwise, they were to press ‘No’ (e.g., <cellphone ring> or ‘‘phone’’ followed by a dog). All factors (cue type, congruence) var- ied randomly within subjects. Auditory feedback (buzz or bleep) was given after each trial"(Edmiston & Lupyan, 2015). 
+We aim to follow this procedure as closely as possible: 
 
+"On each trial participants heard a cue and saw a picture. We instructed participants to decide as quickly and accurately as possible if the picture they saw came from the same basic-level cate- gory as the word or sound they heard Participants were tested in individual rooms sitting approximately 2400 from a monitor such that images subtended 10  10°. Trials began with a 250 ms. fixation cross followed immediately by the auditory cue, delivered via headphones. The target image appeared centrally 1 s after the off- set of the auditory cue and remained visible until a response was made. Each participant completed 6 practice and 384 test trials. If the picture matched the auditory cue (50% of trials) participants were instructed to respond ‘Yes’ on a gaming controller (e.g., <cell- phone ring> or ‘‘phone’’ followed by a picture of any phone). Otherwise, they were to press ‘No’ (e.g., <cellphone ring> or ‘‘phone’’ followed by a dog). All factors (cue type, congruence) var- ied randomly within subjects. Auditory feedback (buzz or bleep) was given after each trial"(Edmiston & Lupyan, 2015). 
+
+We aim to follow the original procedure of Experiment 1A as precisely as possible. However, instead of running the trials in-person, the experiment will be conducted online using jsPsych. For this reason, the task will be slightly different such that participants will respond to trials using their keyboard keys instead of a gaming controller. We will also encourage participants to wear headphones, be in a quiet area for the auditory cues during the experiment, and provide an initial audio check to ensure that participants have access to all stimuli presented throughout the experiment.
 
 ### Analysis Plan
 
 **Clarify key analysis of interest here**  
-A linear mixed regression model will be used to analyze response times for correct responses including "random intercepts and random slopes for within-subject factors and random intercepts for repeated items (unique trial types)"(Edmiston & Lupyan, 2015).  
-In addition, significance tests using chi-square tests will be used to compare nested models, as was done in the original study, to assess the impact of factors with and without interest on response times. 
+From the original study:
+
+"All participants performed very accurately on all items (M = 97%). Response times (RTs) shorter than 250 ms. or longer than 1500 ms. were removed (292 trials removed, 1.77% of total).
+
+We fit RTs for correct responses on matching trials (‘Yes’ responses) with linear mixed regression using maximum likelihood estimation (Bates, Maechler, Bolker, & Walker, 2013), including random intercepts and random slopes for within-subject factors and random intercepts for repeated items (unique trial types) following the recommendations of Barr, Levy, Scheepers, and Tily (2013). Reported below are the parameter estimates (b) and confidence intervals for each contrast of interest. Significance tests were calculated using chi-square tests that compared nested models—models with and without the factor of interest—on improvement in log-likelihood."
+
+For our replication, we will also remove trials where response times are shorter than 250 ms or longer than 1500ms from the analysis. We will then run a similar linear mixed regression model, as was performed the original study. We will also use chi-square tests to assess significance of the results. We anticipate that a successful replication of the original study will yield similar effects. More specifically, we should find that verbal labels elicit the lowest overall reaction times, and that congruent sounds elicit lower reaction times than incongruent sounds.
 
 ### Differences from Original Study
 
-The original study used a remote controller.  The replication study will use the computer for responses and implement key responses to simulate buttons on controller. This should allow for accurate and quick responses. Participants were instructed to complete the study using headphones in a quiet environment. However, since the study was conducted online, experimenters had no control over participants' surroundings, which could introduce differences from the original study.
+This replication will differ from the original study in both setting and procedure. Instead of being conducted in a lab, the experiments will take place online using Prolific. Variations in participants' device performance and internet speed may influence reaction times. Additionally, participants will respond to trials using a keyboard rather than the gaming controller used previously. Despite these changes, we expect these differences will have minimal impact on the results or the ability to replicate the effect reported in the original study.
 
 ## Pilot A
 
-For our Pilot A (with non-naive participants), we aimed to replicate the experimental paradigm described in the study. We collected an intial sampe of 3 participants from friends. The GitHub page for our paradigm is linked below:
+For our Pilot A (with non-naive participants), we aimed to replicate the experimental paradigm described in the study. We collected an initial sample of 3 participants from friends. The GitHub page for our paradigm is linked below:
 [Link to experimental paradigm](https://ucsd-psych201a.github.io/edmiston2015/)
 
 This data was imported and uploaded to the data folder in the project repository, which can be
-found on our GitHub repoisitory here:
+found on our GitHub repository here:
 
 https://github.com/ucsd-psych201a/edmiston2015/tree/main/data
 
 
 ## Pilot B
-We collected data for 5 participants. The average duration of the study was 25 minutes, exactly what we had predicted. The raw data for Pilot B can be found here: https://github.com/ucsd-psych201a/edmiston2015/tree/main/data/pilot_b 
-The initial statistical analysis can be found under confirmatory analysis below for the first 5 participants. 
+For our Pilot B (with naive participants), we collected data from five participants on Prolific. The following "Results" section (Data Preparation and Confirmatory Analysis) is run on Pilot B data for the time-being. As predicted, the participants took an average of about 25 minutes to complete the experiment.
+
+[Link to Pilot B data](https://github.com/ucsd-psych201a/edmiston2015/tree/main/data/pilot_b)
 
 ## Pre-Registration
 Our Pre-Registration can be found here: https://github.com/ucsd-psych201a/edmiston2015/tree/main/prereg 
@@ -76,7 +90,7 @@ You can comment this section out prior to final report with data collection.
 ## Results
 
 ### Data preparation
-We are replicating Experiment 1A from the paper. To clean the data we will remove incorrect responses or participants who failed attention checks.  As for data exclusion rules, we will follow the parameters set by the original study in which "Response times (RTs) shorter than 250 ms. or longer than 1500 ms. [will be] removed". This accounts for outliers that may skew results. There aren't any covariates mentioned in this experiment. 
+We are replicating Experiment 1A from the paper. To clean the data we will remove incorrect responses and practice trials.  As for data exclusion rules, we will follow the parameters set by the original study in which "Response times (RTs) shorter than 250 ms. or longer than 1500 ms. [will be] removed". This accounts for outliers that may skew results. This data preparation also labels the conditions for later analysis (i.e. `congruent`, `incogruent`).
 	
 ```{r}
 ### Data Preparation
@@ -124,38 +138,28 @@ combined_df <- combined_df %>%
   select(rt, ID, sound_category,cue, congruency)
 ```
 ## Design Overview
-How many factors were manipulated?
-In this experiment one factor, the auditory cue, was manipulated. Within this factor there are conditions - congruent sound, incongruent sound, and label. 
 
-How many measures were taken?
+Within-subjects design with 2 factors: Auditory Cue (Environmental Sound vs. Label) and Match to Basic Category (Match vs. No Match). Congruency is further manipulated within the Matching Environmental Sound condition.
+
 Reaction time was the only measure taken. 
 
-Did it use a within-participants or between-participants design?
 It uses within-participants design where everyone does each condition. 
 
-Were measures repeated?
-Yes measures were repeated for 384 experimental trials. 
+Measures were repeated for 384 experimental trials. 
 
-What would have been the consequence of changing one of these decisions? (e.g. moving from within to between participants). Could it have been either way?
-There would be more confounds if it was between participants because people have different reaction times to stimuli, therefore the measures wouldn't be as accurate. 
-
-Were steps taken to reduce demand characteristics?
 They didn't take any measures to reduce demand characteristics. 
 
-How would you critique the design?
 To improve the experiment attention checks could be added. Given that incorrect responses could be labeled incongruent, incorrect responses could have also been included in the data. 
-
-Can you think of any potential confounds to the study?
-
-Do you see any limitations to generalizability?
 This sample could not be representative of all populations because it only studied undergraduates and WEIRD populations. 
 
 ### Confirmatory analysis
-Building on the methodology of Edminston & Lupyan (2015), we will analyze our response time data using mixed-effects linear regression models. This data will be filtered to include only correct responses from matching trials ("Yes" responses). The model will feature random intercepts and random slopes for within-subject factors (e.g., "subject") and random intercepts for repeated items (e.g., the specific item presented: bird, guitar, dog, etc.). The primary variable of interest ("contrast of interest") is the "condition," which specifies whether a trial involved a label, a congruent sound, or an incongruent sound. For each contrast of interest, we will report parameter estimates and confidence intervals (p. 94). Additionally, we will conduct chi-square tests to compare nested models—those with and without the factor of interest—by evaluating the improvement in log-likelihood (p. 94).
+This analysis aims to determine whether (1) verbal labels lead to faster response times compared to sound labels, and (2) congruent sounds produce faster responses than incongruent sounds, in line with the findings of Experiment 1A from the original study.
 
-This analysis directly addresses the paper's key hypothesis: that the condition affects response times. By examining parameter estimates for the conditions (label, congruent, and incongruent), we can assess how each condition uniquely influences response time. Importantly, the model enables us to compare these effects across conditions. We anticipate that our results will closely align with those reported by Edminston & Lupyan (2015).
+As outlined in our analysis plan, we adopt the approach used by Edmiston & Lupyan (2015), modeling reaction times for correct responses in matching trials across three cue conditions (verbal label, congruent sound, incongruent sound) using a linear mixed-effects regression model. The model incorporates random intercepts and slopes for within-subject factors, as well as random intercepts for repeated measures (unique trial types). The primary variable of interest is the “condition,” representing whether the trial used a label, a congruent sound, or an incongruent sound.
 
-Finally, by constructing a model that excludes the factor of interest and comparing its performance to the full model, we aim to confirm whether this factor genuinely explains the observed patterns in the data.
+In the next section, we will present parameter estimates and confidence intervals for each contrast of interest. These estimates indicate the extent to which each condition affects reaction times. Additionally, to assess how strongly the factors of interest explain the observed patterns, we conduct chi-square tests to compare nested models—those with and without the factor of interest—based on improvements in log-likelihood. The resulting p-values will indicate the statistical significance of the effects.
+
+We anticipate that the model outputs will align closely with the results reported by Edmiston & Lupyan (2015). More specifically, incongruent environmental sounds will elicit longer response times in comparison to congruent environmental sounds. Verbal labels will elicit the shortest response time. 
 
 *Side-by-side graph with original graph is ideal here*
 
