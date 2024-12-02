@@ -20,7 +20,7 @@ The stimuli presented in experiment 1A of this study involve six categories, suc
 
 ### Power Analysis
 
-Sicne the original study used a linear mixed regression analysis (which is outside of the scope of this course), we have decided to use the 2.5x sample size heuristic to ensure that our study has adequate power.
+Since the original study used a linear mixed regression analysis, it is difficult to perform a power analysis. For this reason, we have decided to use the 2.5x sample size heuristic to ensure that our study has adequate power.
 
 ### Planned Sample
 
@@ -28,7 +28,7 @@ In the original study, the participants for Experiment 1A were described as the 
 
 "43 University of Wisconsin–Madison undergraduates participated in Experiment 1A in exchange for course credit."
 
-For the current study, we aim to replicate the sample as much as possible. Specifically, we will aim for a similar sample size (n=43) and similar demographics.
+As specified in our power analysis, we plan to have 2.5x participants as the original sample (n=108). These participants will be recruited and compensated through on Prolific.
 
 ### Materials
 
@@ -45,7 +45,7 @@ From the original study:
 
 "On each trial participants heard a cue and saw a picture. We instructed participants to decide as quickly and accurately as possible if the picture they saw came from the same basic-level category as the word or sound they heard Participants were tested in individual rooms sitting approximately 2400 from a monitor such that images subtended 10  10°. Trials began with a 250 ms. fixation cross followed immediately by the auditory cue, delivered via headphones. The target image appeared centrally 1 s after the off- set of the auditory cue and remained visible until a response was made. Each participant completed 6 practice and 384 test trials. If the picture matched the auditory cue (50% of trials) participants were instructed to respond ‘Yes’ on a gaming controller (e.g., <cell- phone ring> or ‘‘phone’’ followed by a picture of any phone). Otherwise, they were to press ‘No’ (e.g., <cellphone ring> or ‘‘phone’’ followed by a dog). All factors (cue type, congruence) var- ied randomly within subjects. Auditory feedback (buzz or bleep) was given after each trial."
 
-We aim to follow the original procedure of Experiment 1A as precisely as possible. However, instead of running the trials in-person, the experiment will be conducted online using jsPsych. For this reason, the task will be slightly different such that participants will respond to trials using their cursor instead of a gaming controller. We will also encourage participants to wear headphones and be in a quiet area for the auditory cues during the experiment.
+We aim to follow the original procedure of Experiment 1A as precisely as possible. However, instead of running the trials in-person, the experiment will be conducted online using jsPsych. For this reason, the task will be slightly different such that participants will respond to trials using their keyboard keys instead of a gaming controller. We will also encourage participants to wear headphones, be in a quiet area for the auditory cues during the experiment, and provide an initial audio check to ensure that participants have access to all stimuli presented throughout the experiment.
 
 ### Analysis Plan
 
@@ -62,7 +62,7 @@ For our replication, we will also remove trials where response times are shorter
 
 ### Differences from Original Study
 
-This replication will differ from the original study in terms of setting and procedure. As previously mentioned, the experiments will be conducted online using jsPsych as opposed to in-person in a lab setting. Loading/internet speed of the participants' personal devices may affect overall reaction times. Participants will also be using their cursor to respond to trials as opposed to the gaming controller used in the original study. However, we do not anticipate that these differences will greatly affect results or ability to obtain the same effect as described in the original study.
+This replication will differ from the original study in terms of setting and procedure. As previously mentioned, the experiments will be conducted online using jsPsych as opposed to in-person in a lab setting. Loading/internet speed of the participants' personal devices may affect overall reaction times. Participants will also be using their keyboard to respond to trials as opposed to the gaming controller used in the original study. However, we do not anticipate that these differences will greatly affect results or ability to obtain the same effect as described in the original study.
 
 
 ### Methods Addendum (Post Data Collection)
@@ -101,7 +101,13 @@ For our Pilot A (with non-naive participants), we aimed to replicate the experim
 
 We have collected pilot data from three participants. This data was imported and uploaded to the data folder in the project repository.
 
-[Link to Pilot A data](https://github.com/ucsd-psych201a/edmiston2015/tree/main/data)
+[Link to Pilot A data](https://github.com/ucsd-psych201a/edmiston2015/tree/main/data/pilot_a)
+
+## Pilot B
+
+For our Pilot B (with naive participants), we collected data from five participants on Prolific. The following "Results" section (Data Preparation and Confirmatory Analysis) is run on Pilot B data for the time-being. As predicted, the participants took an average of about 25 minutes to complete the experiment.
+
+[Link to Pilot B data](https://github.com/ucsd-psych201a/edmiston2015/tree/main/data/pilot_b)
 
 ## Results
 
@@ -109,7 +115,7 @@ We have collected pilot data from three participants. This data was imported and
 
 Data preparation following the analysis plan.
 
-The following code combines the data that has been collected from our experiment and performs the necessary data wrangling to run through our analysis model. Similar to the original study, practice trials and "No" trials were removed. Trials where reaction times are less than 250 ms or exceed 1500 ms after stimulus presentation were also excluded. This also labels the conditions for later analysis (e.g. `congruent`, `incogruent`).
+The following code combines the data that has been collected from our experiment (currently Pilot B) and performs the necessary data wrangling to run through our analysis model. Similar to the original study, practice trials and "No" trials were removed. Trials where reaction times are less than 250 ms or exceed 1500 ms after stimulus presentation were also excluded. This also labels the conditions for later analysis (i.e. `congruent`, `incogruent`).
 	
 ```{r}
 ### Data Preparation
@@ -118,10 +124,12 @@ The following code combines the data that has been collected from our experiment
 library(tidyverse)
 library(readr)
 library(lme4)
+```
 
+```{r}
 #### Import data
-#replace this with your own path (for now)
-folder_path <- "/Users/reekaestacio/Documents/GitHub/edmiston2015/data"
+## currently using pilot B data
+folder_path <- "../data/pilot_b"
 csv_files <- list.files(folder_path, pattern = "*.csv", full.names = TRUE)
 df_list <- lapply(csv_files, read_csv)
 combined_df <- bind_rows(df_list)
@@ -130,7 +138,7 @@ combined_df <- bind_rows(df_list)
 #exclude 'No' trials 
 combined_df <- combined_df %>%
   mutate(response = as.character(response)) %>%
-  filter(response == "y")
+  filter(response == "f")         # use "y" for pilot_a data, use "f" for pilot_b data
 
 #exclude practice trials 
 combined_df <- combined_df %>%
@@ -148,7 +156,6 @@ combined_df <- combined_df %>%
     TRUE ~ "congruent"
   ))
 
-
 #filter reaction time 
 combined_df <- combined_df %>%
   filter(rt >250, rt <1500)
@@ -156,12 +163,11 @@ combined_df <- combined_df %>%
 #### Prepare data for analysis - create columns etc.
 combined_df <- combined_df %>%
   select(rt, ID, sound_category,cue, congruency)
-
 ```
 
 ### Confirmatory analysis
 
-Following the confirmatory analysis of the original study, our replication will also perform a linear mixed effects regression model fit on response times to correct trials on congruent trials. The details of the analysis are specified in the "Analysis Plan" section of this writeup.
+Following the confirmatory analysis of the original study, our replication will also perform a linear mixed effects regression model fit on response times to correct trials on congruent trials. The details of the analysis are specified in the "Analysis Plan" section of this writeup. Again, the current analysis is run on data collected from Pilot B.
 
 ```{r}
 library(lmerTest)
@@ -184,8 +190,12 @@ model_full %>%
   pluck("contrasts")
 
 
+#chi squared test 
+model_reduced <- lmer(rt ~ (1 + congruency|ID) + (1|sound_category), data = combined_df)
 
-#model shows us that incongruent takes longer than congruent b = 28.7, that label is shorter than congruent (b = -15.52), and that incongruent takes longer than label b = 44.3 (find 95% CI) 
+anova(model_full, model_reduced)
+
+# model for Pilot A shows us that incongruent takes longer than congruent (b = 28.7), that label is shorter than congruent (b = -15.52), and that incongruent takes longer than label (b = 44.3) 
 ```
 
 *Side-by-side graph with original graph is ideal here*
