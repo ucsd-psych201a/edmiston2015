@@ -107,13 +107,13 @@ Do you see any limitations to generalizability?
 
 Data preparation following the analysis plan.
 
-#### Pilot Test (for Project Checkpoint A)
+#### Pilot A Test (for Project Checkpoint 1)
 
 We conducted pilot tests involving three participants. All data are collected using the [online experiment link](https://ucsd-psych201a.github.io/edmiston2015/). The data is available [here](https://github.com/ucsd-psych201a/edmiston2015/tree/main/data/pilot_a). 
 
-#### Pilot Test (for Project Checkpoint B)
+#### Pilot B Test (for Project Checkpoint 3)
 
-We conducted pilot tests involving five participants. All data are collected using prolific. The data is available [here](https://github.com/ucsd-psych201a/edmiston2015/tree/main/data/pilot_b). The average time participant took to complete the study was 25 minutes.
+We conducted pilot tests involving five participants. All data are collected using Prolific. The data is available [here](https://github.com/ucsd-psych201a/edmiston2015/tree/main/data/pilot_b). The average time participant took to complete the study was 25 minutes.
 
 #### Data cleaning and Data Exclusion Rules
 
@@ -161,7 +161,7 @@ accuracy_table <- combined_df %>%
 accuracy_table
 ```
 
-We set the threshold for data inclusion at 90% accuracy. Four out of five participants in pilot B have achieved an acceptable performance (above 90%). The following is the code to further filter the data based on accuracy (for future use).
+We set the threshold for data inclusion at 90% ^[We haven't discussed about it in details so this threshold may be a tentative one] accuracy. Four out of five participants in pilot B have achieved an acceptable performance (above 90%). The following is the code to further filter the data based on accuracy (for future use).
 
 ```{r}
 accuracy_thresh <- 0.9
