@@ -15,8 +15,14 @@ editor:
 
 ## Introduction
 
-GitHub Repository found here:
-https://github.com/ucsd-psych201a/edmiston2015
+**GitHub Repository found here:**
+<https://github.com/ucsd-psych201a/edmiston2015>
+
+**Link to experimental paradigm**:
+<https://ucsd-psych201a.github.io/edmiston2015/>
+
+**Link to preregistration draft:**
+<https://drive.google.com/drive/folders/1DR8HreGxv_Ct92-FIszRW-qtfVbgpE4K>
 
 Edminston & Lupyan (2015) provides evidence towards notion that
 ambiguous labels (i.e., "dog" or "guitar") activate knowledge of their
@@ -210,12 +216,23 @@ original study. The GitHub page for our paradigm is linked below:
 Link to experimental paradigm:
 https://ucsd-psych201a.github.io/edmiston2015/
 
-For our pilor, we collected data from three participants that we
+For our pilot, we collected data from three participants that we
 recruited using personal connections. This data was imported and
 uploaded to the data folder in the project repository, which can be
 found on our GitHub repoisitory here:
 
 https://github.com/ucsd-psych201a/edmiston2015/tree/main/data
+
+## Pilot B
+
+For pilot B, we collected 5 participants total, recruited via prolific.
+The data was uploaded to a folder in our github repo, which can be found
+here:
+
+<https://github.com/ucsd-psych201a/edmiston2015/tree/main/data/pilot_b>
+
+median time it took participants to do the experiment: 25 minutes (via
+Prolific)
 
 ## Results
 
@@ -248,7 +265,7 @@ library(lme4)
 
 #### Import data
 #replace this with your own path (for now)
-folder_path <- "../data"
+folder_path <- "../data/complete"
 csv_files <- list.files(folder_path, pattern = "*.csv", full.names = TRUE)
 df_list <- lapply(csv_files, read_csv)
 combined_df <- bind_rows(df_list)
@@ -257,7 +274,7 @@ combined_df <- bind_rows(df_list)
 #exclude 'No' trials 
 combined_df <- combined_df %>%
   mutate(response = as.character(response)) %>%
-  filter(response == "y")
+  filter(response == "f")
 #exclude practice trials 
 combined_df <- combined_df %>%
   filter(exp_part == "actual")
@@ -321,28 +338,73 @@ library(lmerTest)
 library(emmeans)
 library(lme4)
 
-#shows you a comparsion between reference (congruent) and the other two values (incongruent and label)
-model_full <- lmer(rt ~ congruency + (1 + congruency|ID) + (1|sound_category), data = combined_df)
+#recreation of fig 2
+library(ggplot2)
+
+# Reorder the 'congruency' factor levels
+combined_df$congruency <- factor(combined_df$congruency, levels = c("label", "congruent", "incongruent"))
+
+ggplot(data = combined_df,
+       mapping = aes(x = congruency,
+                     y = rt,
+                     color = congruency, 
+                     fill = congruency)) +
+  geom_bar(stat = "summary", fun = "mean", 
+           position = position_dodge(width = 0.6), width = 0.4, 
+           color = "black") +  # Dark bands around the bars (black border)
+  stat_summary(fun.data = "mean_cl_boot", 
+               geom = "linerange", 
+               position = position_dodge(width = 0.6), color = "black") +
+  scale_fill_manual(values = c("darkred", "darkblue", "lightblue")) +
+  scale_color_manual(values = c("darkred", "darkblue", "lightblue")) +
+  scale_x_discrete(labels = c("label" = "Label", 
+                              "congruent" = "Congruent", 
+                              "incongruent" = "Incongruent")) +  # Renaming x-axis labels
+  labs(
+    x = "Cue Type",
+    y = "Reaction Time (Ms)",
+    color = "Cue Type",
+    fill = "Cue Type"
+  ) +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme(panel.background = element_blank(), 
+        panel.grid = element_blank(), 
+        axis.line = element_line(color = "black"))
+
+
+
+#statistical analysis 
+
+#find best optimizer
+#allFit(model_full)
+
+# set congruent to back reference level
+combined_df$congruency <- relevel(combined_df$congruency, ref = "congruent")
+
+#set up model and view results
+model_full <- lmer(rt ~ congruency + (1 + congruency|ID) + (1|sound_category), data = combined_df, control = lmerControl(optimizer = "bobyqa"))
 
 summary(model_full)
 
-#get 95% CI
+# #get 95% CI
 confint.merMod(model_full,method="Wald")
 
-#post-hoc test: allows you to examine relationship between incongruent and label
-model_full %>% 
+
+# #post-hoc test: allows you to examine relationship between incongruent and label
+#####. 95% CI for this??? ###3
+model_full %>%
   emmeans(pairwise ~ congruency,
           #adjusts p values so that it is more difficult to get a significance (correction method)
-          adjust = "bonferroni") %>% 
+          adjust = "bonferroni", 
+          conf.int = TRUE) %>%
   pluck("contrasts")
 
 
-#model shows us that incongruent takes longer than congruent b = 28.7, that label is shorter than congruent (b = -15.52), and that incongruent takes longer than label b = 44.3 (find 95% CI) 
 
-#chi squared test 
+# #chi squared test 
 model_reduced <- lmer(rt ~ (1 + congruency|ID) + (1|sound_category), data = combined_df)
-
 anova(model_full, model_reduced)
+
 ```
 
 ### Exploratory analyses
@@ -351,7 +413,7 @@ Any follow-up analyses desired (not required).
 
 ## Discussion
 
-### Summary of Replication Attempt
+## Summary of Replication Attempt
 
 Open the discussion section with a paragraph summarizing the primary
 result from the confirmatory analysis and the assessment of whether it
