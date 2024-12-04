@@ -3223,13 +3223,13 @@ vertical-align: -.125em;
 <section id="data-preparation" class="level3">
 <h3 class="anchored" data-anchor-id="data-preparation">Data preparation</h3>
 <p>Data preparation following the analysis plan.</p>
-<section id="pilot-test-for-project-checkpoint-a" class="level4">
-<h4 class="anchored" data-anchor-id="pilot-test-for-project-checkpoint-a">Pilot Test (for Project Checkpoint A)</h4>
+<section id="pilot-a-test-for-project-checkpoint-1" class="level4">
+<h4 class="anchored" data-anchor-id="pilot-a-test-for-project-checkpoint-1">Pilot A Test (for Project Checkpoint 1)</h4>
 <p>We conducted pilot tests involving three participants. All data are collected using the <a href="https://ucsd-psych201a.github.io/edmiston2015/">online experiment link</a>. The data is available <a href="https://github.com/ucsd-psych201a/edmiston2015/tree/main/data/pilot_a">here</a>.</p>
 </section>
-<section id="pilot-test-for-project-checkpoint-b" class="level4">
-<h4 class="anchored" data-anchor-id="pilot-test-for-project-checkpoint-b">Pilot Test (for Project Checkpoint B)</h4>
-<p>We conducted pilot tests involving five participants. All data are collected using prolific. The data is available <a href="https://github.com/ucsd-psych201a/edmiston2015/tree/main/data/pilot_b">here</a>. The average time participant took to complete the study was 25 minutes.</p>
+<section id="pilot-b-test-for-project-checkpoint-3" class="level4">
+<h4 class="anchored" data-anchor-id="pilot-b-test-for-project-checkpoint-3">Pilot B Test (for Project Checkpoint 3)</h4>
+<p>We conducted pilot tests involving five participants. All data are collected using Prolific. The data is available <a href="https://github.com/ucsd-psych201a/edmiston2015/tree/main/data/pilot_b">here</a>. The average time participant took to complete the study was 25 minutes.</p>
 </section>
 <section id="data-cleaning-and-data-exclusion-rules-1" class="level4">
 <h4 class="anchored" data-anchor-id="data-cleaning-and-data-exclusion-rules-1">Data cleaning and Data Exclusion Rules</h4>
@@ -3300,7 +3300,7 @@ The following objects are masked from &#39;package:tidyr&#39;:
 5 pilotb_zjkomhyn3g    0.990</code></pre>
 </div>
 </div>
-<p>We set the threshold for data inclusion at 90% accuracy. Four out of five participants in pilot B have achieved an acceptable performance (above 90%). The following is the code to further filter the data based on accuracy (for future use).</p>
+<p>We set the threshold for data inclusion at 90% <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> accuracy. Four out of five participants in pilot B have achieved an acceptable performance (above 90%). The following is the code to further filter the data based on accuracy (for future use).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>accuracy_thresh <span class="ot">&lt;-</span> <span class="fl">0.9</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># select people who passed QA</span></span>
@@ -3533,7 +3533,13 @@ model_full      11 9094.8 9144.5 -4536.4   9072.8 0.8474  2     0.6546</code></p
 </section>
 </section>
 
-</main>
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>We haven’t discussed about it in details so this threshold may be a tentative one<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
