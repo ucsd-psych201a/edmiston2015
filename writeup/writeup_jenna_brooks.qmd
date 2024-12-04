@@ -102,7 +102,7 @@ library(lme4)
 
 #### Import data
 #replace this with your own path (for now)
-folder_path <- "../data/pilot_b"
+folder_path <- "../data/complete"
 csv_files <- list.files(folder_path, pattern = "*.csv", full.names = TRUE)
 df_list <- lapply(csv_files, read_csv)
 combined_df <- bind_rows(df_list)
@@ -168,24 +168,72 @@ library(lmerTest)
 library(emmeans)
 library(lme4)
 
-#shows you a comparsion between reference (congruent) and the other two values (incongruent and label)
-model_full <- lmer(rt ~ congruency + (1 + congruency|ID) + (1|sound_category), data = combined_df)
+#recreation of fig 2
+library(ggplot2)
+
+# Reorder the 'congruency' factor levels
+combined_df$congruency <- factor(combined_df$congruency, levels = c("label", "congruent", "incongruent"))
+
+ggplot(data = combined_df,
+       mapping = aes(x = congruency,
+                     y = rt,
+                     color = congruency, 
+                     fill = congruency)) +
+  geom_bar(stat = "summary", fun = "mean", 
+           position = position_dodge(width = 0.6), width = 0.4, 
+           color = "black") +  # Dark bands around the bars (black border)
+  stat_summary(fun.data = "mean_cl_boot", 
+               geom = "linerange", 
+               position = position_dodge(width = 0.6), color = "black") +
+  scale_fill_manual(values = c("darkred", "darkblue", "lightblue")) +
+  scale_color_manual(values = c("darkred", "darkblue", "lightblue")) +
+  scale_x_discrete(labels = c("label" = "Label", 
+                              "congruent" = "Congruent", 
+                              "incongruent" = "Incongruent")) +  # Renaming x-axis labels
+  labs(
+    x = "Cue Type",
+    y = "Reaction Time (Ms)",
+    color = "Cue Type",
+    fill = "Cue Type"
+  ) +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme(panel.background = element_blank(), 
+        panel.grid = element_blank(), 
+        axis.line = element_line(color = "black"))
+
+
+
+#statistical analysis 
+
+#find best optimizer
+#allFit(model_full)
+
+# set congruent to back reference level
+combined_df$congruency <- relevel(combined_df$congruency, ref = "congruent")
+
+#set up model and view results
+model_full <- lmer(rt ~ congruency + (1 + congruency|ID) + (1|sound_category), data = combined_df, control = lmerControl(optimizer = "bobyqa"))
 
 summary(model_full)
 
-#get 95% CI
+# #get 95% CI
 confint.merMod(model_full,method="Wald")
 
-#post-hoc test: allows you to examine relationship between incongruent and label
-model_full %>% 
+
+# #post-hoc test: allows you to examine relationship between incongruent and label
+#####. 95% CI for this??? ###3
+model_full %>%
   emmeans(pairwise ~ congruency,
           #adjusts p values so that it is more difficult to get a significance (correction method)
-          adjust = "bonferroni") %>% 
+          adjust = "bonferroni", 
+          conf.int = TRUE) %>%
   pluck("contrasts")
 
 
 
-#model shows us that incongruent takes longer than congruent b = 28.7, that label is shorter than congruent (b = -15.52), and that incongruent takes longer than label b = 44.3 (find 95% CI) 
+# #chi squared test 
+model_reduced <- lmer(rt ~ (1 + congruency|ID) + (1|sound_category), data = combined_df)
+anova(model_full, model_reduced)
 ```
 
 

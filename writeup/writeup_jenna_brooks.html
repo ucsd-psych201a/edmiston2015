@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jenna Brooks(j8brooks@ucsd.edu)">
-<meta name="dcterms.date" content="2024-11-26">
+<meta name="dcterms.date" content="2024-12-04">
 
 <title>Replication of Study What makes words special? Words as unmotivated cues (2015, Cognition)</title>
 <style>
@@ -135,7 +135,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 26, 2024</p>
+      <p class="date">December 4, 2024</p>
     </div>
   </div>
   
@@ -250,11 +250,411 @@ The following objects are masked from 'package:tidyr':
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### Import data</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#replace this with your own path (for now)</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>folder_path <span class="ot">&lt;-</span> <span class="st">"../data/pilot_b"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>folder_path <span class="ot">&lt;-</span> <span class="st">"../data/complete"</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>csv_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(folder_path, <span class="at">pattern =</span> <span class="st">"*.csv"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>df_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(csv_files, read_csv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
+dbl  (3): rt, time_elapsed, img_version
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 390 Columns: 15
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: ","
 chr (12): correct_response, response, img_fname, img_category, img_subtype, ...
@@ -368,83 +768,154 @@ See '? untidy'</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#shows you a comparsion between reference (congruent) and the other two values (incongruent and label)</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>model_full <span class="ot">&lt;-</span> <span class="fu">lmer</span>(rt <span class="sc">~</span> congruency <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">+</span> congruency<span class="sc">|</span>ID) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>sound_category), <span class="at">data =</span> combined_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>boundary (singular) fit: see help('isSingular')</code></pre>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#recreation of fig 2</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Reorder the 'congruency' factor levels</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>combined_df<span class="sc">$</span>congruency <span class="ot">&lt;-</span> <span class="fu">factor</span>(combined_df<span class="sc">$</span>congruency, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"label"</span>, <span class="st">"congruent"</span>, <span class="st">"incongruent"</span>))</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> combined_df,</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> congruency,</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> rt,</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>                     <span class="at">color =</span> congruency, </span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>                     <span class="at">fill =</span> congruency)) <span class="sc">+</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"summary"</span>, <span class="at">fun =</span> <span class="st">"mean"</span>, </span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>           <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.6</span>), <span class="at">width =</span> <span class="fl">0.4</span>, </span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span>  <span class="co"># Dark bands around the bars (black border)</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> <span class="st">"mean_cl_boot"</span>, </span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>               <span class="at">geom =</span> <span class="st">"linerange"</span>, </span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.6</span>), <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"darkred"</span>, <span class="st">"darkblue"</span>, <span class="st">"lightblue"</span>)) <span class="sc">+</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"darkred"</span>, <span class="st">"darkblue"</span>, <span class="st">"lightblue"</span>)) <span class="sc">+</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"label"</span> <span class="ot">=</span> <span class="st">"Label"</span>, </span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"congruent"</span> <span class="ot">=</span> <span class="st">"Congruent"</span>, </span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"incongruent"</span> <span class="ot">=</span> <span class="st">"Incongruent"</span>)) <span class="sc">+</span>  <span class="co"># Renaming x-axis labels</span></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Cue Type"</span>,</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Reaction Time (Ms)"</span>,</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Cue Type"</span>,</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Cue Type"</span></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"black"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="writeup_jenna_brooks_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_full)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#statistical analysis </span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#find best optimizer</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">#allFit(model_full)</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co"># set congruent to back reference level</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>combined_df<span class="sc">$</span>congruency <span class="ot">&lt;-</span> <span class="fu">relevel</span>(combined_df<span class="sc">$</span>congruency, <span class="at">ref =</span> <span class="st">"congruent"</span>)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co">#set up model and view results</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>model_full <span class="ot">&lt;-</span> <span class="fu">lmer</span>(rt <span class="sc">~</span> congruency <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">+</span> congruency<span class="sc">|</span>ID) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>sound_category), <span class="at">data =</span> combined_df, <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer =</span> <span class="st">"bobyqa"</span>))</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_full)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
 Formula: rt ~ congruency + (1 + congruency | ID) + (1 | sound_category)
    Data: combined_df
+Control: lmerControl(optimizer = "bobyqa")
 
-REML criterion at convergence: 11919.7
+REML criterion at convergence: 126149.7
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--2.1094 -0.6902 -0.1522  0.4877  3.6029 
+-2.4172 -0.6838 -0.1910  0.4658  4.1472 
 
 Random effects:
  Groups         Name                  Variance Std.Dev. Corr       
- sound_category (Intercept)             144.0   12.00              
- ID             (Intercept)           44075.9  209.94              
-                congruencyincongruent   787.7   28.07   -0.50      
-                congruencylabel        2577.0   50.76   -0.74  0.95
- Residual                             42596.0  206.39              
-Number of obs: 883, groups:  sound_category, 6; ID, 5
+ ID             (Intercept)           22005.83 148.344             
+                congruencylabel        1752.79  41.866  -0.40      
+                congruencyincongruent   986.76  31.413  -0.01  0.18
+ sound_category (Intercept)               9.17   3.028             
+ Residual                             46429.91 215.476             
+Number of obs: 9267, groups:  ID, 53; sound_category, 6
 
 Fixed effects:
-                      Estimate Std. Error      df t value Pr(&gt;|t|)   
-(Intercept)            718.066     94.721   4.025   7.581  0.00158 **
-congruencyincongruent  -16.156     25.975   8.118  -0.622  0.55101   
-congruencylabel        -37.768     27.266   3.877  -1.385  0.24037   
+                      Estimate Std. Error      df t value Pr(&gt;|t|)    
+(Intercept)            708.467     20.751  51.538  34.142  &lt; 2e-16 ***
+congruencylabel        -50.301      7.530  50.908  -6.680 1.76e-08 ***
+congruencyincongruent    7.786      8.675  49.152   0.897    0.374    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Correlation of Fixed Effects:
-            (Intr) cngrncyn
-cngrncyncng -0.293         
-congrncylbl -0.660  0.572  
-optimizer (nloptwrap) convergence code: 0 (OK)
-boundary (singular) fit: see help('isSingular')</code></pre>
+            (Intr) cngrncyl
+congrncylbl -0.388         
+cngrncyncng -0.081  0.277  </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#get 95% CI</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">confint.merMod</span>(model_full,<span class="at">method=</span><span class="st">"Wald"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># #get 95% CI</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">confint.merMod</span>(model_full,<span class="at">method=</span><span class="st">"Wald"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                          2.5 %    97.5 %
-.sig01                       NA        NA
-.sig02                       NA        NA
-.sig03                       NA        NA
-.sig04                       NA        NA
-.sig05                       NA        NA
-.sig06                       NA        NA
-.sig07                       NA        NA
-.sigma                       NA        NA
-(Intercept)           532.41644 903.71625
-congruencyincongruent -67.06601  34.75379
-congruencylabel       -91.20730  15.67183</code></pre>
+<pre><code>                           2.5 %    97.5 %
+.sig01                        NA        NA
+.sig02                        NA        NA
+.sig03                        NA        NA
+.sig04                        NA        NA
+.sig05                        NA        NA
+.sig06                        NA        NA
+.sig07                        NA        NA
+.sigma                        NA        NA
+(Intercept)           667.796875 749.13767
+congruencylabel       -65.059907 -35.54287
+congruencyincongruent  -9.217293  24.78925</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#post-hoc test: allows you to examine relationship between incongruent and label</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>model_full <span class="sc">%&gt;%</span> </span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">emmeans</span>(pairwise <span class="sc">~</span> congruency,</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>          <span class="co">#adjusts p values so that it is more difficult to get a significance (correction method)</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">adjust =</span> <span class="st">"bonferroni"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="st">"contrasts"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># #post-hoc test: allows you to examine relationship between incongruent and label</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="do">#####. 95% CI for this??? ###3</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>model_full <span class="sc">%&gt;%</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">emmeans</span>(pairwise <span class="sc">~</span> congruency,</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>          <span class="co">#adjusts p values so that it is more difficult to get a significance (correction method)</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">adjust =</span> <span class="st">"bonferroni"</span>, </span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="st">"contrasts"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Cannot use mode = "kenward-roger" because *pbkrtest* package is not installed</code></pre>
+<pre><code>Note: D.f. calculations have been disabled because the number of observations exceeds 3000.
+To enable adjustments, add the argument 'pbkrtest.limit = 9267' (or larger)
+[or, globally, 'set emm_options(pbkrtest.limit = 9267)' or larger];
+but be warned that this may result in large computation time and memory use.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Note: D.f. calculations have been disabled because the number of observations exceeds 3000.
+To enable adjustments, add the argument 'lmerTest.limit = 9267' (or larger)
+[or, globally, 'set emm_options(lmerTest.limit = 9267)' or larger];
+but be warned that this may result in large computation time and memory use.</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code> contrast                estimate   SE   df t.ratio p.value
- congruent - incongruent     16.2 26.0 8.12   0.622  1.0000
- congruent - label           37.8 27.3 3.88   1.385  0.7211
- incongruent - label         21.6 24.7 9.62   0.876  1.0000
+<pre><code> contrast                estimate   SE  df z.ratio p.value
+ congruent - label          50.30 7.53 Inf   6.680  &lt;.0001
+ congruent - incongruent    -7.79 8.68 Inf  -0.897  1.0000
+ label - incongruent       -58.09 9.79 Inf  -5.936  &lt;.0001
 
-Degrees-of-freedom method: satterthwaite 
+Degrees-of-freedom method: asymptotic 
 P value adjustment: bonferroni method for 3 tests </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#model shows us that incongruent takes longer than congruent b = 28.7, that label is shorter than congruent (b = -15.52), and that incongruent takes longer than label b = 44.3 (find 95% CI) </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># #chi squared test </span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>model_reduced <span class="ot">&lt;-</span> <span class="fu">lmer</span>(rt <span class="sc">~</span> (<span class="dv">1</span> <span class="sc">+</span> congruency<span class="sc">|</span>ID) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>sound_category), <span class="at">data =</span> combined_df)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(model_full, model_reduced)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>refitting model(s) with ML (instead of REML)</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Data: combined_df
+Models:
+model_reduced: rt ~ (1 + congruency | ID) + (1 | sound_category)
+model_full: rt ~ congruency + (1 + congruency | ID) + (1 | sound_category)
+              npar    AIC    BIC logLik deviance  Chisq Df Pr(&gt;Chisq)    
+model_reduced    9 126224 126288 -63103   126206                         
+model_full      11 126191 126270 -63085   126169 36.868  2   9.87e-09 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
 </div>
 <p><em>Side-by-side graph with original graph is ideal here</em></p>
 </section>
