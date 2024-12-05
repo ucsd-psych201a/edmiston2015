@@ -12,7 +12,7 @@ format:
 
 ## Resources 
 - [GitHub Repository](https://github.com/ucsd-psych201a/edmiston2015)
-- [Pre-Registration](https://osf.io/7ca8z) 
+- [Pre-Registration](https://github.com/ucsd-psych201a/edmiston2015/tree/main/prereg) 
 - [Paradigm](https://ucsd-psych201a.github.io/edmiston2015/)
 
 
@@ -69,16 +69,13 @@ For our Pilot A (with non-naive participants), we aimed to replicate the experim
 This data was imported and uploaded to the data folder in the project repository. 
 [Pilot A data](https://github.com/ucsd-psych201a/edmiston2015/tree/main/data)
 
-
-
-
 ## Pilot B
 For our Pilot B (with naive participants), we collected data from five participants on Prolific. The following "Results" section (Data Preparation and Confirmatory Analysis) is run on Pilot B data for the time-being. As predicted, the participants took an average of about 25 minutes to complete the experiment.
 
 [Pilot B data](https://github.com/ucsd-psych201a/edmiston2015/tree/main/data/pilot_b)
 
 ## Pre-Registration
-Our Pre-Registration can be found here: https://github.com/ucsd-psych201a/edmiston2015/tree/main/prereg 
+Our Pre-Registration can be found [here](https://github.com/ucsd-psych201a/edmiston2015/tree/main/prereg) 
 
 ### Methods Addendum (Post Data Collection)
 
