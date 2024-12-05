@@ -275,7 +275,6 @@ combined_df <- combined_df %>%
   filter(exp_part == "actual")
 
 #### Data exclusion / filtering
-#exclude 'No' trials 
 combined_df <- combined_df %>%
   mutate(correct_response = as.character(correct_response)) %>%
   mutate(response = as.character(response)) %>%
@@ -315,10 +314,21 @@ combined_df <- combined_df %>%
     TRUE ~ "congruent"
   ))
 
-
+#calcuate count before filtering
+initial_count <- nrow(combined_df)
+  
+  
 #filter reaction time 
 combined_df <- combined_df %>%
   filter(rt >250, rt <1500)
+
+#calcuate count after filtering
+final_count <- nrow(combined_df)
+
+#compare
+print(initial_count)
+print(final_count)
+
 
 #### Prepare data for analysis - create columns etc.
 combined_df <- combined_df %>%
@@ -373,31 +383,30 @@ see.
 library(lmerTest)
 library(emmeans)
 library(lme4)
-
-#recreation of fig 2
 library(ggplot2)
 
 # Reorder the 'congruency' factor levels
 combined_df$congruency <- factor(combined_df$congruency, levels = c("label", "congruent", "incongruent"))
 
 
-#####get rid of x axis labels####
+#boxpplot
 ggplot(data = combined_df,
        mapping = aes(x = congruency,
                      y = rt,
                      color = congruency, 
                      fill = congruency)) +
   geom_bar(stat = "summary", fun = "mean", 
-           position = position_dodge(width = 0.6), width = 0.4, 
-           color = "black") +  # Dark bands around the bars (black border)
+           width = 0.4, 
+           color = "black") + 
   stat_summary(fun.data = "mean_cl_boot", 
                geom = "linerange", 
-               position = position_dodge(width = 0.6), color = "black") +
-  scale_fill_manual(values = c("darkred", "darkblue", "lightblue")) +
-  scale_color_manual(values = c("darkred", "darkblue", "lightblue")) +
-  scale_x_discrete(labels = c("label" = "Label", 
-                              "congruent" = "Congruent", 
-                              "incongruent" = "Incongruent")) +  # Renaming x-axis labels
+               color = "black") +
+   geom_errorbar(stat = "summary", 
+                fun.data = "mean_cl_boot", 
+                width = 0.2, 
+                color = "black") +
+  scale_fill_manual(values = c("darkred", "darkblue", "darkgreen")) +
+  scale_color_manual(values = c("darkred", "darkblue", "darkgreen")) +
   labs(
     x = "Cue Type",
     y = "Reaction Time (Ms)",
@@ -405,12 +414,43 @@ ggplot(data = combined_df,
     fill = "Cue Type"
   ) +
   scale_y_continuous(expand = c(0, 0)) +
-  theme(panel.background = element_blank(), 
-        panel.grid = element_blank(), 
-        axis.line = element_line(color = "black"))
+  theme_classic() +
+  theme(
+  axis.text.x = element_blank(), 
+  axis.text.y = element_text(size = 14, color = "black"),
+  axis.title.x = element_text(size = 16, color = "black", face = "bold"), 
+  axis.title.y = element_text(size = 16, color = "black", face = "bold"), 
+  legend.title = element_text(size = 14, color = "black"), 
+  legend.text = element_text(size = 14, color = "black") 
+)
 
 
-####add box and whisker plot#####
+
+#box and whisker plto 
+ggplot(data = combined_df,
+       mapping = aes(x = congruency,
+                     y = rt,
+                     color = congruency)) +
+  geom_boxplot(width = 0.6, outlier.shape = NA) + 
+  geom_jitter(width = 0.2, alpha = 0.1, size = 1.5) +
+  scale_color_manual(values = c("darkred", "darkblue", "darkgreen")) +
+  labs(
+    y = "Reaction Time (Ms)",
+    color = "Cue Type",
+    x = "Cue Type",
+    fill = "Cue Type "
+  ) +
+  theme_classic() +
+  theme(
+  axis.text.x = element_blank(), 
+  axis.text.y = element_text(size = 14, color = "black"),
+  axis.title.x = element_text(size = 16, color = "black", face = "bold"), 
+  axis.title.y = element_text(size = 16, color = "black", face = "bold"), 
+  legend.title = element_text(size = 14, color = "black"), 
+  legend.text = element_text(size = 14, color = "black") 
+)
+
+
 
 
 #statistical analysis 
@@ -425,28 +465,24 @@ combined_df$congruency <- relevel(combined_df$congruency, ref = "congruent")
 model_full <- lmer(rt ~ congruency + (1 + congruency|ID) + (1|sound_category), data = combined_df, control = lmerControl(optimizer = "bobyqa"))
 
 summary(model_full)
-```
 
-```{r}
 #get 95% CI
 confint.merMod(model_full,method="Wald")
 
 
 # #post-hoc test: allows you to examine relationship between incongruent and label
 #####. 95% CI for this??? ###3
-model_full %>%
+contrast_results <- model_full %>%
   emmeans(pairwise ~ congruency,
           #adjusts p values so that it is more difficult to get a significance (correction method)
           adjust = "bonferroni", 
           conf.int = TRUE) %>%
   pluck("contrasts")
-
-
+confint(contrast_results, calc = c(n = ~.wgt.))
 
 # #chi squared test 
 model_reduced <- lmer(rt ~ (1 + congruency|ID) + (1|sound_category), data = combined_df)
 anova(model_full, model_reduced)
-
 ```
 
 ### Exploratory analyses
