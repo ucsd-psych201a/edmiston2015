@@ -10,11 +10,17 @@ format:
 
 <!-- Replication reports should all use this template to standardize reporting across projects.  These reports will be public supplementary materials that accompany the summary report(s) of the aggregate results. -->
 
+## Resources 
+- [GitHub Repository](https://github.com/ucsd-psych201a/edmiston2015)
+- [Pre-Registration](https://osf.io/7ca8z) 
+- [Paradigm](https://ucsd-psych201a.github.io/edmiston2015/)
+
+
 ## Introduction
 
-This study aimed to explore why verbal labels, such as the words "dog" or "guitar," activate conceptual knowledge more effectively than environmental sounds associated with these objects, such as the bark of a dog or the strum of a guitar. I chose this topic because it intersects with my interests in language learning and auditory perception. This study finds that verbal labels (or words) are more effective than sounds in activating abstract category concepts because labels act as "unmotivated cues," broadly representing a category without specific reference to particular instances. In contrast, sounds are "motivated cues" that link directly to specific sources or instances, limiting their effectiveness in promoting conceptual abstraction. This difference is highlighted by experiments showing that words activate category-level knowledge more selectively than environmental sounds.
+This study aimed to explore why verbal labels, such as the words "dog" or "guitar," activate conceptual knowledge more effectively than environmental sounds associated with these objects, such as the bark of a dog or the strum of a guitar. Previous studies show that environmental sounds, like a dog bark, activate specific instances of a concept, while words, like "dog," cue broader, more abstract mental representations (Lupyan & Thompson-Schill, 2012). This study investigates this "label advantage" and tests whether verbal labels promote faster, more abstract mental processing compared to environmental sounds in an image recognition task.
 
-In this experiment, participants will be presented with either a verbal representation or  environmental sound for the following categories: bird, dog, drum, guitar, motorcycle, and phone. Participants are presented with an auditory cue (either a word or sound) and a picture presented 1 second after the auditory input is made. Participants are tested on how quickly and accurately they can determine if the picture presented matches the auditory cue they received. They will use a yes or no button on the computer screen. Potential challenges of this study could be sound quality of the environmental sounds to ensure they are clearly recognizable. Additionally, finding a diverse group of participants for this study could be a challenge. 
+This study finds that verbal labels (or words) are more effective than sounds in activating abstract category concepts because labels act as "unmotivated cues," broadly representing a category without specific reference to particular instances. In this experiment, participants will be presented with either a word or  environmental sound for the following categories: bird, dog, drum, guitar, motorcycle, and phone. Participants are presented with an auditory cue (either a word or a sound), followed by a picture displayed 1 second later, and are tested on how quickly and accurately they can determine whether the picture matches the auditory cue, with reaction times serving as the primary measure. This research seeks to deepen our understanding of how verbal labels enhance abstract categorization compared to environmental sounds by examining their influence on reaction time speed in an image recognition task.
 
 ## Methods
 
@@ -22,26 +28,24 @@ In this experiment, participants will be presented with either a verbal represen
 Based on guidance from instructional staff, the sample size was determined with an a priori power analysis with the package simr, and is adequate to achieve at least 80% power for detecting the effect reported in the original study at a significance criterion of alpha = .05 (any random effects not specified in the original paper were taken from a small pilot study).
 
 ### Planned Sample
-We plan to have a sample size of n = 50. For pre-screening, participants must speak English fluently to ensure comprehension in the task. Participants are recruited and compensated on the Prolific online platform. 
+We plan to have a sample size of n = 50. For pre-screening, participants must speak English fluently and not have any hearing difficulties to ensure comprehension in the task. Participants are recruited and compensated on the Prolific online platform. 
 
 ### Materials
 
 The materials were followed precisely as follows. All materials were provided by the original authors.  
 
 "The auditory cues comprised basic-level category labels and environmental sounds for six categories: bird, dog, drum, guitar, motorcycle, and phone. For each category, we obtained two distinct environmental sound cues, e.g., <classical guitar strum>, <electric guitar strum>, and two separate images for each subordinate cate- gory, e.g., two electric guitars for <electric guitar strum>, two acoustic guitars for <electric guitar strum>. To control for cue variability, we also used two versions of each spoken category label: one pronounced by a female speaker, one by a male speaker. All auditory cues were equated in duration (600 ms.) and normalized in volume. The images were color photographs (four images per category). The materials, obtained from online repositories, are available for download at http://sapir.psych.wisc.edu/stimuli/ MotivatedCuesExp1A-1B.zip"(Edmiston & Lupyan, 2015).  
- 
 
-
-The link to our online experiment can be found here: https://ucsd-psych201a.github.io/edmiston2015/ 
+The link to our online experiment can be found [here](https://ucsd-psych201a.github.io/edmiston2015/)
 
 
 ### Procedure	
 
-We aim to follow this procedure as closely as possible: 
+This procedure will be followed as closely as possible: 
 
 "On each trial participants heard a cue and saw a picture. We instructed participants to decide as quickly and accurately as possible if the picture they saw came from the same basic-level cate- gory as the word or sound they heard Participants were tested in individual rooms sitting approximately 2400 from a monitor such that images subtended 10  10°. Trials began with a 250 ms. fixation cross followed immediately by the auditory cue, delivered via headphones. The target image appeared centrally 1 s after the off- set of the auditory cue and remained visible until a response was made. Each participant completed 6 practice and 384 test trials. If the picture matched the auditory cue (50% of trials) participants were instructed to respond ‘Yes’ on a gaming controller (e.g., <cell- phone ring> or ‘‘phone’’ followed by a picture of any phone). Otherwise, they were to press ‘No’ (e.g., <cellphone ring> or ‘‘phone’’ followed by a dog). All factors (cue type, congruence) var- ied randomly within subjects. Auditory feedback (buzz or bleep) was given after each trial"(Edmiston & Lupyan, 2015). 
 
-We aim to follow the original procedure of Experiment 1A as precisely as possible. However, instead of running the trials in-person, the experiment will be conducted online using jsPsych. For this reason, the task will be slightly different such that participants will respond to trials using their keyboard keys instead of a gaming controller. We will also encourage participants to wear headphones, be in a quiet area for the auditory cues during the experiment, and provide an initial audio check to ensure that participants have access to all stimuli presented throughout the experiment.
+We aim to follow the original procedure of Experiment 1A as precisely as possible. However, instead of running the trials in-person, the experiment will be conducted online using jsPsych. For this reason, the task will be slightly different such that participants will respond to trials using their keyboard keys instead of a gaming controller. We will also encourage participants to wear headphones, be in a quiet area for the auditory cues during the experiment, and provide an initial audio check to ensure that participants have access to all stimuli presented throughout the experiment. In addition, we did not have access to the exact instructions and prompts that the original researchers used, so these may differ slightly.  
 
 ### Analysis Plan
 
@@ -52,7 +56,7 @@ From the original study:
 
 We fit RTs for correct responses on matching trials (‘Yes’ responses) with linear mixed regression using maximum likelihood estimation (Bates, Maechler, Bolker, & Walker, 2013), including random intercepts and random slopes for within-subject factors and random intercepts for repeated items (unique trial types) following the recommendations of Barr, Levy, Scheepers, and Tily (2013). Reported below are the parameter estimates (b) and confidence intervals for each contrast of interest. Significance tests were calculated using chi-square tests that compared nested models—models with and without the factor of interest—on improvement in log-likelihood."
 
-For our replication, we will also remove trials where response times are shorter than 250 ms or longer than 1500ms from the analysis. We will then run a similar linear mixed regression model, as was performed the original study. We will also use chi-square tests to assess significance of the results. We anticipate that a successful replication of the original study will yield similar effects. More specifically, we should find that verbal labels elicit the lowest overall reaction times, and that congruent sounds elicit lower reaction times than incongruent sounds.
+For our replication, we will also remove trials where response times are shorter than 250 ms or longer than 1500ms from the analysis. We will then run a similar **linear mixed regression model**, as was performed the original study. We will also use **chi-square tests** to assess significance of the results. We anticipate that a successful replication of the original study will yield similar effects. More specifically, we should find that **verbal labels elicit the lowest overall reaction times, and that congruent sounds elicit lower reaction times than incongruent sounds.**
 
 ### Differences from Original Study
 
@@ -60,19 +64,18 @@ This replication will differ from the original study in both setting and procedu
 
 ## Pilot A
 
-For our Pilot A (with non-naive participants), we aimed to replicate the experimental paradigm described in the study. We collected an initial sample of 3 participants from friends. The GitHub page for our paradigm is linked below:
-[Link to experimental paradigm](https://ucsd-psych201a.github.io/edmiston2015/)
+For our Pilot A (with non-naive participants), we aimed to replicate the experimental paradigm described in the study. We collected an initial sample of 3 participants from friends. 
 
-This data was imported and uploaded to the data folder in the project repository, which can be
-found on our GitHub repository here:
+This data was imported and uploaded to the data folder in the project repository. 
+[Pilot A data](https://github.com/ucsd-psych201a/edmiston2015/tree/main/data)
 
-https://github.com/ucsd-psych201a/edmiston2015/tree/main/data
+
 
 
 ## Pilot B
 For our Pilot B (with naive participants), we collected data from five participants on Prolific. The following "Results" section (Data Preparation and Confirmatory Analysis) is run on Pilot B data for the time-being. As predicted, the participants took an average of about 25 minutes to complete the experiment.
 
-[Link to Pilot B data](https://github.com/ucsd-psych201a/edmiston2015/tree/main/data/pilot_b)
+[Pilot B data](https://github.com/ucsd-psych201a/edmiston2015/tree/main/data/pilot_b)
 
 ## Pre-Registration
 Our Pre-Registration can be found here: https://github.com/ucsd-psych201a/edmiston2015/tree/main/prereg 
