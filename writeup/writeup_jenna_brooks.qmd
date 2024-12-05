@@ -229,8 +229,6 @@ model_full %>%
           conf.int = TRUE) %>%
   pluck("contrasts")
 
-
-
 # #chi squared test 
 model_reduced <- lmer(rt ~ (1 + congruency|ID) + (1|sound_category), data = combined_df)
 anova(model_full, model_reduced)
