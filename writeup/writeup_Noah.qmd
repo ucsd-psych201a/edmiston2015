@@ -279,6 +279,8 @@ combined_df <- combined_df %>%
 combined_df <- combined_df %>%
   filter(exp_part == "actual")
 
+##add number of excluded trials 
+
 #rename "sound_subtype" to "cue"
 combined_df <- combined_df %>%
   rename(cue = sound_subtype)

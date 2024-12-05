@@ -380,6 +380,8 @@ library(ggplot2)
 # Reorder the 'congruency' factor levels
 combined_df$congruency <- factor(combined_df$congruency, levels = c("label", "congruent", "incongruent"))
 
+
+#####get rid of x axis labels####
 ggplot(data = combined_df,
        mapping = aes(x = congruency,
                      y = rt,
@@ -407,6 +409,8 @@ ggplot(data = combined_df,
         panel.grid = element_blank(), 
         axis.line = element_line(color = "black"))
 
+
+####add box and whisker plot#####
 
 
 #statistical analysis 
