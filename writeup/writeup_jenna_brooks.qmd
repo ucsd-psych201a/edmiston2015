@@ -15,10 +15,9 @@ format:
 - [Pre-Registration](https://github.com/ucsd-psych201a/edmiston2015/tree/main/prereg) 
 - [Paradigm](https://ucsd-psych201a.github.io/edmiston2015/)
 
-
 ## Introduction
 
-This study aimed to explore why verbal labels, such as the words "dog" or "guitar," activate conceptual knowledge more effectively than environmental sounds associated with these objects, such as the bark of a dog or the strum of a guitar. Previous studies show that environmental sounds, like a dog bark, activate specific instances of a concept, while words, like "dog," cue broader, more abstract mental representations (Lupyan & Thompson-Schill, 2012). This study investigates this "label advantage" and tests whether verbal labels promote faster, more abstract mental processing compared to environmental sounds in an image recognition task.
+This study aimed to explore whether verbal labels, such as the words "dog" or "guitar," activate conceptual knowledge more effectively than environmental sounds associated with these objects, such as the bark of a dog or the strum of a guitar. Previous studies show that environmental sounds, like a dog bark, activate specific instances of a concept, while words, like "dog," cue broader, more abstract mental representations (Lupyan & Thompson-Schill, 2012). This study investigates this "label advantage" and tests whether verbal labels promote faster, more abstract mental processing compared to environmental sounds in an image recognition task.
 
 This study finds that verbal labels (or words) are more effective than sounds in activating abstract category concepts because labels act as "unmotivated cues," broadly representing a category without specific reference to particular instances. In this experiment, participants will be presented with either a word or  environmental sound for the following categories: bird, dog, drum, guitar, motorcycle, and phone. Participants are presented with an auditory cue (either a word or a sound), followed by a picture displayed 1 second later, and are tested on how quickly and accurately they can determine whether the picture matches the auditory cue, with reaction times serving as the primary measure. This research seeks to deepen our understanding of how verbal labels enhance abstract categorization compared to environmental sounds by examining their influence on reaction time speed in an image recognition task.
 
@@ -49,6 +48,9 @@ We aim to follow the original procedure of Experiment 1A as precisely as possibl
 
 ### Analysis Plan
 
+## Pre-Registration
+Our Pre-Registration can be found [here](https://github.com/ucsd-psych201a/edmiston2015/tree/main/prereg) 
+
 **Clarify key analysis of interest here**  
 From the original study:
 
@@ -56,87 +58,21 @@ From the original study:
 
 We fit RTs for correct responses on matching trials (‘Yes’ responses) with linear mixed regression using maximum likelihood estimation (Bates, Maechler, Bolker, & Walker, 2013), including random intercepts and random slopes for within-subject factors and random intercepts for repeated items (unique trial types) following the recommendations of Barr, Levy, Scheepers, and Tily (2013). Reported below are the parameter estimates (b) and confidence intervals for each contrast of interest. Significance tests were calculated using chi-square tests that compared nested models—models with and without the factor of interest—on improvement in log-likelihood."
 
-For our replication, we will also remove trials where response times are shorter than 250 ms or longer than 1500ms from the analysis. We will then run a similar **linear mixed regression model**, as was performed the original study. We will also use **chi-square tests** to assess significance of the results. We anticipate that a successful replication of the original study will yield similar effects. More specifically, we should find that **verbal labels elicit the lowest overall reaction times, and that congruent sounds elicit lower reaction times than incongruent sounds.**
+For our replication, we will also remove trials where response times are shorter than 250 ms or longer than 1500ms from the analysis. We will then run a similar **linear mixed regression model**, as was performed the original study. We will also use **chi-square tests to assess significance** of the results. We anticipate that a successful replication of the original study will yield similar effects. More specifically, we should find that **verbal labels elicit the lowest overall reaction times, and that congruent sounds elicit lower reaction times than incongruent sounds.**
 
 ### Differences from Original Study
 
 This replication will differ from the original study in both setting and procedure. Instead of being conducted in a lab, the experiments will take place online using Prolific. Variations in participants' device performance and internet speed may influence reaction times. Additionally, participants will respond to trials using a keyboard rather than the gaming controller used previously. Despite these changes, we expect these differences will have minimal impact on the results or the ability to replicate the effect reported in the original study.
 
-## Pilot A
-
-For our Pilot A (with non-naive participants), we aimed to replicate the experimental paradigm described in the study. We collected an initial sample of 3 participants from friends. 
-
-This data was imported and uploaded to the data folder in the project repository. 
-[Pilot A data](https://github.com/ucsd-psych201a/edmiston2015/tree/main/data)
-
-## Pilot B
-For our Pilot B (with naive participants), we collected data from five participants on Prolific. The following "Results" section (Data Preparation and Confirmatory Analysis) is run on Pilot B data for the time-being. As predicted, the participants took an average of about 25 minutes to complete the experiment.
-
-[Pilot B data](https://github.com/ucsd-psych201a/edmiston2015/tree/main/data/pilot_b)
-
-## Pre-Registration
-Our Pre-Registration can be found [here](https://github.com/ucsd-psych201a/edmiston2015/tree/main/prereg) 
-
 ### Methods Addendum (Post Data Collection)
 
-You can comment this section out prior to final report with data collection.
 
 #### Actual Sample
-  Sample size, demographics, data exclusions based on rules spelled out in analysis plan
+Our actual sample was 50 participants. We included 7 more than the original sample (n=43) to account for the uncertainty of conducting online experiments. We ensured that all participants were adult English speakers without hearing difficulties using Prolific screening criteria. We didn't exclude any participants however, we did exclude trials of response times shorter than 250 ms or longer than 1500ms. In our final analysis, 404 trials were removed, which was 0.05% of the total. In our study, 84% of our participants performed at an accuracy rate of above 90%, which was less accurate than the original study, with 97% of participants achieving accuracy above 90%. Participants who performed with less than 90% accuracy were excluded from our sample. 
 
 #### Differences from pre-data collection methods plan
-  Any differences from what was described as the original plan, or “none”.
-  
-## Results
+None
 
-### Data preparation
-We are replicating Experiment 1A from the paper. To clean the data we will remove incorrect responses and practice trials.  As for data exclusion rules, we will follow the parameters set by the original study in which "Response times (RTs) shorter than 250 ms. or longer than 1500 ms. [will be] removed". This accounts for outliers that may skew results. This data preparation also labels the conditions for later analysis (i.e. `congruent`, `incogruent`).
-	
-```{r}
-### Data Preparation
-
-#### Load Relevant Libraries and Functions
-library(tidyverse)
-library(readr)
-library(lme4)
-
-#### Import data
-#replace this with your own path (for now)
-folder_path <- "../data/complete"
-csv_files <- list.files(folder_path, pattern = "*.csv", full.names = TRUE)
-df_list <- lapply(csv_files, read_csv)
-combined_df <- bind_rows(df_list)
-
-#### Data exclusion / filtering
-#exclude 'No' trials 
-combined_df <- combined_df %>%
-  mutate(response = as.character(response)) %>%
-  filter(response == "f")
-#exclude practice trials 
-combined_df <- combined_df %>%
-  filter(exp_part == "actual")
-
-#rename "sound_subtype" to "cue"
-combined_df <- combined_df %>%
-  rename(cue = sound_subtype)
-
-#create congruency column 
-combined_df <- combined_df %>%
-  mutate(congruency = case_when(
-    cue == "label" ~ "label",
-    img_subtype %in% c("song", "york", "bongo", "acoustic", "harley", "rotary") & sound_version == "A" ~ "incongruent",
-    TRUE ~ "congruent"
-  ))
-
-
-#filter reaction time 
-combined_df <- combined_df %>%
-  filter(rt >250, rt <1500)
-
-#### Prepare data for analysis - create columns etc.
-combined_df <- combined_df %>%
-  select(rt, ID, sound_category,cue, congruency)
-```
 ## Design Overview
 
 Within-subjects design with 2 factors: Auditory Cue (Environmental Sound vs. Label) and Match to Basic Category (Match vs. No Match). Congruency is further manipulated within the Matching Environmental Sound condition.
@@ -151,6 +87,105 @@ They didn't take any measures to reduce demand characteristics.
 
 To improve the experiment attention checks could be added. Given that incorrect responses could be labeled incongruent, incorrect responses could have also been included in the data. 
 This sample could not be representative of all populations because it only studied undergraduates and WEIRD populations. 
+  
+## Results
+
+### Data preparation
+We are replicating Experiment 1A from the paper. 
+The data cleaning process begins by loading necessary libraries and importing multiple CSV files into a combined dataframe. Practice trials are excluded to focus on actual experimental data. A data exclusion step ensures that only trials where responses match the correct responses are retained, and participant accuracy is calculated. Participants with an accuracy below 90% are excluded to maintain high data quality. Non-relevant responses are filtered out, and a congruency column is created to classify trials as congruent or incongruent. Reaction times (RTs) shorter than 250 ms or longer than 1500 ms are removed, and the count of trials before and after filtering is compared to verify exclusions. Finally, the dataset is refined to include only relevant columns (rt, ID, sound_category, cue, congruency) for analysis, ensuring it is clean and ready for further processing.
+
+```{r}
+### Data Preparation
+
+#### Load Relevant Libraries and Functions
+library(tidyverse)
+library(readr)
+library(lme4)
+
+#### Import data
+#replace this with your own path (for now)
+folder_path <- "../data/complete"
+csv_files <- list.files(folder_path, pattern = "*.csv", full.names = TRUE)
+df_list <- lapply(csv_files, read_csv, show_col_types = FALSE)
+df <- bind_rows(df_list)
+
+#exclude practice trials 
+combined_df <- df %>%
+  filter(exp_part == "actual")
+
+# Data exclusion / filtering
+combined_df <- combined_df %>%
+  mutate(correct_response = as.character(correct_response)) %>%
+  mutate(response = as.character(response)) %>%
+  mutate(correct = correct_response == response)
+
+accuracy_table <- combined_df %>%
+  group_by(ID) %>%
+  summarise(accuracy = mean(correct, na.rm = TRUE))
+accuracy_table
+
+# QA
+accuracy_thresh <- 0.9
+# select people who passed QA
+id_pass_qa <- accuracy_table %>%
+  filter(accuracy > accuracy_thresh) %>%
+  pull(ID)
+  
+# filter combined_df
+combined_df <- combined_df %>%
+  filter(ID %in% id_pass_qa) %>%
+  select(-correct) # drop the correctness column
+
+#check whether response is correct
+combined_df <- combined_df %>%
+  filter(response == "f") %>%
+  filter(correct_response == "f")
+
+#rename "sound_subtype" to "cue"
+combined_df <- combined_df %>%
+  rename(cue = sound_subtype)
+
+#create congruency column 
+combined_df <- combined_df %>%
+  mutate(congruency = case_when(
+    cue == "label" ~ "label",
+    img_subtype %in% c("song", "york", "bongo", "acoustic", "harley", "rotary") & sound_version == "A" ~ "incongruent",
+    TRUE ~ "congruent"
+  ))
+
+#calculate count before filtering
+initial_count <- nrow(combined_df)
+  
+  
+#filter reaction time 
+combined_df <- combined_df %>%
+  filter(rt >250, rt <1500)
+
+#calculate count after filtering
+final_count <- nrow(combined_df)
+
+#compare
+print(initial_count)
+print(final_count)
+
+
+# Prepare data for analysis - create columns etc.
+combined_df <- combined_df %>%
+  select(rt, ID, sound_category,cue, congruency)
+
+#show the prepossessed data
+tail(combined_df)
+
+
+```
+More stats on people performance (i.e., how many people pass the quality check).
+```{r}
+pass_thresh_rate <- accuracy_table %>%
+  mutate(pass=accuracy > accuracy_thresh) %>%
+  summarise(mean=mean(pass))
+
+pass_thresh_rate
+```
 
 ### Confirmatory analysis
 This analysis aims to determine whether (1) verbal labels lead to faster response times compared to sound labels, and (2) congruent sounds produce faster responses than incongruent sounds, in line with the findings of Experiment 1A from the original study.
@@ -233,6 +268,7 @@ model_full %>%
 model_reduced <- lmer(rt ~ (1 + congruency|ID) + (1|sound_category), data = combined_df)
 anova(model_full, model_reduced)
 ```
+
 
 
 *Side-by-side graph with original graph is ideal here*
