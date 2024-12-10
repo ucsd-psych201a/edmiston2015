@@ -14,139 +14,47 @@ editor:
 <!-- Replication reports should all use this template to standardize reporting across projects.  These reports will be public supplementary materials that accompany the summary report(s) of the aggregate results. -->
 
 ## Introduction
+- [GitHub Repository](https://github.com/ucsd-psych201a/edmiston2015)
+- [Pre-Registration](https://github.com/ucsd-psych201a/edmiston2015/tree/main/prereg) 
+- [Paradigm](https://ucsd-psych201a.github.io/edmiston2015/)
 
-**GitHub Repository found here:**
-<https://github.com/ucsd-psych201a/edmiston2015>
+The study presented in Edminston & Lupyan (2015) examines the relationship between verbal labels (i.e., "dog" or "guitar") and activation of perceptual knowledge. Previous research has demostrated that environmental sounds, like a dog bark or the strum of a guiater, prompts the listener towards specific instances of a concept (i.e. a 'big' dog, or an electric guitar), while words, like "dog," cue broader, more abstract mental representations (Lupyan & Thompson-Schill, 2012). Edminston & Lupyan (2015) (which will be replicated in the current study) provides further evidence towards notion that ambiguous labels (i.e., "dog" or "guitar") activate knowledge of their
+referent quicker than environmental sounds. For example, a listener should be able to point out a dog quicker if they hear the label "dog", rather than if they hear the sound of a dog's bark. The reason for this, Edminston & Lupyan (2015) state, is due to the fact that environmental sounds activates a "particular instance of a category". In other words,
+a dog's bark may have qualities that a listener may contribute to a particular type of dog (i.e., a low pitched bark may be more indicative of a big dog, etc.). With this in mind, Edminston & Lupyan (2015) also show that retrieval of conceptual knowledge can be slowed down when the environmental sound does not necessarily match the stimuli shown (i.e. a deep, loud bark being matched with a pitcure of a small dog). 
 
-**Link to experimental paradigm**:
-<https://ucsd-psych201a.github.io/edmiston2015/>
-
-**Link to preregistration draft:**
-<https://drive.google.com/drive/folders/1DR8HreGxv_Ct92-FIszRW-qtfVbgpE4K>
-
-Edminston & Lupyan (2015) provides evidence towards notion that
-ambiguous labels (i.e., "dog" or "guitar") activate knowledge of their
-referent quicker than environmental sounds. For example, a listener
-should be able to point out a dog quicker if they hear the label "dog",
-rather than if they hear the sound of a dog's bark. The reason for this,
-Edminston & Lupyan (2015) state, is due to the fact that environmental
-sounds activates a "particular instance of a category". In other words,
-a dog's bark may have qualities that a listener may contribute to a
-particular type of dog (i.e., a low pitched bark may be more indicative
-of a big dog, etc.). Edminston & Lupyan (2015) demonstrate this effect
-by showing that participants take longer to recognize a picture of a
-referent after hearing a sound associated with said referent than they
-do upon hearing the label.
-
-In our replication, we will be revisiting experiment "1A" from the
-Edminston & Lupyan (2015) paper. We will set up an online
-picture-recognition task using the same materials found in the original
-paper. We will try and replicate the experiment exactly, manipulating
-the same mappings between sounds, labels, and pictures.
+In our replication, we will be revisiting experiment "1A" from the Edminston & Lupyan (2015) paper. To do this, we set up an online picture-recognition task using the same materials found in the original paper. We replicated the experiment exactly, with the major difference being that participants took our study online, rather than in a lab (as they did in Edminston & Lupyan (2015). 
 
 ## Methods
 
-Participants: We will be shooting for around 2.5x the participants that
-Edminston & Lupyan (2015) had (see Power Analysis). They only targetted
-undergraduates, but, since we have an online study, we can target anyone
-who is willing to take the study, thus testing the generalizability of
-Edminston & Lupyan's (2015) results.
+Participants: We collected data from n=50 participants (see Power Analysis). Edminston & Lupyan (2015) only targetted undergraduates, but, since we have an online study, we targetted anyone who was willing to take the study, thus testing the generalizability of Edminston & Lupyan's (2015) orignal results.
 
-Materials: We will use the same materials as Edminston & Lupyan (2015):
-labels and environmental sounds for six categories: bird, dog, drum,
-guitar, motorcycle, and phone. Each category will have two separate
-images and two separate environmental sounds. We will also implement a
-male and female voice for our spoken labels.
+Materials: We use same materials as Edminston & Lupyan (2015): labels and environmental sounds for six categories: bird, dog, drum, guitar, motorcycle, and phone. Each category will have two separate images and two separate environmental sounds. We will also implement a male and female voice for our spoken labels.
 
-Procedure: We will follow the same procedure as Edminston & Lupyan
-(2015). Participants will hear a cue and see a picture, and will be
-prompted to decide as "quickly and accurately as possible if the picture
-they saw came from the same basic-level category as the word or sound
-they heard" (Edminston & Lupyan pp.94). Following Edminston & Lupyan
-(2015), some environmental sounds will be congruent with the picture
-(i.e., a big dog matched with a low-pitched bark). These will be labeled
-as "congruent sounds". Other environmental sounds will be deemed
-"incongruent sounds", in which the picture does not necessarily match
-the environmental sounds (i.e., a low pitched bark matched with a
-picture of a small dog).
-
+Procedure: We  follow the same procedure as Edminston & Lupyan (2015). Participants hear a cue and see a picture, and are prompted to decide as "quickly and accurately as possible if the picture they saw came from the same basic-level category as the word or sound they heard" (Edminston & Lupyan pp.94). Following Edminston & Lupyan (2015), some environmental sounds will be congruent with the picture (i.e., a big dog matched with a low-pitched bark). These will be labeled as "congruent sounds". Other environmental sounds will be deemed "incongruent sounds", in which the picture does not necessarily match the environmental sounds (i.e., a low pitched bark matched with apicture of a small dog).
+ 
 ### Power Analysis
+Based on guidance from instructional staff, the sample size was determined with an a-priori power analysis with the package simr, and is adequate to achieve at least 80% power for detecting the effect reported in the original study at a significance criterion of alpha = .05 (any random effects not specified in the original paper were taken from a small pilot study).
 
-Since their paper used a mixed effects linear regression model, we were
-not able to straightforwardly conduct a power analysis. In order to
-mitigate this, we just intend on collecting 2.5x the amount of
-participants as they did. Since they collected 43 participants, we will
-collect \~108 participants. This should be a large enough sample size to
-examine whether the effect they report holds up.
 
 ### Planned Sample
+We plan to have a sample size of n = 50. For pre-screening, participants are required to speak English fluently and not have any hearing difficulties. This is put in place to ensure that there are no issues in task comprehension. Participants are recruited and compensated via Prolific. 
 
-In their original study, Edminston & Lupyan (2015) used "43 University
-of Wisconsin–Madison undergraduates participated in Experiment 1A in
-exchange for course credit.”
-
-For the current study, we will aim for \~108 participants, 2.5x the
-amount used in the original paper.
 
 ### Materials
 
-From the original study: "The auditory cues comprised basic-level
-category labels and environmental sounds for six categories: bird, dog,
-drum, guitar, motorcycle, and phone. For each category, we obtained two
-distinct environmental sound cues, e.g., <classical guitar strum>,
-<electric guitar strum>, and two separate images for each subordinate
-category, e.g., two electric guitars for <electric guitar strum>, two
-acoustic guitars for <electric guitar strum>. To control for cue
-variability, we also used two versions of each spoken category label:one
-pronounced by a female speaker, one by a male speaker. All auditory cues
-were equated in duration (600 ms.) and normalized in volume. The images
-were color photographs (four images per category)." (pp. 94)
+From the original study: "The auditory cues comprised basic-level category labels and environmental sounds for six categories: bird, dog,
+drum, guitar, motorcycle, and phone. For each category, we obtained two distinct environmental sound cues, e.g., <classical guitar strum>, <electric guitar strum>, and two separate images for each subordinate category, e.g., two electric guitars for <electric guitar strum>, two acoustic guitars for <electric guitar strum>. To control for cue
+variability, we also used two versions of each spoken category label:one pronounced by a female speaker, one by a male speaker. All auditory cues were equated in duration (600 ms.) and normalized in volume. The images were color photographs (four images per category)." (pp. 94)
 
 ### Procedure
 
-From the original study: "On each trial participants heard a cue and saw
-a picture. We instructed participants to decide as quickly and
-accurately as possible if the picture they saw came from the same
-basic-level category as the word or sound they heard Participants were
-tested in individual rooms sitting approximately 2400 from a monitor
-such that images subtended 10 10. Trials began with a 250 ms. fixation
-cross followed immediately by the auditory cue, delivered via
-headphones. The target image appeared centrally 1 s after the offset of
-the auditory cue and remained visible until a response was made. Each
-participant completed 6 practice and 384 test trials. If the picture
-matched the auditory cue (50% of trials) participants were instructed to
-respond ‘Yes’ on a gaming controller (e.g., <cellphone ring> or
-‘‘phone’’ followed by a picture of any phone). Otherwise, they were to
-press ‘No’ (e.g., <cellphone ring> or ‘‘phone’’ followed by a dog). All
-factors (cue type, congruence) varied randomly within subjects. Auditory
-feedback (buzz or bleep) was given after each trial." (pp. 94)
+From the original study: "On each trial participants heard a cue and saw a picture. We instructed participants to decide as quickly and accurately as possible if the picture they saw came from the same basic-level category as the word or sound they heard Participants were tested in individual rooms sitting approximately 2400 from a monitor such that images subtended 10 10. Trials began with a 250 ms. fixation cross followed immediately by the auditory cue, delivered via headphones. The target image appeared centrally 1s after the offset of the auditory cue and remained visible until a response was made. Each participant completed 6 practice and 384 test trials. If the picture matched the auditory cue (50% of trials) participants were instructed to respond ‘Yes’ on a gaming controller (e.g., <cellphone ring> or ‘‘phone’’ followed by a picture of any phone). Otherwise, they were to press ‘No’ (e.g., <cellphone ring> or ‘‘phone’’ followed by a dog). All factors (cue type, congruence) varied randomly within subjects. Auditory feedback (buzz or bleep) was given after each trial." (pp. 94)
 
 ### Analysis Plan
 
-From the original study: “All participants performed very accurately on
-all items (M = 97%). Response times (RTs) shorter than 250 ms. or longer
-than 1500 ms. were removed (292 trials removed, 1.77% of total). We fit
-RTs for correct responses on matching trials (‘Yes’ responses) with
-linear mixed regression using maximum likelihood estimation (Bates,
-Maechler, Bolker, & Walker, 2013), including random intercepts and
-random slopes for within-subject factors and random intercepts for
-repeated items (unique trial types) following the recommendations of
-Barr, Levy, Scheepers, and Tily (2013). Reported below are the parameter
-estimates (b) and confidence intervals for each contrast of interest.
-Significance tests were calculated using chi-square tests that compared
-nested models—models with and without the factor of interest—on
-improvement in log-likelihood.” (pp.94/95)
+From the original study: “All participants performed very accurately on all items (M = 97%). Response times (RTs) shorter than 250 ms. or longer than 1500 ms. were removed (292 trials removed, 1.77% of total). We fit RTs for correct responses on matching trials (‘Yes’ responses) with linear mixed regression using maximum likelihood estimation (Bates, Maechler, Bolker, & Walker, 2013), including random intercepts and random slopes for within-subject factors and random intercepts for repeated items (unique trial types) following the recommendations of Barr, Levy, Scheepers, and Tily (2013). Reported below are the parameter estimates (b) and confidence intervals for each contrast of interest. Significance tests were calculated using chi-square tests that compared nested models—models with and without the factor of interest—on improvement in log-likelihood.” (pp.94/95)
 
-In our replication, we will follow their analysis as closely as
-possible: we will remove trials where response time is shorter than 250
-ms or longer than 1500ms. We will also try to closely replicate the same
-linear mixed-effects regression model, including the same main effects
-and random structure. Furthermore, we will also implement the
-chi-squared tests they ran that compared models with-and without the
-main effect using log-likelihood. We predict that their results will
-replicate; that verbal labels will elicit faster responses than sounds,
-and that congruent sounds will eleicit faster response times that
-incongruent sounds.
+In our replication, we follow their analysis as closely as possible: we  remove trials where response time is shorter than 250 ms or longer than 1500ms. We also  replicate the same linear mixed-effects regression model, including the same main effects and random structure. Furthermore, we will also implement the chi-squared tests they ran that compared models with-and without the main effect using log-likelihood. We predict that their results will replicate; that verbal labels will elicit faster responses than sounds, and that congruent sounds will eleicit faster response times that incongruent sounds.
 
 **Clarify key analysis of interest here** Linear mixed regression model,
 chi-square tests of nested models with and without the factor of
@@ -154,16 +62,7 @@ interest.
 
 ### Differences from Original Study
 
-Our project will be online, while there's was in-person, in a lab
-setting. One thing we have to consider that might influence reaction
-time in our replication is internet speed/technical issues that may
-arise while participants take our online study. Furthermore,
-participants may be more prone to distractions, as we are unable to
-control their location. In addition, our participants will have to use
-their keyboards on their computers to react to stimuli, while, in the
-original study, participants used a video-game controller. This may
-result in a difference in reaction time in either direction that we are
-unable to straightforwardly control for exactly.
+Our project will be online, while Edminston & Lupyan's (2015) was in-person, in a lab setting. One thing we have to consider that might influence reaction time in our replication is internet speed, or other technical issues, that we cannot control for as participants take our online study. Furthermore, participants may be more prone to distractions. In addition, our participants will have to use their keyboards on their computers to react to stimuli, while, in the original study, participants used a video-game controller. This may result in a difference in reaction time in either direction.
 
 ### Methods Addendum (Post Data Collection)
 
@@ -172,12 +71,11 @@ collection.
 
 #### Actual Sample
 
-Sample size, demographics, data exclusions based on rules spelled out in
-analysis plan
+Sample size, demographics, data exclusions based on rules spelled out in analysis plan
 
 #### Differences from pre-data collection methods plan
 
-none
+This replication, instead of being conducted in a lab,  will take place online, which may influence reaction times. Additionally, participants will respond to trials using a keyboard rather than the gaming controller. 
 
 ## Design Review
 
@@ -213,15 +111,13 @@ population.
 For Pilot A, we closely followed the experiment described in the
 original study. The GitHub page for our paradigm is linked below:
 
-Link to experimental paradigm:
-https://ucsd-psych201a.github.io/edmiston2015/
 
 For our pilot, we collected data from three participants that we
 recruited using personal connections. This data was imported and
 uploaded to the data folder in the project repository, which can be
 found on our GitHub repoisitory here:
+Pilot A data: <https://github.com/ucsd-psych201a/edmiston2015/tree/main/data/pilot_a> 
 
-https://github.com/ucsd-psych201a/edmiston2015/tree/main/data
 
 ## Pilot B
 
@@ -229,7 +125,7 @@ For pilot B, we collected 5 participants total, recruited via prolific.
 The data was uploaded to a folder in our github repo, which can be found
 here:
 
-<https://github.com/ucsd-psych201a/edmiston2015/tree/main/data/pilot_b>
+Pilot B data: <https://github.com/ucsd-psych201a/edmiston2015/tree/main/data/pilot_b>
 
 median time it took participants to do the experiment: 25 minutes (via
 Prolific)
@@ -238,22 +134,11 @@ Prolific)
 
 ### Data preparation
 
-As mentioned previously, we will be replicating experiment 1A from
-Edminston & Lupyan (2015). As for our data preparation, we will be
-making sure to label the type of relationship between the sound
-participants hear in a given trial, and its match to the picture. In
-other words, we will define whether a particular trial is a label (which
-will just be a word such as "dog, or "guitar"), congruent sound, or
-incongruent sound. Furthermore, we will use the exact same audio and
-visual stimuli as Edminston & Lupyan (2015). All of the different audio
-files have already been clipped to make them match in duration, and they
-have all been amplitude normalized.
+As mentioned previously, we replicate experiment 1A from Edminston & Lupyan (2015). As for our data preparation, we make sure to label the type of relationship between the sound
+participants hear in a given trial, and its match to the picture. In other words, we  define whether a particular trial is a label (which will just be a word such as "dog, or "guitar"), congruent sound, or incongruent sound. Furthermore, we will use the exact same audio and visual stimuli as Edminston & Lupyan (2015). All of the different audio files have already been clipped to make them match in duration, and they have all been amplitude normalized.
 
-After we have collected our data, we will filter outliers in the exact
-same way as Edminston & Lupyan (2015). More specifically, we will filter
-out any reaction time (rt) that is lower that 250 ms, and any that is
-greater than 1500 ms. It also seems as though Edminston & Lupyan (2015)
-filtered out incorrect responses, but I am not certain about this.
+After we collected our data, we  filter out any reaction time (rt) that is lower that 250 ms, and any that is greater than 1500 ms. We also filter out 'No' responses (i.e. anytime a participant says 'No' is excluded)
+
 
 ```{r}
 ### Data Preparation
@@ -267,17 +152,40 @@ library(lme4)
 #replace this with your own path (for now)
 folder_path <- "../data/complete"
 csv_files <- list.files(folder_path, pattern = "*.csv", full.names = TRUE)
-df_list <- lapply(csv_files, read_csv)
-combined_df <- bind_rows(df_list)
+df_list <- lapply(csv_files, read_csv, show_col_types = FALSE)
+df <- bind_rows(df_list)
 
-#### Data exclusion / filtering
-#exclude 'No' trials 
-combined_df <- combined_df %>%
-  mutate(response = as.character(response)) %>%
-  filter(response == "f")
 #exclude practice trials 
-combined_df <- combined_df %>%
+combined_df <- df %>%
   filter(exp_part == "actual")
+
+# Data exclusion / filtering
+combined_df <- combined_df %>%
+  mutate(correct_response = as.character(correct_response)) %>%
+  mutate(response = as.character(response)) %>%
+  mutate(correct = correct_response == response)
+
+accuracy_table <- combined_df %>%
+  group_by(ID) %>%
+  summarise(accuracy = mean(correct, na.rm = TRUE))
+accuracy_table
+
+# QA
+accuracy_thresh <- 0.9
+# select people who passed QA
+id_pass_qa <- accuracy_table %>%
+  filter(accuracy > accuracy_thresh) %>%
+  pull(ID)
+  
+# filter combined_df
+combined_df <- combined_df %>%
+  filter(ID %in% id_pass_qa) %>%
+  select(-correct) # drop the correctness column
+
+#check whether response is correct
+combined_df <- combined_df %>%
+  filter(response == "f") %>%
+  filter(correct_response == "f")
 
 #rename "sound_subtype" to "cue"
 combined_df <- combined_df %>%
@@ -291,75 +199,83 @@ combined_df <- combined_df %>%
     TRUE ~ "congruent"
   ))
 
-
+#calcuate count before filtering
+initial_count <- nrow(combined_df)
+  
+  
 #filter reaction time 
 combined_df <- combined_df %>%
   filter(rt >250, rt <1500)
 
-#### Prepare data for analysis - create columns etc.
+#calculate count after filtering
+final_count <- nrow(combined_df)
+
+#compare
+print(initial_count)
+print(final_count)
+
+
+# Prepare data for analysis - create columns etc.
 combined_df <- combined_df %>%
   select(rt, ID, sound_category,cue, congruency)
+
+#show the prepossessed data
+tail(combined_df)
+
+
+```
+
+More stats on people performance (i.e., how many people pass the quality check).
+```{r}
+pass_thresh_rate <- accuracy_table %>%
+  mutate(pass=accuracy > accuracy_thresh) %>%
+  summarise(mean=mean(pass))
+
+pass_thresh_rate
 ```
 
 ### Confirmatory analysis
 
-Following Edminston & Lupyan (2015), we will be fitting mixed effects
-linear regression models to our response time data (which will be
-filtered for correct responses on matching trials (i.e., 'Yes'
-responses)). The model will include random intercepts and random slopes
-for within-subject factors (i.e. "subject"), and random intercepts for
-repeated items (i.e. what item was used (bird, guitar, dog, etc.)). The
-main effect (or "contrast of interest") of the model will be the
-"condition" variable, which will denote whether a particular trial
-presented a label, congruent sound, or incongruent sound. We will report
-the parameter estimates and confidence intervals for each "contrast of
-interest" (pp.94). Furthermore, we will calculate chi-square tests that
-will "compare nested models--models with and without the factor of
+Following Edminston & Lupyan (2015), we fit a mixed effects linear regression model to our response time data (which is filtered for correct responses on matching trials (i.e., 'Yes' responses)). The model includes random intercepts and random slopes for within-subject factors (i.e. "subject"), and random intercepts for repeated items (i.e. what item was used (bird, guitar, dog, etc.)). The main effect of the model will be the "condition" variable, which denotes whether a particular trial
+presented a label, congruent sound, or incongruent sound. Furthermore, we  calculate chi-square tests that  "compare nested models--models with and without the factor of
 interest--on improvement in log-likelihood" (pp.94).
 
-Our analysis presented here tests the main inference of the paper, which
-is that condition effects reaction time. More specifically, by comparing
-our parameter estimates for condition = label, condition = congruent,
-and condition = incongruent, we can get a sense of exactly how the
-different conditions influence reaction time. Crucially, the model
-allows us to compare the effect on reaction time each condition has to
-each other We expect that the output of our model will look very similar
-to the results that Edminston & Lupyan (2015) present.
+Our analysis tests the main inference of the paper, which is that condition affects reaction time. More specifically, our parameter estimates help us get a sense of exactly how the different conditions influence reaction time. Crucially, the model also allows us to compare the effect on reaction time each condition has to each other. We also impolement a pairwise comparison to get a sense of the relationship between 'label' and 'incongreunt' trials, which is not directly represented in our base model where the reference level is condition.
 
-Furthermore, creating a new model without this factor of interest and
-comparing it performance to the full model will allow us to better
-understand if the factor of interest truly accounts for the trends we
-see.
+Furthermore, creating a new model without this factor of interest and comparing it performance to the full model will allow us to better understand if the factor of interest truly accounts for the trends we see.
 
 *Side-by-side graph with original graph is ideal here*
 
 ```{r}
+#load libraries: 
 library(lmerTest)
 library(emmeans)
 library(lme4)
-
-#recreation of fig 2
 library(ggplot2)
 
-# Reorder the 'congruency' factor levels
+####visualization####
+
+# Reorder the 'congruency' factor levels so that "Label" comes first
 combined_df$congruency <- factor(combined_df$congruency, levels = c("label", "congruent", "incongruent"))
 
+#boxpplot (Fig. 2 of the original paper)
 ggplot(data = combined_df,
        mapping = aes(x = congruency,
                      y = rt,
                      color = congruency, 
                      fill = congruency)) +
   geom_bar(stat = "summary", fun = "mean", 
-           position = position_dodge(width = 0.6), width = 0.4, 
-           color = "black") +  # Dark bands around the bars (black border)
+           width = 0.4, 
+           color = "black") + 
   stat_summary(fun.data = "mean_cl_boot", 
                geom = "linerange", 
-               position = position_dodge(width = 0.6), color = "black") +
-  scale_fill_manual(values = c("darkred", "darkblue", "lightblue")) +
-  scale_color_manual(values = c("darkred", "darkblue", "lightblue")) +
-  scale_x_discrete(labels = c("label" = "Label", 
-                              "congruent" = "Congruent", 
-                              "incongruent" = "Incongruent")) +  # Renaming x-axis labels
+               color = "black") +
+   geom_errorbar(stat = "summary", 
+                fun.data = "mean_cl_boot", 
+                width = 0.2, 
+                color = "black") +
+  scale_fill_manual(values = c("darkred", "darkblue", "darkgreen")) +
+  scale_color_manual(values = c("darkred", "darkblue", "darkgreen")) +
   labs(
     x = "Cue Type",
     y = "Reaction Time (Ms)",
@@ -367,18 +283,22 @@ ggplot(data = combined_df,
     fill = "Cue Type"
   ) +
   scale_y_continuous(expand = c(0, 0)) +
-  theme(panel.background = element_blank(), 
-        panel.grid = element_blank(), 
-        axis.line = element_line(color = "black"))
+  theme_classic() +
+  theme(
+  axis.text.x = element_blank(), 
+  axis.text.y = element_text(size = 14, color = "black"),
+  axis.title.x = element_text(size = 16, color = "black", face = "bold"), 
+  axis.title.y = element_text(size = 16, color = "black", face = "bold"), 
+  legend.title = element_text(size = 14, color = "black"), 
+  legend.text = element_text(size = 14, color = "black") 
+)
 
-
-
-#statistical analysis 
+######statistical analysis########
 
 #find best optimizer
 #allFit(model_full)
 
-# set congruent to back reference level
+# set reference level back to congruent
 combined_df$congruency <- relevel(combined_df$congruency, ref = "congruent")
 
 #set up model and view results
@@ -386,47 +306,92 @@ model_full <- lmer(rt ~ congruency + (1 + congruency|ID) + (1|sound_category), d
 
 summary(model_full)
 
-# #get 95% CI
+#get 95% CI
 confint.merMod(model_full,method="Wald")
 
 
 # #post-hoc test: allows you to examine relationship between incongruent and label
 #####. 95% CI for this??? ###3
-model_full %>%
+contrast_results <- model_full %>%
   emmeans(pairwise ~ congruency,
           #adjusts p values so that it is more difficult to get a significance (correction method)
           adjust = "bonferroni", 
           conf.int = TRUE) %>%
   pluck("contrasts")
 
+#I was having trouble getting 95% CI for the emmeans output, I looked it up and found someone's code that looked like this
+confint(contrast_results, calc = c(n = ~.wgt.))
 
-
-# #chi squared test 
+#chi-squared significance test
 model_reduced <- lmer(rt ~ (1 + congruency|ID) + (1|sound_category), data = combined_df)
 anova(model_full, model_reduced)
 
+
 ```
+The results of the statistical analysis showed us that labels elicited faster reaction times than congruent trials (b = -52.3, CI [-68.71, -35.82]) and that congruent trials were not significantly faster than incongruent trials (b = 15.04, CI [-3.31  33.4]. Furthermore, the results of a pairwise contrast shows us that labels elicited faster reaction times than incongruent trials (b = -67.3, CI [-94.2, -42.21]). 
 
 ### Exploratory analyses
+The results of the original data were presneted using only a bar graph, however, we thought it was important to see the distribution the data, especially since our results were slightly different. To that end, we include a box plot that shows the individual data points. We expand a bit on the results shown in the original paper by re-running the same analysis, but instead of filtering out 'No' responses, we filter out 'Yes' responses.
+```{r}
 
-Any follow-up analyses desired (not required).
+#box plot
+combined_df$congruency <- factor(combined_df$congruency, levels = c("label", "congruent", "incongruent"))
+ggplot(data = combined_df,
+       mapping = aes(x = congruency,
+                     y = rt,
+                     color = congruency)) +
+  geom_boxplot(width = 0.6, outlier.shape = NA) + 
+  geom_jitter(width = 0.2, alpha = 0.1, size = 1.5) +
+  scale_color_manual(values = c("darkred", "darkblue", "darkgreen")) +
+  labs(
+    y = "Reaction Time (Ms)",
+    color = "Cue Type",
+    x = "Cue Type",
+    fill = "Cue Type "
+  ) +
+  theme_classic() +
+  theme(
+  axis.text.x = element_blank(), 
+  axis.text.y = element_text(size = 14, color = "black"),
+  axis.title.x = element_text(size = 16, color = "black", face = "bold"), 
+  axis.title.y = element_text(size = 16, color = "black", face = "bold"), 
+  legend.title = element_text(size = 14, color = "black"), 
+  legend.text = element_text(size = 14, color = "black") 
+)
+
+
+#re-run statistics on "No" data
+df_n <- df %>%
+  filter(exp_part == "actual") %>%
+  filter(response == "f") %>%
+  filter(correct_response == "f") %>%
+  rename(cue = sound_subtype) %>%
+  mutate(congruency = case_when(
+    cue == "label" ~ "label",
+    img_subtype %in% c("song", "york", "bongo", "acoustic", "harley", "rotary") & sound_version == "A" ~ "incongruent",
+    TRUE ~ "congruent"
+  )) %>%
+  filter(rt >250, rt <1500)
+
+  
+model_n <- lmer(rt ~ congruency + (1 + congruency|ID) + (1|sound_category), data = df_n, control = lmerControl(optimizer = "bobyqa"))
+summary(model_n) 
+
+confint.merMod(model_full,method="Wald")
+
+```
+Looking at the graph with the data distribution, it becomes clear that there are quite a few participants who had long rt's for congruent trials. I imagine this brought the mean rt for this category up, thus creating a less straightforward distinction in rt between congruent and incongruent trials.  
+
+Furthermore, we get the same trends when the statistical model is run on the "No" responses: the difference between label and congruent is signifcant, but not the difference between congruent and incongruent. 
 
 ## Discussion
 
 ## Summary of Replication Attempt
+The main finding of the original paper (i.e. that ambiguous labels elicit faster cue recognition than environmental sounds) held true. However, our results only partially replicated, as the difference in rt between congruent and incongruent sound trials was insignificant (though, trending in the right direction!). Our team belives this discrepency between the original study and our own is due to the difference in environement: i.e., the original results were taken in a lab, using video ga,e controllers, while ours was taken online using a keyboard. 
 
-Open the discussion section with a paragraph summarizing the primary
-result from the confirmatory analysis and the assessment of whether it
-replicated, partially replicated, or failed to replicate the original
-result.
 
 ### Commentary
+As mentioned previously, our results only partially replicated. I actually find this a bit odd; earlier studies (e.g.Lupyan and Schill 2012) found the same results: that labels elicit faster rt's than sounds. However, I believe the major contribution Edminston & Lupyan (2015) were trying to make is that this discrepancy in rt between label and sound is due to the extra processing time it takes to decide whether the sound/picture combination is congruent or incongruent. In their own words "the label-advantage is obtained precisely because labels are detached from idiosyncracies of specific category members, and thereby able to selectively activating the features/dimensions most diagnostic of the named category...While a dog-bark or a guitar strum are both readily recognizable, the information conveyed by these environmental cues is necessarily specific" (pp. 98). What makes our results confusing, then, is that we found a difference between label and sound trials, but the notion that this difference is conditioned by the extra processing sounds require is less clear, given that deciding between congruent and incongruent sound trials does not seem to influence rt in our data. 
 
-Add open-ended commentary (if any) reflecting (a) insights from
-follow-up exploratory analysis, (b) assessment of the meaning of the
-replication (or not) - e.g., for a failure to replicate, are the
-differences between original and present study ones that definitely,
-plausibly, or are unlikely to have been moderators of the result, and
-(c) discussion of any objections or challenges raised by the current and
-original authors about the replication attempt. None of these need to be
-long.
+However, it is worth noting that our experiment differed from the original study in terms of modality and location; our study was online, and the keyboard was different. It could be the case that these differences caused a skew in our data that was not present in the original study, but this seems a bit unlikely to me. If you compare the mean rt's for congruency (i.e. compare the boxplot in the original study to ours), the means for label and incongruent are actually pretty similar; its the congruent that have a higher rt (about ~100 ms). In other words, it seems sort of unlikely that the  differences presented in our rendition of the experiment only really affected the congruent trials.
+
