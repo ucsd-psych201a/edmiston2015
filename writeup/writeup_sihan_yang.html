@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Replication Author[s]: Sihan Yang (siy009@ucsd.edu)">
-<meta name="dcterms.date" content="2024-12-10">
+<meta name="dcterms.date" content="2024-12-11">
 
 <title>Replication of Study ‘What makes words special? Words as unmotivated cues’ by Edmiston &amp; Lupyan (2015, Cognition)</title>
 <style>
@@ -157,7 +157,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">December 10, 2024</p>
+      <p class="date">December 11, 2024</p>
     </div>
   </div>
   
@@ -174,8 +174,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>How language supports cognition is a centeral question in cognitive linguistics. Previous research suggests that language may play an unique role in the mental processing of categories. Lupyan and Thompson-Schill (2012) found that, during an image-recognition task, participants judged whether an image and a preceeding auditory cue were of the same category faster when the cue was verbal rather than non-verbal. For instance, people identified a guitar image as matching the word ‘guitar’ faster than the sound of an acoustic guitar playing.</p>
 <p>Edmiston and Lupyan (2015) further explored why verbal cues activate concepts more effectively. They proposed that verbal cues are associated with the abstract concept rather than specific instances, thereby cueing more diagnostic features of a category. In their experiment 1A, they found that in an image-recogniton task, participants (1) responded faster to an image if the cue is a verbal label than an environmental sound, and (2) responded faster to an image if the environmental sound cue is a congruent one (i.e., matching the instance in the image) than an incongruent one (i.e., matching the category but not the exact instance). These findings suggest the potential mechanism by which language supports conceptual thinking.</p>
-<p>Our study aims to replicate Experiment 1A from Edmiston and Lupyan (2015). We define the replication as successful if two conditions are met: (1) the two relationships between reaction time under different auditory cue conditions are the same as described above, and (2) the differences in reaction time are statistically attributable to the type of auditory cue. Specifically, we expect reaction times to follow the pattern: verbal-label condition &lt; congruent-environmental-sound condition &lt; incongruent-environmental-sound condition, with statistical tests confirming that auditory cue type is the primary determinant of these differences.</p>
-<p>Our study will employ the same experimental paradigm and materials as the original study but will be conducted online rather then in a laboratory setting. While this adjustment may lead to different sample population and slight procedural variations, we do not anticipate the changes substantially affect the results. We hope the replication to provide insight into the reliability of original findings and their broader implications for understanding the relationship between language and cognition.</p>
+<p>Our study aims to replicate Experiment 1A from Edmiston and Lupyan (2015). <strong>We define the replication as successful if two conditions are met</strong>: (1) the two relationships between reaction time under different auditory cue conditions are the same as described above, and (2) the differences in reaction time are statistically attributable to the type of auditory cue. Specifically, we expect reaction times to follow the pattern: verbal-label condition &lt; congruent-environmental-sound condition &lt; incongruent-environmental-sound condition, with statistical tests confirming that auditory cue type is the primary determinant of these differences.</p>
 <p>Followings are the the links to our repository, pre-registration, and hosted experiment: <a href="https://github.com/ucsd-psych201a/edmiston2015">Project Github repository</a> <a href="https://osf.io/7ca8z">Study pre-registration</a> <a href="https://ucsd-psych201a.github.io/edmiston2015/">Experiment link</a></p>
 </section>
 <section id="methods" class="level2">
@@ -200,10 +199,10 @@ window.Quarto = {
 <section id="analysis-plan" class="level3">
 <h3 class="anchored" data-anchor-id="analysis-plan">Analysis Plan</h3>
 <section id="data-cleaning-and-data-exclusion-rules" class="level4">
-<h4 class="anchored" data-anchor-id="data-cleaning-and-data-exclusion-rules">Data cleaning and Data Exclusion Rules</h4>
-<p>Before testing the main hypothesis of the original study, we will first examine the average performance (accuracy) to determine if it is comparable to the original study. This will involve calculating each participant’s accuracy and using a t-test to examine whether performance differs qualitatively between the original and new participants. Given that the average performance is 97% in the original study, we set the data exclusion threshold at 90%: only participants who have achieved an accuracy rate above 90% will be included in further analysis.</p>
-<p>Trials with response times (RTs) that are too short or too long will be filtered out. The original study applied thresholds of 250 ms and 1500 ms for the lower and upper bounds, respectively. Before applying filtering, we will check the distribution of RT.</p>
-<p>Finally, only RTs for correct responses on matching trials will be used for confirmatory analysis, following the original study’s approach.</p>
+<h4 class="anchored" data-anchor-id="data-cleaning-and-data-exclusion-rules">Data Cleaning and Data Exclusion Rules</h4>
+<p>Before testing the main hypothesis of the original study, we will first evaluate participants’ performance for data quality assurance. This will involve calculating each participant’s accuracy. Given that the average accuracy is 97% in the original study, we set the data exclusion threshold at 90%: only participants who have achieved an accuracy above 90% will be included in the further analysis.</p>
+<p>Trials with response times (RTs) outside the range of 250 ms to 1500 ms will be excluded, as in the original study. Before applying these filters, we will examine the distribution of RT among participants who meet the accuracy requirement.</p>
+<p>Finally, only RTs from matching trials with correct responses will be included for further analysis, following the original study’s approach.</p>
 </section>
 <section id="covariates" class="level4">
 <h4 class="anchored" data-anchor-id="covariates">Covariates</h4>
@@ -211,9 +210,14 @@ window.Quarto = {
 </section>
 <section id="key-analysis" class="level4">
 <h4 class="anchored" data-anchor-id="key-analysis">Key Analysis</h4>
-<p>We will “fit RTs for correct responses on matching trials (‘Yes’ responses)” under three conditions of different cues (verbal label cue, congruent sound cue, incongruent sound cue), “with linear mixed regression using maximum likelihood estimation (Bates, Maechler, Bolker, &amp; Walker, 2013), including random intercepts and random slopes for within-subject factors and random intercepts for repeated items (unique trial types) following the recommendations of Barr, Levy, Scheepers, and Tily (2013).” (Edmiston &amp; Lupyan, 2015).</p>
-<p>We will report the “parameter estimates (b) and confidence intervals for each contrast of interest” (Edmiston &amp; Lupyan, 2015). Significance tests will be calculated “using chi-square tests that compared nested models—models with and without the factor of interest—on improvement in log-likelihood” (Edmiston &amp; Lupyan, 2015).</p>
-<p>According to the original study, we predict that the analysis above should show that (1) verbal labels elicit faster responses than sound labels, and (2) congruent sounds elicit faster response than incongruent sounds, with statistical significance (indicated by chi-square test p value less than 0.05).</p>
+<p>We will “fit RTs for correct responses on matching trials (<yes> responses)” using a “linear mixed regression using maximum likelihood estimation (Bates, Maechler, Bolker, &amp; Walker, 2013). The model has the <congruency> condition between image and sound cue as the main factor (”label”, “congruent-sound” and “incongruent sound”), but also including “random intercepts and random slopes for within-subject factors and random intercepts for repeated items (unique trial types) following the recommendations of Barr, Levy, Scheepers, and Tily (2013).” (Edmiston &amp; Lupyan, 2015).</congruency></yes></p>
+<p>To further quantify the estimated differences in RTs between different congruency condtision, we will then apply a post-hoc analysis – EMMs contrast – on the fitted linear mixed-effect regression model. The three contrasts of interest are therefore: (1) “label” v.s. “congruent-sound” (2) “label” v.s. “incongruent-sound” (3) “congruent-sound” v.s. “incongruent-sound”. For each contrast of interest, we will report the “parameter estimates (b) and confidence intervals” (Edmiston &amp; Lupyan, 2015).</p>
+<p>Finally, significance tests will be calculated “using chi-square tests that compared nested models—models with and without the factor of interest—on improvement in log-likelihood” (Edmiston &amp; Lupyan, 2015). This is to further confirm whether the factors of interest truly accounts for the differences in RTs. We will report the resulting Chi-square value and the resulting p-value.</p>
+<p><strong>Criteria for successful replication</strong>: according to the original study, we predict that the results should be as follows:</p>
+<ol type="1">
+<li><p>In the EMMs contrast analysis: both “label” v.s. “congruent-sound” contrast and “congruent-sound” v.s. “incongruent-sound” contrast should be significantly below zero.</p></li>
+<li><p>In the Chi-square test: the model with the factor of interest (the congruency of sound cues) should fit the data significantoy better than the model without the factor of interest.</p></li>
+</ol>
 </section>
 </section>
 <section id="differences-from-original-study" class="level3">
@@ -229,14 +233,13 @@ window.Quarto = {
 </section>
 <section id="methods-addendum-post-data-collection" class="level3">
 <h3 class="anchored" data-anchor-id="methods-addendum-post-data-collection">Methods Addendum (Post Data Collection)</h3>
-<p>You can comment this section out prior to final report with data collection.</p>
 <section id="actual-sample" class="level4">
 <h4 class="anchored" data-anchor-id="actual-sample">Actual Sample</h4>
-<p>Sample size, demographics, data exclusions based on rules spelled out in analysis plan</p>
+<p>We successfully collected data from 50 participants as planned, with 42 passing the data quality check (accuracy rate above 90%). Refer to the Results section for an overview of performance and the code for data quality assurance.</p>
 </section>
 <section id="differences-from-pre-data-collection-methods-plan" class="level4">
 <h4 class="anchored" data-anchor-id="differences-from-pre-data-collection-methods-plan">Differences from pre-data collection methods plan</h4>
-<p>Any differences from what was described as the original plan, or “none”.</p>
+<p>None.</p>
 </section>
 </section>
 </section>
@@ -244,21 +247,8 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="results">Results</h2>
 <section id="data-preparation" class="level3">
 <h3 class="anchored" data-anchor-id="data-preparation">Data preparation</h3>
-<p>Data preparation following the analysis plan.</p>
-<section id="pilot-a-test-for-project-checkpoint-1" class="level4">
-<h4 class="anchored" data-anchor-id="pilot-a-test-for-project-checkpoint-1">Pilot A Test (for Project Checkpoint 1)</h4>
-<p>We conducted pilot tests involving three participants. All data are collected using the <a href="https://ucsd-psych201a.github.io/edmiston2015/">online experiment link</a>. The data is available <a href="https://github.com/ucsd-psych201a/edmiston2015/tree/main/data/pilot_a">here</a>.</p>
-</section>
-<section id="pilot-b-test-for-project-checkpoint-3" class="level4">
-<h4 class="anchored" data-anchor-id="pilot-b-test-for-project-checkpoint-3">Pilot B Test (for Project Checkpoint 3)</h4>
-<p>We conducted pilot tests involving five participants. All data are collected using Prolific. The data is available <a href="https://github.com/ucsd-psych201a/edmiston2015/tree/main/data/pilot_b">here</a>. The average time participant took to complete the study was 25 minutes.</p>
-</section>
-<section id="data-cleaning-and-data-exclusion-rules-1" class="level4">
-<h4 class="anchored" data-anchor-id="data-cleaning-and-data-exclusion-rules-1">Data cleaning and Data Exclusion Rules</h4>
-<p>Before testing the main hypothesis of the original study, we will first examine the average performance (accuracy) to determine if it is comparable to the original study. This will involve calculating each participant’s accuracy and using a t-test to examine whether performance differs qualitatively between the original and new participants.</p>
-<p>Trials with response times (RTs) that are too short or too long will be filtered out. The original study applied thresholds of 250 ms and 1500 ms for the lower and upper bounds, respectively. Before applying filtering, we will check if the new data shows a similar RT distribution.</p>
-<p>Only RTs for correct responses on matching trials will be used for further analysis, following the original study’s approach.</p>
-<p>The following code prepare the data for fitting a linear mixed model for response time under different conditions: (1) label cue matches the image, (2) auditory cue matches the image but is incongruent, and (3) auditory cue matches the image and is congruent.</p>
+<p>As proposed in our analysis plan, we will first examine the distribution of accuracy and response time, then apply data cleaning and transformation.</p>
+<p>First, we load the data and perform basic preprocessing. This includes removing practice trial data, converting the data types of correct responses and responses, and calculating the accuracy for each participant.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Data Preparation</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -288,24 +278,25 @@ window.Quarto = {
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ID) <span class="sc">%&gt;%</span></span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">accuracy =</span> <span class="fu">mean</span>(correct, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>First, we check the distribution of accuracy:</p>
+<p>Next, we check the distribution of accuracy.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>accuracy_thresh <span class="ot">&lt;-</span> <span class="fl">0.9</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the plot</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(accuracy_table, <span class="fu">aes</span>(<span class="at">x =</span> accuracy)) <span class="sc">+</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">length.out=</span><span class="dv">21</span>),</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> accuracy_thresh, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribution of Accuracy"</span>,</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Accuracy"</span>,</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">""</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># set the accuracy filtering threshold</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>accuracy_thresh <span class="ot">&lt;-</span> <span class="fl">0.9</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># plot the distribution of accuract</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(accuracy_table, <span class="fu">aes</span>(<span class="at">x =</span> accuracy)) <span class="sc">+</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">length.out=</span><span class="dv">21</span>),</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> accuracy_thresh, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="co"># mark the threshold for QA</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribution of Accuracy"</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Accuracy"</span>,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">""</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -314,30 +305,32 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>42 people (which are 84% of the total participants) achieved an accuracy above 90%.</p>
-<p>We also check the distribution of response time (within the participants whose accuracy is above 90%):</p>
+<p>42 people (which are 84% of the total participants) achieved an accuracy above 90%. Considering that in the original study “all participants performed very accurately on all items (M = 97%)” (Edmiston &amp; Lupyan, 2015), the accuracy of participants in our replication is notably lower.</p>
+<p>We also examine the distribution of response times for participants with an accuracy above 90%:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>id_pass_qa <span class="ot">&lt;-</span> accuracy_table <span class="sc">%&gt;%</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(accuracy <span class="sc">&gt;</span> accuracy_thresh) <span class="sc">%&gt;%</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(ID)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>original_df_with_good_subj <span class="ot">&lt;-</span> original_df <span class="sc">%&gt;%</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ID <span class="sc">%in%</span> id_pass_qa)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the plot</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(original_df_with_good_subj, <span class="fu">aes</span>(<span class="at">x =</span> rt)) <span class="sc">+</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">2000</span>, <span class="at">length.out=</span><span class="dv">40</span>),</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">250</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1500</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribution of Reaction Time"</span>,</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Reaction Time"</span>,</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">""</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># get the list of IDs of participants whose accuracy is above the threshold</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>id_pass_qa <span class="ot">&lt;-</span> accuracy_table <span class="sc">%&gt;%</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(accuracy <span class="sc">&gt;</span> accuracy_thresh) <span class="sc">%&gt;%</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(ID)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># filter the original dataframe to keep only data from the qualified participants</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>original_df_with_good_subj <span class="ot">&lt;-</span> original_df <span class="sc">%&gt;%</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ID <span class="sc">%in%</span> id_pass_qa)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># plot the distribution of response time</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(original_df_with_good_subj, <span class="fu">aes</span>(<span class="at">x =</span> rt)) <span class="sc">+</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">2000</span>, <span class="at">length.out=</span><span class="dv">40</span>),</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">250</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1500</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribution of Reaction Time"</span>,</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Reaction Time"</span>,</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">""</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -345,14 +338,16 @@ window.Quarto = {
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the quantile and other stats</span></span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the quantile</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>ecdf_func <span class="ot">&lt;-</span> <span class="fu">ecdf</span>(original_df_with_good_subj<span class="sc">$</span>rt)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>rt_quantiles <span class="ot">&lt;-</span> <span class="fu">ecdf_func</span>(<span class="fu">c</span>(<span class="dv">250</span>, <span class="dv">1500</span>))</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>rt_pass_mask <span class="ot">&lt;-</span> (original_df_with_good_subj<span class="sc">$</span>rt <span class="sc">&gt;</span> <span class="dv">250</span>) <span class="sc">&amp;</span> (original_df_with_good_subj<span class="sc">$</span>rt <span class="sc">&lt;</span> <span class="dv">1500</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the mask for whether each trial has passed the check</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>rt_pass_mask <span class="ot">&lt;-</span> (original_df_with_good_subj<span class="sc">$</span>rt <span class="sc">&gt;</span> <span class="dv">250</span>) <span class="sc">&amp;</span> (original_df_with_good_subj<span class="sc">$</span>rt <span class="sc">&lt;</span> <span class="dv">1500</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>15083 trials (which are 94% of the trials) have reaction time within the range of 250-1500 ms.</p>
-<p>Now we further preprocess the data, by - excluding participants who do not achieve an accuracy of 90%</p>
+<p>15083 trials (which are 94% of the trials) have response time within the range of 250-1500 ms.</p>
+<p>Now we further preprocess the data, by</p>
 <ul>
+<li><p>excluding participants who do not achieve an accuracy of 90%</p></li>
 <li><p>excluding trials whose reaction time is shorter than 250 ms or longer than 1500 ms</p></li>
 <li><p>keeping only trials whose correct answer is ‘YES’ and people made the correct response.</p></li>
 <li><p>recode the trial ‘congruency’ conditions as ‘label’, ‘congruent’, and ‘incongruent’</p></li>
@@ -391,16 +386,12 @@ window.Quarto = {
 <span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(rt, ID, sound_category,cue, congruency)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-</section>
 <section id="confirmatory-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="confirmatory-analysis">Confirmatory analysis</h3>
 <section id="key-analysis-1" class="level4">
 <h4 class="anchored" data-anchor-id="key-analysis-1">Key Analysis</h4>
-<p>This analysis is to test whether (1) verbal labels elicit faster responses than sound labels, and (2) congruent sounds elicit faster response than incongruent sounds, with statistical significance, as suggested by the result of Experiment 1A from the original study.</p>
-<p>As proposed in our analysis plan, we follow Edminston &amp; Lupyan (2015) fitting reaction time for correct responses on matching trials under three conditions of different cues (verbal label cue, congruent sound cue, incongruent sound cue) using a linear mixed regression model. The model includes random intercepts and random slopes for within-subject factors and random intercepts for repeated items (unique trial types). The main effect (or “contrast of interest”) of the model will be the “condition” variable, which denotes whether a particular trial presented a label, congruent sound, or incongruent sound.</p>
-<p>In the following section, we will report the parameter estimates and confidence intervals for each “contrast of interest”. The parameter estimates for each condition should indicate how much each condition influences reaction time. Furthermore, to quantify our confidence in how much the factors of interest truly accounts for the trends we see, we conduct chi-square tests by comparing whether “nested models–models with and without the factor of interest–on improvement in log-likelihood”. We will the resulting p-value as the statistical significance of the effect.</p>
-<p>We expect that the output of our model will be similar to the results presented in Edminston &amp; Lupyan (2015).</p>
-<p>The following are the result of fitting a linear mixed-effect regression model and its associated statistics:</p>
+<p>As proposed in our analysis plan, in the following section, we will first report the parameter estimates and confidence intervals for each “contrast of interest” from the EMM contrast analysis of a linear mixed-effect model fitted for RTs. We will then conduct the chi-square test to examine whether the model with the factor of interest (congruency) has an significant improvement in log-likelihood, and report the resulting Chi-square values and p-values.</p>
+<p>The following are the code to construct and fit a linear mixed-effect regression model:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lmerTest)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)</span>
@@ -411,9 +402,13 @@ window.Quarto = {
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  combined_df<span class="sc">$</span>congruency, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"congruent"</span>, <span class="st">"label"</span>, <span class="st">"incongruent"</span>))</span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># compare between reference (congruent) and the other two values (incongruent and label)</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>model_full <span class="ot">&lt;-</span> <span class="fu">lmer</span>(rt <span class="sc">~</span> congruency <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">+</span> congruency<span class="sc">|</span>ID) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>sound_category), <span class="at">data =</span> combined_df)</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_full)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="do">## dependent variable: rt (response time)</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="do">## main indepent variable: congruency (of auditory cue)</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="do">## random intercepts and random slopes for within-subject factors: (1 + congruency|ID)</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="do">## random intercepts for repeated items: (1|sound_category)</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>model_full <span class="ot">&lt;-</span> <span class="fu">lmer</span>(rt <span class="sc">~</span> congruency <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">+</span> congruency<span class="sc">|</span>ID) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>sound_category), <span class="at">data =</span> combined_df)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_full)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
@@ -449,8 +444,7 @@ congrncylbl -0.439
 cngrncyncng -0.126  0.317  </code></pre>
 </div>
 </div>
-<p>[TODO: interpretation]</p>
-<p>Get the 95% confidence interval:</p>
+<p>The associated 95% confidence intervals are:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#get 95% CI</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">confint.merMod</span>(model_full,<span class="at">method=</span><span class="st">"Wald"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -469,18 +463,31 @@ congruencylabel       -68.712156 -35.82273
 congruencyincongruent  -3.307511  33.40136</code></pre>
 </div>
 </div>
-<p>[TODO: interpretation]</p>
-<p>The following are (1) the parameter estimates for each auditory cue condition, which implies how much each condition influences reaction time, and (2) our confidence in how much the factors of interest explain the difference in reaction time we observed.</p>
+<p>Now we have the average effect of each congruency level on the RTs with random effects accounted for. It suggests that when the cue is ‘congruent’, the average RT is <span class="math inline">\(690.93\)</span> ms with a 95% confidence interval <span class="math inline">\([648.42, 733.42]\)</span>. RT under ‘label’ condition is expected to be shorter than in ‘congruent’ condition for <span class="math inline">\(52.27\)</span> ms, and the difference has a 95% confidence interval <span class="math inline">\([-68.71, -35.82]\)</span>. RT under ‘incongruent’ condition is expected to be longer than in ‘congruent’ condition for <span class="math inline">\(15.05\)</span> ms, and the difference has a 95% confidence interval <span class="math inline">\([-3.31, 33.40]\)</span>. <strong>However</strong>, this comparison is neither sufficient nor fair, as it does not account for covariates and multiple comparison issues or provide a more straightforward pairwise comparision between conditions with important statistics like p-values. These could be addressed by applying a post-hoc analysis:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#post-hoc test: examine relationship between incongruent and label</span></span>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#post-hoc test:</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>fit_result <span class="ot">&lt;-</span> model_full <span class="sc">%&gt;%</span> </span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">emmeans</span>(</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    pairwise <span class="sc">~</span> congruency, <span class="co"># contrast across 'congruency' conditions</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">adjust =</span> <span class="st">"bonferroni"</span> <span class="co"># p-value adjusted</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">adjust =</span> <span class="st">"bonferroni"</span> <span class="co"># p-value adjusted for multiple comparisons</span></span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="st">"contrasts"</span>)</span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(fit_result, <span class="at">level=</span><span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>fit_result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> contrast                estimate    SE  df z.ratio p.value
+ congruent - label           52.3  8.39 Inf   6.229  &lt;.0001
+ congruent - incongruent    -15.0  9.36 Inf  -1.607  0.3243
+ label - incongruent        -67.3 10.40 Inf  -6.470  &lt;.0001
+
+Degrees-of-freedom method: asymptotic 
+P value adjustment: bonferroni method for 3 tests </code></pre>
+</div>
+</div>
+<p>To compute the 95 confidence interval:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>ci <span class="ot">&lt;-</span> <span class="fu">confint</span>(fit_result, <span class="at">level=</span><span class="fl">0.95</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>ci</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> contrast                estimate    SE  df asymp.LCL asymp.UCL
  congruent - label           52.3  8.39 Inf      32.2     72.35
@@ -492,12 +499,29 @@ Confidence level used: 0.95
 Conf-level adjustment: bonferroni method for 3 estimates </code></pre>
 </div>
 </div>
-<p>[TODO: interpretation]</p>
+<p>To compute <span class="math inline">\(\chi^2(1)\)</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>emm_results <span class="ot">&lt;-</span> <span class="fu">summary</span>(fit_result)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>z_squared <span class="ot">&lt;-</span> emm_results[<span class="st">"z.ratio"</span>] <span class="sc">^</span> <span class="dv">2</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>z_squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    z.ratio
+1 38.806637
+2  2.581723
+3 41.862952</code></pre>
+</div>
+</div>
+<p>The result suggests that:</p>
+<ol type="1">
+<li><p>RT under ‘congruent’ condition is expected to be longer than in ‘label’ condition for <span class="math inline">\(b=52.3\)</span> ms, 95% CI <span class="math inline">\([32.2, 72.35]\)</span>, <span class="math inline">\(\chi^2(1)=38.81\)</span>, <span class="math inline">\(p&lt;0.001\)</span>. For comparison, the original study has <span class="math inline">\(b=25.53\)</span> ms, 95% CI <span class="math inline">\([10.17, 40.89]\)</span>, <span class="math inline">\(\chi^2(1)=9.96\)</span>, <span class="math inline">\(p=0.002\)</span>. Both studies found that participants responded significantly faster when a label cue is used than when a congruent sound cue is used.</p></li>
+<li><p>RT under ‘congruent’ condition is expected to be shoter than in ‘incongruent’ condition for <span class="math inline">\(b=-15.0\)</span> ms, 95% CI <span class="math inline">\([-37.5, 7.37]\)</span>, <span class="math inline">\(\chi^2(1)=2.58\)</span>, <span class="math inline">\(p=0.324\)</span>. For comparison, the original study has <span class="math inline">\(b=-38.71\)</span> ms, 95% CI <span class="math inline">\([-55.33, -22.10]\)</span>, <span class="math inline">\(\chi^2(1)=17.61\)</span>, <span class="math inline">\(p&lt;0.001\)</span>. Only the original study supports that when an environmental sound cue is used, participants responded significantly faster when the cue is congruent than incongruent.</p></li>
+</ol>
 <p>To further test whether congruency has a meaningful impact on rt (i.e., whether a reduced model assuming a systematic effect of congruency fits the data better), we apply the chi-square test and the result is as follows:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#chi square test </span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>model_reduced <span class="ot">&lt;-</span> <span class="fu">lmer</span>(rt <span class="sc">~</span> (<span class="dv">1</span> <span class="sc">+</span> congruency<span class="sc">|</span>ID) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>sound_category), <span class="at">data =</span> combined_df)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(model_full, model_reduced)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create the model without congruency as the main factor</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>model_reduced <span class="ot">&lt;-</span> <span class="fu">lmer</span>(rt <span class="sc">~</span> (<span class="dv">1</span> <span class="sc">+</span> congruency<span class="sc">|</span>ID) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>sound_category), <span class="at">data =</span> combined_df)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># compare their log likelihood</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(model_full, model_reduced)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Data: combined_df
 Models:
@@ -510,89 +534,82 @@ model_full      11 99450 99526 -49714    99428 34.967  2  2.553e-08 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
-<p>[TODO: interpretation]</p>
-<p>Compare our result and result in the original study:</p>
+<p>The results suggest that the full model (which includes the congruency factor) explain the data significantly better.</p>
+<p>Finally, to compare our result and result in the original study:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'gridExtra'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:dplyr':
-
-    combine</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jpeg)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(grid)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>plot_df <span class="ot">&lt;-</span> combined_df <span class="sc">|&gt;</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">congruency=</span><span class="fu">factor</span>(</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    congruency, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"label"</span>, <span class="st">"congruent"</span>, <span class="st">"incongruent"</span>))) <span class="sc">|&gt;</span></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">congruency =</span> <span class="fu">fct_recode</span>(congruency, </span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Label"</span><span class="ot">=</span><span class="st">"label"</span>, </span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Congruent Sound"</span><span class="ot">=</span><span class="st">"congruent"</span>, </span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Incongruent Sound"</span><span class="ot">=</span><span class="st">"incongruent"</span>)</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co">#boxpplot (plot our image)</span></span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>our_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> plot_df,</span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> congruency,</span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> rt,</span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>                     <span class="at">color =</span> congruency, </span>
-<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>                     <span class="at">fill =</span> congruency)) <span class="sc">+</span></span>
-<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"summary"</span>, <span class="at">fun =</span> <span class="st">"mean"</span>, </span>
-<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>           <span class="at">width =</span> <span class="dv">1</span>,</span>
-<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span> </span>
-<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> <span class="st">"mean_cl_boot"</span>, </span>
-<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>               <span class="at">geom =</span> <span class="st">"linerange"</span>, </span>
-<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_errorbar</span>(<span class="at">stat =</span> <span class="st">"summary"</span>, </span>
-<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>                <span class="at">fun.data =</span> <span class="st">"mean_cl_boot"</span>, </span>
-<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.5</span>, </span>
-<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>                <span class="at">size=</span><span class="fl">0.5</span>,</span>
-<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>                <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"firebrick"</span>, <span class="st">"darkblue"</span>, <span class="st">"slategray2"</span>)) <span class="sc">+</span></span>
-<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"firebrick"</span>, <span class="st">"darkblue"</span>, <span class="st">"slategray2"</span>)) <span class="sc">+</span></span>
-<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Experiment 1A"</span>,</span>
-<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Verification Speed (ms)"</span>,</span>
-<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Cue Type"</span>,</span>
-<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Cue Type"</span>) <span class="sc">+</span></span>
-<span id="cb17-37"><a href="#cb17-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">4</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">400</span>, <span class="dv">725</span>), <span class="at">expand=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb17-38"><a href="#cb17-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">400</span>, <span class="dv">700</span>, <span class="at">by =</span> <span class="dv">50</span>), <span class="at">expand=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">25</span>)) <span class="sc">+</span></span>
-<span id="cb17-39"><a href="#cb17-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb17-40"><a href="#cb17-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb17-41"><a href="#cb17-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(), </span>
-<span id="cb17-42"><a href="#cb17-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>, <span class="at">color =</span> <span class="st">"black"</span>),</span>
-<span id="cb17-43"><a href="#cb17-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>, <span class="at">color =</span> <span class="st">"black"</span>), </span>
-<span id="cb17-44"><a href="#cb17-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>, <span class="at">color =</span> <span class="st">"black"</span>), </span>
-<span id="cb17-45"><a href="#cb17-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">face=</span><span class="st">'bold'</span>), </span>
-<span id="cb17-46"><a href="#cb17-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>, <span class="at">color =</span> <span class="st">"black"</span>),</span>
-<span id="cb17-47"><a href="#cb17-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.margin =</span> <span class="fu">unit</span>(<span class="fu">c</span>(<span class="fl">0.0</span>, <span class="fl">0.1</span>, <span class="fl">0.0</span>, <span class="fl">0.1</span>), <span class="st">"npc"</span>)</span>
-<span id="cb17-48"><a href="#cb17-48" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb17-49"><a href="#cb17-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb17-50"><a href="#cb17-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">aspect.ratio =</span> <span class="fl">1.8</span>)</span>
-<span id="cb17-51"><a href="#cb17-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-52"><a href="#cb17-52" aria-hidden="true" tabindex="-1"></a><span class="co"># load the original study</span></span>
-<span id="cb17-53"><a href="#cb17-53" aria-hidden="true" tabindex="-1"></a>edmiston_img <span class="ot">&lt;-</span> <span class="fu">rasterGrob</span>(<span class="fu">readJPEG</span>(<span class="st">"edmiston_exp1a.jpg"</span>), <span class="at">interpolate =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb17-54"><a href="#cb17-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-55"><a href="#cb17-55" aria-hidden="true" tabindex="-1"></a><span class="co"># layout side by side</span></span>
-<span id="cb17-56"><a href="#cb17-56" aria-hidden="true" tabindex="-1"></a>plot_title <span class="ot">&lt;-</span> <span class="fu">textGrob</span>(<span class="st">"Our Result"</span>, <span class="at">gp =</span> <span class="fu">gpar</span>(<span class="at">fontface =</span> <span class="st">"bold"</span>, <span class="at">fontsize =</span> <span class="dv">14</span>))</span>
-<span id="cb17-57"><a href="#cb17-57" aria-hidden="true" tabindex="-1"></a>image_title <span class="ot">&lt;-</span> <span class="fu">textGrob</span>(<span class="st">"Original Study Result"</span>, <span class="at">gp =</span> <span class="fu">gpar</span>(<span class="at">fontface =</span> <span class="st">"bold"</span>, <span class="at">fontsize =</span> <span class="dv">14</span>))</span>
-<span id="cb17-58"><a href="#cb17-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-59"><a href="#cb17-59" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(</span>
-<span id="cb17-60"><a href="#cb17-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrangeGrob</span>(image_title, edmiston_img, <span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">heights =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">5</span>)),</span>
-<span id="cb17-61"><a href="#cb17-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrangeGrob</span>(plot_title, <span class="fu">ggplotGrob</span>(our_plot), <span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">heights =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">5</span>)),</span>
-<span id="cb17-62"><a href="#cb17-62" aria-hidden="true" tabindex="-1"></a>  <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">widths=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">1.7</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jpeg)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(grid)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># rename and reorder some columns for plotting</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>plot_df <span class="ot">&lt;-</span> combined_df <span class="sc">|&gt;</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">congruency=</span><span class="fu">factor</span>(</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    congruency, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"label"</span>, <span class="st">"congruent"</span>, <span class="st">"incongruent"</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">congruency =</span> <span class="fu">fct_recode</span>(congruency, </span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Label"</span><span class="ot">=</span><span class="st">"label"</span>, </span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Congruent Sound"</span><span class="ot">=</span><span class="st">"congruent"</span>, </span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Incongruent Sound"</span><span class="ot">=</span><span class="st">"incongruent"</span>)</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="co"># plot the result of our replication</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>our_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> plot_df,</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> congruency,</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> rt,</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>                     <span class="at">color =</span> congruency, </span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>                     <span class="at">fill =</span> congruency)) <span class="sc">+</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"summary"</span>, <span class="at">fun =</span> <span class="st">"mean"</span>, </span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>           <span class="at">width =</span> <span class="dv">1</span>,</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span> </span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> <span class="st">"mean_cl_boot"</span>, </span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>               <span class="at">geom =</span> <span class="st">"linerange"</span>, </span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_errorbar</span>(<span class="at">stat =</span> <span class="st">"summary"</span>, </span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>                <span class="at">fun.data =</span> <span class="st">"mean_cl_boot"</span>, </span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.5</span>, </span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>                <span class="at">size=</span><span class="fl">0.5</span>,</span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>                <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"firebrick"</span>, <span class="st">"darkblue"</span>, <span class="st">"slategray2"</span>)) <span class="sc">+</span></span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"firebrick"</span>, <span class="st">"darkblue"</span>, <span class="st">"slategray2"</span>)) <span class="sc">+</span></span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Experiment 1A"</span>,</span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Verification Speed (ms)"</span>,</span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Cue Type"</span>,</span>
+<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Cue Type"</span>) <span class="sc">+</span></span>
+<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">4</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">400</span>, <span class="dv">725</span>), <span class="at">expand=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">400</span>, <span class="dv">700</span>, <span class="at">by =</span> <span class="dv">50</span>), <span class="at">expand=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">25</span>)) <span class="sc">+</span></span>
+<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>, <span class="at">color =</span> <span class="st">"black"</span>),</span>
+<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>, <span class="at">color =</span> <span class="st">"black"</span>), </span>
+<span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>, <span class="at">color =</span> <span class="st">"black"</span>), </span>
+<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">face=</span><span class="st">'bold'</span>), </span>
+<span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>, <span class="at">color =</span> <span class="st">"black"</span>),</span>
+<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.margin =</span> <span class="fu">unit</span>(<span class="fu">c</span>(<span class="fl">0.0</span>, <span class="fl">0.1</span>, <span class="fl">0.0</span>, <span class="fl">0.1</span>), <span class="st">"npc"</span>)</span>
+<span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb18-52"><a href="#cb18-52" aria-hidden="true" tabindex="-1"></a>    <span class="at">aspect.ratio =</span> <span class="fl">1.8</span>)</span>
+<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-54"><a href="#cb18-54" aria-hidden="true" tabindex="-1"></a><span class="co"># load the plot from the original study</span></span>
+<span id="cb18-55"><a href="#cb18-55" aria-hidden="true" tabindex="-1"></a>edmiston_img <span class="ot">&lt;-</span> <span class="fu">rasterGrob</span>(<span class="fu">readJPEG</span>(<span class="st">"edmiston_exp1a.jpg"</span>), <span class="at">interpolate =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb18-56"><a href="#cb18-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-57"><a href="#cb18-57" aria-hidden="true" tabindex="-1"></a><span class="co"># display side by side</span></span>
+<span id="cb18-58"><a href="#cb18-58" aria-hidden="true" tabindex="-1"></a>plot_title <span class="ot">&lt;-</span> <span class="fu">textGrob</span>(<span class="st">"Our Result"</span>, <span class="at">gp =</span> <span class="fu">gpar</span>(<span class="at">fontface =</span> <span class="st">"bold"</span>, <span class="at">fontsize =</span> <span class="dv">14</span>))</span>
+<span id="cb18-59"><a href="#cb18-59" aria-hidden="true" tabindex="-1"></a>image_title <span class="ot">&lt;-</span> <span class="fu">textGrob</span>(<span class="st">"Original Study Result"</span>, <span class="at">gp =</span> <span class="fu">gpar</span>(<span class="at">fontface =</span> <span class="st">"bold"</span>, <span class="at">fontsize =</span> <span class="dv">14</span>))</span>
+<span id="cb18-60"><a href="#cb18-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-61"><a href="#cb18-61" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(</span>
+<span id="cb18-62"><a href="#cb18-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrangeGrob</span>(image_title, edmiston_img, <span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">heights =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">5</span>)),</span>
+<span id="cb18-63"><a href="#cb18-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrangeGrob</span>(plot_title, <span class="fu">ggplotGrob</span>(our_plot), <span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">heights =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">5</span>)),</span>
+<span id="cb18-64"><a href="#cb18-64" aria-hidden="true" tabindex="-1"></a>  <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">widths=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">1.7</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="writeup_sihan_yang_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="writeup_sihan_yang_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
+<p>In summary, both our study and the original study observe the pattern that RTs follow the order: label cue &lt; congruent-sound cue &lt; incongruent-sound cue. However, while the original study found all pairwise differences to be statistically significant, we only found significant differences between label cue and congruent-sound cue, between label cue and incongruent-sound cue, but not between congruent-sound cue and incongruent-sound cue. Additionally, reaction times were generally longer in our replication compared to the original study.</p>
 </section>
 </section>
 <section id="exploratory-analyses" class="level3">
@@ -604,11 +621,16 @@ Attaching package: 'gridExtra'</code></pre>
 <h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
 <section id="summary-of-replication-attempt" class="level3">
 <h3 class="anchored" data-anchor-id="summary-of-replication-attempt">Summary of Replication Attempt</h3>
-<p>Open the discussion section with a paragraph summarizing the primary result from the confirmatory analysis and the assessment of whether it replicated, partially replicated, or failed to replicate the original result.</p>
+<p>In our version of the experiment:</p>
+<ol type="1">
+<li><p>We found that RTs were significantly shorter when the sound cue was a label rather than a congruent environmental sound, with standard p-value threshold of 0.05. This is consistent with the results of the original study.</p></li>
+<li><p>We didn’t find statistically significant evidence that RTs are shorter when the sound cue is a congruent environmental sound compared to an incongruent one. Although the average effect suggests such pattern, the p-value exceeds the standard threshold of p = 0.05. This is inconsistent with the results of the original study, which reported that RTs are significantly shorter when the environmental sound cue is congruent rather than incongruent.</p></li>
+</ol>
+<p>To summarize, the primary result has only been partially replicated.</p>
 </section>
 <section id="commentary" class="level3">
 <h3 class="anchored" data-anchor-id="commentary">Commentary</h3>
-<p>Add open-ended commentary (if any) reflecting (a) insights from follow-up exploratory analysis, (b) assessment of the meaning of the replication (or not) - e.g., for a failure to replicate, are the differences between original and present study ones that definitely, plausibly, or are unlikely to have been moderators of the result, and (c) discussion of any objections or challenges raised by the current and original authors about the replication attempt. None of these need to be long.</p>
+<p>[TODO: (a) insights from follow-up exploratory analysis] We propose that one of the most likely causes of such discrepancy is that our experiment was conducted online. Online setting could introduce several challenges: (1) It was difficult to communicate effectively with participants and receive feedback during the instruction and practice phases, making it harder to ensure that participants fully understood the task. Confusion about the task may have altered the reaction time patterns. (2) It was challenging to monitor participants’ attention during the experiment. These challenges are supported by the observations that overall accuracy was lower and reaction times were generally longer than in the original study. Therefore, we recommend that researchers who aim to replicate this study in the future use the same laboratory settings as the original study to minimize potential discrepancies..</p>
 </section>
 </section>
 <section id="references" class="level2">
