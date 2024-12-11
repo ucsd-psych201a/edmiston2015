@@ -10,31 +10,39 @@ format:
 
 <!-- Replication reports should all use this template to standardize reporting across projects.  These reports will be public supplementary materials that accompany the summary report(s) of the aggregate results. -->
 
-[Link to the project github repository](https://github.com/ucsd-psych201a/edmiston2015)
-
 ## Introduction
 
-"Verbal labels, such as the words 'dog' and 'guitar', activate conceptual knowledge more effectively than corresponding environmental sounds, such as a dog bark or a guitar strum, even though both are unambiguous cues to the categories of dogs and guitars (Lupyan & Thompson-Schill, 2012). We hypothesize that this advantage of labels emerges because word-forms, unlike other cues, do not vary in a motivated way with their referent. The sound of a guitar cannot help but inform a listener to the type of guitar making it (electric, acoustic, etc.). The word 'guitar' on the other hand, can leave the type of guitar unspecified. We argue that as a result, labels gain the ability to cue a more abstract mental representation, promoting efficient processing of category members. In contrast, environmental sounds activate representations that are more tightly linked to the specific cause of the sound. Our results show that upon hearing environmental sounds such as a dog bark or guitar strum, people cannot help but activate a particular instance of a category, in a particular state, at a particular time, as measured by patterns of response times on cue-picture matching tasks (Exps. 1–2) and eye-movements in a task where the cues are task-irrelevant (Exp. 3). In comparison, labels activate concepts in a more abstract, decontextualized way—a difference that we argue can be explained by labels acting as 'unmotivated cues'." (the abstract of the original paper Edmiston & Lupyan, 2015)  
+How language supports cognition is a centeral question in cognitive linguistics. Previous research suggests that language may play an unique role in the mental processing of categories. Lupyan and Thompson-Schill (2012) found that, during an image-recognition task, participants judged whether an image and a preceeding auditory cue were of the same category faster when the cue was verbal rather than non-verbal. For instance, people identified a guitar image as matching the word 'guitar' faster than the sound of an acoustic guitar playing. 
 
-In this study, we will replicate Experiment 1A from the original paper. Specifically, we will test whether recognizing an image following a sound cue is slower than recognizing an image following a label cue, and whether this difference is because a sound cues a more specific category than a label. We will use the same experimental paradigm and materials as the original study, but with a larger but with a different sample size and population and an online format instead of the original in-lab setting.
+Edmiston and Lupyan (2015) further explored why verbal cues activate concepts more effectively. They proposed that verbal cues are associated with the abstract concept rather than specific instances, thereby cueing more diagnostic features of a category. In their experiment 1A, they found that in an image-recogniton task, participants (1) responded faster to an image if the cue is a verbal label than an environmental sound, and (2) responded faster to an image if the environmental sound cue is a congruent one (i.e., matching the instance in the image) than an incongruent one (i.e., matching the category but not the exact instance). These findings suggest the potential mechanism by which language supports conceptual thinking.
+
+Our study aims to replicate Experiment 1A from Edmiston and Lupyan (2015). We define the replication as successful if two conditions are met: (1) the two relationships between reaction time under different auditory cue conditions are the same as described above, and (2) the differences in reaction time are statistically attributable to the type of auditory cue. Specifically, we expect reaction times to follow the pattern: verbal-label condition < congruent-environmental-sound condition < incongruent-environmental-sound condition, with statistical tests confirming that auditory cue type is the primary determinant of these differences.
+
+Our study will employ the same experimental paradigm and materials as the original study but will be conducted online rather then in a laboratory setting. While this adjustment may lead to different sample population and slight procedural variations, we do not anticipate the changes substantially affect the results. We hope the replication to provide insight into the reliability of original findings and their broader implications for understanding the relationship between language and cognition.
+
+Followings are the the links to our repository, pre-registration, and hosted experiment:
+[Project Github repository](https://github.com/ucsd-psych201a/edmiston2015)
+[Study pre-registration](https://osf.io/7ca8z)
+[Experiment link](https://ucsd-psych201a.github.io/edmiston2015/)
 
 ## Methods
 
 ### Power Analysis
-
-[TODO] Original effect size, power analysis for samples to achieve 80%, 90%, 95% power to detect that effect size.  Considerations of feasibility for selecting planned sample size.
+Since the original study did not provide means and standard deviations for the effects and employed a linear mixed-effects regression model, it is challenging to conduct a conventional power analysis to estimate a proper sample size.
+However, based on guidance from course instructional staff, the original sample size ($N=43$) should be adequate to acheiving 80% power for detecting the effect reported in the original study, with a significance criteria of $\alpha=0.05$. 
 
 ### Planned Sample
 
-We recruit 43 participants as in the original study. Participants are recruited on Prolific, prescreened for English fluency and compensated monetarily.
+Given that the original study is well-powered ($N=43$) but in a laboratory setting, we choose a sample size slightly larger ($N=50$) sample size to account for the uncertainty in online settings. Participants are recruited through Prolific, prescreened for English fluency, and compensated monetarily for their participation.
 
 ### Materials
 
+We use the exact same images and auditory cues as in the original study. The following are the detailed explanation from the authors: 
 "The auditory cues comprised basic-level category labels and environmental sounds for six categories: bird, dog, drum, guitar, motorcycle, and phone. For each category, we obtained two distinct environmental sound cues, e.g., <classical guitar strum>, <electric guitar strum>, and two separate images for each subordinate category, e.g., two electric guitars for <electric guitar strum>, two acoustic guitars for <electric guitar strum>. To control for cue variability, we also used two versions of each spoken category label: one pronounced by a female speaker, one by a male speaker. All auditory cues were equated in duration (600 ms.) and normalized in volume. The images were color photographs (four images per category). The materials, obtained from online repositories, are available for download at http://sapir.psych.wisc.edu/stimuli/ MotivatedCuesExp1A-1B.zip." (Edmiston & Lupyan, 2015)
 
 ### Procedure	
 
-Participants are instructed to use their personal computer to complete task in a quite environment absent of distraction. During the experiment, they will be required to make their response by clicking 'y' on the keyboard of their computer for 'Yes', and 'n' for 'No'.
+Participants are instructed to use their personal computer to complete task in a quite environment absent of distraction. During the experiment, they will be required to make their response by clicking 'f' on the keyboard of their computer for 'Yes', and 'j' for 'No'.
 
 During the experiment, "on each trial participants heard a cue and saw a picture...participants decide as quickly and accurately as possible if the picture they saw came from the same basic-level category as the word or sound they heard...Trials began with a 250 ms. fixation cross followed immediately by the auditory cue, delivered via headphones. The target image appeared centrally 1 s after the offset of the auditory cue and remained visible until a response was made. Each participant completed 6 practice and 384 test trials. If the picture matched the auditory cue (50% of trials) participants were instructed to respond ‘Yes’...(e.g., <cellphone ring> or 'phone' followed by a picture of any phone). Otherwise, they were to press 'No' (e.g., <cellphone ring> or 'phone' followed by a dog). All factors (cue type, congruence) varied randomly within subjects. Auditory feedback (buzz or bleep) was given after each trial." (Edmiston & Lupyan, 2015)
 
@@ -42,11 +50,11 @@ During the experiment, "on each trial participants heard a cue and saw a picture
 
 #### Data cleaning and Data Exclusion Rules
 
-Before testing the main hypothesis of the original study, we will first examine the average performance (accuracy) to determine if it is comparable to the original study. This will involve calculating each participant's accuracy and using a t-test to examine whether performance differs qualitatively between the original and new participants.
+Before testing the main hypothesis of the original study, we will first examine the average performance (accuracy) to determine if it is comparable to the original study. This will involve calculating each participant's accuracy and using a t-test to examine whether performance differs qualitatively between the original and new participants. Given that the average performance is 97% in the original study, we set the data exclusion threshold at 90%: only participants who have achieved an accuracy rate above 90% will be included in further analysis.
 
-Trials with response times (RTs) that are too short or too long will be filtered out. The original study applied thresholds of 250 ms and 1500 ms for the lower and upper bounds, respectively. Before applying filtering, we will check if the new data shows a similar RT distribution.
+Trials with response times (RTs) that are too short or too long will be filtered out. The original study applied thresholds of 250 ms and 1500 ms for the lower and upper bounds, respectively. Before applying filtering, we will check the distribution of RT.
 
-Only RTs for correct responses on matching trials will be used for further analysis, following the original study’s approach.
+Finally, only RTs for correct responses on matching trials will be used for confirmatory analysis, following the original study’s approach.
 
 #### Covariates
 
@@ -79,27 +87,6 @@ You can comment this section out prior to final report with data collection.
 
 #### Differences from pre-data collection methods plan
   Any differences from what was described as the original plan, or “none”.
-  
-### Comments (from Oct 31st class)
-How many factors were manipulated?
-- one, which is whether particioants hear a label, an incongurent sound or a congruent sound cue.
-How many measures were taken?
-- one, reaction time.
-Did it use a within-participants or between-participants design?
-- within participants.
-Were measures repeated?
-- yes.
-What would have been the consequence of changing one of these decisions? (e.g. moving from within to between participants). Could it have been either way?
-- more confounds if we make this change.
-Were steps taken to reduce demand characteristics?
-- they didn't take any specific measure to reduce this?
-How would you critique the design?
-- attention check could help since they had many trials.
-- their right/wrong criteria for incongurent sound cue trials are not fully justified: if someone hear an incongruent sound and report 'No' is that a wrong answer.
-Can you think of any potential confounds to the study?
-- "the presence of incongruent sound trials may have led participants to be more careful on these trials, inflating the RTs." (Edmiston & Lupyan, 2015)
-Do you see any limitations to generalizability?
-- all participants are US college undergrads.
 
 ## Results
 
@@ -125,7 +112,7 @@ Only RTs for correct responses on matching trials will be used for further analy
 
 The following code prepare the data for fitting a linear mixed model for response time under different conditions: (1) label cue matches the image, (2) auditory cue matches the image but is incongruent, and (3) auditory cue matches the image and is congruent. 
 	
-```{r include=T}
+```{r echo=TRUE, results='hide', warning=FALSE, message=FALSE}
 ### Data Preparation
 
 #### Load Relevant Libraries and Functions
@@ -133,64 +120,110 @@ library(tidyverse)
 library(readr)
 library(lme4)
 
-#### Import data
-#replace this with your own path (for now)
-folder_path <- "../data/pilot_b"
+# Import data
+folder_path <- "../data/complete"
 csv_files <- list.files(folder_path, pattern = "*.csv", full.names = TRUE)
 df_list <- lapply(csv_files, read_csv, show_col_types = FALSE)
-combined_df <- bind_rows(df_list)
+original_df <- bind_rows(df_list)
 
 #exclude practice trials 
-combined_df <- combined_df %>%
+original_df <- original_df |>
   filter(exp_part == "actual")
 
-#### Data exclusion / filtering
-#exclude 'No' trials 
-combined_df <- combined_df %>%
+# convert the data type and compute correctness of each trial
+original_df <- original_df %>%
   mutate(correct_response = as.character(correct_response)) %>%
   mutate(response = as.character(response)) %>%
   mutate(correct = correct_response == response)
 
-```
-
-We check the accuracy of each participant:
-```{r}
-accuracy_table <- combined_df %>%
+# compute the accuracy of each participant
+accuracy_table <- original_df %>%
   group_by(ID) %>%
   summarise(accuracy = mean(correct, na.rm = TRUE))
-accuracy_table
 ```
 
-We set the threshold for data inclusion at 90% ^[We haven't discussed about it in details so this threshold may be a tentative one] accuracy. Four out of five participants in pilot B have achieved an acceptable performance (above 90%). The following is the code to further filter the data based on accuracy (for future use).
+First, we check the distribution of accuracy:
+```{r echo=TRUE, results='hide', warning=FALSE, message=FALSE}
+library(ggplot2)
 
-```{r}
 accuracy_thresh <- 0.9
-# select people who passed QA
+
+# Create the plot
+ggplot(accuracy_table, aes(x = accuracy)) +
+  geom_histogram(
+    breaks=seq(0, 1, length.out=21),
+    fill = "blue", color = "black", alpha = 0.7) +
+  geom_vline(xintercept = accuracy_thresh, color = "red", linetype = "dashed", size = 1) +
+  labs(
+    title = "Distribution of Accuracy",
+    x = "Accuracy",
+    y = ""
+  ) +
+  theme_minimal()
+```
+
+`r sum(accuracy_table$accuracy > accuracy_thresh)` people (which are `r round(mean(accuracy_table$accuracy > accuracy_thresh)*100, 0)`% of the total participants) achieved an accuracy above 90%. 
+
+We also check the distribution of response time (within the participants whose accuracy is above 90%):
+```{r echo=TRUE, results='hide', warning=FALSE, message=FALSE}
+library(ggplot2)
+
 id_pass_qa <- accuracy_table %>%
   filter(accuracy > accuracy_thresh) %>%
   pull(ID)
+original_df_with_good_subj <- original_df %>%
+  filter(ID %in% id_pass_qa)
+
+# Create the plot
+ggplot(original_df_with_good_subj, aes(x = rt)) +
+  geom_histogram(
+    breaks=seq(0, 2000, length.out=40),
+    fill = "blue", color = "black", alpha = 0.7) +
+  geom_vline(xintercept = 250, color = "red", linetype = "dashed", size = 1) +
+  geom_vline(xintercept = 1500, color = "red", linetype = "dashed", size = 1) +
+  labs(
+    title = "Distribution of Reaction Time",
+    x = "Reaction Time",
+    y = ""
+  ) +
+  theme_minimal()
+
+# compute the quantile and other stats
+ecdf_func <- ecdf(original_df_with_good_subj$rt)
+rt_quantiles <- ecdf_func(c(250, 1500))
+rt_pass_mask <- (original_df_with_good_subj$rt > 250) & (original_df_with_good_subj$rt < 1500)
+
+```
+`r sum(rt_pass_mask)` trials (which are `r round(mean(rt_pass_mask)*100, 0)`% of the trials) have reaction time within the range of 250-1500 ms.
+
+Now we further preprocess the data, by
+- excluding participants who do not achieve an accuracy of 90%
+
+- excluding trials whose reaction time is shorter than 250 ms or longer than 1500 ms
+
+- keeping only trials whose correct answer is 'YES' and people made the correct response.
+
+- recode the trial 'congruency' conditions as 'label', 'congruent', and 'incongruent'
+
+
+```{r echo=TRUE, results='hide', warning=FALSE, message=FALSE}
+combined_df <- original_df
   
-# filter combined_df
+## keep only people who passed the QA check
 combined_df <- combined_df %>%
   filter(ID %in% id_pass_qa) %>%
   select(-correct) # drop the correctness column
 
-# display
-tail(combined_df)
-```
-We keep only trials whose correct response is 'Yes' and the time fall within 250-1500 ms:
-
-```{r}
-#check whether response is correct
+# exclude only correct 'YES' trials 
 combined_df <- combined_df %>%
   filter(response == "f") %>%
   filter(correct_response == "f")
 
-#rename "sound_subtype" to "cue"
+# rename "sound_subtype" to "cue"
 combined_df <- combined_df %>%
   rename(cue = sound_subtype)
 
-#create congruency column 
+# create congruency column 
 combined_df <- combined_df %>%
   mutate(congruency = case_when(
     cue == "label" ~ "label",
@@ -198,17 +231,14 @@ combined_df <- combined_df %>%
     TRUE ~ "congruent"
   ))
 
-
-#filter reaction time 
+# filter reaction time 
 combined_df <- combined_df %>%
   filter(rt >250, rt <1500)
 
-#### Prepare data for analysis - create columns etc.
+# Prepare data for analysis - keep only columns relevant to the model.
 combined_df <- combined_df %>%
   select(rt, ID, sound_category,cue, congruency)
 
-#show the preprocesssed data
-tail(combined_df)
 ```
 
 ### Confirmatory analysis
@@ -223,79 +253,123 @@ In the following section, we will report the parameter estimates and confidence 
 
 We expect that the output of our model will be similar to the results presented in Edminston & Lupyan (2015).
 
-The following code fit the mixed-effect linear regression model and reports the associated statistics.
+The following are the result of fitting a linear mixed-effect regression model and its associated statistics:
 
-```{r}
+```{r echo=TRUE, warning=FALSE, message=FALSE}
 library(lmerTest)
 library(emmeans)
 library(lme4)
+
+# set reference level to congruent
+combined_df$congruency <- factor(
+  combined_df$congruency, levels = c("congruent", "label", "incongruent"))
 
 # compare between reference (congruent) and the other two values (incongruent and label)
 model_full <- lmer(rt ~ congruency + (1 + congruency|ID) + (1|sound_category), data = combined_df)
 
 summary(model_full)
+```
+[TODO: interpretation]
 
+Get the 95% confidence interval:
+
+```{r echo=TRUE, warning=FALSE, message=FALSE}
 #get 95% CI
 confint.merMod(model_full,method="Wald")
+```
+[TODO: interpretation]
 
+The following are (1) the parameter estimates for each auditory cue condition, which implies how much each condition influences reaction time, and (2) our confidence in how much the factors of interest explain the difference in reaction time we observed.
+
+```{r echo=TRUE, warning=FALSE, message=FALSE}
 #post-hoc test: examine relationship between incongruent and label
 fit_result <- model_full %>% 
-  emmeans(pairwise ~ congruency,
-          #adjusts p values so that it is more difficult to get a significance (correction method)
-          adjust = "bonferroni") %>% 
+  emmeans(
+    pairwise ~ congruency, # contrast across 'congruency' conditions
+    adjust = "bonferroni" # p-value adjusted
+  ) %>% 
   pluck("contrasts")
 
-fit_result
+confint(fit_result, level=0.95)
 ```
-```{r, echo=FALSE}
-library(dplyr)
+[TODO: interpretation]
 
-# to read the fit result
-get_contrast_values <- function(model_result, cond_a, cond_b) {
-  # convert s4 to dataframe
-  model_result <- summary(model_result)
-  # Filter the model result for the specified contrast
-  contrast_name <- paste0(cond_a, " - ", cond_b)
-  result_row <- model_result[model_result$contrast == contrast_name, ]
-  if (nrow(result_row) == 0) {
-    # flip it
-    contrast_name <- paste0(cond_b, " - ", cond_a)
-    result_row <- model_result[model_result$contrast == contrast_name, ]
-  }
-  
-  # Extract and return the estimate and p.value as a named list
-  list(
-    contrast_name = contrast_name,
-    estimate = result_row$estimate,
-    p_value = result_row$p.value
-  )
-}
+To further test whether congruency has a meaningful impact on rt (i.e., whether a reduced model assuming a systematic effect of congruency fits the data better), we apply the chi-square test and the result is as follows:
 
-congruent_incongruent_result <- get_contrast_values(
-  fit_result, 'congruent', 'incongruent')
-congruent_label_result <- get_contrast_values(
-  fit_result, 'congruent', 'label')
-incongruent_label_result <- get_contrast_values(
-  fit_result, 'incongruent', 'label')
-```
-
-The result suggests that: 
-
-- Comparing "congruent" and incongruent", the estimate of effect is `r paste0("\u03B2 = ", sprintf("%.2f", congruent_incongruent_result$estimate))` (`r congruent_incongruent_result$contrast_name`), with p-value `r sprintf("p = %.4f", congruent_incongruent_result$p_value)`;
-
-- Comparing "congruent" and label", the estimate of effect is `r paste0("\u03B2 = ", sprintf("%.2f", congruent_label_result$estimate))` (`r congruent_label_result$contrast_name`), with p-value `r sprintf("p = %.4f", congruent_label_result$p_value)`;
-
-- Comparing "incongruent" and label", the estimate of effect is `r paste0("\u03B2 = ", sprintf("%.2f", incongruent_label_result$estimate))` (`r incongruent_label_result$contrast_name`), with p-value `r sprintf("p = %.4f", incongruent_label_result$p_value)`;
-
-To further test whether congruency has a meaningful impact on rt, we apply the chi-square test and the result is as follows:
-```{r}
+```{r echo=TRUE, warning=FALSE, message=FALSE}
 #chi square test 
 model_reduced <- lmer(rt ~ (1 + congruency|ID) + (1|sound_category), data = combined_df)
-
 anova(model_full, model_reduced)
 ```
+[TODO: interpretation]
 
-*Side-by-side graph with original graph is ideal here*
+Compare our result and result in the original study:
+
+```{r}
+library(gridExtra)
+library(jpeg)
+library(grid)
+
+plot_df <- combined_df |>
+  mutate(congruency=factor(
+    congruency, levels = c("label", "congruent", "incongruent"))) |>
+  mutate(congruency = fct_recode(congruency, 
+    "Label"="label", 
+    "Congruent Sound"="congruent", 
+    "Incongruent Sound"="incongruent")
+  )
+
+#boxpplot (plot our image)
+our_plot <- ggplot(data = plot_df,
+       mapping = aes(x = congruency,
+                     y = rt,
+                     color = congruency, 
+                     fill = congruency)) +
+  geom_bar(stat = "summary", fun = "mean", 
+           width = 1,
+           color = "black") + 
+  stat_summary(fun.data = "mean_cl_boot", 
+               geom = "linerange", 
+               color = "black") +
+   geom_errorbar(stat = "summary", 
+                fun.data = "mean_cl_boot", 
+                width = 0.5, 
+                size=0.5,
+                color = "black") +
+  scale_fill_manual(values = c("firebrick", "darkblue", "slategray2")) +
+  scale_color_manual(values = c("firebrick", "darkblue", "slategray2")) +
+  labs(
+    x = "Experiment 1A",
+    y = "Verification Speed (ms)",
+    color = "Cue Type",
+    fill = "Cue Type") +
+  coord_cartesian(xlim=c(0, 4), ylim = c(400, 725), expand=FALSE) +
+  scale_y_continuous(breaks = seq(400, 700, by = 50), expand=c(0, 25)) +
+  theme_classic() +
+  theme(
+    axis.text.x = element_blank(), 
+    axis.text.y = element_text(size = 10, color = "black"),
+    axis.title.x = element_text(size = 10, color = "black"), 
+    axis.title.y = element_text(size = 10, color = "black"), 
+    legend.title = element_text(size = 10, color = "black", face='bold'), 
+    legend.text = element_text(size = 10, color = "black"),
+    plot.margin = unit(c(0.0, 0.1, 0.0, 0.1), "npc")
+  ) +
+  theme(
+    aspect.ratio = 1.8)
+
+# load the original study
+edmiston_img <- rasterGrob(readJPEG("edmiston_exp1a.jpg"), interpolate = TRUE)
+
+# layout side by side
+plot_title <- textGrob("Our Result", gp = gpar(fontface = "bold", fontsize = 14))
+image_title <- textGrob("Original Study Result", gp = gpar(fontface = "bold", fontsize = 14))
+
+grid.arrange(
+  arrangeGrob(image_title, edmiston_img, ncol = 1, heights = c(0.5, 5)),
+  arrangeGrob(plot_title, ggplotGrob(our_plot), ncol = 1, heights = c(0.5, 5)),
+  ncol = 2, widths=c(1, 1.7))
+```
 
 ### Exploratory analyses
 
@@ -310,3 +384,7 @@ Open the discussion section with a paragraph summarizing the primary result from
 ### Commentary
 
 Add open-ended commentary (if any) reflecting (a) insights from follow-up exploratory analysis, (b) assessment of the meaning of the replication (or not) - e.g., for a failure to replicate, are the differences between original and present study ones that definitely, plausibly, or are unlikely to have been moderators of the result, and (c) discussion of any objections or challenges raised by the current and original authors about the replication attempt.  None of these need to be long.
+
+## References
+- Lupyan, G., & Thompson-Schill, S. L. (2012). The evocative power of words: Activation of concepts by verbal and nonverbal means. Journal of Experimental Psychology-General, 141(1), 170–186. http://dx.doi.org/10.1037/a0024904.
+
