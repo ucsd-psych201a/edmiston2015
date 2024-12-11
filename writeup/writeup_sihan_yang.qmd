@@ -198,38 +198,44 @@ Now we further preprocess the data, by
 
 
 ```{r echo=TRUE, results='hide', warning=FALSE, message=FALSE}
-combined_df <- original_df
-  
-## keep only people who passed the QA check
-combined_df <- combined_df %>%
-  filter(ID %in% id_pass_qa) %>%
-  select(-correct) # drop the correctness column
+# keep only people who passed the QA check
+combined_df <- original_df_with_good_subj
 
 # exclude only correct 'YES' trials 
 combined_df <- combined_df %>%
   filter(response == "f") %>%
   filter(correct_response == "f")
 
-# rename "sound_subtype" to "cue"
-combined_df <- combined_df %>%
-  rename(cue = sound_subtype)
+prepare_fitting_ready_df <- function(df) {
+  # rename "sound_subtype" to "cue"
+  df <- df %>%
+    rename(cue = sound_subtype)
 
-# create congruency column 
-combined_df <- combined_df %>%
-  mutate(congruency = case_when(
-    cue == "label" ~ "label",
-    img_subtype %in% c("song", "york", "bongo", "acoustic", "harley", "rotary") & sound_version == "A" ~ "incongruent",
-    TRUE ~ "congruent"
-  ))
+  # create congruency column 
+  df <- df %>%
+     mutate(congruency = case_when(
+      correct == FALSE ~ NA_character_,
+      cue == "label" ~ "label",
+      (img_subtype %in% c("song", "york", "bongo", "acoustic", "harley", "rotary") & sound_version == "A") ~ "incongruent",
+      TRUE ~ "congruent"
+    ))
+  
+  # drop the correctness column
+  df <- df %>%
+    select(-correct)
 
-# filter reaction time 
-combined_df <- combined_df %>%
-  filter(rt >250, rt <1500)
+  # filter reaction time 
+  df <- df %>%
+    filter(rt >250, rt <1500)
 
-# Prepare data for analysis - keep only columns relevant to the model.
-combined_df <- combined_df %>%
-  select(rt, ID, sound_category,cue, congruency)
+  # Prepare data for analysis - keep only columns relevant to the model.
+  df <- df %>%
+    select(rt, ID, sound_category,cue, congruency)
+  
+  return(df)
+}
 
+combined_df <- prepare_fitting_ready_df(combined_df)
 ```
 
 ### Confirmatory analysis
@@ -352,6 +358,7 @@ our_plot <- ggplot(data = plot_df,
   theme_classic() +
   theme(
     axis.text.x = element_blank(), 
+    axis.ticks.x = element_blank(),
     axis.text.y = element_text(size = 10, color = "black"),
     axis.title.x = element_text(size = 10, color = "black"), 
     axis.title.y = element_text(size = 10, color = "black"), 
@@ -379,7 +386,73 @@ In summary, both our study and the original study observe the pattern that RTs f
 
 ### Exploratory analyses
 
-Any follow-up analyses desired (not required).  
+We also plotted the distribution of RTs under each condition to investigate whether there were an excessive number of unusually short or long RTs in certain conditions that might distort the overall reaction time pattern.
+
+```{r echo=TRUE, warning=FALSE, message=FALSE}
+
+plot_df <- combined_df |>
+  mutate(congruency=factor(
+    congruency, levels = c("label", "congruent", "incongruent"))) |>
+  mutate(congruency = fct_recode(congruency, 
+    "Label"="label", 
+    "Congruent Sound"="congruent", 
+    "Incongruent Sound"="incongruent")
+  )
+
+ggplot(data = plot_df,
+       mapping = aes(x = congruency,
+                     y = rt,
+                     fill = congruency)) +
+  geom_boxplot(width = 0.6, outlier.shape = NA, alpha=0.5) + 
+  geom_jitter(shape = 21, color = "black", width = 0.2, alpha = 0.2, size = 1.5) +
+  geom_hline(yintercept = 1200, color = "red", linetype = "dashed", size = 1) +
+  scale_fill_manual(values = c("firebrick", "darkblue", "slategray")) +
+  labs(
+    y = "Reaction Time (Ms)",
+    color = "Cue Type",
+    x = "Cue Type",
+    fill = "Cue Type "
+  ) +
+  theme_classic() +
+  theme(
+  axis.text.x = element_blank(), 
+  axis.text.y = element_text(size = 14, color = "black"),
+  axis.title.x = element_text(size = 16, color = "black", face = "bold"), 
+  axis.title.y = element_text(size = 16, color = "black", face = "bold"), 
+  legend.title = element_text(size = 14, color = "black"), 
+  legend.text = element_text(size = 14, color = "black") 
+)
+```
+While the original study found that reaction times were significantly shorter in congruent trials than in incongruent trials, our results reveal a heavy tail in the congruent condition, with some extremely long RTs (i.e., greater than 1200 ms). It is unclear why this occurs, but we suspect these trials may have boosted the average RTs in the congruent condition, thereby reducing the difference between the congruent and incongruent conditions.
+
+In the original study, trials where participants gave incorrect responses were excluded from further analysis. However, we were curious whether including incorrect trials might yield different results. Specifically, while there is no evidence that reaction times differ significantly between correct trials with congruent and incongruent cues, we wondered whether reaction time will significantly differ especially when participants are uncertain (i.e., making incorrect responses). To investigate this, we fitted a linear mixed-effects regression model and conducted post-hoc analysis as in the confirmatory analysis, but this time including trials with incorrect responses.
+
+```{r echo=TRUE, warning=FALSE, message=FALSE}
+# include wrong trials
+include_wrong_df <- original_df_with_good_subj %>%
+  filter(correct_response=='f')
+include_wrong_df <- prepare_fitting_ready_df(include_wrong_df)
+
+# lmer
+# set reference level to congruent
+include_wrong_df$congruency <- factor(
+  include_wrong_df$congruency, levels = c("congruent", "label", "incongruent"))
+model_wrong_full <- lmer(rt ~ congruency + (1 + congruency|ID) + (1|sound_category), data = include_wrong_df)
+
+# summary(model_wrong_full)
+
+# EMM contrast
+emm_options(lmerTest.limit = 8000)
+include_wrong_fit_result <- model_wrong_full %>%
+  emmeans(
+    pairwise ~ congruency, # contrast across 'congruency' conditions
+    adjust = "bonferroni", # p-value adjusted for multiple comparisons
+  ) %>%
+  pluck("contrasts")
+include_wrong_fit_result
+confint(include_wrong_fit_result, level=0.95)
+```
+The result suggests that including incorrect trials does not change the previously observed pattern: RTs are significantly shorter ($p<0.001$) in label cue condition than in congruent-sound cue condition, and shorter in congruent-sound cue condition than in incongruent-sound cue condition but without statistical significance ($p=0.101$).
 
 ## Discussion
 
