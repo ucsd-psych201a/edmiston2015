@@ -1,6 +1,6 @@
 ---
 title: "Replication of Study 'What makes words special? Workds as unmotivated cues (Experiment 1A)' by Edmiston & Lupyan (2015, Cognition)"
-author: "Replication Author: Reeka Estacio"
+author: "Replication Author: Reeka Estacio (rdestaci@ucsd.edu)"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 format:
   html:
@@ -8,15 +8,13 @@ format:
     toc_depth: 3
 ---
 
-<!-- Replication reports should all use this template to standardize reporting across projects.  These reports will be public supplementary materials that accompany the summary report(s) of the aggregate results. -->
-
 ## Introduction
 
-- [GitHub Repository](https://github.com/ucsd-psych201a/edmiston2015)
-- [Pre-Registration](https://github.com/ucsd-psych201a/edmiston2015/tree/main/prereg) 
-- [Paradigm](https://ucsd-psych201a.github.io/edmiston2015/)
+-   [GitHub Repository](https://github.com/ucsd-psych201a/edmiston2015)
+-   [Pre-Registration](https://github.com/ucsd-psych201a/edmiston2015/tree/main/prereg)
+-   [Experimental Paradigm](https://ucsd-psych201a.github.io/edmiston2015/)
 
-The current study is a replication of Experiment 1A of Edmiston & Lupyan (2015), which examines the differences in which verbal labels and environmental sounds activate categories in the mind. 
+The current study is a replication of Experiment 1A of Edmiston & Lupyan (2015), which examines the differences in which verbal labels and environmental sounds activate categories in the mind.
 
 Previous research suggests that environmental sounds, such as a dog's bark, activate specific mental representations of a concept (Lupyan & Thompson-Schill, 2012). For instance, a loud, deep bark might evoke the image of a large dog (e.g., a Rottweiler), whereas a high-pitched bark may bring to mind a small dog (e.g., a Yorkie). In contrast, verbal labels like the word "dog" elicit broader mental representations that encompass knoweldge of multiple instances within a category. Because verbal labels do not inherently activate instance-specific qualities, they exhibit a "label advantage," enabling listeners to identify and associate verbal labels with their referents more quickly and efficiently than environmental sounds.
 
@@ -28,13 +26,13 @@ In the current study, we aim to replicate Experiment 1A as closely as possible t
 
 ### Power Analysis
 
-Based on guidance from instructional staff, the sample size was determined with an a-priori power analysis with the package simr, and is adequate to achieve at least 80% power for detecting the effect reported in the original study at a significance criterion of alpha = .05 (any random effects not specified in the original paper were taken from a small pilot study). 
+Based on guidance from instructional staff, the sample size was determined with an a-priori power analysis with the package simr, and is adequate to achieve at least 80% power for detecting the effect reported in the original study at a significance criterion of alpha = .05 (any random effects not specified in the original paper were taken from a small pilot study).
 
-Therefore, we plan to obtain sample of n=50 participants (around the original sample size n=43, including seven more participants to account for online uncertainty).
+We plan to obtain sample of n=50 participants (near the original sample size n=43, including seven more participants to account for online uncertainty).
 
 ### Planned Sample
 
-In the original study, the participants for Experiment 1A consisted of n=43 undergraduates. For the current study, as justified above, we aim to obtain a sample of size n=50.
+In the original study, the participants for Experiment 1A consisted of n=43 undergraduates. For the current study, as justified above, we plan to obtain a sample of size n=50.
 
 Participants will be recruited and compensated through Prolific, and will be pre-screened to ensure that they are fluent English-speaking adults with no reported hearing difficulties.
 
@@ -44,18 +42,17 @@ From the original study:
 
 "The auditory cues comprised basic-level category labels and environmental sounds for six categories: bird, dog, drum, guitar, motorcycle, and phone. For each category, we obtained two distinct environmental sound cues, e.g., <classical guitar strum>, <electric guitar strum>, and two separate images for each subordinate category, e.g., two electric guitars for <electric guitar strum>, two acoustic guitars for <electric guitar strum>. To control for cue variability, we also used two versions of each spoken category label: one pronounced by a female speaker, one by a male speaker. All auditory cues were equated in duration (600 ms.) and normalized in volume. The images were color photographs (four images per category). The materials, obtained from online repositories, are available for download at http://sapir.psych.wisc.edu/stimuli/ MotivatedCuesExp1A-1B.zip." (pp. 94)
 
-We will use the same materials for the current replication study, as all materials were provided by the original authors.  
+We will use the same materials for the current replication study, as all materials were provided by the original authors.
 
-
-### Procedure	
+### Procedure
 
 From the original study:
 
 "On each trial participants heard a cue and saw a picture. We instructed participants to decide as quickly and accurately as possible if the picture they saw came from the same basic-level category as the word or sound they heard Participants were tested in individual rooms sitting approximately 2400 from a monitor such that images subtended 10  10°. Trials began with a 250 ms. fixation cross followed immediately by the auditory cue, delivered via headphones. The target image appeared centrally 1 s after the off- set of the auditory cue and remained visible until a response was made. Each participant completed 6 practice and 384 test trials. If the picture matched the auditory cue (50% of trials) participants were instructed to respond ‘Yes’ on a gaming controller (e.g., <cell- phone ring> or ‘‘phone’’ followed by a picture of any phone). Otherwise, they were to press ‘No’ (e.g., <cellphone ring> or ‘‘phone’’ followed by a dog). All factors (cue type, congruence) var- ied randomly within subjects. Auditory feedback (buzz or bleep) was given after each trial." (pp. 94)
 
-We aim to follow the original procedure of Experiment 1A as precisely as possible. However, instead of presenting the trials in-person in a lab setting, the experiment will be conducted online using jsPsych hosted on Prolific. 
+We aim to follow the original procedure of Experiment 1A as precisely as possible. However, instead of presenting the trials in-person in a lab setting, the experiment will be conducted online using jsPsych hosted on Prolific.
 
-For this reason, the overall task will be slightly different. Participants will be asked to respond to trials using keyboard keys ("F" indicating "Yes, "J" indicating "No") in lieu of a gaming controller. Although we are unable to enforce the experimental environment, we will introduce an audio check prior to trials and encourage participants to wear headphones and situate themselves in a quiet environment to ensure that they can sufficiently hear all auditory cues. 
+For this reason, the overall task will be slightly different. Participants will be asked to respond to trials using keyboard keys ("F" indicating "Yes, "J" indicating "No") in lieu of a gaming controller. Although we are unable to enforce the experimental environment, we will introduce an audio check prior to trials and encourage participants to wear headphones to ensure that they can adequately hear all auditory cues.
 
 ### Analysis Plan
 
@@ -63,152 +60,447 @@ From the original study:
 
 "All participants performed very accurately on all items (M = 97%). Response times (RTs) shorter than 250 ms. or longer than 1500 ms. were removed (292 trials removed, 1.77% of total). We fit RTs for correct responses on matching trials (‘Yes’ responses) with linear mixed regression using maximum likelihood estimation (Bates, Maechler, Bolker, & Walker, 2013), including random intercepts and random slopes for within-subject factors and random intercepts for repeated items (unique trial types) following the recommendations of Barr, Levy, Scheepers, and Tily (2013). Reported below are the parameter estimates (b) and confidence intervals for each contrast of interest. Significance tests were calculated using chi-square tests that compared nested models—models with and without the factor of interest—on improvement in log-likelihood." (pp. 94-95)
 
-For our replication, we will follow the original analysis as closely as possible. We will exclude participants who fall below a 90% accuracy threshold, as well as trials where RTs are shorter than 250ms and longer than 1500ms. We will then replicate the linear mixed effect model to examine the same main effects and random structure. Finally, we will replicate the chi-square tests that compared the models with and without the main effect using log-likelihood.
+For our replication, we will follow the original analysis as closely as possible. We will exclude participants who fall below a 90% accuracy threshold, as well as trials where RTs are shorter than 250ms and longer than 1500ms. We will then replicate the linear mixed effect model to examine the same main effects and random structure. Finally, we will perform chi-square tests that compared the models with and without the main effect using log-likelihood.
 
 We anticipate that the results will successfully replicate. We should find that verbal labels elicit the lowest overall reaction times, and that congruent sounds elicit lower reaction times than incongruent sounds.
-
-[Experiment pre-registration](https://github.com/ucsd-psych201a/edmiston2015/tree/main/prereg) 
 
 **Clarify key analysis of interest here**: Linear mixed regression model, chi-square tests of nested models with and without the factor of interest.
 
 ### Differences from Original Study
 
-This replication will differ slightly from the original study in terms of setting and procedure. As previously mentioned, the experiments will be conducted online using jsPsych as opposed to in-person in a lab. Loading delays, internet speed, and other technical difficulties encountered on participants' personal devices may affect overall reaction times. Participants will also be using keyboard keys to respond to trials, in lieu of responding on a gaming controller. Despite these differences, we do not anticipate that these differences will significantly affect results or ability to obtain the same effect as described in the original study.
+This replication will differ slightly from the original study in terms of setting and procedure. As previously mentioned, the experiments will be conducted online using jsPsych as opposed to in-person in a lab. Loading delays, internet speed, and other technical difficulties encountered on participants' personal devices may affect overall reaction times. Participants will also be using keyboard keys to respond to trials, as opposed to responding on a gaming controller. Despite these differences, we do not anticipate that these differences will significantly affect results or ability to obtain the same effect as described in the original study.
+
+### Design Review
+
+In our analysis, one factor is directly manipulated: the auditory cue that was presented to participants. There are three conditions of that factor: verbal label, congruent environmental sound, and incongruent environmental sound.
+
+There is one measure taken: reaction time (RT).
+
+This study uses a within-participants design.
+
+Measures were repeated; there were 384 experimental trials in the original experiment.
+
+It would not make sense for the experiment to be changed to between-participants because the measures would not be as accurate. There will be individual differences of RTs regardless of experimental conditions.
+
+No known steps were taken to reduce demand characteristics.
+
+The original authors should have added attention checks between trials to ensure participants are attentive throughout trials. They could have also kept "No" responses. Incongruent sounds may have prompted participants to respond "No", but these are still valid responses.
+
+The original study involved undergraduate participants, which raises generalizability issues because they are inherently a WEIRD population.
 
 ### Methods Addendum (Post Data Collection)
 
 #### Actual Sample
 
-  The actual sample size obtained is n=50. While the original study consisted of n=43 participants, we included seven more participants to account for online uncertainty. Participants were pre-screened to ensure that they are adult English speakers without hearing difficulties.
-  
-  In our replication experiment, only 84% of participants performed at an accuracy of above 90% (compared to 97% in the original study). Participants who fell below this accuracy threshold were excluded. Trials where reaction times fell below 250ms and exceeded 1500ms were also excluded. In total, 404 trials were removed from the final analysis (0.05% of total).
+The actual sample size obtained is n=50. While the original study consisted of n=43 participants, we included seven more participants to account for online uncertainty. Participants were pre-screened to ensure that they are adult English speakers without hearing difficulties.
+
+In our replication experiment, only 84% of participants performed at an accuracy of above 90% (compared to 97% in the original study). Participants who fell below this accuracy threshold were excluded. Trials where reaction times fell below 250ms and exceeded 1500ms were also excluded.
+
+42 of 50 participants performed with at least 90% accuracy, and were thus included in our confirmatory analysis. In total, 404 trials were removed (0.05% of total).
 
 #### Differences from pre-data collection methods plan
-  NA
 
-## Design Review
-
-In our analysis, one factor is directly manipulated: the auditory cue that was presented to participants. There are three conditions of that factor: verbal label, congruent sound, and incongruent sound.
-
-There was one measure taken, which is reaction time (RT).
-
-This study uses a within-participants design.
-
-The measures were repeated; there were 384 experimental trials in the original experiment.
-
-It would not make sense for the experiment to be changed to between-participants because the measures would not be as accurate. There will be individual differences of RTs regardless of experimental conditions.
-
-No known steps were taken to reduce demand characteristics. 
-
-They should have added attention checks between trials to ensure participants are attentive throughout trials. They could have also kept "No" responses. Incongruent sounds may have prompted participants to respond "No", but these are still valid responses.
-
-The original study involved undergraduate participants, which raises generalizability issues because they are inherently a WEIRD population.
-
+NA
 
 ## Results
 
 ### Data preparation
 
-Data preparation following the analysis plan.
+As proposed in the above analysis plan, we will exclude participants who perform below 90% accuracy on the overall task, as well as trials where recorded reaction times fall below 250ms or over 1500ms.
 
-The following code combines the data that has been collected from our experiment (currently Pilot B) and performs the necessary data wrangling to run through our analysis model. Similar to the original study, practice trials and "No" trials were removed. Trials where reaction times are less than 250 ms or exceed 1500 ms after stimulus presentation were also excluded. This also labels the conditions for later analysis (i.e. `congruent`, `incogruent`).
-	
-```{r}
+First, we preprocess the data. This involves:
+
+-   Importing the data,
+
+-   Excluding practice trials,
+
+-   Labeling trials as correct or incorrect,
+
+-   Calculating overall accuracy for each participant
+
+```{r echo=TRUE, results='hide', warning=FALSE, message=FALSE}
 ### Data Preparation
 
 #### Load Relevant Libraries and Functions
 library(tidyverse)
 library(readr)
 library(lme4)
+
+# Import data
+folder_path <- "../data/complete"
+csv_files <- list.files(folder_path, pattern = "*.csv", full.names = TRUE)
+df_list <- lapply(csv_files, read_csv, show_col_types = FALSE)
+original_df <- bind_rows(df_list)
+
+#exclude practice trials 
+original_df <- original_df |>
+  filter(exp_part == "actual")
+
+# convert the data type and compute correctness of each trial
+original_df <- original_df %>%
+  mutate(correct_response = as.character(correct_response)) %>%
+  mutate(response = as.character(response)) %>%
+  mutate(correct = correct_response == response)
+
+# compute the accuracy of each participant
+accuracy_table <- original_df %>%
+  group_by(ID) %>%
+  summarise(accuracy = mean(correct, na.rm = TRUE))
+```
+
+Next, we check the distribution of accuracy.
+
+```{r echo=TRUE, results='hide', warning=FALSE, message=FALSE}
+library(ggplot2)
+
+# set the accuracy filtering threshold
+accuracy_thresh <- 0.9
+
+# plot the distribution of accuract
+ggplot(accuracy_table, aes(x = accuracy)) +
+  geom_histogram(
+    breaks=seq(0, 1, length.out=21),
+    fill = "blue", color = "black", alpha = 0.7) +
+  geom_vline(xintercept = accuracy_thresh, color = "red", linetype = "dashed", size = 1) + # mark the threshold for QA
+  labs(
+    title = "Distribution of Accuracy",
+    x = "Accuracy",
+    y = ""
+  ) +
+  theme_minimal()
 ```
 
 ```{r}
-#### Import data
-## currently using pilot B data
-folder_path <- "../data/pilot_b"
-csv_files <- list.files(folder_path, pattern = "*.csv", full.names = TRUE)
-df_list <- lapply(csv_files, read_csv)
-combined_df <- bind_rows(df_list)
+# Number of participants that perform above 90% accuracy threshold
+print(sum(accuracy_table$accuracy > accuracy_thresh))
 
-#### Data exclusion / filtering
-#exclude 'No' trials 
-combined_df <- combined_df %>%
-  mutate(response = as.character(response)) %>%
-  filter(response == "f")         # use "y" for pilot_a data, use "f" for pilot_b data
+# Percent of total sample
+print((sum(accuracy_table$accuracy > accuracy_thresh))/50)
+```
 
-#exclude practice trials 
-combined_df <- combined_df %>%
-  filter(exp_part == "actual")
+42 of 50 participants completed the experimental task with at least 90% accuracy. This is 84% of our total sample. This is notably lower than the accuracy obtained in the original study (97% of total sample).
 
-#rename "sound_subtype" to "cue"
-combined_df <- combined_df %>%
-  rename(cue = sound_subtype)
+Next, we check the distribution of response times (RTs) across experimental trials.
 
-#create congruency column 
-combined_df <- combined_df %>%
-  mutate(congruency = case_when(
-    cue == "label" ~ "label",
-    img_subtype %in% c("song", "york", "bongo", "acoustic", "harley", "rotary") & sound_version == "A" ~ "incongruent",
-    TRUE ~ "congruent"
-  ))
+```{r echo=TRUE, results='hide', warning=FALSE, message=FALSE}
+library(ggplot2)
 
-#filter reaction time 
-combined_df <- combined_df %>%
-  filter(rt >250, rt <1500)
+# get the list of IDs of participants whose accuracy is above the threshold
+id_pass_qa <- accuracy_table %>%
+  filter(accuracy > accuracy_thresh) %>%
+  pull(ID)
+# filter the original dataframe to keep only data from the qualified participants
+original_df_with_good_subj <- original_df %>%
+  filter(ID %in% id_pass_qa)
 
-#### Prepare data for analysis - create columns etc.
+# plot the distribution of response time
+ggplot(original_df_with_good_subj, aes(x = rt)) +
+  geom_histogram(
+    breaks=seq(0, 2000, length.out=40),
+    fill = "blue", color = "black", alpha = 0.7) +
+  geom_vline(xintercept = 250, color = "red", linetype = "dashed", size = 1) +
+  geom_vline(xintercept = 1500, color = "red", linetype = "dashed", size = 1) +
+  labs(
+    title = "Distribution of Reaction Time",
+    x = "Reaction Time",
+    y = ""
+  ) +
+  theme_minimal()
+
+# compute the quantile
+ecdf_func <- ecdf(original_df_with_good_subj$rt)
+rt_quantiles <- ecdf_func(c(250, 1500))
+# compute the mask for whether each trial has passed the check
+rt_pass_mask <- (original_df_with_good_subj$rt > 250) & (original_df_with_good_subj$rt < 1500)
+```
+
+```{r}
+# Total number of trials that are within 250ms and 1500ms
+print(sum(rt_pass_mask))
+
+# Percent of total trials
+print(round(mean(rt_pass_mask), 2))
+```
+
+15083 trials have RTs that fall between 250ms and 1500ms. This is 94% of total trials collected.
+
+Finally, we prepare the data for confirmatory analysis according to our analysis plan:
+
+-   Exclude participants who do not pass the accuracy threshold of 90%,
+
+-   Filter the trials to only include correct "Yes" trials (where participants correctly responded to matching trials),
+
+-   Re-label experimental conditions (i.e. `label`, `congruent`, `incongruent`),
+
+-   Exclude trials where RTs are below 250ms and above 1500ms.
+
+```{r echo=TRUE, results='hide', warning=FALSE, message=FALSE}
+# keep only people who passed the QA check
+combined_df <- original_df_with_good_subj
+
+# exclude only correct 'YES' trials 
 combined_df <- combined_df %>%
-  select(rt, ID, sound_category,cue, congruency)
+  filter(response == "f") %>%
+  filter(correct_response == "f")
+
+prepare_fitting_ready_df <- function(df) {
+  # rename "sound_subtype" to "cue"
+  df <- df %>%
+    rename(cue = sound_subtype)
+  
+  # create congruency column 
+  df <- df %>%
+     mutate(congruency = case_when(
+      correct == FALSE ~ NA_character_,
+      cue == "label" ~ "label",
+      (img_subtype %in% c("song", "york", "bongo", "acoustic", "harley", "rotary") & sound_version == "A") ~ "incongruent",
+      TRUE ~ "congruent"
+    ))
+  
+  # drop the correctness column
+  df <- df %>%
+    select(-correct)
+
+  # filter reaction time 
+  df <- df %>%
+    filter(rt >250, rt <1500)
+
+  # Prepare data for analysis - keep only columns relevant to the model.
+  df <- df %>%
+    select(rt, ID, sound_category,cue, congruency)
+  
+  return(df)
+}
+
+combined_df <- prepare_fitting_ready_df(combined_df)
 ```
 
 ### Confirmatory analysis
 
-Following the confirmatory analysis of the original study, our replication will also perform a linear mixed effects regression model fit on response times to correct trials on congruent trials. The details of the analysis are specified in the "Analysis Plan" section of this writeup. Again, the current analysis is run on data collected from Pilot B.
+Following the confirmatory analysis of Edmiston & Lupyan (2015), we will perform a linear mixed effects regression model fit on response times on correct matching trials (trials where participants correctly responded "Yes" to matching trials). The model included random intercepts and random slopes for within-subjects faactors (`subject`) and random intercepts for repeated items (`sound_category`). The main effect investigated in this model is `congruency`, which denotes whether a particular trial was presented with a `label`, `congruent`, or `incongruent` sound. We then perform chi-square test to examine whether `congruency` significantly affects the log-likelihood. The resulting chi-square test values and p-values are reported.
+
+The `lmer` model assesses how auditory cue type (`label`, `congruent`, or `incongruent`) affects reaction time in milliseconds. We implement a pairwise comparison to assess the relationship between `label` and `congruent` conditions. Comparison between nested models (with and without the factor of interest) is also implemented as described in the original study to examine whether manipulation of auditory cues truly motivates the observed effects.
+
+The figure below shows the results of our replication (right), depicting average reaction time across the three conditions. It is presented side-by-side with the results of the original study (left, Experiment 1A) for comparison.
 
 ```{r}
+#load libraries:
+library(ggplot2)
+library(gridExtra)
+library(jpeg)
+library(grid)
+
+# rename and reorder some columns for plotting
+plot_df <- combined_df |>
+  mutate(congruency=factor(
+    congruency, levels = c("label", "congruent", "incongruent"))) |>
+  mutate(congruency = fct_recode(congruency, 
+    "Label"="label", 
+    "Congruent Sound"="congruent", 
+    "Incongruent Sound"="incongruent")
+  )
+
+# plot the result of our replication
+our_plot <- ggplot(data = plot_df,
+       mapping = aes(x = congruency,
+                     y = rt,
+                     color = congruency, 
+                     fill = congruency)) +
+  geom_bar(stat = "summary", fun = "mean", 
+           width = 1,
+           color = "black") + 
+  stat_summary(fun.data = "mean_cl_boot", 
+               geom = "linerange", 
+               color = "black") +
+   geom_errorbar(stat = "summary", 
+                fun.data = "mean_cl_boot", 
+                width = 0.5, 
+                size=0.5,
+                color = "black") +
+  scale_fill_manual(values = c("firebrick", "darkblue", "slategray2")) +
+  scale_color_manual(values = c("firebrick", "darkblue", "slategray2")) +
+  labs(
+    x = "Experiment 1A",
+    y = "Verification Speed (ms)",
+    color = "Cue Type",
+    fill = "Cue Type") +
+  coord_cartesian(xlim=c(0, 4), ylim = c(400, 725), expand=FALSE) +
+  scale_y_continuous(breaks = seq(400, 700, by = 50), expand=c(0, 25)) +
+  theme_classic() +
+  theme(
+    axis.text.x = element_blank(), 
+    axis.text.y = element_text(size = 10, color = "black"),
+    axis.title.x = element_text(size = 10, color = "black"), 
+    axis.title.y = element_text(size = 10, color = "black"), 
+    legend.title = element_text(size = 10, color = "black", face='bold'), 
+    legend.text = element_text(size = 10, color = "black"),
+    plot.margin = unit(c(0.0, 0.1, 0.0, 0.1), "npc")
+  ) +
+  theme(
+    aspect.ratio = 1.8)
+
+# load the plot from the original study
+edmiston_img <- rasterGrob(readJPEG("edmiston_exp1a.jpg"), interpolate = TRUE)
+
+# display side by side
+plot_title <- textGrob("Our Result", gp = gpar(fontface = "bold", fontsize = 14))
+image_title <- textGrob("Original Study Result", gp = gpar(fontface = "bold", fontsize = 14))
+
+grid.arrange(
+  arrangeGrob(image_title, edmiston_img, ncol = 1, heights = c(0.5, 5)),
+  arrangeGrob(plot_title, ggplotGrob(our_plot), ncol = 1, heights = c(0.5, 5)),
+  ncol = 2, widths=c(1, 1.7))
+
+```
+
+We then fit the linear mixed effects regression model on reaction times and calculate the associated 95% confidence intervals.
+
+```{r echo=TRUE, warning=FALSE, message=FALSE}
+#load libraries
 library(lmerTest)
 library(emmeans)
 library(lme4)
 
-#shows you a comparsion between reference (congruent) and the other two values (incongruent and label)
-model_full <- lmer(rt ~ congruency + (1 + congruency|ID) + (1|sound_category), data = combined_df)
+#find best optimizer
+#allFit(model_full)
+
+#set up model and view results
+model_full <- lmer(rt ~ congruency + (1 + congruency|ID) + (1|sound_category), data = combined_df, control = lmerControl(optimizer = "bobyqa"))
 
 summary(model_full)
-
-#get 95% CI
-confint.merMod(model_full,method="Wald")
-
-#post-hoc test: allows you to examine relationship between incongruent and label
-model_full %>% 
-  emmeans(pairwise ~ congruency,
-          #adjusts p values so that it is more difficult to get a significance (correction method)
-          adjust = "bonferroni") %>% 
-  pluck("contrasts")
-
-
-#chi squared test 
-model_reduced <- lmer(rt ~ (1 + congruency|ID) + (1|sound_category), data = combined_df)
-
-anova(model_full, model_reduced)
-
-# model for Pilot A shows us that incongruent takes longer than congruent (b = 28.7), that label is shorter than congruent (b = -15.52), and that incongruent takes longer than label (b = 44.3) 
 ```
 
-*Side-by-side graph with original graph is ideal here*
+```{r}
+#get 95% CI
+confint.merMod(model_full,method="Wald")
+```
+
+Reported reaction times for the `congruent` condition is 690.93ms on average, (95% confidence interval, [648.42, 733.43]). Average reaction time for the `label` condition, is shorter on average compared to the `congruent` condition by -52.27ms. This is consistent with our hypothesis. Average reaction time for the `incongruent` condition is indeed greater than the `congruent` condition, however this difference is not statistically significant.
+
+The following post-hoc analysis report allows us to examine all relationships: `congruent - incongruent`, `congruent - label`, and `incongruent - label`. The 95% confidence interval for each comparison is reported.
+
+```{r echo=TRUE, warning=FALSE, message=FALSE}
+#post-hoc test:
+fit_result <- model_full %>% 
+  emmeans(
+    pairwise ~ congruency, # contrast across 'congruency' conditions
+    adjust = "bonferroni" # p-value adjusted for multiple comparisons
+  ) %>% 
+  pluck("contrasts")
+
+fit_result
+```
+
+```{r}
+ci <- confint(fit_result, level=0.95)
+ci
+```
+
+Finally, we conduct chi-square tests to examine significance of observed effects.
+
+```{r echo=TRUE, warning=FALSE, message=FALSE}
+#create model without factor of interest 
+model_reduced <- lmer(rt ~ (1 + congruency|ID) + (1|sound_category), data = combined_df)
+
+#run an anova to get chi-squared values
+anova(model_full, model_reduced)
+```
+The results of the confirmatory analysis suggest that, as expected, verbal labels elicit faster reaction times than congruent environmental sounds (b = -52.3, CI [-68.71, -35.82]) and incongruent environmental sounds ((b = 67.3, CI [42.4, 92.22]). However, congruent trials were not significantly faster than incongruent trials (b = 15.04, CI [-3.31  33.4]). Finally, the chi-square test demonstrates that model with the factor of interest (`congruency`) outperforms the model without it. The full model with the `congruency` factor explains the data more successfully than the model without `congruency`.
+
+Overall, the findings from the original Edmiston & Lupyan (2015) only partially replicated. Verbal labels did indeed elicit faster reaction times than environmental sounds, however we did not a statistically significant effect between congruent and incongruent environmental sounds.
 
 ### Exploratory analyses
 
-Any follow-up analyses desired (not required).  
+The box plots below shows the distribution of RTs for each individual trial for each condition. This gives insight possible biases in our reported measures that may have affected the results of our replication.
+
+```{r echo=TRUE, warning=FALSE, message=FALSE}
+
+plot_df <- combined_df |>
+  mutate(congruency=factor(
+    congruency, levels = c("label", "congruent", "incongruent"))) |>
+  mutate(congruency = fct_recode(congruency, 
+    "Label"="label", 
+    "Congruent Sound"="congruent", 
+    "Incongruent Sound"="incongruent")
+  )
+
+ggplot(data = plot_df,
+       mapping = aes(x = congruency,
+                     y = rt,
+                     fill = congruency)) +
+  geom_boxplot(width = 0.6, outlier.shape = NA, alpha=0.5) + 
+  geom_jitter(shape = 21, color = "black", width = 0.2, alpha = 0.2, size = 1.5) +
+  geom_hline(yintercept = 1200, color = "red", linetype = "dashed", size = 1) +
+  scale_fill_manual(values = c("firebrick", "darkblue", "slategray")) +
+  labs(
+    y = "Reaction Time (Ms)",
+    color = "Cue Type",
+    x = "Cue Type",
+    fill = "Cue Type "
+  ) +
+  theme_classic() +
+  theme(
+  axis.text.x = element_blank(), 
+  axis.text.y = element_text(size = 14, color = "black"),
+  axis.title.x = element_text(size = 16, color = "black", face = "bold"), 
+  axis.title.y = element_text(size = 16, color = "black", face = "bold"), 
+  legend.title = element_text(size = 14, color = "black"), 
+  legend.text = element_text(size = 14, color = "black") 
+)
+```
+The distribution reveals that there is no clearly visible distinction between reaction times for `congruent` trials and `incongruent` trials. In fact, there are many `congruent` trials with longer RTs (greater than 1200ms). These data points pull the average RT for the `congruent` condition towards a higher value, which explains why we are unable to observe a statistically significant different between `congruent` and `incongruent` conditions.
+
+Since the original study excluded incorrect trials (more specifically, trials where the sound and image matched, but participants responded "No"), we were curious to see whether the inclusion of this data will yield different results. To do this, we fit another linear mixed effect regression model and conducted post-hoc analysis with the inclusion of incorrect trials.
+
+```{r echo=TRUE, warning=FALSE, message=FALSE}
+# include wrong trials
+include_wrong_df <- original_df_with_good_subj %>%
+  filter(correct_response=='f')
+include_wrong_df <- prepare_fitting_ready_df(include_wrong_df)
+
+# lmer
+# set reference level to congruent
+include_wrong_df$congruency <- factor(
+  include_wrong_df$congruency, levels = c("congruent", "label", "incongruent"))
+model_wrong_full <- lmer(rt ~ congruency + (1 + congruency|ID) + (1|sound_category), data = include_wrong_df)
+
+# summary(model_wrong_full)
+
+# EMM contrast
+include_wrong_fit_result <- model_wrong_full %>%
+  emmeans(
+    pairwise ~ congruency, # contrast across 'congruency' conditions
+    adjust = "bonferroni", # p-value adjusted for multiple comparisons
+  ) %>%
+  pluck("contrasts")
+include_wrong_fit_result
+confint(include_wrong_fit_result, level=0.95)
+```
+
+The results of this model reinforce our previous findings. RTs for the `label` conditions are significantly faster than `congruent` (p<.0001), however RTs for `congruent` trials are not significant faster than `incongruent` trials (p=0.3243).
 
 ## Discussion
 
 ### Summary of Replication Attempt
 
-Open the discussion section with a paragraph summarizing the primary result from the confirmatory analysis and the assessment of whether it replicated, partially replicated, or failed to replicate the original result.  
+In our replication of Experiment 1A, we observed that on average:
+
+- There is statistically significant evidence that verbal labels elicit faster RTs than environmental sounds. This is consistent with results of the original study.
+
+- We do not have statistically significant evidence that congruent environment sounds elicit faster RTs than incongruent environmental sounds. This is inconsistent with the results of the original study.
+
+Ultimately, based on the confirmatory analysis, our results only partially replicated the results of the original study.
 
 ### Commentary
 
-Add open-ended commentary (if any) reflecting (a) insights from follow-up exploratory analysis, (b) assessment of the meaning of the replication (or not) - e.g., for a failure to replicate, are the differences between original and present study ones that definitely, plausibly, or are unlikely to have been moderators of the result, and (c) discussion of any objections or challenges raised by the current and original authors about the replication attempt.  None of these need to be long.
+We posit that the inability to fully replicate the original results may stem from the differences in our experimental setting. As previously mentioned, the replication study was conducted online, which differed from the original study that was conducted in a lab. This may have posed many challenges. For instance, technical issues that could not be controlled for or reported (such as loading delays and slow internet speeds) could have affected our overall results. It was impossible to control participant attention in an online setting, especially since the experimental paradigm was relatively long in duration. Confusion or misunderstanding of the task, as well the inability to provide real-time feedback, may have also contributed to the discrepancies between our results and the original study.
 
+## References
+- Lupyan, G., & Thompson-Schill, S. L. (2012). The evocative power of words: Activation of concepts by verbal and nonverbal means. Journal of Experimental Psychology-General, 141(1), 170–186. http://dx.doi.org/10.1037/a0024904.
 
-**Jenna Brooks**: Project Administration (lea)
+## Statement of Contributions
+
+**Jenna Brooks**: Project Administration (lead), Software (JsPsych Experiment) (supporting), Writing and Editing (equal)
+**Noah Khaloo**: Formal Analysis (lead), Data Curation (lead), Statistical Analysis and Visualization (lead), Writing and Editing (equal)
+**Sihan Yang**: Conceptualization (lead), Software (JsPsych Experiment) (lead), Writing and Editing (equal)
+**Reeka Estacio**: Software (JsPsych Experiment) (supporting), Validation (lead), JsPsych Experiment (supporting), Presentation (lead), Writing and Editing (equal)
