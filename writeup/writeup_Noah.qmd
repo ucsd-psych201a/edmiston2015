@@ -163,6 +163,9 @@ original_df <- bind_rows(df_list)
 original_df <- original_df |>
   filter(exp_part == "actual")
 
+#create an extra df for exploratory analysis
+df_n <- original_df
+
 # convert the data type and compute correctness of each trial
 original_df <- original_df %>%
   mutate(correct_response = as.character(correct_response)) %>%
@@ -443,7 +446,7 @@ Looking at the graph with the data distribution, it becomes clear that there are
 Next, we run the same statistical analysis on the data, but instead, filter out the 'yes' trials:
 ```{r echo=TRUE, warning=FALSE, message=FALSE}
 #re-run statistics on "No" data
-df_n <- original_df %>%
+df_n <- df_n%>%
   filter(exp_part == "actual") %>%
   filter(response == "j") %>%
   filter(correct_response == "j") %>%
@@ -474,6 +477,13 @@ The main finding of the original paper (i.e. that ambiguous labels elicit faster
 As mentioned previously, our results only partially replicated. I actually find this a bit odd; earlier studies (e.g.Lupyan and Schill 2012) found the same results: that labels elicit faster rt's than sounds. However, I believe the major contribution Edminston & Lupyan (2015) were trying to make is that this discrepancy in rt between label and sound is due to the extra processing time it takes to decide whether the sound/picture combination is congruent or incongruent. In their own words "the label-advantage is obtained precisely because labels are detached from idiosyncracies of specific category members, and thereby able to selectively activating the features/dimensions most diagnostic of the named category...While a dog-bark or a guitar strum are both readily recognizable, the information conveyed by these environmental cues is necessarily specific" (pp. 98). What makes our results confusing, then, is that we found a difference between label and sound trials, but the notion that this difference is conditioned by the extra processing sounds require is less clear, given that deciding between congruent and incongruent sound trials does not seem to influence rt in our data. 
 
 However, it is worth noting that our experiment differed from the original study in terms of modality and location; our study was online, and the keyboard was different. It could be the case that these differences caused a skew in our data that was not present in the original study, but this seems a bit unlikely to me. If you compare the mean rt's for congruency (i.e. compare the boxplot in the original study to ours), the means for label and incongruent are actually pretty similar; its the congruent that have a higher rt (about ~100 ms). In other words, it seems sort of unlikely that the  differences presented in our rendition of the experiment only really affected the congruent trials.
+
+
+## Statement of Contributions 
+- **Jenna Brooks**: Project Administration (lead), Software (JsPsych Experiment) (supporting), Writing and Editing (equal)
+- **Noah Khaloo**: Formal Analysis (lead), Data Curation (lead), Statistical Analysis and Visualization (lead), Writing and Editing (equal)
+- **Sihan Yang**: Conceptualization (lead), Software (JsPsych Experiment) (lead), Writing and Editing (equal)
+- **Reeka Estacio**: Software (JsPsych Experiment) (supporting), Validation (lead), JsPsych Experiment (supporting), Presentation (lead), Writing and Editing (equal)
 
 ## References
 - Lupyan, G., & Thompson-Schill, S. L. (2012). The evocative power of words: Activation of concepts by verbal and nonverbal means. Journal of Experimental Psychology-General, 141(1), 170–186. http://dx.doi.org/10.1037/a0024904.
