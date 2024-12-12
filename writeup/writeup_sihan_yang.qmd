@@ -442,7 +442,6 @@ model_wrong_full <- lmer(rt ~ congruency + (1 + congruency|ID) + (1|sound_catego
 # summary(model_wrong_full)
 
 # EMM contrast
-emm_options(lmerTest.limit = 8000)
 include_wrong_fit_result <- model_wrong_full %>%
   emmeans(
     pairwise ~ congruency, # contrast across 'congruency' conditions
@@ -468,7 +467,6 @@ To summarize, the primary result has only been partially replicated.
 
 ### Commentary
 
-[TODO: (a) insights from follow-up exploratory analysis]
 We propose that one of the most likely causes of such discrepancy is that our experiment was conducted online. Online setting could introduce several challenges: (1) It was difficult to communicate effectively with participants and receive feedback during the instruction and practice phases, making it harder to ensure that participants fully understood the task. Confusion about the task may have altered the reaction time patterns. (2) It was challenging to monitor participants' attention during the experiment. These challenges are supported by the observations that overall accuracy was lower and reaction times were generally longer than in the original study. Therefore, we recommend that researchers who aim to replicate this study in the future use the same laboratory settings as the original study to minimize potential discrepancies.. 
 
 ## References

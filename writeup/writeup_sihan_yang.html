@@ -681,31 +681,30 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(model_wrong_full)</span></span>
 <span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="co"># EMM contrast</span></span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="fu">emm_options</span>(<span class="at">lmerTest.limit =</span> <span class="dv">8000</span>)</span>
-<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>include_wrong_fit_result <span class="ot">&lt;-</span> model_wrong_full <span class="sc">%&gt;%</span></span>
-<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">emmeans</span>(</span>
-<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>    pairwise <span class="sc">~</span> congruency, <span class="co"># contrast across 'congruency' conditions</span></span>
-<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">adjust =</span> <span class="st">"bonferroni"</span>, <span class="co"># p-value adjusted for multiple comparisons</span></span>
-<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="st">"contrasts"</span>)</span>
-<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>include_wrong_fit_result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>include_wrong_fit_result <span class="ot">&lt;-</span> model_wrong_full <span class="sc">%&gt;%</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">emmeans</span>(</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>    pairwise <span class="sc">~</span> congruency, <span class="co"># contrast across 'congruency' conditions</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">adjust =</span> <span class="st">"bonferroni"</span>, <span class="co"># p-value adjusted for multiple comparisons</span></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="st">"contrasts"</span>)</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>include_wrong_fit_result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> contrast                estimate    SE   df t.ratio p.value
- congruent - label           52.3  8.39 39.7   6.229  &lt;.0001
- congruent - incongruent    -15.0  9.36 41.8  -1.607  0.3469
- label - incongruent        -67.3 10.40 40.1  -6.470  &lt;.0001
+<pre><code> contrast                estimate    SE  df z.ratio p.value
+ congruent - label           52.3  8.39 Inf   6.229  &lt;.0001
+ congruent - incongruent    -15.0  9.36 Inf  -1.607  0.3243
+ label - incongruent        -67.3 10.40 Inf  -6.470  &lt;.0001
 
-Degrees-of-freedom method: satterthwaite 
+Degrees-of-freedom method: asymptotic 
 P value adjustment: bonferroni method for 3 tests </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(include_wrong_fit_result, <span class="at">level=</span><span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> contrast                estimate    SE   df lower.CL upper.CL
- congruent - label           52.3  8.39 39.7     31.3    73.24
- congruent - incongruent    -15.0  9.36 41.8    -38.4     8.31
- label - incongruent        -67.3 10.40 40.1    -93.3   -41.32
+<pre><code> contrast                estimate    SE  df asymp.LCL asymp.UCL
+ congruent - label           52.3  8.39 Inf      32.2     72.35
+ congruent - incongruent    -15.0  9.36 Inf     -37.5      7.37
+ label - incongruent        -67.3 10.40 Inf     -92.2    -42.41
 
-Degrees-of-freedom method: satterthwaite 
+Degrees-of-freedom method: asymptotic 
 Confidence level used: 0.95 
 Conf-level adjustment: bonferroni method for 3 estimates </code></pre>
 </div>
@@ -726,7 +725,7 @@ Conf-level adjustment: bonferroni method for 3 estimates </code></pre>
 </section>
 <section id="commentary" class="level3">
 <h3 class="anchored" data-anchor-id="commentary">Commentary</h3>
-<p>[TODO: (a) insights from follow-up exploratory analysis] We propose that one of the most likely causes of such discrepancy is that our experiment was conducted online. Online setting could introduce several challenges: (1) It was difficult to communicate effectively with participants and receive feedback during the instruction and practice phases, making it harder to ensure that participants fully understood the task. Confusion about the task may have altered the reaction time patterns. (2) It was challenging to monitor participants’ attention during the experiment. These challenges are supported by the observations that overall accuracy was lower and reaction times were generally longer than in the original study. Therefore, we recommend that researchers who aim to replicate this study in the future use the same laboratory settings as the original study to minimize potential discrepancies..</p>
+<p>We propose that one of the most likely causes of such discrepancy is that our experiment was conducted online. Online setting could introduce several challenges: (1) It was difficult to communicate effectively with participants and receive feedback during the instruction and practice phases, making it harder to ensure that participants fully understood the task. Confusion about the task may have altered the reaction time patterns. (2) It was challenging to monitor participants’ attention during the experiment. These challenges are supported by the observations that overall accuracy was lower and reaction times were generally longer than in the original study. Therefore, we recommend that researchers who aim to replicate this study in the future use the same laboratory settings as the original study to minimize potential discrepancies..</p>
 </section>
 </section>
 <section id="references" class="level2">
