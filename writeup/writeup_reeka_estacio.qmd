@@ -1,6 +1,6 @@
 ---
-title: "Replication of Experiment 1A by Edmiston & Lupyan (2015, Cognition)"
-author: "Reeka Estacio"
+title: "Replication of Study 'What makes words special? Workds as unmotivated cues (Experiment 1A)' by Edmiston & Lupyan (2015, Cognition)"
+author: "Replication Author: Reeka Estacio"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 format:
   html:
@@ -12,68 +12,79 @@ format:
 
 ## Introduction
 
-This is a replication study of Experiment 1A of Edmiston & Lupyan (2015). The original study examines the difference in which verbal labels and environmental sounds activate categories in the mind. I believe this study has interesting insights into how human language is unique compared to other forms of informative inputs and theorizes how broad, verbal labels contributes to the efficiency in which humans process language. These findings may have potential implications in how natural language processing technologies, like large language models and speech recognition software, can be built to model more naturalistic language learning.
+- [GitHub Repository](https://github.com/ucsd-psych201a/edmiston2015)
+- [Pre-Registration](https://github.com/ucsd-psych201a/edmiston2015/tree/main/prereg) 
+- [Paradigm](https://ucsd-psych201a.github.io/edmiston2015/)
 
-The stimuli presented in experiment 1A of this study involve six categories, such as *bird*, *dog*, and *phone*. For each category, two environmental sound cues were obtained, each corresponding to a more specific exemplar of that category. For instance, the *guitar* category includes the sound of an acoustic guitar strum and the sound of an electric guitar strum. Two images were obtained for each exemplar respectively for the task (e.g. two images of an acoustic guitar and two images of an electric guitar). Finally, verbal labels, spoken from both female and male speakers, were obtained for each category. The procedure is an image matching verification task. Participants are randomly presented with an auditory cue (either the verbal label or an environmental sound) and are tasked to respond "Yes" on a gaming controller if the image matches the auditory cue, or "No" if it does not. In total, participants completed 6 practice trials and 384 test trials. Verification speed was recorded.
+The current study is a replication of Experiment 1A of Edmiston & Lupyan (2015), which examines the differences in which verbal labels and environmental sounds activate categories in the mind. 
+
+Previous research suggests that environmental sounds, such as a dog's bark, activate specific mental representations of a concept (Lupyan & Thompson-Schill, 2012). For instance, a loud, deep bark might evoke the image of a large dog (e.g., a Rottweiler), whereas a high-pitched bark may bring to mind a small dog (e.g., a Yorkie). In contrast, verbal labels like the word "dog" elicit broader mental representations that encompass knoweldge of multiple instances within a category. Because verbal labels do not inherently activate instance-specific qualities, they exhibit a "label advantage," enabling listeners to identify and associate verbal labels with their referents more quickly and efficiently than environmental sounds.
+
+Experiment 1A of Edmiston and Lupyan's 2015 is a picture verification task. Participants were presented with an auditory cue (verbal label or environmental sound) followed by an image. They were then asked to respond whether the auditory cue and image matched. Analysis of reaction times (RTs) illustrates that verbal labels are more effective than environmental sounds in facilitating category activation. Moreover, when environmental sounds are paired with incongruent images (e.g., a deep bark paired with an image of a Yorkie), the activation of conceptual knowledge is impeded, as evidenced by slower reaction times.
+
+In the current study, we aim to replicate Experiment 1A as closely as possible to determine whether these findings replicate and generalize to a new sample of participants.
 
 ## Methods
 
 ### Power Analysis
 
-Since the original study used a linear mixed regression analysis, it is difficult to perform a power analysis. For this reason, we have decided to use the 2.5x sample size heuristic to ensure that our study has adequate power.
+Based on guidance from instructional staff, the sample size was determined with an a-priori power analysis with the package simr, and is adequate to achieve at least 80% power for detecting the effect reported in the original study at a significance criterion of alpha = .05 (any random effects not specified in the original paper were taken from a small pilot study). 
+
+Therefore, we plan to obtain sample of n=50 participants (around the original sample size n=43, including seven more participants to account for online uncertainty).
 
 ### Planned Sample
 
-In the original study, the participants for Experiment 1A were described as the following: 
+In the original study, the participants for Experiment 1A consisted of n=43 undergraduates. For the current study, as justified above, we aim to obtain a sample of size n=50.
 
-"43 University of Wisconsin–Madison undergraduates participated in Experiment 1A in exchange for course credit."
-
-As specified in our power analysis, we plan to have 2.5x participants as the original sample (n=108). These participants will be recruited and compensated through on Prolific.
+Participants will be recruited and compensated through Prolific, and will be pre-screened to ensure that they are fluent English-speaking adults with no reported hearing difficulties.
 
 ### Materials
 
 From the original study:
 
-"The auditory cues comprised basic-level category labels and environmental sounds for six categories: bird, dog, drum, guitar, motorcycle, and phone. For each category, we obtained two distinct environmental sound cues, e.g., <classical guitar strum>, <electric guitar strum>, and two separate images for each subordinate category, e.g., two electric guitars for <electric guitar strum>, two acoustic guitars for <electric guitar strum>. To control for cue variability, we also used two versions of each spoken category label: one pronounced by a female speaker, one by a male speaker. All auditory cues were equated in duration (600 ms.) and normalized in volume. The images were color photographs (four images per category). The materials, obtained from online repositories, are available for download at http://sapir.psych.wisc.edu/stimuli/ MotivatedCuesExp1A-1B.zip."
+"The auditory cues comprised basic-level category labels and environmental sounds for six categories: bird, dog, drum, guitar, motorcycle, and phone. For each category, we obtained two distinct environmental sound cues, e.g., <classical guitar strum>, <electric guitar strum>, and two separate images for each subordinate category, e.g., two electric guitars for <electric guitar strum>, two acoustic guitars for <electric guitar strum>. To control for cue variability, we also used two versions of each spoken category label: one pronounced by a female speaker, one by a male speaker. All auditory cues were equated in duration (600 ms.) and normalized in volume. The images were color photographs (four images per category). The materials, obtained from online repositories, are available for download at http://sapir.psych.wisc.edu/stimuli/ MotivatedCuesExp1A-1B.zip." (pp. 94)
 
-We will use the same materials for the replication study, as all materials were provided by the original authors.  
+We will use the same materials for the current replication study, as all materials were provided by the original authors.  
 
 
 ### Procedure	
 
 From the original study:
 
-"On each trial participants heard a cue and saw a picture. We instructed participants to decide as quickly and accurately as possible if the picture they saw came from the same basic-level category as the word or sound they heard Participants were tested in individual rooms sitting approximately 2400 from a monitor such that images subtended 10  10°. Trials began with a 250 ms. fixation cross followed immediately by the auditory cue, delivered via headphones. The target image appeared centrally 1 s after the off- set of the auditory cue and remained visible until a response was made. Each participant completed 6 practice and 384 test trials. If the picture matched the auditory cue (50% of trials) participants were instructed to respond ‘Yes’ on a gaming controller (e.g., <cell- phone ring> or ‘‘phone’’ followed by a picture of any phone). Otherwise, they were to press ‘No’ (e.g., <cellphone ring> or ‘‘phone’’ followed by a dog). All factors (cue type, congruence) var- ied randomly within subjects. Auditory feedback (buzz or bleep) was given after each trial."
+"On each trial participants heard a cue and saw a picture. We instructed participants to decide as quickly and accurately as possible if the picture they saw came from the same basic-level category as the word or sound they heard Participants were tested in individual rooms sitting approximately 2400 from a monitor such that images subtended 10  10°. Trials began with a 250 ms. fixation cross followed immediately by the auditory cue, delivered via headphones. The target image appeared centrally 1 s after the off- set of the auditory cue and remained visible until a response was made. Each participant completed 6 practice and 384 test trials. If the picture matched the auditory cue (50% of trials) participants were instructed to respond ‘Yes’ on a gaming controller (e.g., <cell- phone ring> or ‘‘phone’’ followed by a picture of any phone). Otherwise, they were to press ‘No’ (e.g., <cellphone ring> or ‘‘phone’’ followed by a dog). All factors (cue type, congruence) var- ied randomly within subjects. Auditory feedback (buzz or bleep) was given after each trial." (pp. 94)
 
-We aim to follow the original procedure of Experiment 1A as precisely as possible. However, instead of running the trials in-person, the experiment will be conducted online using jsPsych. For this reason, the task will be slightly different such that participants will respond to trials using their keyboard keys instead of a gaming controller. We will also encourage participants to wear headphones, be in a quiet area for the auditory cues during the experiment, and provide an initial audio check to ensure that participants have access to all stimuli presented throughout the experiment.
+We aim to follow the original procedure of Experiment 1A as precisely as possible. However, instead of presenting the trials in-person in a lab setting, the experiment will be conducted online using jsPsych hosted on Prolific. 
+
+For this reason, the overall task will be slightly different. Participants will be asked to respond to trials using keyboard keys ("F" indicating "Yes, "J" indicating "No") in lieu of a gaming controller. Although we are unable to enforce the experimental environment, we will introduce an audio check prior to trials and encourage participants to wear headphones and situate themselves in a quiet environment to ensure that they can sufficiently hear all auditory cues. 
 
 ### Analysis Plan
 
 From the original study:
 
-"All participants performed very accurately on all items (M = 97%). Response times (RTs) shorter than 250 ms. or longer than 1500 ms. were removed (292 trials removed, 1.77% of total).
+"All participants performed very accurately on all items (M = 97%). Response times (RTs) shorter than 250 ms. or longer than 1500 ms. were removed (292 trials removed, 1.77% of total). We fit RTs for correct responses on matching trials (‘Yes’ responses) with linear mixed regression using maximum likelihood estimation (Bates, Maechler, Bolker, & Walker, 2013), including random intercepts and random slopes for within-subject factors and random intercepts for repeated items (unique trial types) following the recommendations of Barr, Levy, Scheepers, and Tily (2013). Reported below are the parameter estimates (b) and confidence intervals for each contrast of interest. Significance tests were calculated using chi-square tests that compared nested models—models with and without the factor of interest—on improvement in log-likelihood." (pp. 94-95)
 
-We fit RTs for correct responses on matching trials (‘Yes’ responses) with linear mixed regression using maximum likelihood estimation (Bates, Maechler, Bolker, & Walker, 2013), including random intercepts and random slopes for within-subject factors and random intercepts for repeated items (unique trial types) following the recommendations of Barr, Levy, Scheepers, and Tily (2013). Reported below are the parameter estimates (b) and confidence intervals for each contrast of interest. Significance tests were calculated using chi-square tests that compared nested models—models with and without the factor of interest—on improvement in log-likelihood."
+For our replication, we will follow the original analysis as closely as possible. We will exclude participants who fall below a 90% accuracy threshold, as well as trials where RTs are shorter than 250ms and longer than 1500ms. We will then replicate the linear mixed effect model to examine the same main effects and random structure. Finally, we will replicate the chi-square tests that compared the models with and without the main effect using log-likelihood.
 
-For our replication, we will also remove trials where response times are shorter than 250 ms or longer than 1500ms from the analysis. We will then run a similar linear mixed regression model, as was performed the original study. We will also use chi-square tests to assess significance of the results. We anticipate that a successful replication of the original study will yield similar effects. More specifically, we should find that verbal labels elicit the lowest overall reaction times, and that congruent sounds elicit lower reaction times than incongruent sounds.
+We anticipate that the results will successfully replicate. We should find that verbal labels elicit the lowest overall reaction times, and that congruent sounds elicit lower reaction times than incongruent sounds.
 
+[Experiment pre-registration](https://github.com/ucsd-psych201a/edmiston2015/tree/main/prereg) 
 
-**Clarify key analysis of interest here**: Linear mixed regression model, chi-square tests for significance
+**Clarify key analysis of interest here**: Linear mixed regression model, chi-square tests of nested models with and without the factor of interest.
 
 ### Differences from Original Study
 
-This replication will differ from the original study in terms of setting and procedure. As previously mentioned, the experiments will be conducted online using jsPsych as opposed to in-person in a lab setting. Loading/internet speed of the participants' personal devices may affect overall reaction times. Participants will also be using their keyboard to respond to trials as opposed to the gaming controller used in the original study. However, we do not anticipate that these differences will greatly affect results or ability to obtain the same effect as described in the original study.
-
+This replication will differ slightly from the original study in terms of setting and procedure. As previously mentioned, the experiments will be conducted online using jsPsych as opposed to in-person in a lab. Loading delays, internet speed, and other technical difficulties encountered on participants' personal devices may affect overall reaction times. Participants will also be using keyboard keys to respond to trials, in lieu of responding on a gaming controller. Despite these differences, we do not anticipate that these differences will significantly affect results or ability to obtain the same effect as described in the original study.
 
 ### Methods Addendum (Post Data Collection)
 
-You can comment this section out prior to final report with data collection.
-
 #### Actual Sample
-  Sample size, demographics, data exclusions based on rules spelled out in analysis plan
+
+  The actual sample size obtained is n=50. While the original study consisted of n=43 participants, we included seven more participants to account for online uncertainty. Participants were pre-screened to ensure that they are adult English speakers without hearing difficulties.
+  
+  In our replication experiment, only 84% of participants performed at an accuracy of above 90% (compared to 97% in the original study). Participants who fell below this accuracy threshold were excluded. Trials where reaction times fell below 250ms and exceeded 1500ms were also excluded. In total, 404 trials were removed from the final analysis (0.05% of total).
 
 #### Differences from pre-data collection methods plan
-  Any differences from what was described as the original plan, or “none”.
+  NA
 
 ## Design Review
 
@@ -93,21 +104,6 @@ They should have added attention checks between trials to ensure participants ar
 
 The original study involved undergraduate participants, which raises generalizability issues because they are inherently a WEIRD population.
 
-## Pilot A
-
-For our Pilot A (with non-naive participants), we aimed to replicate the experimental paradigm described in the study. The GitHub page for our paradigm is linked below:
-
-[Link to experimental paradigm](https://ucsd-psych201a.github.io/edmiston2015/)
-
-We have collected pilot data from three participants. This data was imported and uploaded to the data folder in the project repository.
-
-[Link to Pilot A data](https://github.com/ucsd-psych201a/edmiston2015/tree/main/data/pilot_a)
-
-## Pilot B
-
-For our Pilot B (with naive participants), we collected data from five participants on Prolific. The following "Results" section (Data Preparation and Confirmatory Analysis) is run on Pilot B data for the time-being. As predicted, the participants took an average of about 25 minutes to complete the experiment.
-
-[Link to Pilot B data](https://github.com/ucsd-psych201a/edmiston2015/tree/main/data/pilot_b)
 
 ## Results
 
@@ -213,3 +209,6 @@ Open the discussion section with a paragraph summarizing the primary result from
 ### Commentary
 
 Add open-ended commentary (if any) reflecting (a) insights from follow-up exploratory analysis, (b) assessment of the meaning of the replication (or not) - e.g., for a failure to replicate, are the differences between original and present study ones that definitely, plausibly, or are unlikely to have been moderators of the result, and (c) discussion of any objections or challenges raised by the current and original authors about the replication attempt.  None of these need to be long.
+
+
+**Jenna Brooks**: Project Administration (lea)

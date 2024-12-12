@@ -67,7 +67,7 @@ This replication will differ from the original study in both setting and procedu
 
 
 #### Actual Sample
-Our actual sample was 50 participants. We included 7 more than the original sample (n=43) to account for the uncertainty of conducting online experiments. We ensured that all participants were adult English speakers without hearing difficulties using Prolific screening criteria. We didn't exclude any participants however, we did exclude trials of response times shorter than 250 ms or longer than 1500ms. In our final analysis, 404 trials were removed, which was 0.05% of the total. In our study, 84% of our participants performed at an accuracy rate of above 90%, which was less accurate than the original study, with 97% of participants achieving accuracy above 90%. Participants who performed with less than 90% accuracy were excluded from our sample. 
+We collected data from 50 participants as planned, with 42 passing the data quality check (accuracy rate above 90%). Refer to the Results section for an overview of performance and the code for data quality assurance. We ensured that all participants were adult English speakers without hearing difficulties using Prolific screening criteria. 
 
 #### Differences from pre-data collection methods plan
 None
@@ -284,17 +284,79 @@ anova(model_full, model_reduced)
 
 The results of the statistical analysis showed us that labels elicited faster reaction times than congruent trials (b = -52.3, CI [-68.71, -35.82]) and that congruent trials were not significantly faster than incongruent trials (b = 15.04, CI [-3.31  33.4]. Furthermore, the results of a pairwise contrast shows us that labels elicited faster reaction times than incongruent trials (b = -67.3, CI [-94.2, -42.21]). 
 
-## Graph From Original Study 
+## Graph Comparison
 ```{r}
-utils::browseURL("../original_paper/Graph_original.png")
-```
-```{r}
+library(gridExtra)
+library(jpeg)
 library(grid)
-img <- png::readPNG("../original_paper/Graph_original.png") 
-grid.raster(img)
+library(dplyr)
+library(forcats)
+library(ggplot2)
+
+
+# rename and reorder some columns for plotting
+plot_df <- combined_df |>
+  mutate(congruency=factor(
+    congruency, levels = c("label", "congruent", "incongruent"))) |>
+  mutate(congruency = fct_recode(congruency, 
+    "Label"="label", 
+    "Congruent Sound"="congruent", 
+    "Incongruent Sound"="incongruent")
+  )
+
+# plot the result of our replication
+our_plot <- ggplot(data = plot_df,
+       mapping = aes(x = congruency,
+                     y = rt,
+                     color = congruency, 
+                     fill = congruency)) +
+  geom_bar(stat = "summary", fun = "mean", 
+           width = 1,
+           color = "black") + 
+  stat_summary(fun.data = "mean_cl_boot", 
+               geom = "linerange", 
+               color = "black") +
+   geom_errorbar(stat = "summary", 
+                fun.data = "mean_cl_boot", 
+                width = 0.5, 
+                size=0.5,
+                color = "black") +
+  scale_fill_manual(values = c("firebrick", "darkblue", "slategray2")) +
+  scale_color_manual(values = c("firebrick", "darkblue", "slategray2")) +
+  labs(
+    x = "Experiment 1A",
+    y = "Verification Speed (ms)",
+    color = "Cue Type",
+    fill = "Cue Type") +
+  coord_cartesian(xlim=c(0, 4), ylim = c(400, 725), expand=FALSE) +
+  scale_y_continuous(breaks = seq(400, 700, by = 50), expand=c(0, 25)) +
+  theme_classic() +
+  theme(
+    axis.text.x = element_blank(), 
+    axis.text.y = element_text(size = 10, color = "black"),
+    axis.title.x = element_text(size = 10, color = "black"), 
+    axis.title.y = element_text(size = 10, color = "black"), 
+    legend.title = element_text(size = 10, color = "black", face='bold'), 
+    legend.text = element_text(size = 10, color = "black"),
+    plot.margin = unit(c(0.0, 0.1, 0.0, 0.1), "npc")
+  ) +
+  theme(
+    aspect.ratio = 1.8)
+
+# load the plot from the original study
+edmiston_img <- rasterGrob(readJPEG("edmiston_exp1a.jpg"), interpolate = TRUE)
+
+# display side by side
+plot_title <- textGrob("Our Result", gp = gpar(fontface = "bold", fontsize = 14))
+image_title <- textGrob("Original Study Result", gp = gpar(fontface = "bold", fontsize = 14))
+
+grid.arrange(
+  arrangeGrob(image_title, edmiston_img, ncol = 1, heights = c(0.5, 5)),
+  arrangeGrob(plot_title, ggplotGrob(our_plot), ncol = 1, heights = c(0.5, 5)),
+  ncol = 2, widths=c(1, 1.7))
 ```
 
-The graph directly above (refer to Experiment 1A) from the original paper shows a significant difference between label and congruent conditions, as well as a significant difference between congruent sounds and incongruent sounds. This differs from our graph (under Our Graph Heading) because our study only shows a difference between label and congruent, but no statistically significant difference between the congruent and incongruent conditions. 
+The graph directly above (refer to Experiment 1A) from the original paper shows a significant difference between label and congruent conditions, as well as a significant difference between congruent sounds and incongruent sounds. This differs from our graph (on the right) because our study only shows a difference between label and congruent, but no statistically significant difference between the congruent and incongruent conditions. 
 
 ### Exploratory analyses
 The results of the original data were presented using a bar graph, however, we were curious about the distribution of the data, especially since our results were slightly different. To investigate, we included a box plot that shows the individual data points. We expand a bit on the results shown in the original paper by re-running the same analysis, but instead of filtering out 'No' responses, we filter out 'Yes' responses.
