@@ -16,7 +16,7 @@ How language supports cognition is a centeral question in cognitive linguistics.
 
 Edmiston and Lupyan (2015) further explored why verbal cues activate concepts more effectively. They proposed that verbal cues are associated with the abstract concept rather than specific instances, thereby cueing more diagnostic features of a category. In their experiment 1A, they found that in an image-recogniton task, participants (1) responded faster to an image if the cue is a verbal label than an environmental sound, and (2) responded faster to an image if the environmental sound cue is a congruent one (i.e., matching the instance in the image) than an incongruent one (i.e., matching the category but not the exact instance). These findings suggest the potential mechanism by which language supports conceptual thinking.
 
-Our study aims to replicate Experiment 1A from Edmiston and Lupyan (2015). **We define the replication as successful if the replication result meets the following conditions**: (1) the two relationships between reaction time under different auditory cue conditions are the same as described above, and (2) the differences in reaction time are statistically attributable to the type of auditory cue. Specifically, we expect reaction times to follow the pattern: verbal-label condition < congruent-environmental-sound condition < incongruent-environmental-sound condition, with statistical tests confirming that auditory cue type is the primary determinant of these differences.
+Our study aims to replicate Experiment 1A from Edmiston and Lupyan (2015). **We define the replication as successful if the replication result meets the following conditions**: (1) the relationships between reaction time under different auditory cue conditions are the same as described above, and (2) the differences in reaction time are statistically attributable to the type of auditory cue. Specifically, we expect reaction times to follow the pattern: verbal-label condition < congruent-environmental-sound condition < incongruent-environmental-sound condition, with statistical tests confirming that auditory cue type is the primary determinant of these differences.
 
 Followings are the the links to our repository, pre-registration, and hosted experiment:
 [Project Github repository](https://github.com/ucsd-psych201a/edmiston2015)
@@ -214,7 +214,7 @@ prepare_fitting_ready_df <- function(df) {
   # create congruency column 
   df <- df %>%
      mutate(congruency = case_when(
-      correct == FALSE ~ NA_character_,
+      correct_response == 'j' ~ NA_character_,
       cue == "label" ~ "label",
       (img_subtype %in% c("song", "york", "bongo", "acoustic", "harley", "rotary") & sound_version == "A") ~ "incongruent",
       TRUE ~ "congruent"
@@ -451,7 +451,7 @@ include_wrong_fit_result <- model_wrong_full %>%
 include_wrong_fit_result
 confint(include_wrong_fit_result, level=0.95)
 ```
-The result suggests that including incorrect trials does not change the previously observed pattern: RTs are significantly shorter ($p<0.001$) in label cue condition than in congruent-sound cue condition, and shorter in congruent-sound cue condition than in incongruent-sound cue condition but without statistical significance ($p=0.101$).
+The result suggests that including incorrect trials does not change the previously observed pattern: RTs are significantly shorter ($p<0.001$) in label cue condition than in congruent-sound cue condition, and shorter in congruent-sound cue condition than in incongruent-sound cue condition but without statistical significance.
 
 ## Discussion
 
@@ -476,6 +476,8 @@ We propose that one of the most likely causes of such discrepancy is that our ex
 - **Reeka Estacio**: Software (JsPsych Experiment) (supporting), Validation (lead), JsPsych Experiment (supporting), Presentation (lead), Writing and Editing (equal)
 
 ## References
+
 - Lupyan, G., & Thompson-Schill, S. L. (2012). The evocative power of words: Activation of concepts by verbal and nonverbal means. Journal of Experimental Psychology-General, 141(1), 170–186. http://dx.doi.org/10.1037/a0024904.
+
 - Edmiston, P., & Lupyan, G. (2015). What makes words special? Words as unmotivated cues. Cognition, 143, 93-100.
 
