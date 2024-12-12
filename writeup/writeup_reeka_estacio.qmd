@@ -251,7 +251,7 @@ prepare_fitting_ready_df <- function(df) {
   # create congruency column 
   df <- df %>%
      mutate(congruency = case_when(
-      correct == FALSE ~ NA_character_,
+      correct_response == 'j' ~ NA_character_,
       cue == "label" ~ "label",
       (img_subtype %in% c("song", "york", "bongo", "acoustic", "harley", "rotary") & sound_version == "A") ~ "incongruent",
       TRUE ~ "congruent"
@@ -477,7 +477,7 @@ include_wrong_fit_result
 confint(include_wrong_fit_result, level=0.95)
 ```
 
-The results of this model reinforce our previous findings. RTs for the `label` conditions are significantly faster than `congruent` (p<.0001), however RTs for `congruent` trials are not significant faster than `incongruent` trials (p=0.3243).
+The results of this model reinforce our previous findings. RTs for the `label` conditions are significantly faster than `congruent` (p<.0001), however RTs for `congruent` trials are not significant faster than `incongruent` trials.
 
 ## Discussion
 
