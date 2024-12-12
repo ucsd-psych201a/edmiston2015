@@ -132,6 +132,7 @@ window.Quarto = {
   <li><a href="#summary-of-replication-attempt" id="toc-summary-of-replication-attempt" class="nav-link" data-scroll-target="#summary-of-replication-attempt">Summary of Replication Attempt</a></li>
   <li><a href="#commentary" id="toc-commentary" class="nav-link" data-scroll-target="#commentary">Commentary</a></li>
   </ul></li>
+  <li><a href="#statement-of-contributions" id="toc-statement-of-contributions" class="nav-link" data-scroll-target="#statement-of-contributions">Statement of Contributions</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
@@ -174,7 +175,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>How language supports cognition is a centeral question in cognitive linguistics. Previous research suggests that language may play an unique role in the mental processing of categories. Lupyan and Thompson-Schill (2012) found that, during an image-recognition task, participants judged whether an image and a preceeding auditory cue were of the same category faster when the cue was verbal rather than non-verbal. For instance, people identified a guitar image as matching the word ‘guitar’ faster than the sound of an acoustic guitar playing.</p>
 <p>Edmiston and Lupyan (2015) further explored why verbal cues activate concepts more effectively. They proposed that verbal cues are associated with the abstract concept rather than specific instances, thereby cueing more diagnostic features of a category. In their experiment 1A, they found that in an image-recogniton task, participants (1) responded faster to an image if the cue is a verbal label than an environmental sound, and (2) responded faster to an image if the environmental sound cue is a congruent one (i.e., matching the instance in the image) than an incongruent one (i.e., matching the category but not the exact instance). These findings suggest the potential mechanism by which language supports conceptual thinking.</p>
-<p>Our study aims to replicate Experiment 1A from Edmiston and Lupyan (2015). <strong>We define the replication as successful if two conditions are met</strong>: (1) the two relationships between reaction time under different auditory cue conditions are the same as described above, and (2) the differences in reaction time are statistically attributable to the type of auditory cue. Specifically, we expect reaction times to follow the pattern: verbal-label condition &lt; congruent-environmental-sound condition &lt; incongruent-environmental-sound condition, with statistical tests confirming that auditory cue type is the primary determinant of these differences.</p>
+<p>Our study aims to replicate Experiment 1A from Edmiston and Lupyan (2015). <strong>We define the replication as successful if the replication result meets the following conditions</strong>: (1) the two relationships between reaction time under different auditory cue conditions are the same as described above, and (2) the differences in reaction time are statistically attributable to the type of auditory cue. Specifically, we expect reaction times to follow the pattern: verbal-label condition &lt; congruent-environmental-sound condition &lt; incongruent-environmental-sound condition, with statistical tests confirming that auditory cue type is the primary determinant of these differences.</p>
 <p>Followings are the the links to our repository, pre-registration, and hosted experiment: <a href="https://github.com/ucsd-psych201a/edmiston2015">Project Github repository</a> <a href="https://osf.io/7ca8z">Study pre-registration</a> <a href="https://ucsd-psych201a.github.io/edmiston2015/">Experiment link</a></p>
 </section>
 <section id="methods" class="level2">
@@ -215,8 +216,8 @@ window.Quarto = {
 <p>Finally, significance tests will be calculated “using chi-square tests that compared nested models—models with and without the factor of interest—on improvement in log-likelihood” (Edmiston &amp; Lupyan, 2015). This is to further confirm whether the factors of interest truly accounts for the differences in RTs. We will report the resulting Chi-square value and the resulting p-value.</p>
 <p><strong>Criteria for successful replication</strong>: according to the original study, we predict that the results should be as follows:</p>
 <ol type="1">
-<li><p>In the EMMs contrast analysis: both “label” v.s. “congruent-sound” contrast and “congruent-sound” v.s. “incongruent-sound” contrast should be significantly below zero.</p></li>
-<li><p>In the Chi-square test: the model with the factor of interest (the congruency of sound cues) should fit the data significantoy better than the model without the factor of interest.</p></li>
+<li><p>In the post-hoc analysis: both “label” v.s. “congruent-sound” contrast and “congruent-sound” v.s. “incongruent-sound” contrast should be significantly below zero. This is denoted by the estimate of contrast between effects of ‘label’ and ‘congruent-sound’ and the contrast between effects of ‘congruent-sound’ and ‘incongruent-sound’, which should both be significantly below zero (significances are quantified by the adjusted p-values)</p></li>
+<li><p>In the Chi-square test: the model with the factor of interest (the congruency of sound cues) should fit the data significantoy better than the model without the factor of interest. This is denoted by the chi-square test result from compraing nested models with and without congruency as the main factor, where the full model should be significantly better than the reduced model (significances quantified by the p-value)</p></li>
 </ol>
 </section>
 </section>
@@ -239,7 +240,7 @@ window.Quarto = {
 </section>
 <section id="differences-from-pre-data-collection-methods-plan" class="level4">
 <h4 class="anchored" data-anchor-id="differences-from-pre-data-collection-methods-plan">Differences from pre-data collection methods plan</h4>
-<p>None.</p>
+<p>None. We collected the data the same way we specified in the plan and managed to collect the same number of participants.</p>
 </section>
 </section>
 </section>
@@ -541,7 +542,7 @@ model_full      11 99450 99526 -49714    99428 34.967  2  2.553e-08 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
-<p>The results suggest that the full model (which includes the congruency factor) explain the data significantly better.</p>
+<p>The results suggest that the full model (which includes the congruency factor) explains the data significantly better, as the full model has a relatively higher log-likelihood value with <span class="math inline">\(p&lt;0.001\)</span>.</p>
 <p>Finally, to compare our result and result in the original study:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
@@ -727,6 +728,15 @@ Conf-level adjustment: bonferroni method for 3 estimates </code></pre>
 <h3 class="anchored" data-anchor-id="commentary">Commentary</h3>
 <p>We propose that one of the most likely causes of such discrepancy is that our experiment was conducted online. Online setting could introduce several challenges: (1) It was difficult to communicate effectively with participants and receive feedback during the instruction and practice phases, making it harder to ensure that participants fully understood the task. Confusion about the task may have altered the reaction time patterns. (2) It was challenging to monitor participants’ attention during the experiment. These challenges are supported by the observations that overall accuracy was lower and reaction times were generally longer than in the original study. Therefore, we recommend that researchers who aim to replicate this study in the future use the same laboratory settings as the original study to minimize potential discrepancies..</p>
 </section>
+</section>
+<section id="statement-of-contributions" class="level2">
+<h2 class="anchored" data-anchor-id="statement-of-contributions">Statement of Contributions</h2>
+<ul>
+<li><strong>Jenna Brooks</strong>: Project Administration (lead), Software (JsPsych Experiment) (supporting), Writing and Editing (equal)</li>
+<li><strong>Noah Khaloo</strong>: Formal Analysis (lead), Data Curation (lead), Statistical Analysis and Visualization (lead), Writing and Editing (equal)</li>
+<li><strong>Sihan Yang</strong>: Conceptualization (lead), Software (JsPsych Experiment) (lead), Writing and Editing (equal)</li>
+<li><strong>Reeka Estacio</strong>: Software (JsPsych Experiment) (supporting), Validation (lead), JsPsych Experiment (supporting), Presentation (lead), Writing and Editing (equal)</li>
+</ul>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>

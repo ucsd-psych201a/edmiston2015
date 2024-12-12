@@ -16,7 +16,7 @@ How language supports cognition is a centeral question in cognitive linguistics.
 
 Edmiston and Lupyan (2015) further explored why verbal cues activate concepts more effectively. They proposed that verbal cues are associated with the abstract concept rather than specific instances, thereby cueing more diagnostic features of a category. In their experiment 1A, they found that in an image-recogniton task, participants (1) responded faster to an image if the cue is a verbal label than an environmental sound, and (2) responded faster to an image if the environmental sound cue is a congruent one (i.e., matching the instance in the image) than an incongruent one (i.e., matching the category but not the exact instance). These findings suggest the potential mechanism by which language supports conceptual thinking.
 
-Our study aims to replicate Experiment 1A from Edmiston and Lupyan (2015). **We define the replication as successful if two conditions are met**: (1) the two relationships between reaction time under different auditory cue conditions are the same as described above, and (2) the differences in reaction time are statistically attributable to the type of auditory cue. Specifically, we expect reaction times to follow the pattern: verbal-label condition < congruent-environmental-sound condition < incongruent-environmental-sound condition, with statistical tests confirming that auditory cue type is the primary determinant of these differences.
+Our study aims to replicate Experiment 1A from Edmiston and Lupyan (2015). **We define the replication as successful if the replication result meets the following conditions**: (1) the two relationships between reaction time under different auditory cue conditions are the same as described above, and (2) the differences in reaction time are statistically attributable to the type of auditory cue. Specifically, we expect reaction times to follow the pattern: verbal-label condition < congruent-environmental-sound condition < incongruent-environmental-sound condition, with statistical tests confirming that auditory cue type is the primary determinant of these differences.
 
 Followings are the the links to our repository, pre-registration, and hosted experiment:
 [Project Github repository](https://github.com/ucsd-psych201a/edmiston2015)
@@ -68,9 +68,9 @@ Finally, significance tests will be calculated "using chi-square tests that comp
 
 **Criteria for successful replication**: according to the original study, we predict that the results should be as follows:
 
-1. In the EMMs contrast analysis: both "label" v.s. "congruent-sound" contrast and "congruent-sound" v.s. "incongruent-sound" contrast should be significantly below zero.
+1. In the post-hoc analysis: both "label" v.s. "congruent-sound" contrast and "congruent-sound" v.s. "incongruent-sound" contrast should be significantly below zero. This is denoted by the estimate of contrast between effects of 'label' and 'congruent-sound' and the contrast between effects of 'congruent-sound' and 'incongruent-sound', which should both be significantly below zero (significances are quantified by the adjusted p-values)
 
-2. In the Chi-square test: the model with the factor of interest (the congruency of sound cues) should fit the data significantoy better than the model without the factor of interest.
+2. In the Chi-square test: the model with the factor of interest (the congruency of sound cues) should fit the data significantoy better than the model without the factor of interest. This is denoted by the chi-square test result from compraing nested models with and without congruency as the main factor, where the full model should be significantly better than the reduced model (significances quantified by the p-value)
 
 ### Differences from Original Study
 
@@ -88,7 +88,7 @@ While the original study was conducted in person in a lab, our replication will 
 We successfully collected data from 50 participants as planned, with 42 passing the data quality check (accuracy rate above 90%). Refer to the Results section for an overview of performance and the code for data quality assurance.
 
 #### Differences from pre-data collection methods plan
-None.
+None. We collected the data the same way we specified in the plan and managed to collect the same number of participants.
 
 ## Results
 
@@ -310,7 +310,7 @@ model_reduced <- lmer(rt ~ (1 + congruency|ID) + (1|sound_category), data = comb
 # compare their log likelihood
 anova(model_full, model_reduced)
 ```
-The results suggest that the full model (which includes the congruency factor) explain the data significantly better.
+The results suggest that the full model (which includes the congruency factor) explains the data significantly better, as the full model has a relatively higher log-likelihood value with $p<0.001$.
 
 Finally, to compare our result and result in the original study:
 
@@ -469,6 +469,13 @@ To summarize, the primary result has only been partially replicated.
 
 We propose that one of the most likely causes of such discrepancy is that our experiment was conducted online. Online setting could introduce several challenges: (1) It was difficult to communicate effectively with participants and receive feedback during the instruction and practice phases, making it harder to ensure that participants fully understood the task. Confusion about the task may have altered the reaction time patterns. (2) It was challenging to monitor participants' attention during the experiment. These challenges are supported by the observations that overall accuracy was lower and reaction times were generally longer than in the original study. Therefore, we recommend that researchers who aim to replicate this study in the future use the same laboratory settings as the original study to minimize potential discrepancies.. 
 
+## Statement of Contributions 
+- **Jenna Brooks**: Project Administration (lead), Software (JsPsych Experiment) (supporting), Writing and Editing (equal)
+- **Noah Khaloo**: Formal Analysis (lead), Data Curation (lead), Statistical Analysis and Visualization (lead), Writing and Editing (equal)
+- **Sihan Yang**: Conceptualization (lead), Software (JsPsych Experiment) (lead), Writing and Editing (equal)
+- **Reeka Estacio**: Software (JsPsych Experiment) (supporting), Validation (lead), JsPsych Experiment (supporting), Presentation (lead), Writing and Editing (equal)
+
 ## References
 - Lupyan, G., & Thompson-Schill, S. L. (2012). The evocative power of words: Activation of concepts by verbal and nonverbal means. Journal of Experimental Psychology-General, 141(1), 170–186. http://dx.doi.org/10.1037/a0024904.
+- Edmiston, P., & Lupyan, G. (2015). What makes words special? Words as unmotivated cues. Cognition, 143, 93-100.
 
