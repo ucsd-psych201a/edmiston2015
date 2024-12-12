@@ -248,8 +248,7 @@ combined_df <- original_df
   
 ## keep only people who passed the QA check
 combined_df <- combined_df %>%
-  filter(ID %in% id_pass_qa) %>%
-  select(-correct) # drop the correctness column
+  filter(ID %in% id_pass_qa)
 
 # exclude only correct 'YES' trials 
 combined_df <- combined_df %>%
@@ -263,6 +262,7 @@ combined_df <- combined_df %>%
 # create congruency column 
 combined_df <- combined_df %>%
   mutate(congruency = case_when(
+    correct == FALSE ~ NA_character_,
     cue == "label" ~ "label",
     img_subtype %in% c("song", "york", "bongo", "acoustic", "harley", "rotary") & sound_version == "A" ~ "incongruent",
     TRUE ~ "congruent"
@@ -440,13 +440,11 @@ ggplot(data = combined_df,
 ```
 Looking at the graph with the data distribution, it becomes clear that there are quite a few participants who had long rt's for congruent trials. I imagine this brought the mean rt for this category up, thus creating a less straightforward distinction in rt between congruent and incongruent trials.  
 
-Next, we run the same statistical analysis on the data, but instead, filter out the 'yes' trials:
+Next, we run the same statistical analysis on the data, but instead, on both trials with correct and incorrect responses:
 ```{r echo=TRUE, warning=FALSE, message=FALSE}
-#re-run statistics on "No" data
-df_n <- original_df %>%
-  filter(exp_part == "actual") %>%
-  filter(response == "j") %>%
-  filter(correct_response == "j") %>%
+#re-run statistics on correct&incorrect trials
+df_n <- original_df_with_good_subj %>%
+  filter(correct_response == "f") %>% # select matching trials
   rename(cue = sound_subtype) %>%
   mutate(congruency = case_when(
     cue == "label" ~ "label",
@@ -456,13 +454,22 @@ df_n <- original_df %>%
   filter(rt >250, rt <1500)
 
   
-model_n <- lmer(rt ~ congruency + (1 + congruency|ID) + (1|sound_category), data = df_n, control = lmerControl(optimizer = "bobyqa"))
-summary(model_n) 
+model_n <- lmer(rt ~ congruency + (1 + congruency|ID) + (1|sound_category), data = df_n)
+# summary(model_n) 
+# confint.merMod(model_n, method="Wald")
 
-confint.merMod(model_full,method="Wald")
+# apply post-hoc analysis
+include_wrong_fit_result <- model_n %>%
+  emmeans(
+    pairwise ~ congruency, # contrast across 'congruency' conditions
+    adjust = "bonferroni", # p-value adjusted for multiple comparisons
+  ) %>%
+  pluck("contrasts")
+include_wrong_fit_result
+confint(include_wrong_fit_result, level=0.95)
 
 ```
-We get the same trends when the statistical model is run on the "No" responses: the difference between label and congruent is signifcant, but not the difference between congruent and incongruent. 
+We get the same trends when the statistical model without excluding trials with incorrect responses: the difference between label and congruent is signifcant, but not the difference between congruent and incongruent. 
 
 ## Discussion
 
